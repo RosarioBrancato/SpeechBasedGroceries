@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using SpeechBasedGroceries.AppServices;
 
 namespace SpeechBasedGroceries
 {
@@ -29,6 +30,7 @@ namespace SpeechBasedGroceries
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			AppSettings.Instance.InitFromConfiguration(Configuration);
 
 			services.AddAuthentication(options =>
 			{
@@ -44,8 +46,10 @@ namespace SpeechBasedGroceries
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+		public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
 		{
+			AppLoggerFactory.SetLoggerFactory(loggerFactory);
+
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();

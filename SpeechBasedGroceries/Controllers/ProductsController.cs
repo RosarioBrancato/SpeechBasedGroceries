@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SpeechBasedGroceries.AppServices;
 using SpeechBasedGroceries.DTOs;
+using SpeechBasedGroceries.Parties.Fridgy;
 
 namespace SpeechBasedGroceries.Controllers
 {
@@ -35,8 +37,11 @@ namespace SpeechBasedGroceries.Controllers
 		{
 			_logger.LogInformation("Searching by name... Argument: " + name);
 
-			List<Product> products = new List<Product>();
-			products.Add(new Product() { Name = name + " by name" });
+			//TO-DO: load user token from CRM maybe?
+			string token = AppSettings.Instance.FridgyToken;
+
+			FridgyClient fridgyClient = new FridgyClient(token);
+			List<Product> products = fridgyClient.GetProductsByName(name);
 
 			return products.ToArray();
 		}
