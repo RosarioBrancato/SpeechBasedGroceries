@@ -43,8 +43,11 @@ namespace SpeechBasedGroceries.Parties.CRM
 			string db = Configuration["CRM_DB:Database"];
 
 			string constr = $"Server={server}; Port={port}; User Id={user}; Password={pw}; Database={db};";
+
+			// TODO: use logger instead
 			Console.WriteLine($"Trying to connect to: {constr}");
-			NpgsqlConnection connection = new NpgsqlConnection(constr);
+
+            NpgsqlConnection connection = new NpgsqlConnection(constr);
 			connection.Open();
 			//connection.Close();
 
