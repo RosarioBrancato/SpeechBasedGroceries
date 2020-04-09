@@ -24,26 +24,37 @@ namespace SpeechBasedGroceries.Controllers
 		}
 
 		[HttpGet()]
-		public IEnumerable<Product> Get()
+		public IEnumerable<Product> GetByQuery([FromQuery(Name = "query")]string query = "")
 		{
-			List<Product> products = new List<Product>();
-			products.Add(new Product() { Name = "All the products" });
-
-			return products.ToArray();
-		}
-
-		[HttpGet("{name}")]
-		public IEnumerable<Product> Get(string name)
-		{
-			_logger.LogInformation("Searching by name... Argument: " + name);
+			_logger.LogInformation("GetByQuery called... Argument: query = " + query);
 
 			//TO-DO: load user token from CRM maybe?
 			string token = AppSettings.Instance.FridgyToken;
 
 			FridgyClient fridgyClient = new FridgyClient(token);
-			List<Product> products = fridgyClient.GetProductsByName(name);
+			List<Product> products;
+
+			if (string.IsNullOrWhiteSpace(query))
+			{
+				products = fridgyClient.GetProducts();
+			}
+			else
+			{
+				products = fridgyClient.GetProductsByName(query);
+			}
 
 			return products.ToArray();
+		}
+
+		[HttpGet("{id}")]
+		public Product GetById(string id)
+		{
+			_logger.LogInformation("Get(ById) called... Argument: id = " + id);
+
+			Product product = new Product();
+			product.Name = "PLACEHOLDER";
+
+			return product;
 		}
 
 	}
