@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SpeechBasedGroceries.AppServices;
-using SpeechBasedGroceries.DTOs;
+//using SpeechBasedGroceries.DTOs;
 using SpeechBasedGroceries.Parties.Fridgy;
+using SpeechBasedGroceries.Parties.Fridgy.Client.Models;
 
 namespace SpeechBasedGroceries.Controllers
 {
@@ -32,28 +33,29 @@ namespace SpeechBasedGroceries.Controllers
 			string token = AppSettings.Instance.FridgyToken;
 
 			FridgyClient fridgyClient = new FridgyClient(token);
-			List<Product> products;
 
+			IList<Product> SwaggerProducts;
 			if (string.IsNullOrWhiteSpace(query))
 			{
-				products = fridgyClient.GetProducts();
+				SwaggerProducts = fridgyClient.GetProducts();
 			}
 			else
 			{
-				products = fridgyClient.GetProductsByName(query);
+				SwaggerProducts = fridgyClient.GetProductsByName(query); 
 			}
 
-			return products.ToArray();
+			return SwaggerProducts.ToArray<Product>();
 		}
 
-		[HttpGet("{id}")]
-		public Product GetById(string id)
+		[HttpGet("{barcode}")]
+		public Product GetById(string barcode)
 		{
-			_logger.LogInformation("Get(ById) called... Argument: id = " + id);
+			_logger.LogInformation("Get(ById) called... Argument: id = " + barcode);
 
-			Product product = new Product();
-			product.Name = "PLACEHOLDER";
-
+			string token = AppSettings.Instance.FridgyToken;
+			FridgyClient fridgyClient = new FridgyClient(token);
+			Product product = fridgyClient.GetProductsByBarcode(barcode);
+			
 			return product;
 		}
 
