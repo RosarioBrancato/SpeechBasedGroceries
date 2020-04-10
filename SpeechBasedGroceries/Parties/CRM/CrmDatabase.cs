@@ -1,21 +1,25 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
+using SpeechBasedGroceries.AppServices;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
-using Npgsql;
 
 namespace SpeechBasedGroceries.Parties.CRM
 {
     public class CrmDatabase
     {
-		private static NpgsqlConnection instance = null;
+		private static SqlConnection instance = null;
 		public IConfiguration Configuration { get; }
+		private static ILogger<CrmDatabase> _logger;
+		
 
-		public static NpgsqlConnection Instance
+		public static SqlConnection Instance
 		{
 			get
-			{
+			{   
 				if (instance == null)
 				{
                     // TODO: how to get configurations differently?
@@ -24,8 +28,10 @@ namespace SpeechBasedGroceries.Parties.CRM
                         .Build();
 
 					instance = new CrmDatabase(configuration).connect();
+					// _logger = AppLoggerFactory.GetLogger<CrmDatabase>();
 				}
-				return instance;
+
+			    return instance;
 			}
 		}
 
@@ -34,24 +40,27 @@ namespace SpeechBasedGroceries.Parties.CRM
 			Configuration = configuration;
 		}
 
-		private NpgsqlConnection connect()
+		private SqlConnection connect()
 		{
-            string server = Configuration["CRM_DB:Server"];
-			string port = Configuration["CRM_DB:Port"];
-			string user = Configuration["CRM_DB:User"];
-			string pw = Configuration["CRM_DB:Password"];
-			string db = Configuration["CRM_DB:Database"];
+            string server = Configuration["CRMDB:Server"];
+			string port = Configuration["CRMDB:Port"];
+			string cat = Configuration["CRMDB:Catalog"];
+			string user = Configuration["CRMDB:User"];
+			string pw = Configuration["CRMDB:Password"];
+            string timeout = Configuration["CRMDB:Timeout"];
 
-			string constr = $"Server={server}; Port={port}; User Id={user}; Password={pw}; Database={db};";
+			string constr =
+                $"Server={server},{port};" +
+                $"Initial Catalog={cat};" +
+                $"Persist Security Info=False;" +
+                $"User ID={user};" +
+                $"Password={pw};" +
+                $"MultipleActiveResultSets=False;" +
+                $"Encrypt=True;" +
+                $"TrustServerCertificate=False;" +
+                $"Connection Timeout={timeout};";
 
-			// TODO: use logger instead
-			Console.WriteLine($"Trying to connect to: {constr}");
-
-            NpgsqlConnection connection = new NpgsqlConnection(constr);
-			connection.Open();
-			//connection.Close();
-
-			return connection;
+			return new SqlConnection(constr);
 		}
 	}
 }

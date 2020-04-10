@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
-using Npgsql;
 using RestSharp;
 using SpeechBasedGroceries.AppServices;
 using SpeechBasedGroceries.DTOs;

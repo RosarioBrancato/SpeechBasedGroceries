@@ -26,6 +26,9 @@ namespace SpeechBasedGroceries.Controllers
 		[HttpGet()]
 		public IEnumerable<Customer> GetCustomers()
 		{
+            // this function is just for testing purposes
+            // (does not represent a real use case)
+
 			_logger.LogInformation("GetCustomers called...");
 			CrmClient crmClient = new CrmClient();
 			List<Customer> customers = crmClient.GetCustomers();
