@@ -9,20 +9,20 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class GetUser
+    public partial class PublicUser
     {
         /// <summary>
-        /// Initializes a new instance of the GetUser class.
+        /// Initializes a new instance of the PublicUser class.
         /// </summary>
-        public GetUser()
+        public PublicUser()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the GetUser class.
+        /// Initializes a new instance of the PublicUser class.
         /// </summary>
-        public GetUser(System.Guid? uuid = default(System.Guid?), string displayname = default(string))
+        public PublicUser(System.Guid? uuid = default(System.Guid?), string displayname = default(string))
         {
             Uuid = uuid;
             Displayname = displayname;

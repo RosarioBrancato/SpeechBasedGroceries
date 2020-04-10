@@ -1,5 +1,6 @@
 ﻿
 using f = SpeechBasedGroceries.Parties.Fridgy.Client;
+using SpeechBasedGroceries.Parties.Fridgy.Client.Models;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 using RestSharp;
@@ -15,7 +16,6 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 {
 	public class FridgyClient
 	{
-
 		private readonly ILogger<FridgyClient> _logger;
 
 		private Microsoft.Rest.ServiceClientCredentials credentials;
@@ -29,30 +29,27 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 			client = new f.Fridgy(credentials);
 		}
 
-
-		public IList<f.Models.Product> GetProducts()
+		public IList<Product> GetProducts()
 		{
-			IList<f.Models.Product> prods = client.Get.Products();
-			return prods;
+			IList<Product> productlist = client.Get.Products();
+			return productlist;
 		}
 
-		public IList<f.Models.Product> GetProductsByName(string name)
+		public IList<Product> GetProductsByName(string name)
 		{
-
-			IList<f.Models.Product> prods = client.Get.Products("name.asc", name);
-			return prods;
+			IList<Product> productlist = client.Get.Products("name.asc", name);
+			return productlist;
 		}
-		public f.Models.Product GetProductsByBarcode(string barcode)
+		public Product GetProductsByBarcode(string barcode)
 		{
-
-			f.Models.Product prod = client.Get.Barcode(barcode);
-			return prod;
+			Product product = client.Get.Barcode(barcode);
+			return product;
 		}
 
-		public IList<f.Models.Fridge> GetFridges()
+		public IList<Fridge> GetFridges()
 		{
-			IList<f.Models.Fridge> fr = client.Get.Fridges();
-			return fr;
+			IList<Fridge> fridges = client.Get.Fridges();
+			return fridges;
 		}
 
 

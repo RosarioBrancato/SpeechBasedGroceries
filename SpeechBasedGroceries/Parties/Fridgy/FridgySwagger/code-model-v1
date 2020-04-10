@@ -1322,12 +1322,12 @@
      }
     }
    ],
-   "serializedName": "GetUser",
+   "serializedName": "PublicUser",
    "containsConstantProperties": false,
    "name": {
     "$id": "192",
     "fixed": false,
-    "raw": "GetUser"
+    "raw": "PublicUser"
    },
    "extensions": {
     "x-ms-metadata": {
@@ -1337,9 +1337,9 @@
      "filename": [
       "mem:///102?oai3.shaken.json"
      ],
-     "name": "GetUser",
+     "name": "PublicUser",
      "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/GetUser"
+      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/PublicUser"
      ]
     }
    },

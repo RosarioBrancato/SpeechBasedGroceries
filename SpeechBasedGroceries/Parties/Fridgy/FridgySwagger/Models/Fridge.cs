@@ -24,7 +24,7 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client.Models
         /// <summary>
         /// Initializes a new instance of the Fridge class.
         /// </summary>
-        public Fridge(string name = default(string), IList<GetUser> owner = default(IList<GetUser>), GetUser creator = default(GetUser))
+        public Fridge(string name = default(string), IList<PublicUser> owner = default(IList<PublicUser>), PublicUser creator = default(PublicUser))
             : base(name)
         {
             Owner = owner;
@@ -40,12 +40,12 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "owner")]
-        public IList<GetUser> Owner { get; set; }
+        public IList<PublicUser> Owner { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "creator")]
-        public GetUser Creator { get; set; }
+        public PublicUser Creator { get; set; }
 
     }
 }
