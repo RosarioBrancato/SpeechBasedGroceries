@@ -29,30 +29,39 @@ namespace SpeechBasedGroceries.Parties.CRM
 			return crmDao.GetCustomers();
 		}
 
-		public Customer GetCustomerByClientNo(string clientNo)
+		public Customer GetCustomerByNo(string no)
 		{
-			int cNo;
-            try
+			Customer customer = null;
+            if (IsValidNo(no))
             {
-				cNo = Int32.Parse(clientNo);
-			}
-            catch(Exception e)
-            {
-				_logger.LogError($"clientNo must be numeric (received: {clientNo}", e);
-				return null;
-            }
-
-			Customer customer = crmDao.GetCustomerByClientNo(cNo);
-            if (customer == null)
-            {
-				_logger.LogInformation($"clientNo {cNo} does not exist");
+				customer = crmDao.GetCustomerByNo(Int32.Parse(no));
+				if (customer == null)
+				{
+					_logger.LogInformation($"customerNo {no} does not exist");
+				}
 			}
 
 			return customer;
 		}
 
 
+		public bool IsValidNo(string no)
+        {
+			bool isValid = true; // assumption
+            int _no;
 
+			try
+			{
+				_no = Int32.Parse(no);
+			}
+			catch (Exception e)
+			{
+				isValid = false;
+				_logger.LogError(e, $"customer number «{no}» is invalid (must be numeric)");
+			}
+
+			return isValid;
+        }
 
 
 

@@ -31,14 +31,14 @@ namespace SpeechBasedGroceries.Parties.CRM
 		}
 
 
-        
-		public List<Customer> GetCustomers()
+        #region customer queries
+
+        public List<Customer> GetCustomers()
 		{
             // construct statement
             string sql =
-				"SELECT c.f_cus_id, c.f_cus_clientno, c.f_cus_firstname, c.f_cus_surname " +
-				"FROM [dbo].[t_customer] as c " +
-				"ORDER BY c.f_cus_surname";
+				GetSelectAllStatement()
+                + "ORDER BY c.f_cus_surname";
 
             // instanciate return object
 			List<Customer> customers = new List<Customer>();
@@ -55,7 +55,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 						{
 							while (reader.Read())
 							{
-								Customer c = MappingProfile(reader);
+								Customer c = MappingCustomer(reader);
 
 								customers.Add(c);
 								_logger.LogInformation("received DB result: " + c.toString());
@@ -69,12 +69,11 @@ namespace SpeechBasedGroceries.Parties.CRM
 		}
 
 
-		public Customer GetCustomerByClientNo(int clientno)
+		public Customer GetCustomerByNo(int customerNo)
 		{
 			string sql =
-				"SELECT c.f_cus_id, c.f_cus_clientno, c.f_cus_firstname, c.f_cus_surname " +
-				"FROM [dbo].[t_customer] as c " +
-				"WHERE c.f_cus_clientno = (@p1)";
+                GetSelectAllStatement()
+                + "WHERE c.f_cus_no = (@p1)";
 
 			Customer c = null;
 
@@ -83,7 +82,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 				connection.Open();
 				using (SqlCommand cmd = new SqlCommand(sql, connection))
 				{
-					cmd.Parameters.AddWithValue("@p1", clientno);
+					cmd.Parameters.AddWithValue("@p1", customerNo);
 					using (SqlDataReader reader = cmd.ExecuteReader())
 					{
 						if (reader != null)
@@ -91,7 +90,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 							while (reader.Read())
 							{
 								//should only have 1 record
-								c = MappingProfile(reader);
+								c = MappingCustomer(reader);
 							}
 						}
 					}
@@ -102,19 +101,44 @@ namespace SpeechBasedGroceries.Parties.CRM
 		}
 
 
+		private string GetSelectAllStatement()
+        {
+			return "SELECT c.f_cus_id, c.f_cus_no, c.f_cus_firstname, c.f_cus_surname, c.f_cus_birthdate, "
+                +  "       c.f_cus_street, c.f_cus_zip, c.f_cus_city, c.f_cus_country, "
+                +  "       c.f_cus_email "
+                +  "FROM [dbo].[t_customer] as c ";
 
-        private Customer MappingProfile(SqlDataReader dr)
+		}
+
+		#endregion
+
+
+        #region mapping profiles
+
+		private Customer MappingCustomer(SqlDataReader dr)
         {
 			Customer customer = new Customer()
 			{
 				Id = Int32.Parse(dr["f_cus_id"].ToString()),
-				ClientNo = Int32.Parse(dr["f_cus_clientno"].ToString()),
+				No = Int32.Parse(dr["f_cus_no"].ToString()),
 				Firstname = dr["f_cus_firstname"].ToString(),
-				Surname = dr["f_cus_surname"].ToString()
+				Surname = dr["f_cus_surname"].ToString(),
+				Birthdate = DateTime.Parse(dr["f_cus_birthdate"].ToString()),
+				Street = dr["f_cus_street"].ToString(),
+				Zip = dr["f_cus_zip"].ToString(),
+				City = dr["f_cus_city"].ToString(),
+				Country = dr["f_cus_country"].ToString(),
+				Email = dr["f_cus_email"].ToString()
 			};
 			return customer;
 		}
 
+		#endregion
+
+
+
+
+		#region db connection
 
 		private SqlConnection getConnection()
 
@@ -139,6 +163,8 @@ namespace SpeechBasedGroceries.Parties.CRM
 
 			return new SqlConnection(constr);
 		}
+
+		#endregion
 
 
 	}
