@@ -2,6 +2,7 @@
 bin
 obj
 .vs
+TestResults
 
 
 #Files
@@ -9,3 +10,4 @@ appsettings.json
 appsettings.Development.json
 *.csproj.user
 .DS_Store
+UnitTestData.json
