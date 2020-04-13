@@ -20,6 +20,22 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 			this.Response = response;
 		}
 
+		public static DialogflowRequestHandler Create(WebhookRequest request, WebhookResponse response)
+		{
+			string intentName = request.QueryResult.Intent.DisplayName;
+
+			DialogflowRequestHandler requestHandler;
+			if (intentName == DialogflowIntent.GETFRIDGEINVENTORY)
+			{
+				requestHandler = new GetFridgeInventoryHandler(request, response);
+			}
+			else
+			{
+				requestHandler = new DefaultHandler(request, response);
+			}
+
+			return requestHandler;
+		}
 
 		public abstract void Handle();
 

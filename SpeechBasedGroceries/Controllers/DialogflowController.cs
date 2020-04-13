@@ -45,24 +45,10 @@ namespace SpeechBasedGroceries.Controllers
 				requestJson = await reader.ReadToEndAsync();
 			}
 
-
 			WebhookRequest request = jsonParser.Parse<WebhookRequest>(requestJson);
 			WebhookResponse response = new WebhookResponse();
 
-			string intentName = request.QueryResult.Intent.DisplayName;
-
-			// handle request
-			DialogflowRequestHandler requestHandler;
-			if (intentName == DialogflowIntent.GETFRIDGEINVENTORY)
-			{
-				requestHandler = new GetFridgeInventoryHandler(request, response);
-			}
-			else
-			{
-				requestHandler = new DefaultHandler(request, response);
-			}
-			requestHandler.Handle();
-
+			DialogflowRequestHandler.Create(request, response).Handle();
 
 			string responseJson = response.ToString();
 
