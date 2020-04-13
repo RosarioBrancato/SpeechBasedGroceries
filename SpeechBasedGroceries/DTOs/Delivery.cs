@@ -10,7 +10,7 @@ namespace SpeechBasedGroceries.DTOs
 
 		public int Id { get; set; }
 
-		public int CustomerNo { get; set; } // TODO: use Customer object instead
+		public int CustomerId { get; set; } // TODO: use Customer object instead
 
 		public DateTime Date { get; set; }
 
@@ -31,8 +31,8 @@ namespace SpeechBasedGroceries.DTOs
 			return
 				Date.ToString("yyyyMMdd")
                 + "-"
-                + CustomerNo.ToString()
-                + Id.ToString("0000"); 
+                + CustomerId.ToString("000")
+                + Id.ToString("000"); 
         }
 
 	}

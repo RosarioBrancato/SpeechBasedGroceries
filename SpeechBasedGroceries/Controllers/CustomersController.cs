@@ -33,16 +33,20 @@ namespace SpeechBasedGroceries.Controllers
 			CrmClient crmClient = new CrmClient();
 			List<Customer> customers = crmClient.GetCustomers();
 
+
+
+
+
 			return customers.ToArray();
 		}
 
 		[HttpGet("{customerNo}")]
-		public Customer GetByNo(string customerNo)
+		public Customer GetByNo(string customerId)
 		{
-			_logger.LogInformation("GetByNo called... Argument: customerNo = " + customerNo);
+			_logger.LogInformation("GetByNo called... Argument: customerNo = " + customerId);
 
 			CrmClient crmClient = new CrmClient();
-			Customer customer = crmClient.GetCustomerByNo(customerNo);
+			Customer customer = crmClient.GetCustomerById(customerId);
 			
 			return customer;
 		}

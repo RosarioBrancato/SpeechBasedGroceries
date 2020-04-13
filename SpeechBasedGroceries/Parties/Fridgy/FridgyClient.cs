@@ -22,6 +22,7 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 
 		private f.Fridgy client;
 
+        // TODO: overload constructor with FridgyClient() (to be used for account creation)
 		public FridgyClient(string token)
 		{
 			_logger = AppLoggerFactory.GetLogger<FridgyClient>();
@@ -51,7 +52,6 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 			IList<Fridge> fridges = client.Get.Fridges();
 			return fridges;
 		}
-
 
 	}
 }

@@ -10,8 +10,6 @@ namespace SpeechBasedGroceries.DTOs
 
 		public int Id { get; set; }
 
-		public int No { get; set; }
-
 		public string Firstname { get; set; }
 
 		public string Surname { get; set; }
@@ -28,16 +26,24 @@ namespace SpeechBasedGroceries.DTOs
 
 		public string Email { get; set; }
 
-        // TODO: List<Token>
+        public int TelegramId { get; set; }
 
-		public string toString()
+		public List<Token> Tokens { get; set; }
+
+	    public string toString()
         {
 			return
-                No.ToString() + ": "
+                Id.ToString("000") + ": "
                 + Firstname + " "
                 + Surname
                 + " (" + Email + ")"; 
         }
+
+        public Token GetFridigyToken()
+        {
+            // TODO: why is casting required here?!
+            return (Token)Tokens.Where(t => t.Name == "Fridgy");
+		}
 
 	}
 }

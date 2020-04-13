@@ -2,8 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using Npgsql;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 using SpeechBasedGroceries.AppServices;
 using SpeechBasedGroceries.DTOs;
 using Microsoft.Extensions.Logging;
@@ -42,12 +42,12 @@ namespace SpeechBasedGroceries.Parties.Logistics
 
 			List<Delivery> deliveries = new List<Delivery>();
             
-			using (NpgsqlConnection connection = this.getConnection())
+			using (SqlConnection connection = this.getConnection())
 			{
 				connection.Open();
-				using (NpgsqlCommand cmd = new NpgsqlCommand(sql, connection))
+				using (SqlCommand cmd = new SqlCommand(sql, connection))
 				{
-					using (NpgsqlDataReader reader = cmd.ExecuteReader())
+					using (SqlDataReader reader = cmd.ExecuteReader())
 					{
 						if (reader != null)
 						{
@@ -67,31 +67,32 @@ namespace SpeechBasedGroceries.Parties.Logistics
 		}
 
 
+		[Obsolete("not a use case")]
 		public List<Delivery> GetDeliveriesByQuery(int? customerno, DateTime? date)
 		{
 			string sql =
 				GetSelectAllDeliveriesStatement()
 				+ "WHERE "
-				+ ((customerno != null) ? "d.f_del_customerno = (@p1) " : "")
+				+ ((customerno != null) ? "d.f_del_customerid = (@p1) " : "")
 				+ ((date != null) ? "AND d.f_del_date = (@p2) " : "") ;
 			
 			List<Delivery> deliveries = new List<Delivery>();
 
-			using (NpgsqlConnection connection = this.getConnection())
+			using (SqlConnection connection = this.getConnection())
 			{
 				connection.Open();
-				using (NpgsqlCommand cmd = new NpgsqlCommand(sql, connection))
+				using (SqlCommand cmd = new SqlCommand(sql, connection))
 				{
 					if (customerno != null) {
 						cmd.Parameters.AddWithValue("@p1", customerno);
 					}
                     if (date != null)
                     {
-						cmd.Parameters.AddWithValue("@p2", NpgsqlTypes.NpgsqlDbType.Timestamp, (DateTime)date);
+						cmd.Parameters.AddWithValue("@p2", (DateTime)date);
 					}
 					//cmd.Parameters.AddWithValue("@p2", ((DateTime)date).ToString("yyyy-MM-dd"));
 
-					using (NpgsqlDataReader reader = cmd.ExecuteReader())
+					using (SqlDataReader reader = cmd.ExecuteReader())
 					{
 						if (reader != null)
 						{
@@ -118,13 +119,13 @@ namespace SpeechBasedGroceries.Parties.Logistics
 
 			Delivery delivery = null;
 
-			using (NpgsqlConnection connection = this.getConnection())
+			using (SqlConnection connection = this.getConnection())
 			{
 				connection.Open();
-				using (NpgsqlCommand cmd = new NpgsqlCommand(sql, connection))
+				using (SqlCommand cmd = new SqlCommand(sql, connection))
 				{
 					cmd.Parameters.AddWithValue("@p1", deliveryId);
-					using (NpgsqlDataReader reader = cmd.ExecuteReader())
+					using (SqlDataReader reader = cmd.ExecuteReader())
 					{
 						if (reader != null)
 						{
@@ -141,21 +142,21 @@ namespace SpeechBasedGroceries.Parties.Logistics
 			return delivery;
 		}
 
-		public List<Delivery> GetDeliveriesByCustomerNo(int customerNo)
+		public List<Delivery> GetDeliveriesByCustomerId(int customerId)
 		{
 			string sql =
 				GetSelectAllDeliveriesStatement()
-				+ "WHERE d.f_del_customerno = (@p1)";
+				+ "WHERE d.f_del_customerid = (@p1)";
 
 			List<Delivery> deliveries = new List<Delivery>();
 
-			using (NpgsqlConnection connection = this.getConnection())
+			using (SqlConnection connection = this.getConnection())
 			{
 				connection.Open();
-				using (NpgsqlCommand cmd = new NpgsqlCommand(sql, connection))
+				using (SqlCommand cmd = new SqlCommand(sql, connection))
 				{
-					cmd.Parameters.AddWithValue("@p1", customerNo);
-					using (NpgsqlDataReader reader = cmd.ExecuteReader())
+					cmd.Parameters.AddWithValue("@p1", customerId);
+					using (SqlDataReader reader = cmd.ExecuteReader())
 					{
 						if (reader != null)
 						{
@@ -168,7 +169,7 @@ namespace SpeechBasedGroceries.Parties.Logistics
 							}
 						} else
                         {
-							_logger.LogInformation($"customer «{customerNo}» does not have any deliveries yet");
+							_logger.LogInformation($"customer «{customerId}» does not have any deliveries yet");
 						}
 					}
 				}
@@ -177,23 +178,23 @@ namespace SpeechBasedGroceries.Parties.Logistics
 			return deliveries;
 		}
 
-		public Delivery GetDeliveryByCustomerNo(int customerNo, int deliveryId)
+		public Delivery CheckIfDeliveryBlongsToCustomer(int customerId, int deliveryId)
 		{
 			string sql =
 				GetSelectAllDeliveriesStatement()
-				+ "WHERE d.f_del_customerno = (@p1) "
+				+ "WHERE d.f_del_customerid = (@p1) "
                 + "  AND d.f_del_id = (@p2) ";
 
 			Delivery delivery = null;
 
-			using (NpgsqlConnection connection = this.getConnection())
+			using (SqlConnection connection = this.getConnection())
 			{
 				connection.Open();
-				using (NpgsqlCommand cmd = new NpgsqlCommand(sql, connection))
+				using (SqlCommand cmd = new SqlCommand(sql, connection))
 				{
-					cmd.Parameters.AddWithValue("@p1", customerNo);
+					cmd.Parameters.AddWithValue("@p1", customerId);
 					cmd.Parameters.AddWithValue("@p2", deliveryId);
-					using (NpgsqlDataReader reader = cmd.ExecuteReader())
+					using (SqlDataReader reader = cmd.ExecuteReader())
 					{
 						if (reader != null)
 						{
@@ -206,7 +207,7 @@ namespace SpeechBasedGroceries.Parties.Logistics
 						}
 						else
 						{
-							_logger.LogInformation($"customer «{customerNo}» does not have a delivery with ID «{deliveryId}»");
+							_logger.LogInformation($"customer «{customerId}» does not have a delivery with ID «{deliveryId}»");
 						}
 					}
 				}
@@ -219,7 +220,7 @@ namespace SpeechBasedGroceries.Parties.Logistics
 
 		private string GetSelectAllDeliveriesStatement()
 		{
-			return "SELECT d.f_del_id, d.f_del_customerno, d.f_del_date, "
+			return "SELECT d.f_del_id, d.f_del_customerid, d.f_del_date, "
 				+ "       d.f_del_street, d.f_del_zip, d.f_del_city, d.f_del_country, "
 				+ "       d.f_del_comment "
 				+ "FROM t_delivery as d ";
@@ -244,13 +245,13 @@ namespace SpeechBasedGroceries.Parties.Logistics
 
             List<Position> positions = new List<Position>();
 
-            using (NpgsqlConnection connection = this.getConnection())
+            using (SqlConnection connection = this.getConnection())
             {
                 connection.Open();
-                using (NpgsqlCommand cmd = new NpgsqlCommand(sql, connection))
+                using (SqlCommand cmd = new SqlCommand(sql, connection))
                 {
                     cmd.Parameters.AddWithValue("@p1", deliveryId);
-                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader != null)
                         {
@@ -278,35 +279,36 @@ namespace SpeechBasedGroceries.Parties.Logistics
 
         #region mapping profiles
 
-        private Delivery MappingDelivery(NpgsqlDataReader dr)
+        private Delivery MappingDelivery(SqlDataReader dr)
         {
             Delivery delivery = new Delivery()
             {
                 Id = Int32.Parse(dr["f_del_id"].ToString()),
-                CustomerNo = Int32.Parse(dr["f_del_customerno"].ToString()),
-                Date = DateTime.Parse(dr["f_del_date"].ToString()),
-                Street = dr["f_del_street"].ToString(),
-                Zip = dr["f_del_zip"].ToString(),
-                City = dr["f_del_city"].ToString(),
-                Country = dr["f_del_country"].ToString(),
-                Comment = dr["f_del_comment"].ToString(),
+                CustomerId = dr.IsDBNull("f_del_customerid") ? default(int) : Int32.Parse(dr["f_del_customerid"].ToString()),
+                Date = dr.IsDBNull("f_del_date") ? default(DateTime) : DateTime.Parse(dr["f_del_date"].ToString()),
+                Street = dr.IsDBNull("f_del_street") ? default(string) : dr["f_del_street"].ToString(),
+                Zip = dr.IsDBNull("f_del_zip") ? default(string) : dr["f_del_zip"].ToString(),
+                City = dr.IsDBNull("f_del_city") ? default(string) : dr["f_del_city"].ToString(),
+                Country = dr.IsDBNull("f_del_country") ? default(string) : dr["f_del_country"].ToString(),
+                Comment = dr.IsDBNull("f_del_comment") ? default(string) : dr["f_del_comment"].ToString(),
             };
             delivery.Positions = GetPositions(delivery.Id);
             return delivery;
         }
 
-        private Position MappingPosition(NpgsqlDataReader dr)
+        private Position MappingPosition(SqlDataReader dr)
         {
             Position position = new Position()
             {
                 Id = Int32.Parse(dr["f_pos_id"].ToString()),
-                No = Int32.Parse(dr["f_pos_no"].ToString()),
-                ItemId = dr["f_pos_itemid"].ToString(),
-                ItemText = dr["f_pos_itemtext"].ToString(),
-                ItemQty = Int32.Parse(dr["f_pos_itemqty"].ToString()),
-                ItemPrice = Double.Parse(dr["f_pos_itemprice"].ToString()),
-                ItemWeight = Double.Parse(dr["f_pos_itemweight"].ToString()),
-                Comment = dr["f_pos_comment"].ToString()
+				DeliveryId = Int32.Parse(dr["f_del_id"].ToString()),
+				No = dr.IsDBNull("f_del_comment") ? default(int) : Int32.Parse(dr["f_pos_no"].ToString()),
+                ItemId = dr.IsDBNull("f_pos_itemid") ? default(string) : dr["f_pos_itemid"].ToString(),
+                ItemText = dr.IsDBNull("f_pos_itemtext") ? default(string) : dr["f_pos_itemtext"].ToString(),
+                ItemQty = dr.IsDBNull("f_pos_itemqty") ? default(int) : Int32.Parse(dr["f_pos_itemqty"].ToString()),
+                ItemPrice = dr.IsDBNull("f_pos_itemprice") ? default(double) : Double.Parse(dr["f_pos_itemprice"].ToString()),
+                ItemWeight = dr.IsDBNull("f_pos_itemweight") ? default(double) : Double.Parse(dr["f_pos_itemweight"].ToString()),
+                Comment = dr.IsDBNull("f_pos_comment") ? default(string) : dr["f_pos_comment"].ToString()
             };
             return position;
         }
@@ -321,28 +323,28 @@ namespace SpeechBasedGroceries.Parties.Logistics
 
         #region db connection
 
-        private NpgsqlConnection getConnection()
+        private SqlConnection getConnection()
 
 		{
 			string server = configuration["LogisticsDB:Server"];
 			string port = configuration["LogisticsDB:Port"];
-			string db = configuration["LogisticsDB:Database"];
+			string cat = configuration["LogisticsDB:Catalog"];
 			string user = configuration["LogisticsDB:User"];
 			string pw = configuration["LogisticsDB:Password"];
 			string timeout = configuration["LogisticsDB:Timeout"];
-			
-			string constr =
-				$"Server={server};" +
-				$"Port={port};" +
-				$"Database={db};" +
-				$"Userid={user};" +
-				$"Password={pw};" +
-				$"SslMode=Require;" +
-				$"Timeout={timeout};";
-			// $"Protocol=3;" +
-			// $"SSL=true;" +
 
-			return new NpgsqlConnection(constr);
+			string constr =
+				$"Server={server},{port};" +
+				$"Initial Catalog={cat};" +
+				$"Persist Security Info=False;" +
+				$"User ID={user};" +
+				$"Password={pw};" +
+				$"MultipleActiveResultSets=False;" +
+				$"Encrypt=True;" +
+				$"TrustServerCertificate=False;" +
+				$"Connection Timeout={timeout};";
+
+			return new SqlConnection(constr);
 		}
 
         #endregion

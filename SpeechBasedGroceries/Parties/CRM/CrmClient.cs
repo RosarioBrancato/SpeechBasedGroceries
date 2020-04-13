@@ -16,7 +16,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 
 		private CrmDAO crmDao = new CrmDAO();
 		private readonly ILogger<CrmClient> _logger;
-
+        
 
 		public CrmClient()
 		{
@@ -24,20 +24,28 @@ namespace SpeechBasedGroceries.Parties.CRM
 		}
 
 
+        // only used for unit tests
+		public CrmClient(ILogger<CrmClient> logger)
+		{
+			_logger = logger;
+		}
+
+        
 		public List<Customer> GetCustomers()
         {
 			return crmDao.GetCustomers();
 		}
 
-		public Customer GetCustomerByNo(string no)
+
+		public Customer GetCustomerById(string id)
 		{
 			Customer customer = null;
-            if (IsValidNo(no))
+            if (IsValidId(id))
             {
-				customer = crmDao.GetCustomerByNo(Int32.Parse(no));
+				customer = crmDao.GetCustomerById(Int32.Parse(id));
 				if (customer == null)
 				{
-					_logger.LogInformation($"customerNo {no} does not exist");
+					_logger.LogInformation($"customer with ID «{id}» does not exist");
 				}
 			}
 
@@ -45,24 +53,91 @@ namespace SpeechBasedGroceries.Parties.CRM
 		}
 
 
-		public bool IsValidNo(string no)
+		public Customer GetCustomerByTelegramId(string telegramId)
+		{
+			Customer customer = null;
+			if (IsValidTelegramId(telegramId))
+			{
+				customer = crmDao.GetCustomerByTelegramId(Int32.Parse(telegramId));
+				if (customer == null)
+				{
+					_logger.LogInformation($"customer with TelegramID «{telegramId}» does not exist");
+				}
+			}
+
+			return customer;
+		}
+
+		       
+
+		public Customer CreateUpdateCustomer(Customer customer)
+        {
+			Customer _customer;
+            if (crmDao.GetCustomerById(customer.Id) == null)
+            {
+				_customer = crmDao.CreateCustomer(customer);
+
+            } else
+            {
+				_customer = crmDao.UpdateCustomer(customer);
+			}
+
+			return _customer;
+        }
+
+
+		public Token CreateUpdateToken(Token token)
+		{
+			Token _token;
+			if (crmDao.GetTokenById(token.Id) == null)
+			{
+				_token = crmDao.CreateToken(token);
+
+			}
+			else
+			{
+				_token = crmDao.UpdateToken(token);
+			}
+
+			return _token;
+		}
+
+
+		public bool IsValidId(string id)
         {
 			bool isValid = true; // assumption
-            int _no;
+            int _id;
 
 			try
 			{
-				_no = Int32.Parse(no);
+				_id = Int32.Parse(id);
 			}
 			catch (Exception e)
 			{
 				isValid = false;
-				_logger.LogError(e, $"customer number «{no}» is invalid (must be numeric)");
+				_logger.LogError(e, $"customer ID «{id}» is invalid (must be numeric)");
 			}
 
 			return isValid;
         }
 
+		public bool IsValidTelegramId(string id)
+		{
+			bool isValid = true; // assumption
+			int _id;
+
+			try
+			{
+				_id = Int32.Parse(id);
+			}
+			catch (Exception e)
+			{
+				isValid = false;
+				_logger.LogError(e, $"customer TelegramId «{id}» is invalid (must be numeric)");
+			}
+
+			return isValid;
+		}
 
 
 	}

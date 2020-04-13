@@ -28,10 +28,12 @@ namespace SpeechBasedGroceries.Parties.Logistics
 
         public List<Delivery> GetDeliveries(Customer customer)
         {
-            return logisticsDao.GetDeliveriesByCustomerNo(customer.No);
+            return logisticsDao.GetDeliveriesByCustomerId(customer.Id);
         }
 
-        public List<Delivery> GetDeliveriesByQuery(string customerNo = null, string date = null)
+
+        [Obsolete("not a use case")]
+        public List<Delivery> GetDeliveriesByQuery(string customerId = null, string date = null)
         {
 
 
@@ -41,10 +43,10 @@ namespace SpeechBasedGroceries.Parties.Logistics
 
             // validate parameters
 			bool validQuery = true;
-            if (validQuery && !String.IsNullOrEmpty(customerNo))
+            if (validQuery && !String.IsNullOrEmpty(customerId))
             {
-				if (IsValidCustomerNo(customerNo)) {
-                    _customerNo = Int32.Parse(customerNo);
+				if (IsValidCustomerNo(customerId)) {
+                    _customerNo = Int32.Parse(customerId);
 				} else
                 {
 					validQuery = false;
@@ -91,7 +93,7 @@ namespace SpeechBasedGroceries.Parties.Logistics
 			List<Delivery> deliveries = new List<Delivery>();
 			if (IsValidCustomerNo(customerNo))
 			{
-				deliveries = logisticsDao.GetDeliveriesByCustomerNo(Int32.Parse(customerNo));
+				deliveries = logisticsDao.GetDeliveriesByCustomerId(Int32.Parse(customerNo));
 			}
 
 			return deliveries;
@@ -102,7 +104,7 @@ namespace SpeechBasedGroceries.Parties.Logistics
             Delivery delivery = null;
             if (IsValidCustomerNo(customerNo) && IsValidDeliveryId(deliveryId))
             {
-                delivery = logisticsDao.GetDeliveryByCustomerNo(Int32.Parse(customerNo), Int32.Parse(deliveryId));
+                delivery = logisticsDao.CheckIfDeliveryBlongsToCustomer(Int32.Parse(customerNo), Int32.Parse(deliveryId));
             }
 
             return delivery;
@@ -112,19 +114,19 @@ namespace SpeechBasedGroceries.Parties.Logistics
 
         #region validation
 
-        public bool IsValidCustomerNo(string customerNo)
+        public bool IsValidCustomerNo(string customerId)
         {
             bool isValid = true; // assumption
             int _customerNo;
 
             try
             {
-                _customerNo = Int32.Parse(customerNo);
+                _customerNo = Int32.Parse(customerId);
             }
             catch (Exception e)
             {
                 isValid = false;
-                _logger.LogError(e, $"customer number «{customerNo}» is invalid (must be numeric)");
+                _logger.LogError(e, $"customer id «{customerId}» is invalid (must be numeric)");
             }
 
             return isValid;

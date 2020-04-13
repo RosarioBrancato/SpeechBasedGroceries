@@ -35,11 +35,11 @@ namespace SpeechBasedGroceries.Controllers
 
 			if (Request.QueryString.HasValue) {
 				deliveries = logisticsClient.GetDeliveriesByQuery(
-                    Request.Query["customerNo"].ToString(),
+                    Request.Query["customerId"].ToString(),
                     Request.Query["date"].ToString()
                     );
 			} else
-            {
+            { 
 				_logger.LogInformation("GetAll called...");
 				deliveries = logisticsClient.GetDeliveries();
 			};
@@ -47,7 +47,7 @@ namespace SpeechBasedGroceries.Controllers
 			return deliveries.ToArray();
 		}
 
-		[Obsolete("Deliveries should be queries api/{customerNo}/deliveries/{deliveryId}")]
+		[Obsolete("Deliveries should be queries api/{customerId}/deliveries/{deliveryId}")]
 		[HttpGet("{deliveryId}")]
 		public Delivery GetById(string deliveryId)
 		{

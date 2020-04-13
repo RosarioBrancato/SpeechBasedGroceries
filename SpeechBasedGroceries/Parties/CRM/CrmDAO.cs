@@ -13,15 +13,15 @@ namespace SpeechBasedGroceries.Parties.CRM
     public class CrmDAO
     {
 
-		private readonly ILogger<CrmClient> _logger;
+		// private readonly ILogger<CrmDAO> _logger;
 		public IConfiguration configuration { get; }
 
 
 
 		public CrmDAO()
 		{
-			this._logger = AppLoggerFactory.GetLogger<CrmClient>();
-
+			// this._logger = AppLoggerFactory.GetLogger<CrmDAO>();
+			
 			// TODO: how to get configurations differently?
 			var configuration = new ConfigurationBuilder()
 				.AddJsonFile("appsettings.json")
@@ -31,13 +31,17 @@ namespace SpeechBasedGroceries.Parties.CRM
 		}
 
 
+
+
+
+
         #region customer queries
 
         public List<Customer> GetCustomers()
 		{
             // construct statement
             string sql =
-				GetSelectAllStatement()
+				GetSelectAllCustomerStatement()
                 + "ORDER BY c.f_cus_surname";
 
             // instanciate return object
@@ -58,7 +62,6 @@ namespace SpeechBasedGroceries.Parties.CRM
 								Customer c = MappingCustomer(reader);
 
 								customers.Add(c);
-								_logger.LogInformation("received DB result: " + c.toString());
 							}
 						}
 					} // reader closed and disposed up here
@@ -69,11 +72,43 @@ namespace SpeechBasedGroceries.Parties.CRM
 		}
 
 
-		public Customer GetCustomerByNo(int customerNo)
+		public Customer GetCustomerById(int customerId)
 		{
 			string sql =
-                GetSelectAllStatement()
-                + "WHERE c.f_cus_no = (@p1)";
+				GetSelectAllCustomerStatement()
+                + "WHERE c.f_cus_id = (@p1)";
+
+			Customer customer = null;
+
+			using (SqlConnection connection = this.getConnection())
+			{
+				connection.Open();
+				using (SqlCommand cmd = new SqlCommand(sql, connection))
+				{
+					cmd.Parameters.AddWithValue("@p1", customerId);
+					using (SqlDataReader reader = cmd.ExecuteReader())
+					{
+						if (reader != null)
+						{
+							while (reader.Read())
+							{
+								//should only have 1 record
+								customer = MappingCustomer(reader);
+							}
+						}
+					}
+				} 
+			}
+      
+			return customer;
+		}
+
+
+		public Customer GetCustomerByTelegramId(int customerId)
+		{
+			string sql =
+				GetSelectAllCustomerStatement()
+				+ "WHERE c.f_cus_telegramid = (@p1)";
 
 			Customer c = null;
 
@@ -82,7 +117,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 				connection.Open();
 				using (SqlCommand cmd = new SqlCommand(sql, connection))
 				{
-					cmd.Parameters.AddWithValue("@p1", customerNo);
+					cmd.Parameters.AddWithValue("@p1", customerId);
 					using (SqlDataReader reader = cmd.ExecuteReader())
 					{
 						if (reader != null)
@@ -94,46 +129,329 @@ namespace SpeechBasedGroceries.Parties.CRM
 							}
 						}
 					}
-				} 
+				}
 			}
-      
+
 			return c;
+		}
+        
+
+		private string GetSelectAllCustomerStatement()
+        {
+			return "SELECT c.f_cus_id, c.f_cus_firstname, c.f_cus_surname, c.f_cus_birthdate, "
+                +  "       c.f_cus_street, c.f_cus_zip, c.f_cus_city, c.f_cus_country, "
+                +  "       c.f_cus_email, c.f_cus_telegramid "
+                +  "FROM [dbo].[t_customer] as c ";
+
 		}
 
 
-		private string GetSelectAllStatement()
-        {
-			return "SELECT c.f_cus_id, c.f_cus_no, c.f_cus_firstname, c.f_cus_surname, c.f_cus_birthdate, "
-                +  "       c.f_cus_street, c.f_cus_zip, c.f_cus_city, c.f_cus_country, "
-                +  "       c.f_cus_email "
-                +  "FROM [dbo].[t_customer] as c ";
+		public Customer UpdateCustomer(Customer customer)
+		{
+			string sql = "UPDATE [dbo].[t_customer] "
+                       + "SET f_cus_firstname = (@p1), "
+					   + "    f_cus_surname = (@p2), "
+					   + "    f_cus_birthdate = (@p3), "
+					   + "    f_cus_street = (@p4), "
+					   + "    f_cus_zip = (@p5), "
+					   + "    f_cus_city = (@p6), "
+					   + "    f_cus_country = (@p7), "
+					   + "    f_cus_email = (@p8), "
+					   + "    f_cus_telegramid = (@p9) "
+                       + "WHERE f_cus_id = (@p0)";
 
+			Customer _customer = null;
+
+			using (SqlConnection connection = this.getConnection())
+			{
+				connection.Open();
+				using (SqlCommand cmd = new SqlCommand(sql, connection))
+				{
+					cmd.Parameters.AddWithValue("@p1", customer.Firstname);
+					cmd.Parameters.AddWithValue("@p2", customer.Surname);
+					cmd.Parameters.AddWithValue("@p3", customer.Birthdate);
+					cmd.Parameters.AddWithValue("@p4", customer.Street);
+					cmd.Parameters.AddWithValue("@p5", customer.Zip);
+					cmd.Parameters.AddWithValue("@p6", customer.City);
+					cmd.Parameters.AddWithValue("@p7", customer.Country);
+					cmd.Parameters.AddWithValue("@p8", customer.Email);
+					cmd.Parameters.AddWithValue("@p9", customer.TelegramId);
+					cmd.Parameters.AddWithValue("@p0", customer.Id);
+
+					if (cmd.ExecuteNonQuery() == 1)
+					{
+						_customer = customer;
+					};
+				}
+			}
+
+			return _customer;
+		}
+
+        
+		public Customer CreateCustomer(Customer customer)
+		{
+			string sql = "INSERT INTO [dbo].[t_customer] "
+                       + "  (f_cus_firstname, f_cus_surname, f_cus_birthdate, "
+				       + "   f_cus_street, f_cus_zip, c.f_cus_city, f_cus_country, "
+				       + "   f_cus_email, f_cus_telegramid) "
+					   + "VALUES "
+                       + "  ((@p1), (@p2), (@p3), "
+                       + "   (@p4), (@p5), (@p6), (@p7), "
+                       + "   (@p8), (@p9)) "
+                       + "SELECT SCOPE_IDENTITY()";
+
+			Customer _customer = null;
+
+			using (SqlConnection connection = this.getConnection())
+			{
+				connection.Open();
+				using (SqlCommand cmd = new SqlCommand(sql, connection))
+				{
+					cmd.Parameters.AddWithValue("@p1", customer.Firstname);
+					cmd.Parameters.AddWithValue("@p2", customer.Surname);
+					cmd.Parameters.AddWithValue("@p3", customer.Birthdate);
+					cmd.Parameters.AddWithValue("@p4", customer.Street);
+					cmd.Parameters.AddWithValue("@p5", customer.Zip);
+					cmd.Parameters.AddWithValue("@p6", customer.City);
+					cmd.Parameters.AddWithValue("@p7", customer.Country);
+					cmd.Parameters.AddWithValue("@p8", customer.Email);
+					cmd.Parameters.AddWithValue("@p9", customer.TelegramId);
+
+					int customerId = 0;
+                    try
+                    {
+						customerId = Int32.Parse(cmd.ExecuteScalar().ToString());
+						customer.Id = customerId;
+						_customer = customer;
+					} catch (Exception e)
+                    {
+						Console.Write(e.StackTrace);
+                    }
+				}
+			}
+
+			return _customer;
 		}
 
 		#endregion
 
 
-        #region mapping profiles
+
+
+
+
+
+
+
+
+		#region token queries
+
+
+        public Token GetTokenById(int tokenId)
+        {
+			string sql =
+				  GetSelectAllTokensStatement()
+				+ "WHERE t.f_tok_id = (@p1)";
+
+			Token token = null;
+
+			using (SqlConnection connection = this.getConnection())
+			{
+				connection.Open();
+				using (SqlCommand cmd = new SqlCommand(sql, connection))
+				{
+					cmd.Parameters.AddWithValue("@p1", tokenId);
+					using (SqlDataReader reader = cmd.ExecuteReader())
+					{
+						if (reader != null)
+						{
+							while (reader.Read())
+							{
+								//should only have 1 record
+								token = MappingToken(reader);
+							}
+						}
+					}
+				}
+			}
+
+			return token;
+		}
+
+
+		private List<Token> GetTokens(int customerId)
+		{
+			string sql =
+				  GetSelectAllTokensStatement()
+				+ "WHERE t.f_cus_id = (@p1)";
+
+			List<Token> tokens = new List<Token>();
+
+			using (SqlConnection connection = this.getConnection())
+			{
+				connection.Open();
+				using (SqlCommand cmd = new SqlCommand(sql, connection))
+				{
+					cmd.Parameters.AddWithValue("@p1", customerId);
+					using (SqlDataReader reader = cmd.ExecuteReader())
+					{
+						if (reader != null)
+						{
+							while (reader.Read())
+							{
+								Token token = MappingToken(reader);
+								tokens.Add(token);
+							}
+						}
+					}
+				}
+			}
+
+			return tokens;
+		}
+
+
+		private string GetSelectAllTokensStatement()
+		{
+			return "SELECT t.f_tok_id, t.f_cus_id, t.f_tok_creation, "
+				+ "        t.f_tok_name, t.f_tok_value, t.f_tok_expiration "
+				+ "FROM [dbo].[t_token] as t ";
+		}
+
+
+		public Token UpdateToken(Token token)
+		{
+			string sql = "UPDATE [dbo].[t_token] "
+					   + "SET f_tok_creation = (@p1), "
+					   + "    f_tok_name = (@p2), "
+					   + "    f_tok_value = (@p3), "
+					   + "    f_tok_expiration = (@p4) "
+					   + "WHERE f_tok_id = (@p5) "
+					   + "  AND f_cus_id = (@p6)";
+
+			Token _token = null;
+
+			using (SqlConnection connection = this.getConnection())
+			{
+				connection.Open();
+				using (SqlCommand cmd = new SqlCommand(sql, connection))
+				{
+					cmd.Parameters.AddWithValue("@p1", token.Creation);
+					cmd.Parameters.AddWithValue("@p2", token.Name);
+					cmd.Parameters.AddWithValue("@p3", token.Value);
+					cmd.Parameters.AddWithValue("@p4", token.Expiration);
+					cmd.Parameters.AddWithValue("@p5", token.Id);
+					cmd.Parameters.AddWithValue("@p6", token.CustomerId);
+
+					if (cmd.ExecuteNonQuery() == 1)
+					{
+						_token = token;
+					};
+				}
+			}
+
+			return _token;
+		}
+
+
+		public Token CreateToken(Token token)
+		{
+			string sql = "INSERT INTO [dbo].[t_token] "
+					   + "  (f_cus_id, f_tok_creation, f_tok_name, f_tok_value, f_tok_expiration) "
+					   + "VALUES "
+					   + "  ((@p1), (@p2), (@p3), (@p4), (@p5)) "
+					   + "SELECT SCOPE_IDENTITY()";
+
+			Token _token = null;
+
+			using (SqlConnection connection = this.getConnection())
+			{
+				connection.Open();
+				using (SqlCommand cmd = new SqlCommand(sql, connection))
+				{
+					cmd.Parameters.AddWithValue("@p1", token.CustomerId);
+					cmd.Parameters.AddWithValue("@p2", token.Creation);
+					cmd.Parameters.AddWithValue("@p3", token.Name);
+					cmd.Parameters.AddWithValue("@p4", token.Value);
+					cmd.Parameters.AddWithValue("@p5", token.Expiration);
+
+					int tokenId = 0;
+					try
+					{
+						tokenId = Int32.Parse(cmd.ExecuteScalar().ToString());
+						token.Id = tokenId;
+						_token = token;
+					}
+					catch (Exception e)
+					{
+						Console.Write(e.StackTrace);
+					}
+				}
+			}
+
+			return _token;
+		}
+
+		#endregion
+
+
+
+
+
+
+
+
+
+
+
+		#region mapping profiles
 
 		private Customer MappingCustomer(SqlDataReader dr)
         {
 			Customer customer = new Customer()
 			{
 				Id = Int32.Parse(dr["f_cus_id"].ToString()),
-				No = Int32.Parse(dr["f_cus_no"].ToString()),
-				Firstname = dr["f_cus_firstname"].ToString(),
-				Surname = dr["f_cus_surname"].ToString(),
-				Birthdate = DateTime.Parse(dr["f_cus_birthdate"].ToString()),
-				Street = dr["f_cus_street"].ToString(),
-				Zip = dr["f_cus_zip"].ToString(),
-				City = dr["f_cus_city"].ToString(),
-				Country = dr["f_cus_country"].ToString(),
-				Email = dr["f_cus_email"].ToString()
-			};
+				Firstname = dr.IsDBNull("f_cus_firstname") ? default : dr["f_cus_firstname"].ToString(),
+				Surname = dr.IsDBNull("f_cus_surname") ? default : dr["f_cus_surname"].ToString(),
+				Birthdate = dr.IsDBNull("f_cus_birthdate") ? default : DateTime.Parse(dr["f_cus_birthdate"].ToString()),
+				Street = dr.IsDBNull("f_cus_street") ? default : dr["f_cus_street"].ToString(),
+				Zip = dr.IsDBNull("f_cus_zip") ? default : dr["f_cus_zip"].ToString(),
+				City = dr.IsDBNull("f_cus_city") ? default : dr["f_cus_city"].ToString(),
+				Country = dr.IsDBNull("f_cus_country") ? default : dr["f_cus_country"].ToString(),
+				Email = dr.IsDBNull("f_cus_email") ? default : dr["f_cus_email"].ToString(),
+                TelegramId = dr.IsDBNull("f_cus_telegramid") ? default : Int32.Parse(dr["f_cus_telegramid"].ToString().Trim())
+		    };
+
+			customer.Tokens = GetTokens(customer.Id);
+
 			return customer;
 		}
 
+
+		private Token MappingToken(SqlDataReader dr)
+		{
+			Token token = new Token()
+			{
+                Id = Int32.Parse(dr["f_tok_id"].ToString()),
+				CustomerId = Int32.Parse(dr["f_cus_id"].ToString()),
+				Creation = dr.IsDBNull("f_tok_creation") ? default : DateTime.Parse(dr["f_tok_creation"].ToString()),
+				Name = dr.IsDBNull("f_tok_name") ? default : dr["f_tok_name"].ToString(),
+				Value = dr.IsDBNull("f_tok_value") ? default : dr["f_tok_value"].ToString(),
+				Expiration = dr.IsDBNull("f_tok_expiration") ? default : DateTime.Parse(dr["f_tok_expiration"].ToString())
+			};
+
+			return token;
+		}
+
+
 		#endregion
+
+
+
+
+
+
 
 
 

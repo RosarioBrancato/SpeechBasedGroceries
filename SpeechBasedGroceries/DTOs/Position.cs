@@ -10,6 +10,8 @@ namespace SpeechBasedGroceries.DTOs
 
 		public int Id { get; set; }
 
+        public int DeliveryId { get; set; }
+
 		public int No { get; set; }
 
 		public string ItemId { get; set; }
