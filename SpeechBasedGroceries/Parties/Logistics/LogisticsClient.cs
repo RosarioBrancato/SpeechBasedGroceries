@@ -20,22 +20,26 @@ namespace SpeechBasedGroceries.Parties.Logistics
 			_logger = AppLoggerFactory.GetLogger<LogisticsClient>();
 		}
 
+        // only used for unit tests
+        public LogisticsClient(ILogger<LogisticsClient> logger)
+        {
+            _logger = logger;
+        }
 
-		public List<Delivery> GetDeliveries()
+
+
+        #region client functions
+
+        [Obsolete("not a use case")]
+        public List<Delivery> GetDeliveries()
 		{
 			return logisticsDao.GetDeliveries();
 		}
 
-        public List<Delivery> GetDeliveries(Customer customer)
-        {
-            return logisticsDao.GetDeliveriesByCustomerId(customer.Id);
-        }
-
-
+        
         [Obsolete("not a use case")]
         public List<Delivery> GetDeliveriesByQuery(string customerId = null, string date = null)
         {
-
 
 			// initiate parameter variables
 			int? _customerNo = null;
@@ -70,6 +74,10 @@ namespace SpeechBasedGroceries.Parties.Logistics
 			if (validQuery)
             {
 				deliveries = logisticsDao.GetDeliveriesByQuery(_customerNo, _date);
+                if (!deliveries.Any())
+                {
+                    _logger.LogInformation($"no deliveries found that match query");
+                }
             } else
             {
 				_logger.LogWarning($"cannot understand query");
@@ -78,37 +86,78 @@ namespace SpeechBasedGroceries.Parties.Logistics
 			return deliveries;
         }
 
-		public Delivery GetDeliveryById(string Id)
+		public Delivery GetDeliveryById(string deliveryId)
 		{
 			Delivery delivery = null;
-            if (IsValidDeliveryId(Id))
+            if (IsValidDeliveryId(deliveryId))
             {
-				delivery = logisticsDao.GetDeliveryById(Int32.Parse(Id));
-			}
+				delivery = logisticsDao.GetDeliveryById(Int32.Parse(deliveryId));
+                if (delivery == null)
+                {
+                    _logger.LogInformation($"deliveries with ID «{deliveryId}» does not exist");
+                }
+            }
             return delivery;
 		}
 
-		public List<Delivery> GetDeliveriesByCustomerNo(string customerNo)
+		public List<Delivery> GetDeliveriesByCustomerId(string customerId)
 		{
 			List<Delivery> deliveries = new List<Delivery>();
-			if (IsValidCustomerNo(customerNo))
+			if (IsValidCustomerNo(customerId))
 			{
-				deliveries = logisticsDao.GetDeliveriesByCustomerId(Int32.Parse(customerNo));
-			}
+				deliveries = logisticsDao.GetDeliveriesByCustomerId(Int32.Parse(customerId));
+                if (!deliveries.Any())
+                {
+                    _logger.LogInformation($"no deliveries found for customer with ID «{customerId}»");
+                }
+            }
 
 			return deliveries;
 		}
 
-        public Delivery GetDeliveryByCustomerNo(string customerNo, string deliveryId)
+
+        public Delivery CreateUpdateDelivery(Delivery delivery, bool includePositions = false)
         {
-            Delivery delivery = null;
-            if (IsValidCustomerNo(customerNo) && IsValidDeliveryId(deliveryId))
+            Delivery _delivery;
+            if (logisticsDao.GetDeliveryById(delivery.Id) == null)
             {
-                delivery = logisticsDao.CheckIfDeliveryBlongsToCustomer(Int32.Parse(customerNo), Int32.Parse(deliveryId));
+                _delivery = logisticsDao.CreateDelievery(delivery);
+                if (includePositions)
+                {
+                    _delivery.Positions.ForEach(pos => logisticsDao.CreatePosition(pos));
+                }
+            }
+            else
+            {
+                _delivery = logisticsDao.UpdateDelivery(delivery);
+                if (includePositions)
+                {
+                    _delivery.Positions.ForEach(pos => logisticsDao.UpdatePosition(pos));
+                }
             }
 
-            return delivery;
+            return _delivery;
         }
+
+
+        public Position CreateUpdatePosition(Position position)
+        {
+            Position _position;
+            if (logisticsDao.GetPositionById(position.Id) == null)
+            {
+                _position = logisticsDao.CreatePosition(position);
+
+            }
+            else
+            {
+                _position = logisticsDao.UpdatePosition(position);
+            }
+
+            return _position;
+        }
+
+
+        #endregion
 
 
 
@@ -141,6 +190,7 @@ namespace SpeechBasedGroceries.Parties.Logistics
             try
             {
                 _deliveryId = Int32.Parse(deliveryId);
+                isValid = _deliveryId >= 100 ? isValid : false;
             }
             catch (Exception e)
             {
@@ -158,6 +208,7 @@ namespace SpeechBasedGroceries.Parties.Logistics
 
             try
             {
+                //_date = DateTime.ParseExact(date, "yyyy-MM-dd", null);
                 _date = DateTime.Parse(date);
             }
             catch (Exception e)

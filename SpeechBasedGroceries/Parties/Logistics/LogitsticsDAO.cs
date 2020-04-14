@@ -34,6 +34,7 @@ namespace SpeechBasedGroceries.Parties.Logistics
 
 		#region delivery queries
 
+		[Obsolete("not a use case")]
 		public List<Delivery> GetDeliveries()
 		{
             string sql =
@@ -54,9 +55,7 @@ namespace SpeechBasedGroceries.Parties.Logistics
 							while (reader.Read())
 							{
 								Delivery delivery = MappingDelivery(reader);
-
 								deliveries.Add(delivery);
-								_logger.LogInformation("received DB result: " + delivery.toString());
 							}
 						}
 					}
@@ -99,9 +98,7 @@ namespace SpeechBasedGroceries.Parties.Logistics
 							while (reader.Read())
 							{
 								Delivery delivery = MappingDelivery(reader);
-
 								deliveries.Add(delivery);
-								_logger.LogInformation("received DB result: " + delivery.toString());
 							}
 						}
 					}
@@ -163,13 +160,8 @@ namespace SpeechBasedGroceries.Parties.Logistics
 							while (reader.Read())
 							{
 								Delivery delivery = MappingDelivery(reader);
-
 								deliveries.Add(delivery);
-								_logger.LogInformation("received DB result: " + delivery.toString());
 							}
-						} else
-                        {
-							_logger.LogInformation($"customer «{customerId}» does not have any deliveries yet");
 						}
 					}
 				}
@@ -178,45 +170,7 @@ namespace SpeechBasedGroceries.Parties.Logistics
 			return deliveries;
 		}
 
-		public Delivery CheckIfDeliveryBlongsToCustomer(int customerId, int deliveryId)
-		{
-			string sql =
-				GetSelectAllDeliveriesStatement()
-				+ "WHERE d.f_del_customerid = (@p1) "
-                + "  AND d.f_del_id = (@p2) ";
-
-			Delivery delivery = null;
-
-			using (SqlConnection connection = this.getConnection())
-			{
-				connection.Open();
-				using (SqlCommand cmd = new SqlCommand(sql, connection))
-				{
-					cmd.Parameters.AddWithValue("@p1", customerId);
-					cmd.Parameters.AddWithValue("@p2", deliveryId);
-					using (SqlDataReader reader = cmd.ExecuteReader())
-					{
-						if (reader != null)
-						{
-							while (reader.Read())
-							{
-                                // should only have 1 record
-                                delivery = MappingDelivery(reader);
-								_logger.LogInformation("received DB result: " + delivery.toString());
-							}
-						}
-						else
-						{
-							_logger.LogInformation($"customer «{customerId}» does not have a delivery with ID «{deliveryId}»");
-						}
-					}
-				}
-			}
-
-			return delivery;
-		}
-
-
+		
 
 		private string GetSelectAllDeliveriesStatement()
 		{
@@ -227,6 +181,91 @@ namespace SpeechBasedGroceries.Parties.Logistics
 
 		}
 
+
+
+		public Delivery UpdateDelivery(Delivery delivery)
+		{
+			string sql = "UPDATE [dbo].[t_delivery] "
+					   + "SET f_del_customerid = (@p1), "
+					   + "    f_del_date = (@p2), "
+					   + "    f_del_street = (@p3), "
+					   + "    f_del_zip = (@p4), "
+					   + "    f_del_city = (@p5), "
+					   + "    f_del_country = (@p6), "
+					   + "    f_del_comment = (@p7) "
+					   + "WHERE f_del_id = (@p0)";
+
+			Delivery _delivery = null;
+
+			using (SqlConnection connection = this.getConnection())
+			{
+				connection.Open();
+				using (SqlCommand cmd = new SqlCommand(sql, connection))
+				{
+					cmd.Parameters.AddWithValue("@p1", delivery.CustomerId);
+					cmd.Parameters.AddWithValue("@p2", delivery.Date);
+					cmd.Parameters.AddWithValue("@p3", delivery.Street);
+					cmd.Parameters.AddWithValue("@p4", delivery.Zip);
+					cmd.Parameters.AddWithValue("@p5", delivery.City);
+					cmd.Parameters.AddWithValue("@p6", delivery.Country);
+					cmd.Parameters.AddWithValue("@p7", delivery.Comment);
+					cmd.Parameters.AddWithValue("@p0", delivery.Id);
+
+					if (cmd.ExecuteNonQuery() == 1)
+					{
+						_delivery = delivery;
+					};
+				}
+			}
+
+			return _delivery;
+		}
+
+		public Delivery CreateDelievery(Delivery delivery)
+		{
+			string sql = "INSERT INTO [dbo].[t_delivery] "
+					   + "  (f_del_customerid, f_del_date, "
+					   + "   f_del_street, f_del_zip, f_del_city, f_del_country, "
+					   + "   f_del_comment) "
+					   + "VALUES "
+					   + "  ((@p1), (@p2), "
+					   + "   (@p3), (@p4), (@p5), (@p6), "
+					   + "   (@p7)) "
+					   + "SELECT SCOPE_IDENTITY()";
+
+			Delivery _delivery = null;
+
+			using (SqlConnection connection = this.getConnection())
+			{
+				connection.Open();
+				using (SqlCommand cmd = new SqlCommand(sql, connection))
+				{
+					cmd.Parameters.AddWithValue("@p1", delivery.CustomerId);
+					cmd.Parameters.AddWithValue("@p2", delivery.Date);
+					cmd.Parameters.AddWithValue("@p3", delivery.Street);
+					cmd.Parameters.AddWithValue("@p4", delivery.Zip);
+					cmd.Parameters.AddWithValue("@p5", delivery.City);
+					cmd.Parameters.AddWithValue("@p6", delivery.Country);
+					cmd.Parameters.AddWithValue("@p7", delivery.Comment);
+
+					int deliveryId = 0;
+					try
+					{
+						deliveryId = Int32.Parse(cmd.ExecuteScalar().ToString());
+						delivery.Id = deliveryId;
+						_delivery = delivery;
+					}
+					catch (Exception e)
+					{
+						Console.Write(e.StackTrace);
+					}
+				}
+			}
+
+			return _delivery;
+		}
+
+
 		#endregion
 
 
@@ -234,14 +273,12 @@ namespace SpeechBasedGroceries.Parties.Logistics
 
 		#region position queries
 
+
 		private List<Position> GetPositions(int deliveryId)
         {
             string sql =
-                "SELECT p.f_pos_id, p.f_del_id, p.f_pos_no, "
-                + "       p.f_pos_itemid, p.f_pos_itemtext, p.f_pos_itemqty, p.f_pos_itemprice, p.f_pos_itemweight, "
-                + "       p.f_pos_comment "
-                + "FROM t_position as p "
-                + "WHERE p.f_del_id = (@p1)";
+				GetSelectAllPositionsStatement()
+				+ "WHERE p.f_del_id = (@p1)";
 
             List<Position> positions = new List<Position>();
 
@@ -269,7 +306,139 @@ namespace SpeechBasedGroceries.Parties.Logistics
             return positions;
         }
 
-        #endregion
+
+		public Position GetPositionById(int positionId)
+		{
+			string sql =
+				  GetSelectAllPositionsStatement()
+				+ "WHERE p.f_pos_id = (@p1)";
+
+			Position position = null;
+
+			using (SqlConnection connection = this.getConnection())
+			{
+				connection.Open();
+				using (SqlCommand cmd = new SqlCommand(sql, connection))
+				{
+					cmd.Parameters.AddWithValue("@p1", positionId);
+					using (SqlDataReader reader = cmd.ExecuteReader())
+					{
+						if (reader != null)
+						{
+							while (reader.Read())
+							{
+								//should only have 1 record
+								position = MappingPosition(reader);
+							}
+						}
+					}
+				}
+			}
+
+			return position;
+		}
+
+
+		private string GetSelectAllPositionsStatement()
+		{
+			return "SELECT p.f_pos_id, p.f_del_id, p.f_pos_no, "
+				+ "       p.f_pos_itemid, p.f_pos_itemtext, p.f_pos_itemqty, p.f_pos_itemprice, p.f_pos_itemweight, "
+				+ "       p.f_pos_comment "
+				+ "FROM t_position as p ";
+		}
+
+
+		public Position UpdatePosition(Position position)
+		{
+			string sql = "UPDATE [dbo].[t_position] "
+					   + "SET f_pos_no = (@p1), "
+					   + "    f_pos_itemid = (@p2), "
+					   + "    f_pos_itemtext = (@p3), "
+					   + "    f_pos_itemqty = (@p4), "
+					   + "    f_pos_itemprice = (@p5), "
+					   + "    f_pos_itemweight = (@p6), "
+					   + "    f_pos_comment = (@p7) "
+					   + "WHERE f_pos_id = (@p8)"
+                       + "  AND f_del_id = (@p9)";
+
+			Position _position = null;
+
+			using (SqlConnection connection = this.getConnection())
+			{
+				connection.Open();
+				using (SqlCommand cmd = new SqlCommand(sql, connection))
+				{
+					cmd.Parameters.AddWithValue("@p1", position.No);
+					cmd.Parameters.AddWithValue("@p2", position.ItemId);
+					cmd.Parameters.AddWithValue("@p3", position.ItemText);
+					cmd.Parameters.AddWithValue("@p4", position.ItemQty);
+					cmd.Parameters.AddWithValue("@p5", position.ItemPrice);
+					cmd.Parameters.AddWithValue("@p6", position.ItemWeight);
+					cmd.Parameters.AddWithValue("@p7", position.Comment);
+					cmd.Parameters.AddWithValue("@p8", position.Id);
+					cmd.Parameters.AddWithValue("@p9", position.DeliveryId);
+
+					if (cmd.ExecuteNonQuery() == 1)
+					{
+						_position = position;
+					};
+				}
+			}
+
+			return _position;
+		}
+
+
+		public Position CreatePosition(Position position)
+		{
+			string sql = "INSERT INTO [dbo].[t_position] "
+					   + "  (f_del_id, f_pos_no, "
+					   + "   f_pos_itemid, f_pos_itemtext, "
+                       + "   f_pos_itemqty, f_pos_itemprice, f_pos_itemweight, "
+					   + "   f_pos_comment) "
+					   + "VALUES "
+					   + "  ((@p1), (@p2), "
+					   + "   (@p3), (@p4), "
+                       + "   (@p5), (@p6), (@p7), "
+					   + "   (@p8)) "
+					   + "SELECT SCOPE_IDENTITY()";
+
+			Position _position = null;
+
+			using (SqlConnection connection = this.getConnection())
+			{
+				connection.Open();
+				using (SqlCommand cmd = new SqlCommand(sql, connection))
+				{
+					cmd.Parameters.AddWithValue("@p1", position.DeliveryId);
+					cmd.Parameters.AddWithValue("@p2", position.No);
+					cmd.Parameters.AddWithValue("@p3", position.ItemId);
+					cmd.Parameters.AddWithValue("@p4", position.ItemText);
+					cmd.Parameters.AddWithValue("@p5", position.ItemQty);
+					cmd.Parameters.AddWithValue("@p6", position.ItemPrice);
+					cmd.Parameters.AddWithValue("@p7", position.ItemWeight);
+					cmd.Parameters.AddWithValue("@p8", position.Comment);
+
+					int positionId = 0;
+					try
+					{
+						positionId = Int32.Parse(cmd.ExecuteScalar().ToString());
+						position.Id = positionId;
+						_position = position;
+					}
+					catch (Exception e)
+					{
+						Console.Write(e.StackTrace);
+					}
+				}
+			}
+
+			return _position;
+		}
+
+
+
+		#endregion
 
 
 
@@ -277,20 +446,20 @@ namespace SpeechBasedGroceries.Parties.Logistics
 
 
 
-        #region mapping profiles
+		#region mapping profiles
 
-        private Delivery MappingDelivery(SqlDataReader dr)
+		private Delivery MappingDelivery(SqlDataReader dr)
         {
             Delivery delivery = new Delivery()
             {
                 Id = Int32.Parse(dr["f_del_id"].ToString()),
-                CustomerId = dr.IsDBNull("f_del_customerid") ? default(int) : Int32.Parse(dr["f_del_customerid"].ToString()),
-                Date = dr.IsDBNull("f_del_date") ? default(DateTime) : DateTime.Parse(dr["f_del_date"].ToString()),
-                Street = dr.IsDBNull("f_del_street") ? default(string) : dr["f_del_street"].ToString(),
-                Zip = dr.IsDBNull("f_del_zip") ? default(string) : dr["f_del_zip"].ToString(),
-                City = dr.IsDBNull("f_del_city") ? default(string) : dr["f_del_city"].ToString(),
-                Country = dr.IsDBNull("f_del_country") ? default(string) : dr["f_del_country"].ToString(),
-                Comment = dr.IsDBNull("f_del_comment") ? default(string) : dr["f_del_comment"].ToString(),
+                CustomerId = dr.IsDBNull("f_del_customerid") ? default : Int32.Parse(dr["f_del_customerid"].ToString()),
+                Date = dr.IsDBNull("f_del_date") ? default : DateTime.Parse(dr["f_del_date"].ToString()),
+                Street = dr.IsDBNull("f_del_street") ? default : dr["f_del_street"].ToString(),
+                Zip = dr.IsDBNull("f_del_zip") ? default : dr["f_del_zip"].ToString(),
+                City = dr.IsDBNull("f_del_city") ? default : dr["f_del_city"].ToString(),
+                Country = dr.IsDBNull("f_del_country") ? default : dr["f_del_country"].ToString(),
+                Comment = dr.IsDBNull("f_del_comment") ? default : dr["f_del_comment"].ToString(),
             };
             delivery.Positions = GetPositions(delivery.Id);
             return delivery;
@@ -302,13 +471,13 @@ namespace SpeechBasedGroceries.Parties.Logistics
             {
                 Id = Int32.Parse(dr["f_pos_id"].ToString()),
 				DeliveryId = Int32.Parse(dr["f_del_id"].ToString()),
-				No = dr.IsDBNull("f_del_comment") ? default(int) : Int32.Parse(dr["f_pos_no"].ToString()),
-                ItemId = dr.IsDBNull("f_pos_itemid") ? default(string) : dr["f_pos_itemid"].ToString(),
-                ItemText = dr.IsDBNull("f_pos_itemtext") ? default(string) : dr["f_pos_itemtext"].ToString(),
-                ItemQty = dr.IsDBNull("f_pos_itemqty") ? default(int) : Int32.Parse(dr["f_pos_itemqty"].ToString()),
-                ItemPrice = dr.IsDBNull("f_pos_itemprice") ? default(double) : Double.Parse(dr["f_pos_itemprice"].ToString()),
-                ItemWeight = dr.IsDBNull("f_pos_itemweight") ? default(double) : Double.Parse(dr["f_pos_itemweight"].ToString()),
-                Comment = dr.IsDBNull("f_pos_comment") ? default(string) : dr["f_pos_comment"].ToString()
+				No = dr.IsDBNull("f_pos_no") ? default : Int32.Parse(dr["f_pos_no"].ToString()),
+                ItemId = dr.IsDBNull("f_pos_itemid") ? default : dr["f_pos_itemid"].ToString(),
+                ItemText = dr.IsDBNull("f_pos_itemtext") ? default : dr["f_pos_itemtext"].ToString(),
+                ItemQty = dr.IsDBNull("f_pos_itemqty") ? default : Int32.Parse(dr["f_pos_itemqty"].ToString()),
+                ItemPrice = dr.IsDBNull("f_pos_itemprice") ? default : Double.Parse(dr["f_pos_itemprice"].ToString()),
+                ItemWeight = dr.IsDBNull("f_pos_itemweight") ? default : Double.Parse(dr["f_pos_itemweight"].ToString()),
+                Comment = dr.IsDBNull("f_pos_comment") ? default : dr["f_pos_comment"].ToString()
             };
             return position;
         }
