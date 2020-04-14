@@ -61,7 +61,7 @@ namespace SpeechBasedGroceriesTest
 		[TestMethod]
 		public void TestGetFridgyTokenOfCustomer()
 		{
-			Assert.IsTrue(this.crmClient.GetFridgyTokenOfCustomer("1").Length > 1);
+			Assert.IsNotNull(this.crmClient.GetCustomerById("1").GetFridigyToken());
 		}
 
 
