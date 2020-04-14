@@ -30,7 +30,9 @@ namespace SpeechBasedGroceries.Parties.CRM
 			_logger = logger;
 		}
 
-        
+
+		#region client functions
+
 		public List<Customer> GetCustomers()
         {
 			return crmDao.GetCustomers();
@@ -70,16 +72,23 @@ namespace SpeechBasedGroceries.Parties.CRM
 
 		       
 
-		public Customer CreateUpdateCustomer(Customer customer)
+		public Customer CreateUpdateCustomer(Customer customer, bool includeTokens = false)
         {
 			Customer _customer;
             if (crmDao.GetCustomerById(customer.Id) == null)
             {
 				_customer = crmDao.CreateCustomer(customer);
-
-            } else
+				if (includeTokens)
+				{
+					_customer.Tokens.ForEach(tok => crmDao.CreateToken(tok));
+				}
+			} else
             {
 				_customer = crmDao.UpdateCustomer(customer);
+				if (includeTokens)
+				{
+					_customer.Tokens.ForEach(tok => crmDao.UpdateToken(tok));
+				}
 			}
 
 			return _customer;
@@ -102,6 +111,10 @@ namespace SpeechBasedGroceries.Parties.CRM
 			return _token;
 		}
 
+		#endregion
+
+
+		#region validation
 
 		public bool IsValidId(string id)
         {
@@ -139,6 +152,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 			return isValid;
 		}
 
+		#endregion
 
 	}
 }

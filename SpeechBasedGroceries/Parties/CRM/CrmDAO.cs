@@ -104,7 +104,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 		}
 
 
-		public Customer GetCustomerByTelegramId(int customerId)
+		public Customer GetCustomerByTelegramId(int telegramId)
 		{
 			string sql =
 				GetSelectAllCustomerStatement()
@@ -117,7 +117,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 				connection.Open();
 				using (SqlCommand cmd = new SqlCommand(sql, connection))
 				{
-					cmd.Parameters.AddWithValue("@p1", customerId);
+					cmd.Parameters.AddWithValue("@p1", telegramId);
 					using (SqlDataReader reader = cmd.ExecuteReader())
 					{
 						if (reader != null)
@@ -248,38 +248,6 @@ namespace SpeechBasedGroceries.Parties.CRM
 		#region token queries
 
 
-        public Token GetTokenById(int tokenId)
-        {
-			string sql =
-				  GetSelectAllTokensStatement()
-				+ "WHERE t.f_tok_id = (@p1)";
-
-			Token token = null;
-
-			using (SqlConnection connection = this.getConnection())
-			{
-				connection.Open();
-				using (SqlCommand cmd = new SqlCommand(sql, connection))
-				{
-					cmd.Parameters.AddWithValue("@p1", tokenId);
-					using (SqlDataReader reader = cmd.ExecuteReader())
-					{
-						if (reader != null)
-						{
-							while (reader.Read())
-							{
-								//should only have 1 record
-								token = MappingToken(reader);
-							}
-						}
-					}
-				}
-			}
-
-			return token;
-		}
-
-
 		private List<Token> GetTokens(int customerId)
 		{
 			string sql =
@@ -309,6 +277,38 @@ namespace SpeechBasedGroceries.Parties.CRM
 			}
 
 			return tokens;
+		}
+
+
+		public Token GetTokenById(int tokenId)
+        {
+			string sql =
+				  GetSelectAllTokensStatement()
+				+ "WHERE t.f_tok_id = (@p1)";
+
+			Token token = null;
+
+			using (SqlConnection connection = this.getConnection())
+			{
+				connection.Open();
+				using (SqlCommand cmd = new SqlCommand(sql, connection))
+				{
+					cmd.Parameters.AddWithValue("@p1", tokenId);
+					using (SqlDataReader reader = cmd.ExecuteReader())
+					{
+						if (reader != null)
+						{
+							while (reader.Read())
+							{
+								//should only have 1 record
+								token = MappingToken(reader);
+							}
+						}
+					}
+				}
+			}
+
+			return token;
 		}
 
 

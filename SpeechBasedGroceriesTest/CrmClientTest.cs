@@ -82,7 +82,7 @@ namespace SpeechBasedGroceriesTest
                 TelegramId = 1000001
 			};
 
-			var c2 = this.crmClient.CreateUpdateCustomer(c1);
+            var c2 = this.crmClient.CreateUpdateCustomer(c1);
 			Assert.IsNotNull(c2);
 
 			c2.Firstname = "Boooob";
