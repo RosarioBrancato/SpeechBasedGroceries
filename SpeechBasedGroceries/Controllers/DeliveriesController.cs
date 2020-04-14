@@ -15,7 +15,7 @@ namespace SpeechBasedGroceries.Controllers
 	[ApiController]
 	public class DeliveriesController : ControllerBase
 	{
-
+        
 		private readonly ILogger<DeliveriesController> _logger;
 
 		public DeliveriesController(ILogger<DeliveriesController> logger)
@@ -31,22 +31,13 @@ namespace SpeechBasedGroceries.Controllers
 			// (does not represent a real use case)
 
 			LogisticsClient logisticsClient = new LogisticsClient();
-			List<Delivery> deliveries = new List<Delivery>();
-
-			if (Request.QueryString.HasValue) {
-				deliveries = logisticsClient.GetDeliveriesByQuery(
-                    Request.Query["customerId"].ToString(),
-                    Request.Query["date"].ToString()
-                    );
-			} else
-            { 
-				_logger.LogInformation("GetAll called...");
-				deliveries = logisticsClient.GetDeliveries();
-			};
-
+			List<Delivery> deliveries = logisticsClient.GetDeliveries();
+			
 			return deliveries.ToArray();
 		}
 
+		/* // NO LONGER IN USE
+         * 
 		[Obsolete("Deliveries should be queries api/{customerId}/deliveries/{deliveryId}")]
 		[HttpGet("{deliveryId}")]
 		public Delivery GetById(string deliveryId)
@@ -59,10 +50,7 @@ namespace SpeechBasedGroceries.Controllers
 			return delivery;
 		}
 
-
-
-
-
+        
         //// ----> see GetAll()
         
 		//[HttpGet()]
@@ -75,6 +63,7 @@ namespace SpeechBasedGroceries.Controllers
         //
 		//	return deliveries;
 		//}
-
+        *
+        */
 	}
 }

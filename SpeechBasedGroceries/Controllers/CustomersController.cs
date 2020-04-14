@@ -33,13 +33,12 @@ namespace SpeechBasedGroceries.Controllers
 			CrmClient crmClient = new CrmClient();
 			List<Customer> customers = crmClient.GetCustomers();
 
-
-
-
-
+            
 			return customers.ToArray();
 		}
 
+        /* // NO LONGER IN USE
+         * 
 		[HttpGet("{customerNo}")]
 		public Customer GetByNo(string customerId)
 		{
@@ -70,6 +69,7 @@ namespace SpeechBasedGroceries.Controllers
 			
 			return delivery;
 		}
-
+        *
+        */
 	}
 }
