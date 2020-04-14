@@ -41,8 +41,7 @@ namespace SpeechBasedGroceries.DTOs
 
         public Token GetFridigyToken()
         {
-            // TODO: why is casting required here?!
-            return (Token)Tokens.Find(t => t.Name == "Fridgy");
+            return Tokens.Find(t => t.Name == "Fridgy");
 		}
 
 	}

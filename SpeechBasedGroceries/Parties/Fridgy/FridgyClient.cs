@@ -16,6 +16,8 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 {
 	public class FridgyClient
 	{
+		private string token;
+
 		private readonly ILogger<FridgyClient> _logger;
 
 		private Microsoft.Rest.ServiceClientCredentials credentials;
@@ -23,11 +25,22 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 		private f.Fridgy client;
 
         // TODO: overload constructor with FridgyClient() (to be used for account creation)
-		public FridgyClient(string token)
+		public FridgyClient()
 		{
 			_logger = AppLoggerFactory.GetLogger<FridgyClient>();
-			credentials = new TokenCredentials(token);
-			client = new f.Fridgy(credentials);
+			// TODO: better way than give this dummy string to the credentials constructor
+			client = new f.Fridgy(new TokenCredentials("empty"));
+		}
+		public string Token
+		{
+			get { return token; }
+			set
+			{
+				token = value;
+				credentials = new TokenCredentials(value);
+				client = new f.Fridgy(credentials);
+
+			}
 		}
 
 		public IList<Product> GetProducts()

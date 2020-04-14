@@ -32,7 +32,7 @@ namespace SpeechBasedGroceries.Controllers
 			//TO-DO: load user token from CRM maybe?
 			string token = AppSettings.Instance.FridgyToken;
 
-			FridgyClient fridgyClient = new FridgyClient(token);
+			FridgyClient fridgyClient = new FridgyClient();
 
 			IList<Product> SwaggerProducts;
 			if (string.IsNullOrWhiteSpace(query))
@@ -53,7 +53,7 @@ namespace SpeechBasedGroceries.Controllers
 			_logger.LogInformation("Get(ById) called... Argument: id = " + barcode);
 
 			string token = AppSettings.Instance.FridgyToken;
-			FridgyClient fridgyClient = new FridgyClient(token);
+			FridgyClient fridgyClient = new FridgyClient();
 			Product product = fridgyClient.GetProductsByBarcode(barcode);
 			
 			return product;

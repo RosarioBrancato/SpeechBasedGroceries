@@ -1,6 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SpeechBasedGroceries.Parties.Fridgy;
+using SpeechBasedGroceries.Parties.Fridgy.Client.Models;
 using SpeechBasedGroceriesTest.Data;
+using System.Collections.Generic;
 
 namespace SpeechBasedGroceriesTest
 {
@@ -14,8 +16,7 @@ namespace SpeechBasedGroceriesTest
 		[TestInitialize]
 		public void Init()
 		{
-			string token = UnitTestData.Instance.FridgyToken;
-			this.fridgyClient = new FridgyClient(token);
+			this.fridgyClient = new FridgyClient();
 		}
 
 		[TestCleanup]
@@ -33,5 +34,17 @@ namespace SpeechBasedGroceriesTest
 
 			Assert.IsTrue(products.Count > 0);
 		}
+
+		[TestMethod]
+		public void TestGetFridges()
+		{
+			string token = UnitTestData.Instance.FridgyToken;
+			this.fridgyClient.Token = token;
+
+			IList<Fridge> fridges = this.fridgyClient.GetFridges();
+			Assert.IsTrue(fridges.Count > 0);
+		}
+
+		
 	}
 }
