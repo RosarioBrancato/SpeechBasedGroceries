@@ -40,7 +40,7 @@ namespace SpeechBasedGroceries.BusinessLogic.Tests
             JwtSecurityToken jwtToken = tokenHandler.ReadJwtToken(token.Value);
 
             Assert.IsTrue(tokenHandler.CanReadToken(token.Value));
-            Assert.AreEqual<DateTime>(default(DateTime), jwtToken.ValidTo);
+            Assert.AreEqual(default, jwtToken.ValidTo);
 
         }
     }

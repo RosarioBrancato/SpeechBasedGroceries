@@ -86,7 +86,7 @@ namespace SpeechBasedGroceriesTest
 			JwtSecurityToken jwtToken = tokenHandler.ReadJwtToken(token);
 
 			Assert.IsTrue(tokenHandler.CanReadToken(token));
-			Assert.AreEqual<DateTime>(default(DateTime), jwtToken.ValidTo);
+			Assert.AreEqual(default, jwtToken.ValidTo);
 		}
 		
 
