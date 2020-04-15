@@ -24,6 +24,10 @@ namespace SpeechBasedGroceries.AppServices
 			{
 				logger = factory.CreateLogger<T>();
 			}
+			else {
+				factory = new LoggerFactory();
+				logger = factory.CreateLogger<T>();
+			}
 
 			return logger;
 		}
