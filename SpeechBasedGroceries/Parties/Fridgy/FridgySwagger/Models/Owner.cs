@@ -9,24 +9,20 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class Paths2y9jddfridgesUuidOwnerspostrequestbodycontentapplicationJsonschema
+    public partial class Owner
     {
         /// <summary>
-        /// Initializes a new instance of the
-        /// Paths2y9jddfridgesUuidOwnerspostrequestbodycontentapplicationJsonschema
-        /// class.
+        /// Initializes a new instance of the Owner class.
         /// </summary>
-        public Paths2y9jddfridgesUuidOwnerspostrequestbodycontentapplicationJsonschema()
+        public Owner()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// Paths2y9jddfridgesUuidOwnerspostrequestbodycontentapplicationJsonschema
-        /// class.
+        /// Initializes a new instance of the Owner class.
         /// </summary>
-        public Paths2y9jddfridgesUuidOwnerspostrequestbodycontentapplicationJsonschema(System.Guid? uuid = default(System.Guid?))
+        public Owner(System.Guid? uuid = default(System.Guid?))
         {
             Uuid = uuid;
             CustomInit();

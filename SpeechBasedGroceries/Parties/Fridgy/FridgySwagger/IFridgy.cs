@@ -62,5 +62,10 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client
         /// </summary>
         IAdd Add { get; }
 
+        /// <summary>
+        /// Gets the ICheck.
+        /// </summary>
+        ICheck Check { get; }
+
     }
 }

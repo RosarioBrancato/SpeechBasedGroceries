@@ -233,5 +233,73 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client
                 }
             }
 
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='username'>
+            /// Filters a for a username
+            /// </param>
+            /// <param name='email'>
+            /// Filters a for an email
+            /// </param>
+            public static IList<User> UserMethod(this IGet operations, string username = default(string), string email = default(string))
+            {
+                return operations.UserMethodAsync(username, email).GetAwaiter().GetResult();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='username'>
+            /// Filters a for a username
+            /// </param>
+            /// <param name='email'>
+            /// Filters a for an email
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<IList<User>> UserMethodAsync(this IGet operations, string username = default(string), string email = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UserMethodWithHttpMessagesAsync(username, email, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Get user with this email address..
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='email'>
+            /// E-Mail address identifying the user
+            /// </param>
+            public static PublicUser Email(this IGet operations, string email)
+            {
+                return operations.EmailAsync(email).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get user with this email address..
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='email'>
+            /// E-Mail address identifying the user
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<PublicUser> EmailAsync(this IGet operations, string email, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.EmailWithHttpMessagesAsync(email, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
     }
 }

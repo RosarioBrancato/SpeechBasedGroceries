@@ -83,5 +83,39 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client
                 }
             }
 
+            /// <summary>
+            /// Register a new user.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='body'>
+            /// UUID of user that should be added as owner
+            /// </param>
+            public static User UserMethod(this ICreate operations, PostUser body)
+            {
+                return operations.UserMethodAsync(body).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Register a new user.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='body'>
+            /// UUID of user that should be added as owner
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<User> UserMethodAsync(this ICreate operations, PostUser body, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UserMethodWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
     }
 }

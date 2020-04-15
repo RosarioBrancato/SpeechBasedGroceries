@@ -70,7 +70,7 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client
             /// <param name='body'>
             /// Updated item.
             /// </param>
-            public static Item ItemMethod(this IUpdate operations, string uuid, string itemUuid, Paths1qz8pmtfridgesUuidItemsItemUuidputrequestbodycontentapplicationJsonschema body = default(Paths1qz8pmtfridgesUuidItemsItemUuidputrequestbodycontentapplicationJsonschema))
+            public static Item ItemMethod(this IUpdate operations, string uuid, string itemUuid, PutItem body = default(PutItem))
             {
                 return operations.ItemMethodAsync(uuid, itemUuid, body).GetAwaiter().GetResult();
             }
@@ -93,7 +93,7 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Item> ItemMethodAsync(this IUpdate operations, string uuid, string itemUuid, Paths1qz8pmtfridgesUuidItemsItemUuidputrequestbodycontentapplicationJsonschema body = default(Paths1qz8pmtfridgesUuidItemsItemUuidputrequestbodycontentapplicationJsonschema), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Item> ItemMethodAsync(this IUpdate operations, string uuid, string itemUuid, PutItem body = default(PutItem), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ItemMethodWithHttpMessagesAsync(uuid, itemUuid, body, null, cancellationToken).ConfigureAwait(false))
                 {

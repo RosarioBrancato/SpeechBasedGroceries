@@ -151,5 +151,36 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client
                 (await operations.FridgeMethod1WithHttpMessagesAsync(uuid, itemUuid, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
+            /// <summary>
+            /// Remove user.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='uuid'>
+            /// uuid identifying the user
+            /// </param>
+            public static void Users(this IDelete operations, string uuid)
+            {
+                operations.UsersAsync(uuid).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Remove user.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='uuid'>
+            /// uuid identifying the user
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task UsersAsync(this IDelete operations, string uuid, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.UsersWithHttpMessagesAsync(uuid, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
     }
 }

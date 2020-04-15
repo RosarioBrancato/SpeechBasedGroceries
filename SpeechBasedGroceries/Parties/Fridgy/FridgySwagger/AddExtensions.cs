@@ -27,7 +27,7 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client
             /// <param name='uuid'>
             /// UUID to identify a fridge
             /// </param>
-            public static Fridge Owners(this IAdd operations, Paths2y9jddfridgesUuidOwnerspostrequestbodycontentapplicationJsonschema body, string uuid)
+            public static Fridge Owners(this IAdd operations, Owner body, string uuid)
             {
                 return operations.OwnersAsync(body, uuid).GetAwaiter().GetResult();
             }
@@ -47,7 +47,7 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Fridge> OwnersAsync(this IAdd operations, Paths2y9jddfridgesUuidOwnerspostrequestbodycontentapplicationJsonschema body, string uuid, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Fridge> OwnersAsync(this IAdd operations, Owner body, string uuid, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.OwnersWithHttpMessagesAsync(body, uuid, null, cancellationToken).ConfigureAwait(false))
                 {

@@ -70,6 +70,6 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<Item>> ItemMethodWithHttpMessagesAsync(string uuid, string itemUuid, Paths1qz8pmtfridgesUuidItemsItemUuidputrequestbodycontentapplicationJsonschema body = default(Paths1qz8pmtfridgesUuidItemsItemUuidputrequestbodycontentapplicationJsonschema), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Item>> ItemMethodWithHttpMessagesAsync(string uuid, string itemUuid, PutItem body = default(PutItem), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

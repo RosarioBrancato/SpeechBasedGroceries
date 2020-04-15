@@ -66,6 +66,11 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client
         public virtual IAdd Add { get; private set; }
 
         /// <summary>
+        /// Gets the ICheck.
+        /// </summary>
+        public virtual ICheck Check { get; private set; }
+
+        /// <summary>
         /// Initializes a new instance of the Fridgy class.
         /// </summary>
         /// <param name='httpClient'>
@@ -311,6 +316,7 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client
             Delete = new Delete(this);
             Create = new Create(this);
             Add = new Add(this);
+            Check = new Check(this);
             BaseUri = new System.Uri("https://fridgy-api.herokuapp.com/api");
             SerializationSettings = new JsonSerializerSettings
             {

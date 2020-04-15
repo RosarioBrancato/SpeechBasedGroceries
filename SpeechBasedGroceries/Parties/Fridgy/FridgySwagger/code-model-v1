@@ -9,7 +9,7 @@
      "$id": "3",
      "isReadOnly": false,
      "realPath": [
-      "uuid"
+      "carbs"
      ],
      "collectionFormat": "none",
      "defaultValue": {
@@ -26,183 +26,16 @@
      "name": {
       "$id": "6",
       "fixed": false,
-      "raw": "uuid"
-     },
-     "serializedName": "uuid",
-     "modelType": {
-      "$id": "7",
-      "$type": "PrimaryType",
-      "format": "uuid",
-      "knownPrimaryType": "uuid",
-      "name": {
-       "$id": "8",
-       "fixed": false,
-       "raw": "Uuid"
-      },
-      "deprecated": false
-     }
-    }
-   ],
-   "serializedName": "paths·2y9jdd·fridges-uuid-owners·post·requestbody·content·application-json·schema",
-   "containsConstantProperties": false,
-   "name": {
-    "$id": "9",
-    "fixed": false,
-    "raw": "paths·2y9jdd·fridges-uuid-owners·post·requestbody·content·application-json·schema"
-   },
-   "extensions": {
-    "x-ms-metadata": {
-     "apiVersions": [
-      "1.0.0"
-     ],
-     "filename": [
-      "mem:///102?oai3.shaken.json"
-     ],
-     "name": "paths·2y9jdd·fridges-uuid-owners·post·requestbody·content·application-json·schema",
-     "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/paths·2y9jdd·fridges-uuid-owners·post·requestbody·content·application-json·schema"
-     ]
-    }
-   },
-   "deprecated": false
-  },
-  {
-   "$id": "10",
-   "$type": "CompositeType",
-   "properties": [
-    {
-     "$id": "11",
-     "isReadOnly": false,
-     "realPath": [
-      "expiry"
-     ],
-     "collectionFormat": "none",
-     "defaultValue": {
-      "$id": "12",
-      "fixed": false
-     },
-     "deprecated": false,
-     "documentation": {
-      "$id": "13",
-      "fixed": false
-     },
-     "isRequired": false,
-     "isConstant": false,
-     "name": {
-      "$id": "14",
-      "fixed": false,
-      "raw": "expiry"
-     },
-     "serializedName": "expiry",
-     "modelType": {
-      "$id": "15",
-      "$type": "PrimaryType",
-      "format": "date",
-      "knownPrimaryType": "date",
-      "name": {
-       "$id": "16",
-       "fixed": false,
-       "raw": "Date"
-      },
-      "deprecated": false
-     }
-    },
-    {
-     "$id": "17",
-     "isReadOnly": false,
-     "realPath": [
-      "qty"
-     ],
-     "collectionFormat": "none",
-     "defaultValue": {
-      "$id": "18",
-      "fixed": false
-     },
-     "deprecated": false,
-     "documentation": {
-      "$id": "19",
-      "fixed": false
-     },
-     "isRequired": false,
-     "isConstant": false,
-     "name": {
-      "$id": "20",
-      "fixed": false,
-      "raw": "qty"
-     },
-     "serializedName": "qty",
-     "modelType": {
-      "$id": "21",
-      "$type": "PrimaryType",
-      "format": "float",
-      "knownPrimaryType": "double",
-      "name": {
-       "$id": "22",
-       "fixed": false,
-       "raw": "Double"
-      },
-      "deprecated": false
-     }
-    }
-   ],
-   "serializedName": "paths·1qz8pmt·fridges-uuid-items-item_uuid·put·requestbody·content·application-json·schema",
-   "containsConstantProperties": false,
-   "name": {
-    "$id": "23",
-    "fixed": false,
-    "raw": "paths·1qz8pmt·fridges-uuid-items-item_uuid·put·requestbody·content·application-json·schema"
-   },
-   "extensions": {
-    "x-ms-metadata": {
-     "apiVersions": [
-      "1.0.0"
-     ],
-     "filename": [
-      "mem:///102?oai3.shaken.json"
-     ],
-     "name": "paths·1qz8pmt·fridges-uuid-items-item_uuid·put·requestbody·content·application-json·schema",
-     "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/paths·1qz8pmt·fridges-uuid-items-item_uuid·put·requestbody·content·application-json·schema"
-     ]
-    }
-   },
-   "deprecated": false
-  },
-  {
-   "$id": "24",
-   "$type": "CompositeType",
-   "properties": [
-    {
-     "$id": "25",
-     "isReadOnly": false,
-     "realPath": [
-      "carbs"
-     ],
-     "collectionFormat": "none",
-     "defaultValue": {
-      "$id": "26",
-      "fixed": false
-     },
-     "deprecated": false,
-     "documentation": {
-      "$id": "27",
-      "fixed": false
-     },
-     "isRequired": false,
-     "isConstant": false,
-     "name": {
-      "$id": "28",
-      "fixed": false,
       "raw": "carbs"
      },
      "serializedName": "carbs",
      "modelType": {
-      "$id": "29",
+      "$id": "7",
       "$type": "PrimaryType",
       "format": "float",
       "knownPrimaryType": "double",
       "name": {
-       "$id": "30",
+       "$id": "8",
        "fixed": false,
        "raw": "Double"
       },
@@ -210,36 +43,36 @@
      }
     },
     {
-     "$id": "31",
+     "$id": "9",
      "isReadOnly": false,
      "realPath": [
       "carbs_sugar"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "32",
+      "$id": "10",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "33",
+      "$id": "11",
       "fixed": false
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "34",
+      "$id": "12",
       "fixed": false,
       "raw": "carbs_sugar"
      },
      "serializedName": "carbs_sugar",
      "modelType": {
-      "$id": "35",
+      "$id": "13",
       "$type": "PrimaryType",
       "format": "float",
       "knownPrimaryType": "double",
       "name": {
-       "$id": "36",
+       "$id": "14",
        "fixed": false,
        "raw": "Double"
       },
@@ -247,35 +80,35 @@
      }
     },
     {
-     "$id": "37",
+     "$id": "15",
      "isReadOnly": false,
      "realPath": [
       "energy_kcal"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "38",
+      "$id": "16",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "39",
+      "$id": "17",
       "fixed": false
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "40",
+      "$id": "18",
       "fixed": false,
       "raw": "energy_kcal"
      },
      "serializedName": "energy_kcal",
      "modelType": {
-      "$id": "41",
+      "$id": "19",
       "$type": "PrimaryType",
       "knownPrimaryType": "int",
       "name": {
-       "$id": "42",
+       "$id": "20",
        "fixed": false,
        "raw": "Int"
       },
@@ -283,36 +116,36 @@
      }
     },
     {
-     "$id": "43",
+     "$id": "21",
      "isReadOnly": false,
      "realPath": [
       "fat"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "44",
+      "$id": "22",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "45",
+      "$id": "23",
       "fixed": false
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "46",
+      "$id": "24",
       "fixed": false,
       "raw": "fat"
      },
      "serializedName": "fat",
      "modelType": {
-      "$id": "47",
+      "$id": "25",
       "$type": "PrimaryType",
       "format": "float",
       "knownPrimaryType": "double",
       "name": {
-       "$id": "48",
+       "$id": "26",
        "fixed": false,
        "raw": "Double"
       },
@@ -320,36 +153,36 @@
      }
     },
     {
-     "$id": "49",
+     "$id": "27",
      "isReadOnly": false,
      "realPath": [
       "fat_saturated"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "50",
+      "$id": "28",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "51",
+      "$id": "29",
       "fixed": false
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "52",
+      "$id": "30",
       "fixed": false,
       "raw": "fat_saturated"
      },
      "serializedName": "fat_saturated",
      "modelType": {
-      "$id": "53",
+      "$id": "31",
       "$type": "PrimaryType",
       "format": "float",
       "knownPrimaryType": "double",
       "name": {
-       "$id": "54",
+       "$id": "32",
        "fixed": false,
        "raw": "Double"
       },
@@ -357,36 +190,36 @@
      }
     },
     {
-     "$id": "55",
+     "$id": "33",
      "isReadOnly": false,
      "realPath": [
       "fiber"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "56",
+      "$id": "34",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "57",
+      "$id": "35",
       "fixed": false
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "58",
+      "$id": "36",
       "fixed": false,
       "raw": "fiber"
      },
      "serializedName": "fiber",
      "modelType": {
-      "$id": "59",
+      "$id": "37",
       "$type": "PrimaryType",
       "format": "float",
       "knownPrimaryType": "double",
       "name": {
-       "$id": "60",
+       "$id": "38",
        "fixed": false,
        "raw": "Double"
       },
@@ -394,36 +227,36 @@
      }
     },
     {
-     "$id": "61",
+     "$id": "39",
      "isReadOnly": false,
      "realPath": [
       "protein"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "62",
+      "$id": "40",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "63",
+      "$id": "41",
       "fixed": false
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "64",
+      "$id": "42",
       "fixed": false,
       "raw": "protein"
      },
      "serializedName": "protein",
      "modelType": {
-      "$id": "65",
+      "$id": "43",
       "$type": "PrimaryType",
       "format": "float",
       "knownPrimaryType": "double",
       "name": {
-       "$id": "66",
+       "$id": "44",
        "fixed": false,
        "raw": "Double"
       },
@@ -431,36 +264,36 @@
      }
     },
     {
-     "$id": "67",
+     "$id": "45",
      "isReadOnly": false,
      "realPath": [
       "salt"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "68",
+      "$id": "46",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "69",
+      "$id": "47",
       "fixed": false
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "70",
+      "$id": "48",
       "fixed": false,
       "raw": "salt"
      },
      "serializedName": "salt",
      "modelType": {
-      "$id": "71",
+      "$id": "49",
       "$type": "PrimaryType",
       "format": "float",
       "knownPrimaryType": "double",
       "name": {
-       "$id": "72",
+       "$id": "50",
        "fixed": false,
        "raw": "Double"
       },
@@ -468,19 +301,19 @@
      }
     },
     {
-     "$id": "73",
+     "$id": "51",
      "isReadOnly": false,
      "realPath": [
       "nutrientbase"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "74",
+      "$id": "52",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "75",
+      "$id": "53",
       "fixed": false
      },
      "extensions": {
@@ -493,29 +326,29 @@
        ],
        "name": "BaseProduct-nutrient-nutrientbase",
        "originalLocations": [
-        "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/BaseProduct-nutrient-nutrientbase"
+        "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/BaseProduct-nutrient-nutrientbase"
        ]
       }
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "76",
+      "$id": "54",
       "fixed": false,
       "raw": "nutrientbase"
      },
      "serializedName": "nutrientbase",
      "modelType": {
-      "$id": "77",
+      "$id": "55",
       "$type": "EnumType",
       "values": [
        {
-        "$id": "78",
+        "$id": "56",
         "name": "hundred_gramm",
         "serializedName": "hundred_gramm"
        },
        {
-        "$id": "79",
+        "$id": "57",
         "name": "hundred_milliliter",
         "serializedName": "hundred_milliliter"
        }
@@ -523,18 +356,18 @@
       "oldModelAsString": false,
       "modelAsString": true,
       "underlyingType": {
-       "$id": "80",
+       "$id": "58",
        "$type": "PrimaryType",
        "knownPrimaryType": "string",
        "name": {
-        "$id": "81",
+        "$id": "59",
         "fixed": false,
         "raw": "String"
        },
        "deprecated": false
       },
       "name": {
-       "$id": "82",
+       "$id": "60",
        "fixed": false,
        "raw": ""
       },
@@ -545,7 +378,7 @@
    "serializedName": "BaseProduct-nutrient",
    "containsConstantProperties": false,
    "name": {
-    "$id": "83",
+    "$id": "61",
     "fixed": false,
     "raw": "BaseProduct-nutrient"
    },
@@ -559,46 +392,46 @@
      ],
      "name": "BaseProduct-nutrient",
      "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/BaseProduct-nutrient"
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/BaseProduct-nutrient"
      ]
     }
    },
    "deprecated": false
   },
   {
-   "$id": "84",
+   "$id": "62",
    "$type": "CompositeType",
    "properties": [
     {
-     "$id": "85",
+     "$id": "63",
      "isReadOnly": false,
      "realPath": [
       "name"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "86",
+      "$id": "64",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "87",
+      "$id": "65",
       "fixed": false
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "88",
+      "$id": "66",
       "fixed": false,
       "raw": "name"
      },
      "serializedName": "name",
      "modelType": {
-      "$id": "89",
+      "$id": "67",
       "$type": "PrimaryType",
       "knownPrimaryType": "string",
       "name": {
-       "$id": "90",
+       "$id": "68",
        "fixed": false,
        "raw": "String"
       },
@@ -606,35 +439,35 @@
      }
     },
     {
-     "$id": "91",
+     "$id": "69",
      "isReadOnly": false,
      "realPath": [
       "description"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "92",
+      "$id": "70",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "93",
+      "$id": "71",
       "fixed": false
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "94",
+      "$id": "72",
       "fixed": false,
       "raw": "description"
      },
      "serializedName": "description",
      "modelType": {
-      "$id": "95",
+      "$id": "73",
       "$type": "PrimaryType",
       "knownPrimaryType": "string",
       "name": {
-       "$id": "96",
+       "$id": "74",
        "fixed": false,
        "raw": "String"
       },
@@ -642,35 +475,35 @@
      }
     },
     {
-     "$id": "97",
+     "$id": "75",
      "isReadOnly": false,
      "realPath": [
       "barcode"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "98",
+      "$id": "76",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "99",
+      "$id": "77",
       "fixed": false
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "100",
+      "$id": "78",
       "fixed": false,
       "raw": "barcode"
      },
      "serializedName": "barcode",
      "modelType": {
-      "$id": "101",
+      "$id": "79",
       "$type": "PrimaryType",
       "knownPrimaryType": "string",
       "name": {
-       "$id": "102",
+       "$id": "80",
        "fixed": false,
        "raw": "String"
       },
@@ -678,36 +511,36 @@
      }
     },
     {
-     "$id": "103",
+     "$id": "81",
      "isReadOnly": false,
      "realPath": [
       "qty"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "104",
+      "$id": "82",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "105",
+      "$id": "83",
       "fixed": false
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "106",
+      "$id": "84",
       "fixed": false,
       "raw": "qty"
      },
      "serializedName": "qty",
      "modelType": {
-      "$id": "107",
+      "$id": "85",
       "$type": "PrimaryType",
       "format": "int64",
       "knownPrimaryType": "long",
       "name": {
-       "$id": "108",
+       "$id": "86",
        "fixed": false,
        "raw": "Long"
       },
@@ -715,19 +548,19 @@
      }
     },
     {
-     "$id": "109",
+     "$id": "87",
      "isReadOnly": false,
      "realPath": [
       "qty_type"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "110",
+      "$id": "88",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "111",
+      "$id": "89",
       "fixed": false
      },
      "extensions": {
@@ -740,34 +573,34 @@
        ],
        "name": "BaseProduct-qty_type",
        "originalLocations": [
-        "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/BaseProduct-qty_type"
+        "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/BaseProduct-qty_type"
        ]
       }
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "112",
+      "$id": "90",
       "fixed": false,
       "raw": "qty_type"
      },
      "serializedName": "qty_type",
      "modelType": {
-      "$id": "113",
+      "$id": "91",
       "$type": "EnumType",
       "values": [
        {
-        "$id": "114",
+        "$id": "92",
         "name": "gramm",
         "serializedName": "gramm"
        },
        {
-        "$id": "115",
+        "$id": "93",
         "name": "milliliter",
         "serializedName": "milliliter"
        },
        {
-        "$id": "116",
+        "$id": "94",
         "name": "pieces",
         "serializedName": "pieces"
        }
@@ -775,18 +608,18 @@
       "oldModelAsString": false,
       "modelAsString": true,
       "underlyingType": {
-       "$id": "117",
+       "$id": "95",
        "$type": "PrimaryType",
        "knownPrimaryType": "string",
        "name": {
-        "$id": "118",
+        "$id": "96",
         "fixed": false,
         "raw": "String"
        },
        "deprecated": false
       },
       "name": {
-       "$id": "119",
+       "$id": "97",
        "fixed": false,
        "raw": ""
       },
@@ -794,35 +627,35 @@
      }
     },
     {
-     "$id": "120",
+     "$id": "98",
      "isReadOnly": false,
      "realPath": [
       "imgurl"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "121",
+      "$id": "99",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "122",
+      "$id": "100",
       "fixed": false
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "123",
+      "$id": "101",
       "fixed": false,
       "raw": "imgurl"
      },
      "serializedName": "imgurl",
      "modelType": {
-      "$id": "124",
+      "$id": "102",
       "$type": "PrimaryType",
       "knownPrimaryType": "string",
       "name": {
-       "$id": "125",
+       "$id": "103",
        "fixed": false,
        "raw": "String"
       },
@@ -830,38 +663,38 @@
      }
     },
     {
-     "$id": "126",
+     "$id": "104",
      "isReadOnly": false,
      "realPath": [
       "nutrient"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "127",
+      "$id": "105",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "128",
+      "$id": "106",
       "fixed": false
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "129",
+      "$id": "107",
       "fixed": false,
       "raw": "nutrient"
      },
      "serializedName": "nutrient",
      "modelType": {
-      "$ref": "24"
+      "$ref": "2"
      }
     }
    ],
    "serializedName": "BaseProduct",
    "containsConstantProperties": false,
    "name": {
-    "$id": "130",
+    "$id": "108",
     "fixed": false,
     "raw": "BaseProduct"
    },
@@ -875,46 +708,46 @@
      ],
      "name": "BaseProduct",
      "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/BaseProduct"
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/BaseProduct"
      ]
     }
    },
    "deprecated": false
   },
   {
-   "$id": "131",
+   "$id": "109",
    "$type": "CompositeType",
    "properties": [
     {
-     "$id": "132",
+     "$id": "110",
      "isReadOnly": false,
      "realPath": [
       "category"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "133",
+      "$id": "111",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "134",
+      "$id": "112",
       "fixed": false
      },
      "isRequired": true,
      "isConstant": false,
      "name": {
-      "$id": "135",
+      "$id": "113",
       "fixed": false,
       "raw": "category"
      },
      "serializedName": "category",
      "modelType": {
-      "$id": "136",
+      "$id": "114",
       "$type": "PrimaryType",
       "knownPrimaryType": "string",
       "name": {
-       "$id": "137",
+       "$id": "115",
        "fixed": false,
        "raw": "String"
       },
@@ -924,11 +757,11 @@
    ],
    "serializedName": "CreateProduct",
    "baseModelType": {
-    "$ref": "84"
+    "$ref": "62"
    },
    "containsConstantProperties": false,
    "name": {
-    "$id": "138",
+    "$id": "116",
     "fixed": false,
     "raw": "CreateProduct"
    },
@@ -942,46 +775,46 @@
      ],
      "name": "CreateProduct",
      "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/CreateProduct"
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/CreateProduct"
      ]
     }
    },
    "deprecated": false
   },
   {
-   "$id": "139",
+   "$id": "117",
    "$type": "CompositeType",
    "properties": [
     {
-     "$id": "140",
+     "$id": "118",
      "isReadOnly": false,
      "realPath": [
       "name"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "141",
+      "$id": "119",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "142",
+      "$id": "120",
       "fixed": false
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "143",
+      "$id": "121",
       "fixed": false,
       "raw": "name"
      },
      "serializedName": "name",
      "modelType": {
-      "$id": "144",
+      "$id": "122",
       "$type": "PrimaryType",
       "knownPrimaryType": "string",
       "name": {
-       "$id": "145",
+       "$id": "123",
        "fixed": false,
        "raw": "String"
       },
@@ -989,35 +822,35 @@
      }
     },
     {
-     "$id": "146",
+     "$id": "124",
      "isReadOnly": false,
      "realPath": [
       "slug"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "147",
+      "$id": "125",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "148",
+      "$id": "126",
       "fixed": false
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "149",
+      "$id": "127",
       "fixed": false,
       "raw": "slug"
      },
      "serializedName": "slug",
      "modelType": {
-      "$id": "150",
+      "$id": "128",
       "$type": "PrimaryType",
       "knownPrimaryType": "string",
       "name": {
-       "$id": "151",
+       "$id": "129",
        "fixed": false,
        "raw": "String"
       },
@@ -1028,7 +861,7 @@
    "serializedName": "Category",
    "containsConstantProperties": false,
    "name": {
-    "$id": "152",
+    "$id": "130",
     "fixed": false,
     "raw": "Category"
    },
@@ -1042,47 +875,47 @@
      ],
      "name": "Category",
      "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/Category"
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/Category"
      ]
     }
    },
    "deprecated": false
   },
   {
-   "$id": "153",
+   "$id": "131",
    "$type": "CompositeType",
    "properties": [
     {
-     "$id": "154",
+     "$id": "132",
      "isReadOnly": false,
      "realPath": [
       "id"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "155",
+      "$id": "133",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "156",
+      "$id": "134",
       "fixed": false
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "157",
+      "$id": "135",
       "fixed": false,
       "raw": "id"
      },
      "serializedName": "id",
      "modelType": {
-      "$id": "158",
+      "$id": "136",
       "$type": "PrimaryType",
       "format": "uuid",
       "knownPrimaryType": "uuid",
       "name": {
-       "$id": "159",
+       "$id": "137",
        "fixed": false,
        "raw": "Uuid"
       },
@@ -1090,35 +923,35 @@
      }
     },
     {
-     "$id": "160",
+     "$id": "138",
      "isReadOnly": false,
      "realPath": [
       "creator"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "161",
+      "$id": "139",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "162",
+      "$id": "140",
       "fixed": false
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "163",
+      "$id": "141",
       "fixed": false,
       "raw": "creator"
      },
      "serializedName": "creator",
      "modelType": {
-      "$id": "164",
+      "$id": "142",
       "$type": "PrimaryType",
       "knownPrimaryType": "string",
       "name": {
-       "$id": "165",
+       "$id": "143",
        "fixed": false,
        "raw": "String"
       },
@@ -1126,41 +959,41 @@
      }
     },
     {
-     "$id": "166",
+     "$id": "144",
      "isReadOnly": false,
      "realPath": [
       "category"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "167",
+      "$id": "145",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "168",
+      "$id": "146",
       "fixed": false
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "169",
+      "$id": "147",
       "fixed": false,
       "raw": "category"
      },
      "serializedName": "category",
      "modelType": {
-      "$ref": "139"
+      "$ref": "117"
      }
     }
    ],
    "serializedName": "Product",
    "baseModelType": {
-    "$ref": "84"
+    "$ref": "62"
    },
    "containsConstantProperties": false,
    "name": {
-    "$id": "170",
+    "$id": "148",
     "fixed": false,
     "raw": "Product"
    },
@@ -1174,7 +1007,172 @@
      ],
      "name": "Product",
      "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/Product"
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/Product"
+     ]
+    }
+   },
+   "deprecated": false
+  },
+  {
+   "$id": "149",
+   "$type": "CompositeType",
+   "properties": [
+    {
+     "$id": "150",
+     "isReadOnly": false,
+     "realPath": [
+      "name"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "151",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "152",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "153",
+      "fixed": false,
+      "raw": "name"
+     },
+     "serializedName": "name",
+     "modelType": {
+      "$id": "154",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "155",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    }
+   ],
+   "serializedName": "BaseFridge",
+   "containsConstantProperties": false,
+   "name": {
+    "$id": "156",
+    "fixed": false,
+    "raw": "BaseFridge"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "1.0.0"
+     ],
+     "filename": [
+      "mem:///102?oai3.shaken.json"
+     ],
+     "name": "BaseFridge",
+     "originalLocations": [
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/BaseFridge"
+     ]
+    }
+   },
+   "deprecated": false
+  },
+  {
+   "$id": "157",
+   "$type": "CompositeType",
+   "properties": [
+    {
+     "$id": "158",
+     "isReadOnly": false,
+     "realPath": [
+      "uuid"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "159",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "160",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "161",
+      "fixed": false,
+      "raw": "uuid"
+     },
+     "serializedName": "uuid",
+     "modelType": {
+      "$id": "162",
+      "$type": "PrimaryType",
+      "format": "uuid",
+      "knownPrimaryType": "uuid",
+      "name": {
+       "$id": "163",
+       "fixed": false,
+       "raw": "Uuid"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "164",
+     "isReadOnly": false,
+     "realPath": [
+      "displayname"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "165",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "166",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "167",
+      "fixed": false,
+      "raw": "displayname"
+     },
+     "serializedName": "displayname",
+     "modelType": {
+      "$id": "168",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "169",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    }
+   ],
+   "serializedName": "PublicUser",
+   "containsConstantProperties": false,
+   "name": {
+    "$id": "170",
+    "fixed": false,
+    "raw": "PublicUser"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "1.0.0"
+     ],
+     "filename": [
+      "mem:///102?oai3.shaken.json"
+     ],
+     "name": "PublicUser",
+     "originalLocations": [
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/PublicUser"
      ]
     }
    },
@@ -1188,7 +1186,7 @@
      "$id": "172",
      "isReadOnly": false,
      "realPath": [
-      "name"
+      "owner"
      ],
      "collectionFormat": "none",
      "defaultValue": {
@@ -1205,223 +1203,58 @@
      "name": {
       "$id": "175",
       "fixed": false,
-      "raw": "name"
-     },
-     "serializedName": "name",
-     "modelType": {
-      "$id": "176",
-      "$type": "PrimaryType",
-      "knownPrimaryType": "string",
-      "name": {
-       "$id": "177",
-       "fixed": false,
-       "raw": "String"
-      },
-      "deprecated": false
-     }
-    }
-   ],
-   "serializedName": "BaseFridge",
-   "containsConstantProperties": false,
-   "name": {
-    "$id": "178",
-    "fixed": false,
-    "raw": "BaseFridge"
-   },
-   "extensions": {
-    "x-ms-metadata": {
-     "apiVersions": [
-      "1.0.0"
-     ],
-     "filename": [
-      "mem:///102?oai3.shaken.json"
-     ],
-     "name": "BaseFridge",
-     "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/BaseFridge"
-     ]
-    }
-   },
-   "deprecated": false
-  },
-  {
-   "$id": "179",
-   "$type": "CompositeType",
-   "properties": [
-    {
-     "$id": "180",
-     "isReadOnly": false,
-     "realPath": [
-      "uuid"
-     ],
-     "collectionFormat": "none",
-     "defaultValue": {
-      "$id": "181",
-      "fixed": false
-     },
-     "deprecated": false,
-     "documentation": {
-      "$id": "182",
-      "fixed": false
-     },
-     "isRequired": false,
-     "isConstant": false,
-     "name": {
-      "$id": "183",
-      "fixed": false,
-      "raw": "uuid"
-     },
-     "serializedName": "uuid",
-     "modelType": {
-      "$id": "184",
-      "$type": "PrimaryType",
-      "format": "uuid",
-      "knownPrimaryType": "uuid",
-      "name": {
-       "$id": "185",
-       "fixed": false,
-       "raw": "Uuid"
-      },
-      "deprecated": false
-     }
-    },
-    {
-     "$id": "186",
-     "isReadOnly": false,
-     "realPath": [
-      "displayname"
-     ],
-     "collectionFormat": "none",
-     "defaultValue": {
-      "$id": "187",
-      "fixed": false
-     },
-     "deprecated": false,
-     "documentation": {
-      "$id": "188",
-      "fixed": false
-     },
-     "isRequired": false,
-     "isConstant": false,
-     "name": {
-      "$id": "189",
-      "fixed": false,
-      "raw": "displayname"
-     },
-     "serializedName": "displayname",
-     "modelType": {
-      "$id": "190",
-      "$type": "PrimaryType",
-      "knownPrimaryType": "string",
-      "name": {
-       "$id": "191",
-       "fixed": false,
-       "raw": "String"
-      },
-      "deprecated": false
-     }
-    }
-   ],
-   "serializedName": "PublicUser",
-   "containsConstantProperties": false,
-   "name": {
-    "$id": "192",
-    "fixed": false,
-    "raw": "PublicUser"
-   },
-   "extensions": {
-    "x-ms-metadata": {
-     "apiVersions": [
-      "1.0.0"
-     ],
-     "filename": [
-      "mem:///102?oai3.shaken.json"
-     ],
-     "name": "PublicUser",
-     "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/PublicUser"
-     ]
-    }
-   },
-   "deprecated": false
-  },
-  {
-   "$id": "193",
-   "$type": "CompositeType",
-   "properties": [
-    {
-     "$id": "194",
-     "isReadOnly": false,
-     "realPath": [
-      "owner"
-     ],
-     "collectionFormat": "none",
-     "defaultValue": {
-      "$id": "195",
-      "fixed": false
-     },
-     "deprecated": false,
-     "documentation": {
-      "$id": "196",
-      "fixed": false
-     },
-     "isRequired": false,
-     "isConstant": false,
-     "name": {
-      "$id": "197",
-      "fixed": false,
       "raw": "owner"
      },
      "serializedName": "owner",
      "modelType": {
-      "$id": "198",
+      "$id": "176",
       "$type": "SequenceType",
       "elementType": {
-       "$ref": "179"
+       "$ref": "157"
       },
       "name": {
-       "$id": "199",
+       "$id": "177",
        "fixed": false
       },
       "deprecated": false
      }
     },
     {
-     "$id": "200",
+     "$id": "178",
      "isReadOnly": false,
      "realPath": [
       "creator"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "201",
+      "$id": "179",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "202",
+      "$id": "180",
       "fixed": false
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "203",
+      "$id": "181",
       "fixed": false,
       "raw": "creator"
      },
      "serializedName": "creator",
      "modelType": {
-      "$ref": "179"
+      "$ref": "157"
      }
     }
    ],
    "serializedName": "Fridge",
    "baseModelType": {
-    "$ref": "171"
+    "$ref": "149"
    },
    "containsConstantProperties": false,
    "name": {
-    "$id": "204",
+    "$id": "182",
     "fixed": false,
     "raw": "Fridge"
    },
@@ -1435,46 +1268,46 @@
      ],
      "name": "Fridge",
      "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/Fridge"
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/Fridge"
      ]
     }
    },
    "deprecated": false
   },
   {
-   "$id": "205",
+   "$id": "183",
    "$type": "CompositeType",
    "properties": [
     {
-     "$id": "206",
+     "$id": "184",
      "isReadOnly": false,
      "realPath": [
-      "barcode"
+      "email"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "207",
+      "$id": "185",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "208",
+      "$id": "186",
       "fixed": false
      },
-     "isRequired": true,
+     "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "209",
+      "$id": "187",
       "fixed": false,
-      "raw": "barcode"
+      "raw": "email"
      },
-     "serializedName": "barcode",
+     "serializedName": "email",
      "modelType": {
-      "$id": "210",
+      "$id": "188",
       "$type": "PrimaryType",
       "knownPrimaryType": "string",
       "name": {
-       "$id": "211",
+       "$id": "189",
        "fixed": false,
        "raw": "String"
       },
@@ -1482,86 +1315,87 @@
      }
     },
     {
-     "$id": "212",
+     "$id": "190",
      "isReadOnly": false,
      "realPath": [
-      "expiry"
+      "isadmin"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "213",
+      "$id": "191",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "214",
+      "$id": "192",
       "fixed": false
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "215",
+      "$id": "193",
       "fixed": false,
-      "raw": "expiry"
+      "raw": "isadmin"
      },
-     "serializedName": "expiry",
+     "serializedName": "isadmin",
      "modelType": {
-      "$id": "216",
+      "$id": "194",
       "$type": "PrimaryType",
-      "format": "date",
-      "knownPrimaryType": "date",
+      "knownPrimaryType": "boolean",
       "name": {
-       "$id": "217",
+       "$id": "195",
        "fixed": false,
-       "raw": "Date"
+       "raw": "Boolean"
       },
       "deprecated": false
      }
     },
     {
-     "$id": "218",
+     "$id": "196",
      "isReadOnly": false,
      "realPath": [
-      "qty"
+      "username"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "219",
+      "$id": "197",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "220",
+      "$id": "198",
       "fixed": false
      },
-     "isRequired": true,
+     "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "221",
+      "$id": "199",
       "fixed": false,
-      "raw": "qty"
+      "raw": "username"
      },
-     "serializedName": "qty",
+     "serializedName": "username",
      "modelType": {
-      "$id": "222",
+      "$id": "200",
       "$type": "PrimaryType",
-      "format": "float",
-      "knownPrimaryType": "double",
+      "knownPrimaryType": "string",
       "name": {
-       "$id": "223",
+       "$id": "201",
        "fixed": false,
-       "raw": "Double"
+       "raw": "String"
       },
       "deprecated": false
      }
     }
    ],
-   "serializedName": "BaseItem",
+   "serializedName": "User",
+   "baseModelType": {
+    "$ref": "157"
+   },
    "containsConstantProperties": false,
    "name": {
-    "$id": "224",
+    "$id": "202",
     "fixed": false,
-    "raw": "BaseItem"
+    "raw": "User"
    },
    "extensions": {
     "x-ms-metadata": {
@@ -1571,97 +1405,260 @@
      "filename": [
       "mem:///102?oai3.shaken.json"
      ],
-     "name": "BaseItem",
+     "name": "User",
      "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/BaseItem"
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/User"
      ]
     }
    },
    "deprecated": false
   },
   {
-   "$id": "225",
+   "$id": "203",
    "$type": "CompositeType",
    "properties": [
     {
-     "$id": "226",
+     "$id": "204",
      "isReadOnly": false,
      "realPath": [
-      "fridge"
+      "username"
      ],
      "collectionFormat": "none",
      "defaultValue": {
-      "$id": "227",
+      "$id": "205",
       "fixed": false
      },
      "deprecated": false,
      "documentation": {
-      "$id": "228",
+      "$id": "206",
       "fixed": false
      },
      "isRequired": false,
      "isConstant": false,
      "name": {
-      "$id": "229",
+      "$id": "207",
       "fixed": false,
-      "raw": "fridge"
+      "raw": "username"
      },
-     "serializedName": "fridge",
+     "serializedName": "username",
      "modelType": {
-      "$id": "230",
+      "$id": "208",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "209",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "210",
+     "isReadOnly": false,
+     "realPath": [
+      "email"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "211",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "212",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "213",
+      "fixed": false,
+      "raw": "email"
+     },
+     "serializedName": "email",
+     "modelType": {
+      "$id": "214",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "215",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "216",
+     "isReadOnly": false,
+     "realPath": [
+      "password"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "217",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "218",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "219",
+      "fixed": false,
+      "raw": "password"
+     },
+     "serializedName": "password",
+     "modelType": {
+      "$id": "220",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "221",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "222",
+     "isReadOnly": false,
+     "realPath": [
+      "displayname"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "223",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "224",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "225",
+      "fixed": false,
+      "raw": "displayname"
+     },
+     "serializedName": "displayname",
+     "modelType": {
+      "$id": "226",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "227",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    }
+   ],
+   "serializedName": "PostUser",
+   "containsConstantProperties": false,
+   "name": {
+    "$id": "228",
+    "fixed": false,
+    "raw": "PostUser"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "1.0.0"
+     ],
+     "filename": [
+      "mem:///102?oai3.shaken.json"
+     ],
+     "name": "PostUser",
+     "originalLocations": [
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/PostUser"
+     ]
+    }
+   },
+   "deprecated": false
+  },
+  {
+   "$id": "229",
+   "$type": "CompositeType",
+   "properties": [
+    {
+     "$id": "230",
+     "isReadOnly": false,
+     "realPath": [
+      "uuid"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "231",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "232",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "233",
+      "fixed": false,
+      "raw": "uuid"
+     },
+     "serializedName": "uuid",
+     "modelType": {
+      "$id": "234",
       "$type": "PrimaryType",
       "format": "uuid",
       "knownPrimaryType": "uuid",
       "name": {
-       "$id": "231",
+       "$id": "235",
        "fixed": false,
        "raw": "Uuid"
       },
       "deprecated": false
      }
-    },
-    {
-     "$id": "232",
-     "isReadOnly": false,
-     "realPath": [
-      "created"
+    }
+   ],
+   "serializedName": "Owner",
+   "containsConstantProperties": false,
+   "name": {
+    "$id": "236",
+    "fixed": false,
+    "raw": "Owner"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "1.0.0"
      ],
-     "collectionFormat": "none",
-     "defaultValue": {
-      "$id": "233",
-      "fixed": false
-     },
-     "deprecated": false,
-     "documentation": {
-      "$id": "234",
-      "fixed": false
-     },
-     "isRequired": false,
-     "isConstant": false,
-     "name": {
-      "$id": "235",
-      "fixed": false,
-      "raw": "created"
-     },
-     "serializedName": "created",
-     "modelType": {
-      "$id": "236",
-      "$type": "PrimaryType",
-      "format": "date",
-      "knownPrimaryType": "date",
-      "name": {
-       "$id": "237",
-       "fixed": false,
-       "raw": "Date"
-      },
-      "deprecated": false
-     }
-    },
+     "filename": [
+      "mem:///102?oai3.shaken.json"
+     ],
+     "name": "Owner",
+     "originalLocations": [
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/Owner"
+     ]
+    }
+   },
+   "deprecated": false
+  },
+  {
+   "$id": "237",
+   "$type": "CompositeType",
+   "properties": [
     {
      "$id": "238",
      "isReadOnly": false,
      "realPath": [
-      "initQty"
+      "barcode"
      ],
      "collectionFormat": "none",
      "defaultValue": {
@@ -1673,23 +1670,22 @@
       "$id": "240",
       "fixed": false
      },
-     "isRequired": false,
+     "isRequired": true,
      "isConstant": false,
      "name": {
       "$id": "241",
       "fixed": false,
-      "raw": "initQty"
+      "raw": "barcode"
      },
-     "serializedName": "initQty",
+     "serializedName": "barcode",
      "modelType": {
       "$id": "242",
       "$type": "PrimaryType",
-      "format": "float",
-      "knownPrimaryType": "double",
+      "knownPrimaryType": "string",
       "name": {
        "$id": "243",
        "fixed": false,
-       "raw": "Double"
+       "raw": "String"
       },
       "deprecated": false
      }
@@ -1698,7 +1694,7 @@
      "$id": "244",
      "isReadOnly": false,
      "realPath": [
-      "id"
+      "expiry"
      ],
      "collectionFormat": "none",
      "defaultValue": {
@@ -1715,32 +1711,66 @@
      "name": {
       "$id": "247",
       "fixed": false,
-      "raw": "id"
+      "raw": "expiry"
      },
-     "serializedName": "id",
+     "serializedName": "expiry",
      "modelType": {
       "$id": "248",
       "$type": "PrimaryType",
-      "format": "uuid",
-      "knownPrimaryType": "uuid",
+      "format": "date",
+      "knownPrimaryType": "date",
       "name": {
        "$id": "249",
        "fixed": false,
-       "raw": "Uuid"
+       "raw": "Date"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "250",
+     "isReadOnly": false,
+     "realPath": [
+      "qty"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "251",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "252",
+      "fixed": false
+     },
+     "isRequired": true,
+     "isConstant": false,
+     "name": {
+      "$id": "253",
+      "fixed": false,
+      "raw": "qty"
+     },
+     "serializedName": "qty",
+     "modelType": {
+      "$id": "254",
+      "$type": "PrimaryType",
+      "format": "float",
+      "knownPrimaryType": "double",
+      "name": {
+       "$id": "255",
+       "fixed": false,
+       "raw": "Double"
       },
       "deprecated": false
      }
     }
    ],
-   "serializedName": "Item",
-   "baseModelType": {
-    "$ref": "205"
-   },
+   "serializedName": "BaseItem",
    "containsConstantProperties": false,
    "name": {
-    "$id": "250",
+    "$id": "256",
     "fixed": false,
-    "raw": "Item"
+    "raw": "BaseItem"
    },
    "extensions": {
     "x-ms-metadata": {
@@ -1750,60 +1780,23 @@
      "filename": [
       "mem:///102?oai3.shaken.json"
      ],
-     "name": "Item",
+     "name": "BaseItem",
      "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/Item"
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/BaseItem"
      ]
     }
    },
    "deprecated": false
   },
   {
-   "$id": "251",
+   "$id": "257",
    "$type": "CompositeType",
    "properties": [
-    {
-     "$id": "252",
-     "isReadOnly": false,
-     "realPath": [
-      "code"
-     ],
-     "collectionFormat": "none",
-     "defaultValue": {
-      "$id": "253",
-      "fixed": false
-     },
-     "deprecated": false,
-     "documentation": {
-      "$id": "254",
-      "fixed": false
-     },
-     "isRequired": false,
-     "isConstant": false,
-     "name": {
-      "$id": "255",
-      "fixed": false,
-      "raw": "code"
-     },
-     "serializedName": "code",
-     "modelType": {
-      "$id": "256",
-      "$type": "PrimaryType",
-      "format": "int32",
-      "knownPrimaryType": "int",
-      "name": {
-       "$id": "257",
-       "fixed": false,
-       "raw": "Int"
-      },
-      "deprecated": false
-     }
-    },
     {
      "$id": "258",
      "isReadOnly": false,
      "realPath": [
-      "type"
+      "fridge"
      ],
      "collectionFormat": "none",
      "defaultValue": {
@@ -1820,17 +1813,18 @@
      "name": {
       "$id": "261",
       "fixed": false,
-      "raw": "type"
+      "raw": "fridge"
      },
-     "serializedName": "type",
+     "serializedName": "fridge",
      "modelType": {
       "$id": "262",
       "$type": "PrimaryType",
-      "knownPrimaryType": "string",
+      "format": "uuid",
+      "knownPrimaryType": "uuid",
       "name": {
        "$id": "263",
        "fixed": false,
-       "raw": "String"
+       "raw": "Uuid"
       },
       "deprecated": false
      }
@@ -1839,7 +1833,7 @@
      "$id": "264",
      "isReadOnly": false,
      "realPath": [
-      "message"
+      "created"
      ],
      "collectionFormat": "none",
      "defaultValue": {
@@ -1856,15 +1850,332 @@
      "name": {
       "$id": "267",
       "fixed": false,
+      "raw": "created"
+     },
+     "serializedName": "created",
+     "modelType": {
+      "$id": "268",
+      "$type": "PrimaryType",
+      "format": "date",
+      "knownPrimaryType": "date",
+      "name": {
+       "$id": "269",
+       "fixed": false,
+       "raw": "Date"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "270",
+     "isReadOnly": false,
+     "realPath": [
+      "initQty"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "271",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "272",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "273",
+      "fixed": false,
+      "raw": "initQty"
+     },
+     "serializedName": "initQty",
+     "modelType": {
+      "$id": "274",
+      "$type": "PrimaryType",
+      "format": "float",
+      "knownPrimaryType": "double",
+      "name": {
+       "$id": "275",
+       "fixed": false,
+       "raw": "Double"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "276",
+     "isReadOnly": false,
+     "realPath": [
+      "id"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "277",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "278",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "279",
+      "fixed": false,
+      "raw": "id"
+     },
+     "serializedName": "id",
+     "modelType": {
+      "$id": "280",
+      "$type": "PrimaryType",
+      "format": "uuid",
+      "knownPrimaryType": "uuid",
+      "name": {
+       "$id": "281",
+       "fixed": false,
+       "raw": "Uuid"
+      },
+      "deprecated": false
+     }
+    }
+   ],
+   "serializedName": "Item",
+   "baseModelType": {
+    "$ref": "237"
+   },
+   "containsConstantProperties": false,
+   "name": {
+    "$id": "282",
+    "fixed": false,
+    "raw": "Item"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "1.0.0"
+     ],
+     "filename": [
+      "mem:///102?oai3.shaken.json"
+     ],
+     "name": "Item",
+     "originalLocations": [
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/Item"
+     ]
+    }
+   },
+   "deprecated": false
+  },
+  {
+   "$id": "283",
+   "$type": "CompositeType",
+   "properties": [
+    {
+     "$id": "284",
+     "isReadOnly": false,
+     "realPath": [
+      "expiry"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "285",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "286",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "287",
+      "fixed": false,
+      "raw": "expiry"
+     },
+     "serializedName": "expiry",
+     "modelType": {
+      "$id": "288",
+      "$type": "PrimaryType",
+      "format": "date",
+      "knownPrimaryType": "date",
+      "name": {
+       "$id": "289",
+       "fixed": false,
+       "raw": "Date"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "290",
+     "isReadOnly": false,
+     "realPath": [
+      "qty"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "291",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "292",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "293",
+      "fixed": false,
+      "raw": "qty"
+     },
+     "serializedName": "qty",
+     "modelType": {
+      "$id": "294",
+      "$type": "PrimaryType",
+      "format": "float",
+      "knownPrimaryType": "double",
+      "name": {
+       "$id": "295",
+       "fixed": false,
+       "raw": "Double"
+      },
+      "deprecated": false
+     }
+    }
+   ],
+   "serializedName": "PutItem",
+   "containsConstantProperties": false,
+   "name": {
+    "$id": "296",
+    "fixed": false,
+    "raw": "PutItem"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "1.0.0"
+     ],
+     "filename": [
+      "mem:///102?oai3.shaken.json"
+     ],
+     "name": "PutItem",
+     "originalLocations": [
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/PutItem"
+     ]
+    }
+   },
+   "deprecated": false
+  },
+  {
+   "$id": "297",
+   "$type": "CompositeType",
+   "properties": [
+    {
+     "$id": "298",
+     "isReadOnly": false,
+     "realPath": [
+      "code"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "299",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "300",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "301",
+      "fixed": false,
+      "raw": "code"
+     },
+     "serializedName": "code",
+     "modelType": {
+      "$id": "302",
+      "$type": "PrimaryType",
+      "format": "int32",
+      "knownPrimaryType": "int",
+      "name": {
+       "$id": "303",
+       "fixed": false,
+       "raw": "Int"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "304",
+     "isReadOnly": false,
+     "realPath": [
+      "type"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "305",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "306",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "307",
+      "fixed": false,
+      "raw": "type"
+     },
+     "serializedName": "type",
+     "modelType": {
+      "$id": "308",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "309",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "310",
+     "isReadOnly": false,
+     "realPath": [
+      "message"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "311",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "312",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "313",
+      "fixed": false,
       "raw": "message"
      },
      "serializedName": "message",
      "modelType": {
-      "$id": "268",
+      "$id": "314",
       "$type": "PrimaryType",
       "knownPrimaryType": "string",
       "name": {
-       "$id": "269",
+       "$id": "315",
        "fixed": false,
        "raw": "String"
       },
@@ -1875,7 +2186,7 @@
    "serializedName": "ApiResponse",
    "containsConstantProperties": false,
    "name": {
-    "$id": "270",
+    "$id": "316",
     "fixed": false,
     "raw": "ApiResponse"
    },
@@ -1889,7 +2200,7 @@
      ],
      "name": "ApiResponse",
      "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/ApiResponse"
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/ApiResponse"
      ]
     }
    },
@@ -1904,19 +2215,19 @@
  "documentation": "This is the API endpoint documentation from the Fridgy web app.",
  "properties": [
   {
-   "$id": "271",
+   "$id": "317",
    "isReadOnly": false,
    "realPath": [
     "barcode"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "272",
+    "$id": "318",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "273",
+    "$id": "319",
     "fixed": false,
     "raw": "Barcode used as unique identifier to find product"
    },
@@ -1930,7 +2241,7 @@
      ],
      "name": "paths·dulps·products-barcode·parameters·0",
      "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·dulps·products-barcode·parameters·0"
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·dulps·products-barcode·parameters·0"
      ]
     },
     "x-ms-parameter-location": "method"
@@ -1938,17 +2249,17 @@
    "isRequired": true,
    "isConstant": false,
    "name": {
-    "$id": "274",
+    "$id": "320",
     "fixed": false,
     "raw": "barcode"
    },
    "serializedName": "barcode",
    "modelType": {
-    "$id": "275",
+    "$id": "321",
     "$type": "PrimaryType",
     "knownPrimaryType": "string",
     "name": {
-     "$id": "276",
+     "$id": "322",
      "fixed": false,
      "raw": "String"
     },
@@ -1956,19 +2267,19 @@
    }
   },
   {
-   "$id": "277",
+   "$id": "323",
    "isReadOnly": false,
    "realPath": [
     "sort_by"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "278",
+    "$id": "324",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "279",
+    "$id": "325",
     "fixed": false,
     "raw": "The sorting of the result. e.g. name.asc, id.desc"
    },
@@ -1982,7 +2293,7 @@
      ],
      "name": "paths·tnopcr·products·get·parameters·0",
      "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·tnopcr·products·get·parameters·0"
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·tnopcr·products·get·parameters·0"
      ]
     },
     "x-ms-parameter-location": "method"
@@ -1990,17 +2301,17 @@
    "isRequired": false,
    "isConstant": false,
    "name": {
-    "$id": "280",
+    "$id": "326",
     "fixed": false,
     "raw": "sort_by"
    },
    "serializedName": "sort_by",
    "modelType": {
-    "$id": "281",
+    "$id": "327",
     "$type": "PrimaryType",
     "knownPrimaryType": "string",
     "name": {
-     "$id": "282",
+     "$id": "328",
      "fixed": false,
      "raw": "String"
     },
@@ -2008,19 +2319,19 @@
    }
   },
   {
-   "$id": "283",
+   "$id": "329",
    "isReadOnly": false,
    "realPath": [
     "query"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "284",
+    "$id": "330",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "285",
+    "$id": "331",
     "fixed": false,
     "raw": "Filter applied to the name and description of the products."
    },
@@ -2034,7 +2345,7 @@
      ],
      "name": "paths·1oapxk9·products·get·parameters·1",
      "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1oapxk9·products·get·parameters·1"
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1oapxk9·products·get·parameters·1"
      ]
     },
     "x-ms-parameter-location": "method"
@@ -2042,17 +2353,17 @@
    "isRequired": false,
    "isConstant": false,
    "name": {
-    "$id": "286",
+    "$id": "332",
     "fixed": false,
     "raw": "query"
    },
    "serializedName": "query",
    "modelType": {
-    "$id": "287",
+    "$id": "333",
     "$type": "PrimaryType",
     "knownPrimaryType": "string",
     "name": {
-     "$id": "288",
+     "$id": "334",
      "fixed": false,
      "raw": "String"
     },
@@ -2060,19 +2371,19 @@
    }
   },
   {
-   "$id": "289",
+   "$id": "335",
    "isReadOnly": false,
    "realPath": [
     "uuid"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "290",
+    "$id": "336",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "291",
+    "$id": "337",
     "fixed": false,
     "raw": "UUID to identify a fridge"
    },
@@ -2086,7 +2397,7 @@
      ],
      "name": "paths·1udjitn·fridges-uuid·parameters·0",
      "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1udjitn·fridges-uuid·parameters·0"
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1udjitn·fridges-uuid·parameters·0"
      ]
     },
     "x-ms-parameter-location": "method"
@@ -2094,17 +2405,17 @@
    "isRequired": true,
    "isConstant": false,
    "name": {
-    "$id": "292",
+    "$id": "338",
     "fixed": false,
     "raw": "uuid"
    },
    "serializedName": "uuid",
    "modelType": {
-    "$id": "293",
+    "$id": "339",
     "$type": "PrimaryType",
     "knownPrimaryType": "string",
     "name": {
-     "$id": "294",
+     "$id": "340",
      "fixed": false,
      "raw": "String"
     },
@@ -2112,19 +2423,19 @@
    }
   },
   {
-   "$id": "295",
+   "$id": "341",
    "isReadOnly": false,
    "realPath": [
     "uuid"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "296",
+    "$id": "342",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "297",
+    "$id": "343",
     "fixed": false,
     "raw": "UUID to identify a fridge"
    },
@@ -2138,7 +2449,7 @@
      ],
      "name": "paths·1q7e5mp·fridges-uuid-owners·parameters·0",
      "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1q7e5mp·fridges-uuid-owners·parameters·0"
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1q7e5mp·fridges-uuid-owners·parameters·0"
      ]
     },
     "x-ms-parameter-location": "method"
@@ -2146,17 +2457,17 @@
    "isRequired": true,
    "isConstant": false,
    "name": {
-    "$id": "298",
+    "$id": "344",
     "fixed": false,
     "raw": "Uuid1"
    },
    "serializedName": "uuid",
    "modelType": {
-    "$id": "299",
+    "$id": "345",
     "$type": "PrimaryType",
     "knownPrimaryType": "string",
     "name": {
-     "$id": "300",
+     "$id": "346",
      "fixed": false,
      "raw": "String"
     },
@@ -2164,19 +2475,19 @@
    }
   },
   {
-   "$id": "301",
+   "$id": "347",
    "isReadOnly": false,
    "realPath": [
     "uuid"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "302",
+    "$id": "348",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "303",
+    "$id": "349",
     "fixed": false,
     "raw": "UUID to identify a fridge"
    },
@@ -2190,7 +2501,7 @@
      ],
      "name": "paths·1kuc89n·fridges-uuid-owners-user_uuid·parameters·0",
      "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1kuc89n·fridges-uuid-owners-user_uuid·parameters·0"
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1kuc89n·fridges-uuid-owners-user_uuid·parameters·0"
      ]
     },
     "x-ms-parameter-location": "method"
@@ -2198,17 +2509,17 @@
    "isRequired": true,
    "isConstant": false,
    "name": {
-    "$id": "304",
+    "$id": "350",
     "fixed": false,
     "raw": "Uuid2"
    },
    "serializedName": "uuid",
    "modelType": {
-    "$id": "305",
+    "$id": "351",
     "$type": "PrimaryType",
     "knownPrimaryType": "string",
     "name": {
-     "$id": "306",
+     "$id": "352",
      "fixed": false,
      "raw": "String"
     },
@@ -2216,19 +2527,19 @@
    }
   },
   {
-   "$id": "307",
+   "$id": "353",
    "isReadOnly": false,
    "realPath": [
     "user_uuid"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "308",
+    "$id": "354",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "309",
+    "$id": "355",
     "fixed": false,
     "raw": "UUID of user"
    },
@@ -2242,7 +2553,7 @@
      ],
      "name": "paths·oywp6b·fridges-uuid-owners-user_uuid·parameters·1",
      "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·oywp6b·fridges-uuid-owners-user_uuid·parameters·1"
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·oywp6b·fridges-uuid-owners-user_uuid·parameters·1"
      ]
     },
     "x-ms-parameter-location": "method"
@@ -2250,17 +2561,17 @@
    "isRequired": true,
    "isConstant": false,
    "name": {
-    "$id": "310",
+    "$id": "356",
     "fixed": false,
     "raw": "user_uuid"
    },
    "serializedName": "user_uuid",
    "modelType": {
-    "$id": "311",
+    "$id": "357",
     "$type": "PrimaryType",
     "knownPrimaryType": "string",
     "name": {
-     "$id": "312",
+     "$id": "358",
      "fixed": false,
      "raw": "String"
     },
@@ -2268,19 +2579,19 @@
    }
   },
   {
-   "$id": "313",
+   "$id": "359",
    "isReadOnly": false,
    "realPath": [
     "uuid"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "314",
+    "$id": "360",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "315",
+    "$id": "361",
     "fixed": false,
     "raw": "UUID to identify a fridge"
    },
@@ -2294,7 +2605,7 @@
      ],
      "name": "paths·18rdfo·fridges-uuid-items·parameters·0",
      "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·18rdfo·fridges-uuid-items·parameters·0"
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·18rdfo·fridges-uuid-items·parameters·0"
      ]
     },
     "x-ms-parameter-location": "method"
@@ -2302,17 +2613,17 @@
    "isRequired": true,
    "isConstant": false,
    "name": {
-    "$id": "316",
+    "$id": "362",
     "fixed": false,
     "raw": "Uuid3"
    },
    "serializedName": "uuid",
    "modelType": {
-    "$id": "317",
+    "$id": "363",
     "$type": "PrimaryType",
     "knownPrimaryType": "string",
     "name": {
-     "$id": "318",
+     "$id": "364",
      "fixed": false,
      "raw": "String"
     },
@@ -2320,19 +2631,19 @@
    }
   },
   {
-   "$id": "319",
+   "$id": "365",
    "isReadOnly": false,
    "realPath": [
     "uuid"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "320",
+    "$id": "366",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "321",
+    "$id": "367",
     "fixed": false,
     "raw": "UUID to identify a fridge"
    },
@@ -2346,7 +2657,7 @@
      ],
      "name": "paths·3x1ps5·fridges-uuid-items-item_uuid·parameters·0",
      "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·3x1ps5·fridges-uuid-items-item_uuid·parameters·0"
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·3x1ps5·fridges-uuid-items-item_uuid·parameters·0"
      ]
     },
     "x-ms-parameter-location": "method"
@@ -2354,17 +2665,17 @@
    "isRequired": true,
    "isConstant": false,
    "name": {
-    "$id": "322",
+    "$id": "368",
     "fixed": false,
     "raw": "Uuid4"
    },
    "serializedName": "uuid",
    "modelType": {
-    "$id": "323",
+    "$id": "369",
     "$type": "PrimaryType",
     "knownPrimaryType": "string",
     "name": {
-     "$id": "324",
+     "$id": "370",
      "fixed": false,
      "raw": "String"
     },
@@ -2372,19 +2683,19 @@
    }
   },
   {
-   "$id": "325",
+   "$id": "371",
    "isReadOnly": false,
    "realPath": [
     "item_uuid"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "326",
+    "$id": "372",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "327",
+    "$id": "373",
     "fixed": false,
     "raw": "UUID of item"
    },
@@ -2398,7 +2709,7 @@
      ],
      "name": "paths·1kiwl5a·fridges-uuid-items-item_uuid·parameters·1",
      "originalLocations": [
-      "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1kiwl5a·fridges-uuid-items-item_uuid·parameters·1"
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1kiwl5a·fridges-uuid-items-item_uuid·parameters·1"
      ]
     },
     "x-ms-parameter-location": "method"
@@ -2406,17 +2717,329 @@
    "isRequired": true,
    "isConstant": false,
    "name": {
-    "$id": "328",
+    "$id": "374",
     "fixed": false,
     "raw": "item_uuid"
    },
    "serializedName": "item_uuid",
    "modelType": {
-    "$id": "329",
+    "$id": "375",
     "$type": "PrimaryType",
     "knownPrimaryType": "string",
     "name": {
-     "$id": "330",
+     "$id": "376",
+     "fixed": false,
+     "raw": "String"
+    },
+    "deprecated": false
+   }
+  },
+  {
+   "$id": "377",
+   "isReadOnly": false,
+   "realPath": [
+    "username"
+   ],
+   "collectionFormat": "none",
+   "defaultValue": {
+    "$id": "378",
+    "fixed": false
+   },
+   "deprecated": false,
+   "documentation": {
+    "$id": "379",
+    "fixed": false,
+    "raw": "Filters a for a username"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "1.0.0"
+     ],
+     "filename": [
+      "mem:///102?oai3.shaken.json"
+     ],
+     "name": "paths·nkseku·users·head·parameters·0",
+     "originalLocations": [
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·nkseku·users·head·parameters·0"
+     ]
+    },
+    "x-ms-parameter-location": "method"
+   },
+   "isRequired": false,
+   "isConstant": false,
+   "name": {
+    "$id": "380",
+    "fixed": false,
+    "raw": "username"
+   },
+   "serializedName": "username",
+   "modelType": {
+    "$id": "381",
+    "$type": "PrimaryType",
+    "knownPrimaryType": "string",
+    "name": {
+     "$id": "382",
+     "fixed": false,
+     "raw": "String"
+    },
+    "deprecated": false
+   }
+  },
+  {
+   "$id": "383",
+   "isReadOnly": false,
+   "realPath": [
+    "email"
+   ],
+   "collectionFormat": "none",
+   "defaultValue": {
+    "$id": "384",
+    "fixed": false
+   },
+   "deprecated": false,
+   "documentation": {
+    "$id": "385",
+    "fixed": false,
+    "raw": "Filters a for an email"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "1.0.0"
+     ],
+     "filename": [
+      "mem:///102?oai3.shaken.json"
+     ],
+     "name": "paths·d9fslz·users·head·parameters·1",
+     "originalLocations": [
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·d9fslz·users·head·parameters·1"
+     ]
+    },
+    "x-ms-parameter-location": "method"
+   },
+   "isRequired": false,
+   "isConstant": false,
+   "name": {
+    "$id": "386",
+    "fixed": false,
+    "raw": "email"
+   },
+   "serializedName": "email",
+   "modelType": {
+    "$id": "387",
+    "$type": "PrimaryType",
+    "knownPrimaryType": "string",
+    "name": {
+     "$id": "388",
+     "fixed": false,
+     "raw": "String"
+    },
+    "deprecated": false
+   }
+  },
+  {
+   "$id": "389",
+   "isReadOnly": false,
+   "realPath": [
+    "username"
+   ],
+   "collectionFormat": "none",
+   "defaultValue": {
+    "$id": "390",
+    "fixed": false
+   },
+   "deprecated": false,
+   "documentation": {
+    "$id": "391",
+    "fixed": false,
+    "raw": "Filters a for a username"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "1.0.0"
+     ],
+     "filename": [
+      "mem:///102?oai3.shaken.json"
+     ],
+     "name": "paths·5iwl8j·users·get·parameters·0",
+     "originalLocations": [
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·5iwl8j·users·get·parameters·0"
+     ]
+    },
+    "x-ms-parameter-location": "method"
+   },
+   "isRequired": false,
+   "isConstant": false,
+   "name": {
+    "$id": "392",
+    "fixed": false,
+    "raw": "Username1"
+   },
+   "serializedName": "username",
+   "modelType": {
+    "$id": "393",
+    "$type": "PrimaryType",
+    "knownPrimaryType": "string",
+    "name": {
+     "$id": "394",
+     "fixed": false,
+     "raw": "String"
+    },
+    "deprecated": false
+   }
+  },
+  {
+   "$id": "395",
+   "isReadOnly": false,
+   "realPath": [
+    "email"
+   ],
+   "collectionFormat": "none",
+   "defaultValue": {
+    "$id": "396",
+    "fixed": false
+   },
+   "deprecated": false,
+   "documentation": {
+    "$id": "397",
+    "fixed": false,
+    "raw": "Filters a for an email"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "1.0.0"
+     ],
+     "filename": [
+      "mem:///102?oai3.shaken.json"
+     ],
+     "name": "paths·1umxab4·users·get·parameters·1",
+     "originalLocations": [
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1umxab4·users·get·parameters·1"
+     ]
+    },
+    "x-ms-parameter-location": "method"
+   },
+   "isRequired": false,
+   "isConstant": false,
+   "name": {
+    "$id": "398",
+    "fixed": false,
+    "raw": "Email1"
+   },
+   "serializedName": "email",
+   "modelType": {
+    "$id": "399",
+    "$type": "PrimaryType",
+    "knownPrimaryType": "string",
+    "name": {
+     "$id": "400",
+     "fixed": false,
+     "raw": "String"
+    },
+    "deprecated": false
+   }
+  },
+  {
+   "$id": "401",
+   "isReadOnly": false,
+   "realPath": [
+    "email"
+   ],
+   "collectionFormat": "none",
+   "defaultValue": {
+    "$id": "402",
+    "fixed": false
+   },
+   "deprecated": false,
+   "documentation": {
+    "$id": "403",
+    "fixed": false,
+    "raw": "E-Mail address identifying the user"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "1.0.0"
+     ],
+     "filename": [
+      "mem:///102?oai3.shaken.json"
+     ],
+     "name": "paths·1jh5c57·users-email-email·parameters·0",
+     "originalLocations": [
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1jh5c57·users-email-email·parameters·0"
+     ]
+    },
+    "x-ms-parameter-location": "method"
+   },
+   "isRequired": true,
+   "isConstant": false,
+   "name": {
+    "$id": "404",
+    "fixed": false,
+    "raw": "Email2"
+   },
+   "serializedName": "email",
+   "modelType": {
+    "$id": "405",
+    "$type": "PrimaryType",
+    "knownPrimaryType": "string",
+    "name": {
+     "$id": "406",
+     "fixed": false,
+     "raw": "String"
+    },
+    "deprecated": false
+   }
+  },
+  {
+   "$id": "407",
+   "isReadOnly": false,
+   "realPath": [
+    "uuid"
+   ],
+   "collectionFormat": "none",
+   "defaultValue": {
+    "$id": "408",
+    "fixed": false
+   },
+   "deprecated": false,
+   "documentation": {
+    "$id": "409",
+    "fixed": false,
+    "raw": "uuid identifying the user"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "1.0.0"
+     ],
+     "filename": [
+      "mem:///102?oai3.shaken.json"
+     ],
+     "name": "paths·12jg5xe·users-uuid·parameters·0",
+     "originalLocations": [
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·12jg5xe·users-uuid·parameters·0"
+     ]
+    },
+    "x-ms-parameter-location": "method"
+   },
+   "isRequired": true,
+   "isConstant": false,
+   "name": {
+    "$id": "410",
+    "fixed": false,
+    "raw": "Uuid5"
+   },
+   "serializedName": "uuid",
+   "modelType": {
+    "$id": "411",
+    "$type": "PrimaryType",
+    "knownPrimaryType": "string",
+    "name": {
+     "$id": "412",
      "fixed": false,
      "raw": "String"
     },
@@ -2426,25 +3049,25 @@
  ],
  "operations": [
   {
-   "$id": "331",
+   "$id": "413",
    "methods": [
     {
-     "$id": "332",
+     "$id": "414",
      "parameters": [
       {
-       "$id": "333",
+       "$id": "415",
        "clientProperty": {
-        "$ref": "271"
+        "$ref": "317"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "334",
+        "$id": "416",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "335",
+        "$id": "417",
         "fixed": false,
         "raw": "Barcode used as unique identifier to find product"
        },
@@ -2458,7 +3081,7 @@
          ],
          "name": "paths·dulps·products-barcode·parameters·0",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·dulps·products-barcode·parameters·0"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·dulps·products-barcode·parameters·0"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -2466,17 +3089,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "336",
+        "$id": "418",
         "fixed": false,
         "raw": "barcode"
        },
        "serializedName": "barcode",
        "modelType": {
-        "$id": "337",
+        "$id": "419",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "338",
+         "$id": "420",
          "fixed": false,
          "raw": "String"
         },
@@ -2485,12 +3108,12 @@
       }
      ],
      "name": {
-      "$id": "339",
+      "$id": "421",
       "fixed": false,
       "raw": "barcode"
      },
      "group": {
-      "$id": "340",
+      "$id": "422",
       "fixed": false,
       "raw": "get"
      },
@@ -2500,12 +3123,12 @@
      "httpMethod": "get",
      "responses": {
       "OK": {
-       "$id": "341",
+       "$id": "423",
        "body": {
-        "$ref": "153"
+        "$ref": "131"
        },
        "extensions": {
-        "$id": "342",
+        "$id": "424",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -2515,16 +3138,16 @@
          ],
          "name": "paths·1m178oc·products-barcode·get·responses·200",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1m178oc·products-barcode·get·responses·200"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1m178oc·products-barcode·get·responses·200"
          ]
         }
        },
        "isNullable": true
       },
       "NotFound": {
-       "$id": "343",
+       "$id": "425",
        "extensions": {
-        "$id": "344",
+        "$id": "426",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -2534,7 +3157,7 @@
          ],
          "name": "paths·9pz5c4·products-barcode·get·responses·404",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·9pz5c4·products-barcode·get·responses·404"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·9pz5c4·products-barcode·get·responses·404"
          ]
         }
        },
@@ -2542,13 +3165,13 @@
       }
      },
      "defaultResponse": {
-      "$id": "345",
+      "$id": "427",
       "isNullable": true
      },
      "returnType": {
-      "$id": "346",
+      "$id": "428",
       "body": {
-       "$ref": "153"
+       "$ref": "131"
       },
       "isNullable": true
      },
@@ -2572,22 +3195,22 @@
      "hidden": false
     },
     {
-     "$id": "347",
+     "$id": "429",
      "parameters": [
       {
-       "$id": "348",
+       "$id": "430",
        "clientProperty": {
-        "$ref": "277"
+        "$ref": "323"
        },
        "location": "query",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "349",
+        "$id": "431",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "350",
+        "$id": "432",
         "fixed": false,
         "raw": "The sorting of the result. e.g. name.asc, id.desc"
        },
@@ -2601,7 +3224,7 @@
          ],
          "name": "paths·tnopcr·products·get·parameters·0",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·tnopcr·products·get·parameters·0"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·tnopcr·products·get·parameters·0"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -2609,17 +3232,17 @@
        "isRequired": false,
        "isConstant": false,
        "name": {
-        "$id": "351",
+        "$id": "433",
         "fixed": false,
         "raw": "sort_by"
        },
        "serializedName": "sort_by",
        "modelType": {
-        "$id": "352",
+        "$id": "434",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "353",
+         "$id": "435",
          "fixed": false,
          "raw": "String"
         },
@@ -2627,19 +3250,19 @@
        }
       },
       {
-       "$id": "354",
+       "$id": "436",
        "clientProperty": {
-        "$ref": "283"
+        "$ref": "329"
        },
        "location": "query",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "355",
+        "$id": "437",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "356",
+        "$id": "438",
         "fixed": false,
         "raw": "Filter applied to the name and description of the products."
        },
@@ -2653,7 +3276,7 @@
          ],
          "name": "paths·1oapxk9·products·get·parameters·1",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1oapxk9·products·get·parameters·1"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1oapxk9·products·get·parameters·1"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -2661,17 +3284,17 @@
        "isRequired": false,
        "isConstant": false,
        "name": {
-        "$id": "357",
+        "$id": "439",
         "fixed": false,
         "raw": "query"
        },
        "serializedName": "query",
        "modelType": {
-        "$id": "358",
+        "$id": "440",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "359",
+         "$id": "441",
          "fixed": false,
          "raw": "String"
         },
@@ -2680,12 +3303,12 @@
       }
      ],
      "name": {
-      "$id": "360",
+      "$id": "442",
       "fixed": false,
       "raw": "products"
      },
      "group": {
-      "$id": "361",
+      "$id": "443",
       "fixed": false,
       "raw": "get"
      },
@@ -2695,21 +3318,21 @@
      "httpMethod": "get",
      "responses": {
       "OK": {
-       "$id": "362",
+       "$id": "444",
        "body": {
-        "$id": "363",
+        "$id": "445",
         "$type": "SequenceType",
         "elementType": {
-         "$ref": "153"
+         "$ref": "131"
         },
         "name": {
-         "$id": "364",
+         "$id": "446",
          "fixed": false
         },
         "deprecated": false
        },
        "extensions": {
-        "$id": "365",
+        "$id": "447",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -2719,7 +3342,7 @@
          ],
          "name": "paths·1qqtw82·products·get·responses·200",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1qqtw82·products·get·responses·200"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1qqtw82·products·get·responses·200"
          ]
         }
        },
@@ -2727,13 +3350,13 @@
       }
      },
      "defaultResponse": {
-      "$id": "366",
+      "$id": "448",
       "isNullable": true
      },
      "returnType": {
-      "$id": "367",
+      "$id": "449",
       "body": {
-       "$ref": "363"
+       "$ref": "445"
       },
       "isNullable": true
      },
@@ -2757,14 +3380,14 @@
      "hidden": false
     },
     {
-     "$id": "368",
+     "$id": "450",
      "name": {
-      "$id": "369",
+      "$id": "451",
       "fixed": false,
       "raw": "fridges"
      },
      "group": {
-      "$id": "370",
+      "$id": "452",
       "fixed": false,
       "raw": "get"
      },
@@ -2774,21 +3397,21 @@
      "httpMethod": "get",
      "responses": {
       "OK": {
-       "$id": "371",
+       "$id": "453",
        "body": {
-        "$id": "372",
+        "$id": "454",
         "$type": "SequenceType",
         "elementType": {
-         "$ref": "193"
+         "$ref": "171"
         },
         "name": {
-         "$id": "373",
+         "$id": "455",
          "fixed": false
         },
         "deprecated": false
        },
        "extensions": {
-        "$id": "374",
+        "$id": "456",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -2798,7 +3421,7 @@
          ],
          "name": "paths·1co3u6y·fridges·get·responses·200",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1co3u6y·fridges·get·responses·200"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1co3u6y·fridges·get·responses·200"
          ]
         }
        },
@@ -2806,13 +3429,13 @@
       }
      },
      "defaultResponse": {
-      "$id": "375",
+      "$id": "457",
       "isNullable": true
      },
      "returnType": {
-      "$id": "376",
+      "$id": "458",
       "body": {
-       "$ref": "372"
+       "$ref": "454"
       },
       "isNullable": true
      },
@@ -2839,22 +3462,22 @@
      "hidden": false
     },
     {
-     "$id": "377",
+     "$id": "459",
      "parameters": [
       {
-       "$id": "378",
+       "$id": "460",
        "clientProperty": {
-        "$ref": "289"
+        "$ref": "335"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "379",
+        "$id": "461",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "380",
+        "$id": "462",
         "fixed": false,
         "raw": "UUID to identify a fridge"
        },
@@ -2868,7 +3491,7 @@
          ],
          "name": "paths·1udjitn·fridges-uuid·parameters·0",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1udjitn·fridges-uuid·parameters·0"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1udjitn·fridges-uuid·parameters·0"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -2876,17 +3499,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "381",
+        "$id": "463",
         "fixed": false,
         "raw": "uuid"
        },
        "serializedName": "uuid",
        "modelType": {
-        "$id": "382",
+        "$id": "464",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "383",
+         "$id": "465",
          "fixed": false,
          "raw": "String"
         },
@@ -2895,12 +3518,12 @@
       }
      ],
      "name": {
-      "$id": "384",
+      "$id": "466",
       "fixed": false,
       "raw": "uuid"
      },
      "group": {
-      "$id": "385",
+      "$id": "467",
       "fixed": false,
       "raw": "get"
      },
@@ -2910,12 +3533,12 @@
      "httpMethod": "get",
      "responses": {
       "OK": {
-       "$id": "386",
+       "$id": "468",
        "body": {
-        "$ref": "193"
+        "$ref": "171"
        },
        "extensions": {
-        "$id": "387",
+        "$id": "469",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -2925,16 +3548,16 @@
          ],
          "name": "paths·wzxjdo·fridges-uuid·get·responses·200",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·wzxjdo·fridges-uuid·get·responses·200"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·wzxjdo·fridges-uuid·get·responses·200"
          ]
         }
        },
        "isNullable": true
       },
       "Unauthorized": {
-       "$id": "388",
+       "$id": "470",
        "extensions": {
-        "$id": "389",
+        "$id": "471",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -2944,16 +3567,16 @@
          ],
          "name": "paths·12pxi5i·fridges-uuid·get·responses·401",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·12pxi5i·fridges-uuid·get·responses·401"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·12pxi5i·fridges-uuid·get·responses·401"
          ]
         }
        },
        "isNullable": true
       },
       "NotFound": {
-       "$id": "390",
+       "$id": "472",
        "extensions": {
-        "$id": "391",
+        "$id": "473",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -2963,7 +3586,7 @@
          ],
          "name": "paths·12j7313·fridges-uuid·get·responses·404",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·12j7313·fridges-uuid·get·responses·404"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·12j7313·fridges-uuid·get·responses·404"
          ]
         }
        },
@@ -2971,13 +3594,13 @@
       }
      },
      "defaultResponse": {
-      "$id": "392",
+      "$id": "474",
       "isNullable": true
      },
      "returnType": {
-      "$id": "393",
+      "$id": "475",
       "body": {
-       "$ref": "193"
+       "$ref": "171"
       },
       "isNullable": true
      },
@@ -3006,22 +3629,22 @@
      "hidden": false
     },
     {
-     "$id": "394",
+     "$id": "476",
      "parameters": [
       {
-       "$id": "395",
+       "$id": "477",
        "clientProperty": {
-        "$ref": "289"
+        "$ref": "335"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "396",
+        "$id": "478",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "397",
+        "$id": "479",
         "fixed": false,
         "raw": "UUID to identify a fridge"
        },
@@ -3035,7 +3658,7 @@
          ],
          "name": "paths·18rdfo·fridges-uuid-items·parameters·0",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·18rdfo·fridges-uuid-items·parameters·0"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·18rdfo·fridges-uuid-items·parameters·0"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -3043,17 +3666,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "398",
+        "$id": "480",
         "fixed": false,
         "raw": "uuid"
        },
        "serializedName": "uuid",
        "modelType": {
-        "$id": "399",
+        "$id": "481",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "400",
+         "$id": "482",
          "fixed": false,
          "raw": "String"
         },
@@ -3062,12 +3685,12 @@
       }
      ],
      "name": {
-      "$id": "401",
+      "$id": "483",
       "fixed": false,
       "raw": "items"
      },
      "group": {
-      "$id": "402",
+      "$id": "484",
       "fixed": false,
       "raw": "get"
      },
@@ -3077,21 +3700,21 @@
      "httpMethod": "get",
      "responses": {
       "OK": {
-       "$id": "403",
+       "$id": "485",
        "body": {
-        "$id": "404",
+        "$id": "486",
         "$type": "SequenceType",
         "elementType": {
-         "$ref": "225"
+         "$ref": "257"
         },
         "name": {
-         "$id": "405",
+         "$id": "487",
          "fixed": false
         },
         "deprecated": false
        },
        "extensions": {
-        "$id": "406",
+        "$id": "488",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3101,7 +3724,7 @@
          ],
          "name": "paths·1hp711w·fridges-uuid-items·get·responses·200",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1hp711w·fridges-uuid-items·get·responses·200"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1hp711w·fridges-uuid-items·get·responses·200"
          ]
         }
        },
@@ -3109,13 +3732,13 @@
       }
      },
      "defaultResponse": {
-      "$id": "407",
+      "$id": "489",
       "isNullable": true
      },
      "returnType": {
-      "$id": "408",
+      "$id": "490",
       "body": {
-       "$ref": "404"
+       "$ref": "486"
       },
       "isNullable": true
      },
@@ -3144,22 +3767,22 @@
      "hidden": false
     },
     {
-     "$id": "409",
+     "$id": "491",
      "parameters": [
       {
-       "$id": "410",
+       "$id": "492",
        "clientProperty": {
-        "$ref": "289"
+        "$ref": "335"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "411",
+        "$id": "493",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "412",
+        "$id": "494",
         "fixed": false,
         "raw": "UUID to identify a fridge"
        },
@@ -3173,7 +3796,7 @@
          ],
          "name": "paths·3x1ps5·fridges-uuid-items-item_uuid·parameters·0",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·3x1ps5·fridges-uuid-items-item_uuid·parameters·0"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·3x1ps5·fridges-uuid-items-item_uuid·parameters·0"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -3181,17 +3804,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "413",
+        "$id": "495",
         "fixed": false,
         "raw": "uuid"
        },
        "serializedName": "uuid",
        "modelType": {
-        "$id": "414",
+        "$id": "496",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "415",
+         "$id": "497",
          "fixed": false,
          "raw": "String"
         },
@@ -3199,19 +3822,19 @@
        }
       },
       {
-       "$id": "416",
+       "$id": "498",
        "clientProperty": {
-        "$ref": "325"
+        "$ref": "371"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "417",
+        "$id": "499",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "418",
+        "$id": "500",
         "fixed": false,
         "raw": "UUID of item"
        },
@@ -3225,7 +3848,7 @@
          ],
          "name": "paths·1kiwl5a·fridges-uuid-items-item_uuid·parameters·1",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1kiwl5a·fridges-uuid-items-item_uuid·parameters·1"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1kiwl5a·fridges-uuid-items-item_uuid·parameters·1"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -3233,17 +3856,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "419",
+        "$id": "501",
         "fixed": false,
         "raw": "item_uuid"
        },
        "serializedName": "item_uuid",
        "modelType": {
-        "$id": "420",
+        "$id": "502",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "421",
+         "$id": "503",
          "fixed": false,
          "raw": "String"
         },
@@ -3252,12 +3875,12 @@
       }
      ],
      "name": {
-      "$id": "422",
+      "$id": "504",
       "fixed": false,
       "raw": "ItemMethod"
      },
      "group": {
-      "$id": "423",
+      "$id": "505",
       "fixed": false,
       "raw": "get"
      },
@@ -3267,12 +3890,12 @@
      "httpMethod": "get",
      "responses": {
       "OK": {
-       "$id": "424",
+       "$id": "506",
        "body": {
-        "$ref": "225"
+        "$ref": "257"
        },
        "extensions": {
-        "$id": "425",
+        "$id": "507",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3282,16 +3905,16 @@
          ],
          "name": "paths·bjmwf5·fridges-uuid-items-item_uuid·get·responses·200",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·bjmwf5·fridges-uuid-items-item_uuid·get·responses·200"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·bjmwf5·fridges-uuid-items-item_uuid·get·responses·200"
          ]
         }
        },
        "isNullable": true
       },
       "Unauthorized": {
-       "$id": "426",
+       "$id": "508",
        "extensions": {
-        "$id": "427",
+        "$id": "509",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3301,16 +3924,16 @@
          ],
          "name": "paths·1w711d0·fridges-uuid-items-item_uuid·get·responses·401",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1w711d0·fridges-uuid-items-item_uuid·get·responses·401"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1w711d0·fridges-uuid-items-item_uuid·get·responses·401"
          ]
         }
        },
        "isNullable": true
       },
       "NotFound": {
-       "$id": "428",
+       "$id": "510",
        "extensions": {
-        "$id": "429",
+        "$id": "511",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3320,7 +3943,7 @@
          ],
          "name": "paths·f4mhft·fridges-uuid-items-item_uuid·get·responses·404",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·f4mhft·fridges-uuid-items-item_uuid·get·responses·404"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·f4mhft·fridges-uuid-items-item_uuid·get·responses·404"
          ]
         }
        },
@@ -3328,13 +3951,13 @@
       }
      },
      "defaultResponse": {
-      "$id": "430",
+      "$id": "512",
       "isNullable": true
      },
      "returnType": {
-      "$id": "431",
+      "$id": "513",
       "body": {
-       "$ref": "225"
+       "$ref": "257"
       },
       "isNullable": true
      },
@@ -3361,36 +3984,410 @@
      },
      "deprecated": false,
      "hidden": false
+    },
+    {
+     "$id": "514",
+     "parameters": [
+      {
+       "$id": "515",
+       "clientProperty": {
+        "$ref": "377"
+       },
+       "location": "query",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "516",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "517",
+        "fixed": false,
+        "raw": "Filters a for a username"
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·5iwl8j·users·get·parameters·0",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·5iwl8j·users·get·parameters·0"
+         ]
+        },
+        "x-ms-parameter-location": "method"
+       },
+       "isRequired": false,
+       "isConstant": false,
+       "name": {
+        "$id": "518",
+        "fixed": false,
+        "raw": "username"
+       },
+       "serializedName": "username",
+       "modelType": {
+        "$id": "519",
+        "$type": "PrimaryType",
+        "knownPrimaryType": "string",
+        "name": {
+         "$id": "520",
+         "fixed": false,
+         "raw": "String"
+        },
+        "deprecated": false
+       }
+      },
+      {
+       "$id": "521",
+       "clientProperty": {
+        "$ref": "383"
+       },
+       "location": "query",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "522",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "523",
+        "fixed": false,
+        "raw": "Filters a for an email"
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·1umxab4·users·get·parameters·1",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1umxab4·users·get·parameters·1"
+         ]
+        },
+        "x-ms-parameter-location": "method"
+       },
+       "isRequired": false,
+       "isConstant": false,
+       "name": {
+        "$id": "524",
+        "fixed": false,
+        "raw": "email"
+       },
+       "serializedName": "email",
+       "modelType": {
+        "$id": "525",
+        "$type": "PrimaryType",
+        "knownPrimaryType": "string",
+        "name": {
+         "$id": "526",
+         "fixed": false,
+         "raw": "String"
+        },
+        "deprecated": false
+       }
+      }
+     ],
+     "name": {
+      "$id": "527",
+      "fixed": false,
+      "raw": "UserMethod"
+     },
+     "group": {
+      "$id": "528",
+      "fixed": false,
+      "raw": "get"
+     },
+     "serializedName": "get_user",
+     "url": "/users",
+     "isAbsoluteUrl": false,
+     "httpMethod": "get",
+     "responses": {
+      "OK": {
+       "$id": "529",
+       "body": {
+        "$id": "530",
+        "$type": "SequenceType",
+        "elementType": {
+         "$ref": "183"
+        },
+        "name": {
+         "$id": "531",
+         "fixed": false
+        },
+        "deprecated": false
+       },
+       "extensions": {
+        "$id": "532",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·11eatsj·users·get·responses·200",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·11eatsj·users·get·responses·200"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "Unauthorized": {
+       "$id": "533",
+       "extensions": {
+        "$id": "534",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·nroc2h·users·get·responses·401",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·nroc2h·users·get·responses·401"
+         ]
+        }
+       },
+       "isNullable": true
+      }
+     },
+     "defaultResponse": {
+      "$id": "535",
+      "isNullable": true
+     },
+     "returnType": {
+      "$id": "536",
+      "body": {
+       "$ref": "530"
+      },
+      "isNullable": true
+     },
+     "requestContentType": "application/json; charset=utf-8",
+     "responseContentTypes": [
+      "application/json"
+     ],
+     "extensions": {
+      "servers": [
+       {
+        "url": "https://fridgy-api.herokuapp.com/api"
+       },
+       {
+        "url": "http://fridgy-api.herokuapp.com/api"
+       }
+      ],
+      "security": [
+       {
+        "bearerAuth": []
+       }
+      ]
+     },
+     "deprecated": false,
+     "hidden": false
+    },
+    {
+     "$id": "537",
+     "parameters": [
+      {
+       "$id": "538",
+       "clientProperty": {
+        "$ref": "383"
+       },
+       "location": "path",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "539",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "540",
+        "fixed": false,
+        "raw": "E-Mail address identifying the user"
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·1jh5c57·users-email-email·parameters·0",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1jh5c57·users-email-email·parameters·0"
+         ]
+        },
+        "x-ms-parameter-location": "method"
+       },
+       "isRequired": true,
+       "isConstant": false,
+       "name": {
+        "$id": "541",
+        "fixed": false,
+        "raw": "email"
+       },
+       "serializedName": "email",
+       "modelType": {
+        "$id": "542",
+        "$type": "PrimaryType",
+        "knownPrimaryType": "string",
+        "name": {
+         "$id": "543",
+         "fixed": false,
+         "raw": "String"
+        },
+        "deprecated": false
+       }
+      }
+     ],
+     "name": {
+      "$id": "544",
+      "fixed": false,
+      "raw": "email"
+     },
+     "group": {
+      "$id": "545",
+      "fixed": false,
+      "raw": "get"
+     },
+     "serializedName": "get_user_by_email",
+     "url": "/users/email/{email}",
+     "isAbsoluteUrl": false,
+     "httpMethod": "get",
+     "responses": {
+      "OK": {
+       "$id": "546",
+       "body": {
+        "$ref": "157"
+       },
+       "extensions": {
+        "$id": "547",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·12ng10s·users-email-email·get·responses·200",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·12ng10s·users-email-email·get·responses·200"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "Unauthorized": {
+       "$id": "548",
+       "extensions": {
+        "$id": "549",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·hy280n·users-email-email·get·responses·401",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·hy280n·users-email-email·get·responses·401"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "NotFound": {
+       "$id": "550",
+       "extensions": {
+        "$id": "551",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·329kke·users-email-email·get·responses·404",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·329kke·users-email-email·get·responses·404"
+         ]
+        }
+       },
+       "isNullable": true
+      }
+     },
+     "defaultResponse": {
+      "$id": "552",
+      "isNullable": true
+     },
+     "returnType": {
+      "$id": "553",
+      "body": {
+       "$ref": "157"
+      },
+      "isNullable": true
+     },
+     "description": "",
+     "summary": "Get user with this email address..",
+     "requestContentType": "application/json; charset=utf-8",
+     "responseContentTypes": [
+      "application/json"
+     ],
+     "extensions": {
+      "servers": [
+       {
+        "url": "https://fridgy-api.herokuapp.com/api"
+       },
+       {
+        "url": "http://fridgy-api.herokuapp.com/api"
+       }
+      ],
+      "security": [
+       {
+        "bearerAuth": []
+       }
+      ]
+     },
+     "deprecated": false,
+     "hidden": false
     }
    ],
    "name": {
-    "$id": "432",
+    "$id": "554",
     "fixed": false,
     "raw": "Get"
    },
    "typeName": {
-    "$id": "433",
+    "$id": "555",
     "fixed": false
    },
    "nameForProperty": "Get"
   },
   {
-   "$id": "434",
+   "$id": "556",
    "methods": [
     {
-     "$id": "435",
+     "$id": "557",
      "parameters": [
       {
-       "$id": "436",
+       "$id": "558",
        "location": "body",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "437",
+        "$id": "559",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "438",
+        "$id": "560",
         "fixed": false,
         "raw": "Product object that needs to be updated"
        },
@@ -3404,36 +4401,36 @@
          ],
          "name": "paths·7fzo8·products-barcode·put·requestbody",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/requestBodies/paths·7fzo8·products-barcode·put·requestbody"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/requestBodies/paths·7fzo8·products-barcode·put·requestbody"
          ]
         }
        },
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "439",
+        "$id": "561",
         "fixed": false,
         "raw": "body"
        },
        "serializedName": "body",
        "modelType": {
-        "$ref": "131"
+        "$ref": "109"
        }
       },
       {
-       "$id": "440",
+       "$id": "562",
        "clientProperty": {
-        "$ref": "271"
+        "$ref": "317"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "441",
+        "$id": "563",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "442",
+        "$id": "564",
         "fixed": false,
         "raw": "Barcode used as unique identifier to find product"
        },
@@ -3447,7 +4444,7 @@
          ],
          "name": "paths·dulps·products-barcode·parameters·0",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·dulps·products-barcode·parameters·0"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·dulps·products-barcode·parameters·0"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -3455,17 +4452,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "443",
+        "$id": "565",
         "fixed": false,
         "raw": "barcode"
        },
        "serializedName": "barcode",
        "modelType": {
-        "$id": "444",
+        "$id": "566",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "445",
+         "$id": "567",
          "fixed": false,
          "raw": "String"
         },
@@ -3474,12 +4471,12 @@
       }
      ],
      "name": {
-      "$id": "446",
+      "$id": "568",
       "fixed": false,
       "raw": "products"
      },
      "group": {
-      "$id": "447",
+      "$id": "569",
       "fixed": false,
       "raw": "update"
      },
@@ -3489,12 +4486,12 @@
      "httpMethod": "put",
      "responses": {
       "OK": {
-       "$id": "448",
+       "$id": "570",
        "body": {
-        "$ref": "153"
+        "$ref": "131"
        },
        "extensions": {
-        "$id": "449",
+        "$id": "571",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3504,16 +4501,16 @@
          ],
          "name": "paths·1kyflx4·products-barcode·put·responses·200",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1kyflx4·products-barcode·put·responses·200"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1kyflx4·products-barcode·put·responses·200"
          ]
         }
        },
        "isNullable": true
       },
       "NotFound": {
-       "$id": "450",
+       "$id": "572",
        "extensions": {
-        "$id": "451",
+        "$id": "573",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3523,7 +4520,7 @@
          ],
          "name": "paths·1d4dxcd·products-barcode·put·responses·404",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1d4dxcd·products-barcode·put·responses·404"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1d4dxcd·products-barcode·put·responses·404"
          ]
         }
        },
@@ -3531,13 +4528,13 @@
       }
      },
      "defaultResponse": {
-      "$id": "452",
+      "$id": "574",
       "isNullable": true
      },
      "returnType": {
-      "$id": "453",
+      "$id": "575",
       "body": {
-       "$ref": "153"
+       "$ref": "131"
       },
       "isNullable": true
      },
@@ -3565,19 +4562,19 @@
      "hidden": false
     },
     {
-     "$id": "454",
+     "$id": "576",
      "parameters": [
       {
-       "$id": "455",
+       "$id": "577",
        "location": "body",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "456",
+        "$id": "578",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "457",
+        "$id": "579",
         "fixed": false,
         "raw": "Updated item."
        },
@@ -3591,36 +4588,36 @@
          ],
          "name": "paths·1k6ni4f·fridges-uuid-items-item_uuid·put·requestbody",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/requestBodies/paths·1k6ni4f·fridges-uuid-items-item_uuid·put·requestbody"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/requestBodies/paths·1k6ni4f·fridges-uuid-items-item_uuid·put·requestbody"
          ]
         }
        },
        "isRequired": false,
        "isConstant": false,
        "name": {
-        "$id": "458",
+        "$id": "580",
         "fixed": false,
         "raw": "body"
        },
        "serializedName": "body",
        "modelType": {
-        "$ref": "10"
+        "$ref": "283"
        }
       },
       {
-       "$id": "459",
+       "$id": "581",
        "clientProperty": {
-        "$ref": "289"
+        "$ref": "335"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "460",
+        "$id": "582",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "461",
+        "$id": "583",
         "fixed": false,
         "raw": "UUID to identify a fridge"
        },
@@ -3634,7 +4631,7 @@
          ],
          "name": "paths·3x1ps5·fridges-uuid-items-item_uuid·parameters·0",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·3x1ps5·fridges-uuid-items-item_uuid·parameters·0"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·3x1ps5·fridges-uuid-items-item_uuid·parameters·0"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -3642,17 +4639,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "462",
+        "$id": "584",
         "fixed": false,
         "raw": "uuid"
        },
        "serializedName": "uuid",
        "modelType": {
-        "$id": "463",
+        "$id": "585",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "464",
+         "$id": "586",
          "fixed": false,
          "raw": "String"
         },
@@ -3660,19 +4657,19 @@
        }
       },
       {
-       "$id": "465",
+       "$id": "587",
        "clientProperty": {
-        "$ref": "325"
+        "$ref": "371"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "466",
+        "$id": "588",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "467",
+        "$id": "589",
         "fixed": false,
         "raw": "UUID of item"
        },
@@ -3686,7 +4683,7 @@
          ],
          "name": "paths·1kiwl5a·fridges-uuid-items-item_uuid·parameters·1",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1kiwl5a·fridges-uuid-items-item_uuid·parameters·1"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1kiwl5a·fridges-uuid-items-item_uuid·parameters·1"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -3694,17 +4691,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "468",
+        "$id": "590",
         "fixed": false,
         "raw": "item_uuid"
        },
        "serializedName": "item_uuid",
        "modelType": {
-        "$id": "469",
+        "$id": "591",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "470",
+         "$id": "592",
          "fixed": false,
          "raw": "String"
         },
@@ -3713,12 +4710,12 @@
       }
      ],
      "name": {
-      "$id": "471",
+      "$id": "593",
       "fixed": false,
       "raw": "ItemMethod"
      },
      "group": {
-      "$id": "472",
+      "$id": "594",
       "fixed": false,
       "raw": "update"
      },
@@ -3728,12 +4725,12 @@
      "httpMethod": "put",
      "responses": {
       "OK": {
-       "$id": "473",
+       "$id": "595",
        "body": {
-        "$ref": "225"
+        "$ref": "257"
        },
        "extensions": {
-        "$id": "474",
+        "$id": "596",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3743,16 +4740,16 @@
          ],
          "name": "paths·14qie7z·fridges-uuid-items-item_uuid·put·responses·200",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·14qie7z·fridges-uuid-items-item_uuid·put·responses·200"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·14qie7z·fridges-uuid-items-item_uuid·put·responses·200"
          ]
         }
        },
        "isNullable": true
       },
       "Unauthorized": {
-       "$id": "475",
+       "$id": "597",
        "extensions": {
-        "$id": "476",
+        "$id": "598",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3762,16 +4759,16 @@
          ],
          "name": "paths·1yom6ly·fridges-uuid-items-item_uuid·put·responses·401",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1yom6ly·fridges-uuid-items-item_uuid·put·responses·401"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1yom6ly·fridges-uuid-items-item_uuid·put·responses·401"
          ]
         }
        },
        "isNullable": true
       },
       "NotFound": {
-       "$id": "477",
+       "$id": "599",
        "extensions": {
-        "$id": "478",
+        "$id": "600",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3781,7 +4778,7 @@
          ],
          "name": "paths·16xljtm·fridges-uuid-items-item_uuid·put·responses·404",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·16xljtm·fridges-uuid-items-item_uuid·put·responses·404"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·16xljtm·fridges-uuid-items-item_uuid·put·responses·404"
          ]
         }
        },
@@ -3789,13 +4786,13 @@
       }
      },
      "defaultResponse": {
-      "$id": "479",
+      "$id": "601",
       "isNullable": true
      },
      "returnType": {
-      "$id": "480",
+      "$id": "602",
       "body": {
-       "$ref": "225"
+       "$ref": "257"
       },
       "isNullable": true
      },
@@ -3825,36 +4822,36 @@
     }
    ],
    "name": {
-    "$id": "481",
+    "$id": "603",
     "fixed": false,
     "raw": "Update"
    },
    "typeName": {
-    "$id": "482",
+    "$id": "604",
     "fixed": false
    },
    "nameForProperty": "Update"
   },
   {
-   "$id": "483",
+   "$id": "605",
    "methods": [
     {
-     "$id": "484",
+     "$id": "606",
      "parameters": [
       {
-       "$id": "485",
+       "$id": "607",
        "clientProperty": {
-        "$ref": "271"
+        "$ref": "317"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "486",
+        "$id": "608",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "487",
+        "$id": "609",
         "fixed": false,
         "raw": "Barcode used as unique identifier to find product"
        },
@@ -3868,7 +4865,7 @@
          ],
          "name": "paths·dulps·products-barcode·parameters·0",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·dulps·products-barcode·parameters·0"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·dulps·products-barcode·parameters·0"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -3876,17 +4873,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "488",
+        "$id": "610",
         "fixed": false,
         "raw": "barcode"
        },
        "serializedName": "barcode",
        "modelType": {
-        "$id": "489",
+        "$id": "611",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "490",
+         "$id": "612",
          "fixed": false,
          "raw": "String"
         },
@@ -3895,12 +4892,12 @@
       }
      ],
      "name": {
-      "$id": "491",
+      "$id": "613",
       "fixed": false,
       "raw": "products"
      },
      "group": {
-      "$id": "492",
+      "$id": "614",
       "fixed": false,
       "raw": "delete"
      },
@@ -3910,9 +4907,9 @@
      "httpMethod": "delete",
      "responses": {
       "NoContent": {
-       "$id": "493",
+       "$id": "615",
        "extensions": {
-        "$id": "494",
+        "$id": "616",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3922,16 +4919,16 @@
          ],
          "name": "paths·1pski1i·products-barcode·delete·responses·204",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1pski1i·products-barcode·delete·responses·204"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1pski1i·products-barcode·delete·responses·204"
          ]
         }
        },
        "isNullable": true
       },
       "BadRequest": {
-       "$id": "495",
+       "$id": "617",
        "extensions": {
-        "$id": "496",
+        "$id": "618",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3941,16 +4938,16 @@
          ],
          "name": "paths·1l4iqpt·products-barcode·delete·responses·400",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1l4iqpt·products-barcode·delete·responses·400"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1l4iqpt·products-barcode·delete·responses·400"
          ]
         }
        },
        "isNullable": true
       },
       "NotFound": {
-       "$id": "497",
+       "$id": "619",
        "extensions": {
-        "$id": "498",
+        "$id": "620",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3960,7 +4957,7 @@
          ],
          "name": "paths·xqgvkb·products-barcode·delete·responses·404",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·xqgvkb·products-barcode·delete·responses·404"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·xqgvkb·products-barcode·delete·responses·404"
          ]
         }
        },
@@ -3968,11 +4965,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "499",
+      "$id": "621",
       "isNullable": true
      },
      "returnType": {
-      "$id": "500",
+      "$id": "622",
       "isNullable": true
      },
      "summary": "Delete an existing product",
@@ -3999,22 +4996,22 @@
      "hidden": false
     },
     {
-     "$id": "501",
+     "$id": "623",
      "parameters": [
       {
-       "$id": "502",
+       "$id": "624",
        "clientProperty": {
-        "$ref": "289"
+        "$ref": "335"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "503",
+        "$id": "625",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "504",
+        "$id": "626",
         "fixed": false,
         "raw": "UUID to identify a fridge"
        },
@@ -4028,7 +5025,7 @@
          ],
          "name": "paths·1udjitn·fridges-uuid·parameters·0",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1udjitn·fridges-uuid·parameters·0"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1udjitn·fridges-uuid·parameters·0"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -4036,17 +5033,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "505",
+        "$id": "627",
         "fixed": false,
         "raw": "uuid"
        },
        "serializedName": "uuid",
        "modelType": {
-        "$id": "506",
+        "$id": "628",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "507",
+         "$id": "629",
          "fixed": false,
          "raw": "String"
         },
@@ -4055,12 +5052,12 @@
       }
      ],
      "name": {
-      "$id": "508",
+      "$id": "630",
       "fixed": false,
       "raw": "FridgeMethod"
      },
      "group": {
-      "$id": "509",
+      "$id": "631",
       "fixed": false,
       "raw": "delete"
      },
@@ -4070,9 +5067,9 @@
      "httpMethod": "delete",
      "responses": {
       "NoContent": {
-       "$id": "510",
+       "$id": "632",
        "extensions": {
-        "$id": "511",
+        "$id": "633",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4082,16 +5079,16 @@
          ],
          "name": "paths·637o3g·fridges-uuid·delete·responses·204",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·637o3g·fridges-uuid·delete·responses·204"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·637o3g·fridges-uuid·delete·responses·204"
          ]
         }
        },
        "isNullable": true
       },
       "Unauthorized": {
-       "$id": "512",
+       "$id": "634",
        "extensions": {
-        "$id": "513",
+        "$id": "635",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4101,16 +5098,16 @@
          ],
          "name": "paths·1xnu045·fridges-uuid·delete·responses·401",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1xnu045·fridges-uuid·delete·responses·401"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1xnu045·fridges-uuid·delete·responses·401"
          ]
         }
        },
        "isNullable": true
       },
       "NotFound": {
-       "$id": "514",
+       "$id": "636",
        "extensions": {
-        "$id": "515",
+        "$id": "637",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4120,7 +5117,7 @@
          ],
          "name": "paths·shk07y·fridges-uuid·delete·responses·404",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·shk07y·fridges-uuid·delete·responses·404"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·shk07y·fridges-uuid·delete·responses·404"
          ]
         }
        },
@@ -4128,11 +5125,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "516",
+      "$id": "638",
       "isNullable": true
      },
      "returnType": {
-      "$id": "517",
+      "$id": "639",
       "isNullable": true
      },
      "description": "",
@@ -4160,22 +5157,22 @@
      "hidden": false
     },
     {
-     "$id": "518",
+     "$id": "640",
      "parameters": [
       {
-       "$id": "519",
+       "$id": "641",
        "clientProperty": {
-        "$ref": "289"
+        "$ref": "335"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "520",
+        "$id": "642",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "521",
+        "$id": "643",
         "fixed": false,
         "raw": "UUID to identify a fridge"
        },
@@ -4189,7 +5186,7 @@
          ],
          "name": "paths·1kuc89n·fridges-uuid-owners-user_uuid·parameters·0",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1kuc89n·fridges-uuid-owners-user_uuid·parameters·0"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1kuc89n·fridges-uuid-owners-user_uuid·parameters·0"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -4197,17 +5194,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "522",
+        "$id": "644",
         "fixed": false,
         "raw": "uuid"
        },
        "serializedName": "uuid",
        "modelType": {
-        "$id": "523",
+        "$id": "645",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "524",
+         "$id": "646",
          "fixed": false,
          "raw": "String"
         },
@@ -4215,19 +5212,19 @@
        }
       },
       {
-       "$id": "525",
+       "$id": "647",
        "clientProperty": {
-        "$ref": "307"
+        "$ref": "353"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "526",
+        "$id": "648",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "527",
+        "$id": "649",
         "fixed": false,
         "raw": "UUID of user"
        },
@@ -4241,7 +5238,7 @@
          ],
          "name": "paths·oywp6b·fridges-uuid-owners-user_uuid·parameters·1",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·oywp6b·fridges-uuid-owners-user_uuid·parameters·1"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·oywp6b·fridges-uuid-owners-user_uuid·parameters·1"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -4249,17 +5246,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "528",
+        "$id": "650",
         "fixed": false,
         "raw": "user_uuid"
        },
        "serializedName": "user_uuid",
        "modelType": {
-        "$id": "529",
+        "$id": "651",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "530",
+         "$id": "652",
          "fixed": false,
          "raw": "String"
         },
@@ -4268,12 +5265,12 @@
       }
      ],
      "name": {
-      "$id": "531",
+      "$id": "653",
       "fixed": false,
       "raw": "owners"
      },
      "group": {
-      "$id": "532",
+      "$id": "654",
       "fixed": false,
       "raw": "delete"
      },
@@ -4283,9 +5280,9 @@
      "httpMethod": "delete",
      "responses": {
       "NoContent": {
-       "$id": "533",
+       "$id": "655",
        "extensions": {
-        "$id": "534",
+        "$id": "656",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4295,16 +5292,16 @@
          ],
          "name": "paths·40os3t·fridges-uuid-owners-user_uuid·delete·responses·204",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·40os3t·fridges-uuid-owners-user_uuid·delete·responses·204"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·40os3t·fridges-uuid-owners-user_uuid·delete·responses·204"
          ]
         }
        },
        "isNullable": true
       },
       "BadRequest": {
-       "$id": "535",
+       "$id": "657",
        "extensions": {
-        "$id": "536",
+        "$id": "658",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4314,16 +5311,16 @@
          ],
          "name": "paths·1bv9wdw·fridges-uuid-owners-user_uuid·delete·responses·400",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1bv9wdw·fridges-uuid-owners-user_uuid·delete·responses·400"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1bv9wdw·fridges-uuid-owners-user_uuid·delete·responses·400"
          ]
         }
        },
        "isNullable": true
       },
       "Unauthorized": {
-       "$id": "537",
+       "$id": "659",
        "extensions": {
-        "$id": "538",
+        "$id": "660",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4333,16 +5330,16 @@
          ],
          "name": "paths·yyapf2·fridges-uuid-owners-user_uuid·delete·responses·401",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·yyapf2·fridges-uuid-owners-user_uuid·delete·responses·401"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·yyapf2·fridges-uuid-owners-user_uuid·delete·responses·401"
          ]
         }
        },
        "isNullable": true
       },
       "NotFound": {
-       "$id": "539",
+       "$id": "661",
        "extensions": {
-        "$id": "540",
+        "$id": "662",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4352,7 +5349,7 @@
          ],
          "name": "paths·mo0eo6·fridges-uuid-owners-user_uuid·delete·responses·404",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·mo0eo6·fridges-uuid-owners-user_uuid·delete·responses·404"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·mo0eo6·fridges-uuid-owners-user_uuid·delete·responses·404"
          ]
         }
        },
@@ -4360,11 +5357,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "541",
+      "$id": "663",
       "isNullable": true
      },
      "returnType": {
-      "$id": "542",
+      "$id": "664",
       "isNullable": true
      },
      "description": "",
@@ -4392,22 +5389,22 @@
      "hidden": false
     },
     {
-     "$id": "543",
+     "$id": "665",
      "parameters": [
       {
-       "$id": "544",
+       "$id": "666",
        "clientProperty": {
-        "$ref": "289"
+        "$ref": "335"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "545",
+        "$id": "667",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "546",
+        "$id": "668",
         "fixed": false,
         "raw": "UUID to identify a fridge"
        },
@@ -4421,7 +5418,7 @@
          ],
          "name": "paths·3x1ps5·fridges-uuid-items-item_uuid·parameters·0",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·3x1ps5·fridges-uuid-items-item_uuid·parameters·0"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·3x1ps5·fridges-uuid-items-item_uuid·parameters·0"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -4429,17 +5426,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "547",
+        "$id": "669",
         "fixed": false,
         "raw": "uuid"
        },
        "serializedName": "uuid",
        "modelType": {
-        "$id": "548",
+        "$id": "670",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "549",
+         "$id": "671",
          "fixed": false,
          "raw": "String"
         },
@@ -4447,19 +5444,19 @@
        }
       },
       {
-       "$id": "550",
+       "$id": "672",
        "clientProperty": {
-        "$ref": "325"
+        "$ref": "371"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "551",
+        "$id": "673",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "552",
+        "$id": "674",
         "fixed": false,
         "raw": "UUID of item"
        },
@@ -4473,7 +5470,7 @@
          ],
          "name": "paths·1kiwl5a·fridges-uuid-items-item_uuid·parameters·1",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1kiwl5a·fridges-uuid-items-item_uuid·parameters·1"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1kiwl5a·fridges-uuid-items-item_uuid·parameters·1"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -4481,17 +5478,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "553",
+        "$id": "675",
         "fixed": false,
         "raw": "item_uuid"
        },
        "serializedName": "item_uuid",
        "modelType": {
-        "$id": "554",
+        "$id": "676",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "555",
+         "$id": "677",
          "fixed": false,
          "raw": "String"
         },
@@ -4500,12 +5497,12 @@
       }
      ],
      "name": {
-      "$id": "556",
+      "$id": "678",
       "fixed": false,
       "raw": "FridgeMethod1"
      },
      "group": {
-      "$id": "557",
+      "$id": "679",
       "fixed": false,
       "raw": "delete"
      },
@@ -4515,9 +5512,9 @@
      "httpMethod": "delete",
      "responses": {
       "NoContent": {
-       "$id": "558",
+       "$id": "680",
        "extensions": {
-        "$id": "559",
+        "$id": "681",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4527,16 +5524,16 @@
          ],
          "name": "paths·t63e8o·fridges-uuid-items-item_uuid·delete·responses·204",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·t63e8o·fridges-uuid-items-item_uuid·delete·responses·204"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·t63e8o·fridges-uuid-items-item_uuid·delete·responses·204"
          ]
         }
        },
        "isNullable": true
       },
       "Unauthorized": {
-       "$id": "560",
+       "$id": "682",
        "extensions": {
-        "$id": "561",
+        "$id": "683",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4546,16 +5543,16 @@
          ],
          "name": "paths·5l8j3d·fridges-uuid-items-item_uuid·delete·responses·401",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·5l8j3d·fridges-uuid-items-item_uuid·delete·responses·401"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·5l8j3d·fridges-uuid-items-item_uuid·delete·responses·401"
          ]
         }
        },
        "isNullable": true
       },
       "NotFound": {
-       "$id": "562",
+       "$id": "684",
        "extensions": {
-        "$id": "563",
+        "$id": "685",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4565,7 +5562,7 @@
          ],
          "name": "paths·1egnvmy·fridges-uuid-items-item_uuid·delete·responses·404",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1egnvmy·fridges-uuid-items-item_uuid·delete·responses·404"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1egnvmy·fridges-uuid-items-item_uuid·delete·responses·404"
          ]
         }
        },
@@ -4573,11 +5570,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "564",
+      "$id": "686",
       "isNullable": true
      },
      "returnType": {
-      "$id": "565",
+      "$id": "687",
       "isNullable": true
      },
      "description": "",
@@ -4603,36 +5600,216 @@
      },
      "deprecated": false,
      "hidden": false
+    },
+    {
+     "$id": "688",
+     "parameters": [
+      {
+       "$id": "689",
+       "clientProperty": {
+        "$ref": "335"
+       },
+       "location": "path",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "690",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "691",
+        "fixed": false,
+        "raw": "uuid identifying the user"
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·12jg5xe·users-uuid·parameters·0",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·12jg5xe·users-uuid·parameters·0"
+         ]
+        },
+        "x-ms-parameter-location": "method"
+       },
+       "isRequired": true,
+       "isConstant": false,
+       "name": {
+        "$id": "692",
+        "fixed": false,
+        "raw": "uuid"
+       },
+       "serializedName": "uuid",
+       "modelType": {
+        "$id": "693",
+        "$type": "PrimaryType",
+        "knownPrimaryType": "string",
+        "name": {
+         "$id": "694",
+         "fixed": false,
+         "raw": "String"
+        },
+        "deprecated": false
+       }
+      }
+     ],
+     "name": {
+      "$id": "695",
+      "fixed": false,
+      "raw": "users"
+     },
+     "group": {
+      "$id": "696",
+      "fixed": false,
+      "raw": "delete"
+     },
+     "serializedName": "delete_users",
+     "url": "/users/{uuid}",
+     "isAbsoluteUrl": false,
+     "httpMethod": "delete",
+     "responses": {
+      "NoContent": {
+       "$id": "697",
+       "extensions": {
+        "$id": "698",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·1xd0aw0·users-uuid·delete·responses·204",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1xd0aw0·users-uuid·delete·responses·204"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "Unauthorized": {
+       "$id": "699",
+       "extensions": {
+        "$id": "700",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·v860k0·users-uuid·delete·responses·401",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·v860k0·users-uuid·delete·responses·401"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "NotFound": {
+       "$id": "701",
+       "extensions": {
+        "$id": "702",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·17qzq3d·users-uuid·delete·responses·404",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·17qzq3d·users-uuid·delete·responses·404"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "423": {
+       "$id": "703",
+       "extensions": {
+        "$id": "704",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·i4qr1a·users-uuid·delete·responses·423",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·i4qr1a·users-uuid·delete·responses·423"
+         ]
+        }
+       },
+       "isNullable": true
+      }
+     },
+     "defaultResponse": {
+      "$id": "705",
+      "isNullable": true
+     },
+     "returnType": {
+      "$id": "706",
+      "isNullable": true
+     },
+     "description": "",
+     "summary": "Remove user.",
+     "requestContentType": "application/json; charset=utf-8",
+     "responseContentTypes": [
+      "application/json"
+     ],
+     "extensions": {
+      "servers": [
+       {
+        "url": "https://fridgy-api.herokuapp.com/api"
+       },
+       {
+        "url": "http://fridgy-api.herokuapp.com/api"
+       }
+      ],
+      "security": [
+       {
+        "bearerAuth": []
+       }
+      ]
+     },
+     "deprecated": false,
+     "hidden": false
     }
    ],
    "name": {
-    "$id": "566",
+    "$id": "707",
     "fixed": false,
     "raw": "Delete"
    },
    "typeName": {
-    "$id": "567",
+    "$id": "708",
     "fixed": false
    },
    "nameForProperty": "Delete"
   },
   {
-   "$id": "568",
+   "$id": "709",
    "methods": [
     {
-     "$id": "569",
+     "$id": "710",
      "parameters": [
       {
-       "$id": "570",
+       "$id": "711",
        "location": "body",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "571",
+        "$id": "712",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "572",
+        "$id": "713",
         "fixed": false,
         "raw": "Product object that needs to be added to the repository"
        },
@@ -4646,30 +5823,30 @@
          ],
          "name": "paths·2a3acw·products·post·requestbody",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/requestBodies/paths·2a3acw·products·post·requestbody"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/requestBodies/paths·2a3acw·products·post·requestbody"
          ]
         }
        },
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "573",
+        "$id": "714",
         "fixed": false,
         "raw": "body"
        },
        "serializedName": "body",
        "modelType": {
-        "$ref": "131"
+        "$ref": "109"
        }
       }
      ],
      "name": {
-      "$id": "574",
+      "$id": "715",
       "fixed": false,
       "raw": "products"
      },
      "group": {
-      "$id": "575",
+      "$id": "716",
       "fixed": false,
       "raw": "create"
      },
@@ -4679,12 +5856,12 @@
      "httpMethod": "post",
      "responses": {
       "Created": {
-       "$id": "576",
+       "$id": "717",
        "body": {
-        "$ref": "153"
+        "$ref": "131"
        },
        "extensions": {
-        "$id": "577",
+        "$id": "718",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4694,16 +5871,16 @@
          ],
          "name": "paths·romh5u·products·post·responses·201",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·romh5u·products·post·responses·201"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·romh5u·products·post·responses·201"
          ]
         }
        },
        "isNullable": true
       },
       "BadRequest": {
-       "$id": "578",
+       "$id": "719",
        "extensions": {
-        "$id": "579",
+        "$id": "720",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4713,7 +5890,7 @@
          ],
          "name": "paths·x5yzq5·products·post·responses·400",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·x5yzq5·products·post·responses·400"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·x5yzq5·products·post·responses·400"
          ]
         }
        },
@@ -4721,13 +5898,13 @@
       }
      },
      "defaultResponse": {
-      "$id": "580",
+      "$id": "721",
       "isNullable": true
      },
      "returnType": {
-      "$id": "581",
+      "$id": "722",
       "body": {
-       "$ref": "153"
+       "$ref": "131"
       },
       "isNullable": true
      },
@@ -4755,19 +5932,19 @@
      "hidden": false
     },
     {
-     "$id": "582",
+     "$id": "723",
      "parameters": [
       {
-       "$id": "583",
+       "$id": "724",
        "location": "body",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "584",
+        "$id": "725",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "585",
+        "$id": "726",
         "fixed": false,
         "raw": "Fridge that needs to be created"
        },
@@ -4781,30 +5958,30 @@
          ],
          "name": "paths·1sxi3sm·fridges·post·requestbody",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/requestBodies/paths·1sxi3sm·fridges·post·requestbody"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/requestBodies/paths·1sxi3sm·fridges·post·requestbody"
          ]
         }
        },
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "586",
+        "$id": "727",
         "fixed": false,
         "raw": "body"
        },
        "serializedName": "body",
        "modelType": {
-        "$ref": "171"
+        "$ref": "149"
        }
       }
      ],
      "name": {
-      "$id": "587",
+      "$id": "728",
       "fixed": false,
       "raw": "fridges"
      },
      "group": {
-      "$id": "588",
+      "$id": "729",
       "fixed": false,
       "raw": "create"
      },
@@ -4814,12 +5991,12 @@
      "httpMethod": "post",
      "responses": {
       "Created": {
-       "$id": "589",
+       "$id": "730",
        "body": {
-        "$ref": "193"
+        "$ref": "171"
        },
        "extensions": {
-        "$id": "590",
+        "$id": "731",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4829,7 +6006,7 @@
          ],
          "name": "paths·19mjojp·fridges·post·responses·201",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·19mjojp·fridges·post·responses·201"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·19mjojp·fridges·post·responses·201"
          ]
         }
        },
@@ -4837,13 +6014,13 @@
       }
      },
      "defaultResponse": {
-      "$id": "591",
+      "$id": "732",
       "isNullable": true
      },
      "returnType": {
-      "$id": "592",
+      "$id": "733",
       "body": {
-       "$ref": "193"
+       "$ref": "171"
       },
       "isNullable": true
      },
@@ -4870,36 +6047,167 @@
      },
      "deprecated": false,
      "hidden": false
+    },
+    {
+     "$id": "734",
+     "parameters": [
+      {
+       "$id": "735",
+       "location": "body",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "736",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "737",
+        "fixed": false,
+        "raw": "UUID of user that should be added as owner"
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·1u4esmm·users·post·requestbody",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/requestBodies/paths·1u4esmm·users·post·requestbody"
+         ]
+        }
+       },
+       "isRequired": true,
+       "isConstant": false,
+       "name": {
+        "$id": "738",
+        "fixed": false,
+        "raw": "body"
+       },
+       "serializedName": "body",
+       "modelType": {
+        "$ref": "203"
+       }
+      }
+     ],
+     "name": {
+      "$id": "739",
+      "fixed": false,
+      "raw": "UserMethod"
+     },
+     "group": {
+      "$id": "740",
+      "fixed": false,
+      "raw": "create"
+     },
+     "serializedName": "create_user",
+     "url": "/users",
+     "isAbsoluteUrl": false,
+     "httpMethod": "post",
+     "responses": {
+      "Created": {
+       "$id": "741",
+       "body": {
+        "$ref": "183"
+       },
+       "extensions": {
+        "$id": "742",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·d99ymf·users·post·responses·201",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·d99ymf·users·post·responses·201"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "BadRequest": {
+       "$id": "743",
+       "extensions": {
+        "$id": "744",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·7t56vw·users·post·responses·400",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·7t56vw·users·post·responses·400"
+         ]
+        }
+       },
+       "isNullable": true
+      }
+     },
+     "defaultResponse": {
+      "$id": "745",
+      "isNullable": true
+     },
+     "returnType": {
+      "$id": "746",
+      "body": {
+       "$ref": "183"
+      },
+      "isNullable": true
+     },
+     "description": "",
+     "summary": "Register a new user.",
+     "requestContentType": "application/json; charset=utf-8",
+     "responseContentTypes": [
+      "application/json"
+     ],
+     "extensions": {
+      "servers": [
+       {
+        "url": "https://fridgy-api.herokuapp.com/api"
+       },
+       {
+        "url": "http://fridgy-api.herokuapp.com/api"
+       }
+      ]
+     },
+     "deprecated": false,
+     "hidden": false
     }
    ],
    "name": {
-    "$id": "593",
+    "$id": "747",
     "fixed": false,
     "raw": "Create"
    },
    "typeName": {
-    "$id": "594",
+    "$id": "748",
     "fixed": false
    },
    "nameForProperty": "Create"
   },
   {
-   "$id": "595",
+   "$id": "749",
    "methods": [
     {
-     "$id": "596",
+     "$id": "750",
      "parameters": [
       {
-       "$id": "597",
+       "$id": "751",
        "location": "body",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "598",
+        "$id": "752",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "599",
+        "$id": "753",
         "fixed": false,
         "raw": "UUID of user that should be added as owner"
        },
@@ -4913,36 +6221,36 @@
          ],
          "name": "paths·1p4mpbg·fridges-uuid-owners·post·requestbody",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/requestBodies/paths·1p4mpbg·fridges-uuid-owners·post·requestbody"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/requestBodies/paths·1p4mpbg·fridges-uuid-owners·post·requestbody"
          ]
         }
        },
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "600",
+        "$id": "754",
         "fixed": false,
         "raw": "body"
        },
        "serializedName": "body",
        "modelType": {
-        "$ref": "2"
+        "$ref": "229"
        }
       },
       {
-       "$id": "601",
+       "$id": "755",
        "clientProperty": {
-        "$ref": "289"
+        "$ref": "335"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "602",
+        "$id": "756",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "603",
+        "$id": "757",
         "fixed": false,
         "raw": "UUID to identify a fridge"
        },
@@ -4956,7 +6264,7 @@
          ],
          "name": "paths·1q7e5mp·fridges-uuid-owners·parameters·0",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1q7e5mp·fridges-uuid-owners·parameters·0"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1q7e5mp·fridges-uuid-owners·parameters·0"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -4964,17 +6272,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "604",
+        "$id": "758",
         "fixed": false,
         "raw": "uuid"
        },
        "serializedName": "uuid",
        "modelType": {
-        "$id": "605",
+        "$id": "759",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "606",
+         "$id": "760",
          "fixed": false,
          "raw": "String"
         },
@@ -4983,12 +6291,12 @@
       }
      ],
      "name": {
-      "$id": "607",
+      "$id": "761",
       "fixed": false,
       "raw": "owners"
      },
      "group": {
-      "$id": "608",
+      "$id": "762",
       "fixed": false,
       "raw": "add"
      },
@@ -4998,12 +6306,12 @@
      "httpMethod": "post",
      "responses": {
       "OK": {
-       "$id": "609",
+       "$id": "763",
        "body": {
-        "$ref": "193"
+        "$ref": "171"
        },
        "extensions": {
-        "$id": "610",
+        "$id": "764",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -5013,16 +6321,16 @@
          ],
          "name": "paths·14924qi·fridges-uuid-owners·post·responses·200",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·14924qi·fridges-uuid-owners·post·responses·200"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·14924qi·fridges-uuid-owners·post·responses·200"
          ]
         }
        },
        "isNullable": true
       },
       "NotFound": {
-       "$id": "611",
+       "$id": "765",
        "extensions": {
-        "$id": "612",
+        "$id": "766",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -5032,7 +6340,7 @@
          ],
          "name": "paths·136dou6·fridges-uuid-owners·post·responses·404",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·136dou6·fridges-uuid-owners·post·responses·404"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·136dou6·fridges-uuid-owners·post·responses·404"
          ]
         }
        },
@@ -5040,13 +6348,13 @@
       }
      },
      "defaultResponse": {
-      "$id": "613",
+      "$id": "767",
       "isNullable": true
      },
      "returnType": {
-      "$id": "614",
+      "$id": "768",
       "body": {
-       "$ref": "193"
+       "$ref": "171"
       },
       "isNullable": true
      },
@@ -5075,19 +6383,19 @@
      "hidden": false
     },
     {
-     "$id": "615",
+     "$id": "769",
      "parameters": [
       {
-       "$id": "616",
+       "$id": "770",
        "location": "body",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "617",
+        "$id": "771",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "618",
+        "$id": "772",
         "fixed": false,
         "raw": "New item that should be created."
        },
@@ -5101,36 +6409,36 @@
          ],
          "name": "paths·1llnphs·fridges-uuid-items·post·requestbody",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/requestBodies/paths·1llnphs·fridges-uuid-items·post·requestbody"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/requestBodies/paths·1llnphs·fridges-uuid-items·post·requestbody"
          ]
         }
        },
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "619",
+        "$id": "773",
         "fixed": false,
         "raw": "body"
        },
        "serializedName": "body",
        "modelType": {
-        "$ref": "205"
+        "$ref": "237"
        }
       },
       {
-       "$id": "620",
+       "$id": "774",
        "clientProperty": {
-        "$ref": "289"
+        "$ref": "335"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "621",
+        "$id": "775",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "622",
+        "$id": "776",
         "fixed": false,
         "raw": "UUID to identify a fridge"
        },
@@ -5144,7 +6452,7 @@
          ],
          "name": "paths·18rdfo·fridges-uuid-items·parameters·0",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·18rdfo·fridges-uuid-items·parameters·0"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·18rdfo·fridges-uuid-items·parameters·0"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -5152,17 +6460,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "623",
+        "$id": "777",
         "fixed": false,
         "raw": "uuid"
        },
        "serializedName": "uuid",
        "modelType": {
-        "$id": "624",
+        "$id": "778",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "625",
+         "$id": "779",
          "fixed": false,
          "raw": "String"
         },
@@ -5171,12 +6479,12 @@
       }
      ],
      "name": {
-      "$id": "626",
+      "$id": "780",
       "fixed": false,
       "raw": "FridgeMethod"
      },
      "group": {
-      "$id": "627",
+      "$id": "781",
       "fixed": false,
       "raw": "add"
      },
@@ -5186,12 +6494,12 @@
      "httpMethod": "post",
      "responses": {
       "Created": {
-       "$id": "628",
+       "$id": "782",
        "body": {
-        "$ref": "225"
+        "$ref": "257"
        },
        "extensions": {
-        "$id": "629",
+        "$id": "783",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -5201,16 +6509,16 @@
          ],
          "name": "paths·1gs9y54·fridges-uuid-items·post·responses·201",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1gs9y54·fridges-uuid-items·post·responses·201"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1gs9y54·fridges-uuid-items·post·responses·201"
          ]
         }
        },
        "isNullable": true
       },
       "BadRequest": {
-       "$id": "630",
+       "$id": "784",
        "extensions": {
-        "$id": "631",
+        "$id": "785",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -5220,16 +6528,16 @@
          ],
          "name": "paths·re74n6·fridges-uuid-items·post·responses·400",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·re74n6·fridges-uuid-items·post·responses·400"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·re74n6·fridges-uuid-items·post·responses·400"
          ]
         }
        },
        "isNullable": true
       },
       "Unauthorized": {
-       "$id": "632",
+       "$id": "786",
        "extensions": {
-        "$id": "633",
+        "$id": "787",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -5239,16 +6547,16 @@
          ],
          "name": "paths·mudqn·fridges-uuid-items·post·responses·401",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·mudqn·fridges-uuid-items·post·responses·401"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·mudqn·fridges-uuid-items·post·responses·401"
          ]
         }
        },
        "isNullable": true
       },
       "NotFound": {
-       "$id": "634",
+       "$id": "788",
        "extensions": {
-        "$id": "635",
+        "$id": "789",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -5258,7 +6566,7 @@
          ],
          "name": "paths·1onwf5i·fridges-uuid-items·post·responses·404",
          "originalLocations": [
-          "file:///C:/Users/Tobias/Downloads/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1onwf5i·fridges-uuid-items·post·responses·404"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1onwf5i·fridges-uuid-items·post·responses·404"
          ]
         }
        },
@@ -5266,13 +6574,13 @@
       }
      },
      "defaultResponse": {
-      "$id": "636",
+      "$id": "790",
       "isNullable": true
      },
      "returnType": {
-      "$id": "637",
+      "$id": "791",
       "body": {
-       "$ref": "225"
+       "$ref": "257"
       },
       "isNullable": true
      },
@@ -5302,15 +6610,217 @@
     }
    ],
    "name": {
-    "$id": "638",
+    "$id": "792",
     "fixed": false,
     "raw": "Add"
    },
    "typeName": {
-    "$id": "639",
+    "$id": "793",
     "fixed": false
    },
    "nameForProperty": "Add"
+  },
+  {
+   "$id": "794",
+   "methods": [
+    {
+     "$id": "795",
+     "parameters": [
+      {
+       "$id": "796",
+       "clientProperty": {
+        "$ref": "377"
+       },
+       "location": "query",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "797",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "798",
+        "fixed": false,
+        "raw": "Filters a for a username"
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·nkseku·users·head·parameters·0",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·nkseku·users·head·parameters·0"
+         ]
+        },
+        "x-ms-parameter-location": "method"
+       },
+       "isRequired": false,
+       "isConstant": false,
+       "name": {
+        "$id": "799",
+        "fixed": false,
+        "raw": "username"
+       },
+       "serializedName": "username",
+       "modelType": {
+        "$id": "800",
+        "$type": "PrimaryType",
+        "knownPrimaryType": "string",
+        "name": {
+         "$id": "801",
+         "fixed": false,
+         "raw": "String"
+        },
+        "deprecated": false
+       }
+      },
+      {
+       "$id": "802",
+       "clientProperty": {
+        "$ref": "383"
+       },
+       "location": "query",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "803",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "804",
+        "fixed": false,
+        "raw": "Filters a for an email"
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·d9fslz·users·head·parameters·1",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·d9fslz·users·head·parameters·1"
+         ]
+        },
+        "x-ms-parameter-location": "method"
+       },
+       "isRequired": false,
+       "isConstant": false,
+       "name": {
+        "$id": "805",
+        "fixed": false,
+        "raw": "email"
+       },
+       "serializedName": "email",
+       "modelType": {
+        "$id": "806",
+        "$type": "PrimaryType",
+        "knownPrimaryType": "string",
+        "name": {
+         "$id": "807",
+         "fixed": false,
+         "raw": "String"
+        },
+        "deprecated": false
+       }
+      }
+     ],
+     "name": {
+      "$id": "808",
+      "fixed": false,
+      "raw": "UserMethod"
+     },
+     "group": {
+      "$id": "809",
+      "fixed": false,
+      "raw": "check"
+     },
+     "serializedName": "check_user",
+     "url": "/users",
+     "isAbsoluteUrl": false,
+     "httpMethod": "head",
+     "responses": {
+      "OK": {
+       "$id": "810",
+       "extensions": {
+        "$id": "811",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·163xjmg·users·head·responses·200",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·163xjmg·users·head·responses·200"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "NoContent": {
+       "$id": "812",
+       "extensions": {
+        "$id": "813",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·11mj378·users·head·responses·204",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·11mj378·users·head·responses·204"
+         ]
+        }
+       },
+       "isNullable": true
+      }
+     },
+     "defaultResponse": {
+      "$id": "814",
+      "isNullable": true
+     },
+     "returnType": {
+      "$id": "815",
+      "isNullable": true
+     },
+     "requestContentType": "application/json; charset=utf-8",
+     "responseContentTypes": [
+      "application/json"
+     ],
+     "extensions": {
+      "servers": [
+       {
+        "url": "https://fridgy-api.herokuapp.com/api"
+       },
+       {
+        "url": "http://fridgy-api.herokuapp.com/api"
+       }
+      ]
+     },
+     "deprecated": false,
+     "hidden": false
+    }
+   ],
+   "name": {
+    "$id": "816",
+    "fixed": false,
+    "raw": "Check"
+   },
+   "typeName": {
+    "$id": "817",
+    "fixed": false
+   },
+   "nameForProperty": "Check"
   }
  ]
 }

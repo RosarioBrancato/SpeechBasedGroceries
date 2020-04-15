@@ -238,7 +238,7 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Item>> ItemMethodWithHttpMessagesAsync(string uuid, string itemUuid, Paths1qz8pmtfridgesUuidItemsItemUuidputrequestbodycontentapplicationJsonschema body = default(Paths1qz8pmtfridgesUuidItemsItemUuidputrequestbodycontentapplicationJsonschema), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Item>> ItemMethodWithHttpMessagesAsync(string uuid, string itemUuid, PutItem body = default(PutItem), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (uuid == null)
             {

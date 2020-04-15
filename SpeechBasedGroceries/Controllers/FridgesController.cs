@@ -28,9 +28,6 @@ namespace SpeechBasedGroceries.Controllers
 		{
 			_logger.LogInformation("Get Fridges");
 
-			//TO-DO: load user token from CRM maybe?
-			string token = AppSettings.Instance.FridgyToken;
-
 			FridgyClient fridgyClient = new FridgyClient();
 
 			IList<Fridge> SwaggerFridges;

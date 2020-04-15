@@ -42,7 +42,7 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<Fridge>> OwnersWithHttpMessagesAsync(Paths2y9jddfridgesUuidOwnerspostrequestbodycontentapplicationJsonschema body, string uuid, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Fridge>> OwnersWithHttpMessagesAsync(Owner body, string uuid, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Adds a new item into the fridge.
         /// </summary>

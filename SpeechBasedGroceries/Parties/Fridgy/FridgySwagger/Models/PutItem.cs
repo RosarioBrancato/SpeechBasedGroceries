@@ -11,24 +11,20 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class Paths1qz8pmtfridgesUuidItemsItemUuidputrequestbodycontentapplicationJsonschema
+    public partial class PutItem
     {
         /// <summary>
-        /// Initializes a new instance of the
-        /// Paths1qz8pmtfridgesUuidItemsItemUuidputrequestbodycontentapplicationJsonschema
-        /// class.
+        /// Initializes a new instance of the PutItem class.
         /// </summary>
-        public Paths1qz8pmtfridgesUuidItemsItemUuidputrequestbodycontentapplicationJsonschema()
+        public PutItem()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// Paths1qz8pmtfridgesUuidItemsItemUuidputrequestbodycontentapplicationJsonschema
-        /// class.
+        /// Initializes a new instance of the PutItem class.
         /// </summary>
-        public Paths1qz8pmtfridgesUuidItemsItemUuidputrequestbodycontentapplicationJsonschema(System.DateTime? expiry = default(System.DateTime?), double? qty = default(double?))
+        public PutItem(System.DateTime? expiry = default(System.DateTime?), double? qty = default(double?))
         {
             Expiry = expiry;
             Qty = qty;

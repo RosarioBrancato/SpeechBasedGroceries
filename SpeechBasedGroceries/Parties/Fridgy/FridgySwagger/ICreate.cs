@@ -62,5 +62,27 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client
         /// Thrown when a required parameter is null
         /// </exception>
         Task<HttpOperationResponse<Fridge>> FridgesWithHttpMessagesAsync(BaseFridge body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Register a new user.
+        /// </summary>
+        /// <param name='body'>
+        /// UUID of user that should be added as owner
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<User>> UserMethodWithHttpMessagesAsync(PostUser body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
