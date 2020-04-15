@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using SpeechBasedGroceries.AppServices;
 using SpeechBasedGroceries.DTOs;
 using Microsoft.Extensions.Logging;
+using Microsoft.CodeAnalysis.FlowAnalysis;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace SpeechBasedGroceries.Parties.CRM
 {
@@ -167,17 +169,16 @@ namespace SpeechBasedGroceries.Parties.CRM
 				connection.Open();
 				using (SqlCommand cmd = new SqlCommand(sql, connection))
 				{
-					cmd.Parameters.AddWithValue("@p1", customer.Firstname);
-					cmd.Parameters.AddWithValue("@p2", customer.Surname);
-					cmd.Parameters.AddWithValue("@p3", customer.Birthdate);
-					cmd.Parameters.AddWithValue("@p4", customer.Street);
-					cmd.Parameters.AddWithValue("@p5", customer.Zip);
-					cmd.Parameters.AddWithValue("@p6", customer.City);
-					cmd.Parameters.AddWithValue("@p7", customer.Country);
-					cmd.Parameters.AddWithValue("@p8", customer.Email);
+					cmd.Parameters.AddWithValue("@p1", (customer.Firstname is null) ? (object)DBNull.Value : customer.Firstname);
+					cmd.Parameters.AddWithValue("@p2", (customer.Surname is null) ? (object)DBNull.Value : customer.Surname);
+					cmd.Parameters.AddWithValue("@p3", (customer.Birthdate is null) ? (object)DBNull.Value : customer.Birthdate);
+					cmd.Parameters.AddWithValue("@p4", (customer.Street is null) ? (object)DBNull.Value : customer.Street);
+					cmd.Parameters.AddWithValue("@p5", (customer.Zip is null) ? (object)DBNull.Value : customer.Zip);
+					cmd.Parameters.AddWithValue("@p6", (customer.City is null) ? (object)DBNull.Value : customer.City);
+					cmd.Parameters.AddWithValue("@p7", (customer.Country is null) ? (object)DBNull.Value : customer.Country);
+					cmd.Parameters.AddWithValue("@p8", (customer.Email is null) ? (object)DBNull.Value : customer.Email);
 					cmd.Parameters.AddWithValue("@p9", customer.TelegramId);
 					cmd.Parameters.AddWithValue("@p0", customer.Id);
-
 					if (cmd.ExecuteNonQuery() == 1)
 					{
 						_customer = customer;
@@ -208,14 +209,14 @@ namespace SpeechBasedGroceries.Parties.CRM
 				connection.Open();
 				using (SqlCommand cmd = new SqlCommand(sql, connection))
 				{
-					cmd.Parameters.AddWithValue("@p1", customer.Firstname);
-					cmd.Parameters.AddWithValue("@p2", customer.Surname);
-					cmd.Parameters.AddWithValue("@p3", customer.Birthdate);
-					cmd.Parameters.AddWithValue("@p4", customer.Street);
-					cmd.Parameters.AddWithValue("@p5", customer.Zip);
-					cmd.Parameters.AddWithValue("@p6", customer.City);
-					cmd.Parameters.AddWithValue("@p7", customer.Country);
-					cmd.Parameters.AddWithValue("@p8", customer.Email);
+					cmd.Parameters.AddWithValue("@p1", (customer.Firstname is null) ? (object)DBNull.Value : customer.Firstname);
+					cmd.Parameters.AddWithValue("@p2", (customer.Surname is null) ? (object)DBNull.Value : customer.Surname);
+					cmd.Parameters.AddWithValue("@p3", (customer.Birthdate is null) ? (object)DBNull.Value : customer.Birthdate);
+					cmd.Parameters.AddWithValue("@p4", (customer.Street is null) ? (object)DBNull.Value : customer.Street);
+					cmd.Parameters.AddWithValue("@p5", (customer.Zip is null) ? (object)DBNull.Value : customer.Zip);
+					cmd.Parameters.AddWithValue("@p6", (customer.City is null) ? (object)DBNull.Value : customer.City);
+					cmd.Parameters.AddWithValue("@p7", (customer.Country is null) ? (object)DBNull.Value : customer.Country);
+					cmd.Parameters.AddWithValue("@p8", (customer.Email is null) ? (object)DBNull.Value : customer.Email);
 					cmd.Parameters.AddWithValue("@p9", customer.TelegramId);
 
 					int customerId = 0;
@@ -340,7 +341,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 					cmd.Parameters.AddWithValue("@p1", token.Creation);
 					cmd.Parameters.AddWithValue("@p2", token.Name);
 					cmd.Parameters.AddWithValue("@p3", token.Value);
-					cmd.Parameters.AddWithValue("@p4", token.Expiration);
+					cmd.Parameters.AddWithValue("@p4", (token.Expiration is null) ? (Object)DBNull.Value : token.Expiration);
 					cmd.Parameters.AddWithValue("@p5", token.Id);
 					cmd.Parameters.AddWithValue("@p6", token.CustomerId);
 
@@ -374,7 +375,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 					cmd.Parameters.AddWithValue("@p2", token.Creation);
 					cmd.Parameters.AddWithValue("@p3", token.Name);
 					cmd.Parameters.AddWithValue("@p4", token.Value);
-					cmd.Parameters.AddWithValue("@p5", token.Expiration);
+					cmd.Parameters.AddWithValue("@p5", (token.Expiration is null) ? (Object)DBNull.Value : token.Expiration);
 
 					int tokenId = 0;
 					try

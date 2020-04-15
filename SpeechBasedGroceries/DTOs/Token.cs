@@ -18,7 +18,7 @@ namespace SpeechBasedGroceries.DTOs
 
 		public string Value { get; set; }
 
-		public DateTime Expiration { get; set; }
+		public DateTime? Expiration { get; set; }
 
 	}
 }

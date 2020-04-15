@@ -14,7 +14,7 @@ namespace SpeechBasedGroceries.DTOs
 
 		public string Surname { get; set; }
 
-        public DateTime Birthdate { get; set; }
+        public DateTime? Birthdate { get; set; }
 
 		public string Street { get; set; }
 
