@@ -5,18 +5,19 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using SpeechBasedGroceries.AppServices;
-using SpeechBasedGroceries.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using SpeechBasedGroceries.Parties.Fridgy.Client;
+using Microsoft.Rest;
+using SpeechBasedGroceries.DTOs;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace SpeechBasedGroceries.Parties.Fridgy
 {
 	public class FridgyClient
 	{
-		private string token;
 
 		private readonly ILogger<FridgyClient> _logger;
 
@@ -31,16 +32,18 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 			// TODO: better way than give this dummy string to the credentials constructor
 			client = new f.Fridgy(new TokenCredentials("empty"));
 		}
-		public string Token
-		{
-			get { return token; }
-			set
-			{
-				token = value;
-				credentials = new TokenCredentials(value);
-				client = new f.Fridgy(credentials);
 
-			}
+		public void setToken(string value)
+		{
+			credentials = new TokenCredentials(value);
+			client = new f.Fridgy(credentials);
+
+		}
+		public void setBasicAuth(string username, string password) {
+			BasicAuthenticationCredentials credentials = new BasicAuthenticationCredentials();
+			credentials.Password = password;
+			credentials.UserName = username;
+			client = new f.Fridgy(credentials);
 		}
 
 		public IList<Product> GetProducts()
@@ -79,6 +82,12 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 		public void DeleteUser(string uuid)
 		{
 			client.Delete.Users(uuid);
+		}
+
+		public string RetrieveToken() {
+			TokensResponse resp = client.Get.Jwttoken();
+			if (!(resp is null)) return resp.Token;
+			return null;
 		}
 
 	}

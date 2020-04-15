@@ -4,6 +4,8 @@ using SpeechBasedGroceries.Parties.Fridgy.Client.Models;
 using SpeechBasedGroceriesTest.Data;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace SpeechBasedGroceriesTest
 {
@@ -41,7 +43,7 @@ namespace SpeechBasedGroceriesTest
 		public void TestGetFridges()
 		{
 			string token = UnitTestData.Instance.FridgyToken;
-			this.fridgyClient.Token = token;
+			this.fridgyClient.setToken(token);
 
 			IList<Fridge> fridges = this.fridgyClient.GetFridges();
 			Assert.IsTrue(fridges.Count > 0);
@@ -67,11 +69,25 @@ namespace SpeechBasedGroceriesTest
 
 			// delete user again
 			string token = UnitTestData.Instance.FridgyToken;
-			this.fridgyClient.Token = token;
+			this.fridgyClient.setToken(token);
 			Assert.IsNotNull(UserUUID);
 			this.fridgyClient.DeleteUser(UserUUID);
 		}
 
+		[TestMethod]
+		public void TestRetrieveToken()
+		{
+			this.fridgyClient.setBasicAuth(UnitTestData.Instance.FridgyUsername, UnitTestData.Instance.FridgyPassword);
+			string token = this.fridgyClient.RetrieveToken();
+
+			Assert.IsNotNull(token);
+
+			JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
+			JwtSecurityToken jwtToken = tokenHandler.ReadJwtToken(token);
+
+			Assert.IsTrue(tokenHandler.CanReadToken(token));
+			Assert.AreEqual<DateTime>(default(DateTime), jwtToken.ValidTo);
+		}
 		
 
 

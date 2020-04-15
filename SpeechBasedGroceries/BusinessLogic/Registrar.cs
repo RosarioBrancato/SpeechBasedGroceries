@@ -1,25 +1,47 @@
-﻿using SpeechBasedGroceries.DTOs;
+﻿using Microsoft.Extensions.Logging;
+using SpeechBasedGroceries.DTOs;
 using SpeechBasedGroceries.Parties.CRM;
 using SpeechBasedGroceries.Parties.Fridgy;
 using SpeechBasedGroceries.Parties.Fridgy.Client.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using SpeechBasedGroceries.AppServices;
 
 namespace SpeechBasedGroceries.BusinessLogic
 {
 	public class Registrar
 	{
+		private readonly ILogger<Registrar> _logger;
 
-		public bool LoginWithTelegram(string telegramId)
+		public Registrar()
 		{
-			//TO-DO
-			//CRM: check if telegramId exists in t_customer
-			//CRM: if not -> customer = Registrar.RegisterCustomerInCrm(...)
-			//            -> token_string = Registrar.CreateNewFridgyAccount(customer.Id)
-			//            -> Registrar.AssignTokenToCustomer(customer, token_name, token_value, token_expiration)
-			return false;
+			_logger = AppLoggerFactory.GetLogger<Registrar>();
+		}
+
+		private CrmClient crmClient;
+
+		public Token LoginWithTelegram(string telegramId)
+		{
+			this.crmClient = new CrmClient();
+			Customer customer = this.crmClient.GetCustomerByTelegramId(telegramId);
+			Token token;
+			if (customer is null)
+			{
+				String UUID = Guid.NewGuid().ToString();
+				var username = "lonelyuser-" + UUID.Substring(0, 4);
+				var password = UUID;
+				var email = username + "@google.com";
+				var displayname = username;
+				var intTelegramid = Int32.Parse(telegramId);
+
+				Customer newCustomer = RegisterCustomerInCrm(null, null, null, null, null,null, null,  email,  intTelegramid);
+				string bearerToken = CreateNewFridgyAccount(username, password, displayname, email);
+				token = AssignTokenToCustomer(newCustomer, "Fridgy", bearerToken);
+			}
+			else {
+				token = customer.GetFridigyToken();
+			}
+			
+			return token;
 		}
 
 
@@ -28,11 +50,13 @@ namespace SpeechBasedGroceries.BusinessLogic
          * Params:  none
          * Return:  Bearer token of newly created account
          */
-        public string CreateNewFridgyAccount(int customerId)
+        private string CreateNewFridgyAccount(string username, string password, string displayname, string email)
 		{
-            // TODO
-            // random username and password (may be seeded with customerId)
-			return null;
+			FridgyClient fridgyClient = new FridgyClient();
+			User newUser = fridgyClient.RegisterUser(username, password, displayname, email);
+			fridgyClient.setBasicAuth(username, password);
+			string token = fridgyClient.RetrieveToken();
+			return token;
 		}
 
 
@@ -41,10 +65,10 @@ namespace SpeechBasedGroceries.BusinessLogic
          * Params:  self explaining
          * Return:  Customer object if succeeded, null if failed
          */
-		public Customer RegisterCustomerInCrm(
+		private Customer RegisterCustomerInCrm(
             string firstname = default,
             string surname = default,
-            DateTime birthdate = default(DateTime),
+            DateTime? birthdate = null,
             string street = default,
             string zip = default,
             string city = default,
@@ -76,11 +100,11 @@ namespace SpeechBasedGroceries.BusinessLogic
          * Params:  self explaining
          * Return:  Customer object if succeeded, null if failed
          */
-		public Token AssignTokenToCustomer(
+		private Token AssignTokenToCustomer(
             Customer customer,
             string token_name,
             string token_value,
-            DateTime token_expiration = default)
+            DateTime? token_expiration = null)
 		{
 
 			Token token = new Token()

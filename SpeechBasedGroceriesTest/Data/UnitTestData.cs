@@ -23,6 +23,8 @@ namespace SpeechBasedGroceriesTest.Data
 
 
 		public string FridgyToken { get; private set; }
+		public string FridgyUsername { get; private set; }
+		public string FridgyPassword { get; private set; }
 
 
 		private UnitTestData()
@@ -35,6 +37,8 @@ namespace SpeechBasedGroceriesTest.Data
 			JObject data = JObject.Parse(File.ReadAllText("Data/UnitTestData.json"));
 
 			this.FridgyToken = data["Fridgy"]["Token"].Value<string>();
+			this.FridgyUsername = data["Fridgy"]["Username"].Value<string>();
+			this.FridgyPassword = data["Fridgy"]["Password"].Value<string>();
 		}
 
 	}
