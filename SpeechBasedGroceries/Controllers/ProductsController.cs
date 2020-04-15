@@ -29,9 +29,6 @@ namespace SpeechBasedGroceries.Controllers
 		{
 			_logger.LogInformation("GetByQuery called... Argument: query = " + query);
 
-			//TO-DO: load user token from CRM maybe?
-			string token = AppSettings.Instance.FridgyToken;
-
 			FridgyClient fridgyClient = new FridgyClient();
 
 			IList<Product> SwaggerProducts;
@@ -52,7 +49,6 @@ namespace SpeechBasedGroceries.Controllers
 		{
 			_logger.LogInformation("Get(ById) called... Argument: id = " + barcode);
 
-			string token = AppSettings.Instance.FridgyToken;
 			FridgyClient fridgyClient = new FridgyClient();
 			Product product = fridgyClient.GetProductsByBarcode(barcode);
 			
