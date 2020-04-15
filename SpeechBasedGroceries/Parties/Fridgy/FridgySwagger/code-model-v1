@@ -2077,7 +2077,7 @@
      "$id": "298",
      "isReadOnly": false,
      "realPath": [
-      "code"
+      "refresh_token"
      ],
      "collectionFormat": "none",
      "defaultValue": {
@@ -2094,18 +2094,17 @@
      "name": {
       "$id": "301",
       "fixed": false,
-      "raw": "code"
+      "raw": "refresh_token"
      },
-     "serializedName": "code",
+     "serializedName": "refresh_token",
      "modelType": {
       "$id": "302",
       "$type": "PrimaryType",
-      "format": "int32",
-      "knownPrimaryType": "int",
+      "knownPrimaryType": "string",
       "name": {
        "$id": "303",
        "fixed": false,
-       "raw": "Int"
+       "raw": "String"
       },
       "deprecated": false
      }
@@ -2114,7 +2113,7 @@
      "$id": "304",
      "isReadOnly": false,
      "realPath": [
-      "type"
+      "token"
      ],
      "collectionFormat": "none",
      "defaultValue": {
@@ -2131,9 +2130,9 @@
      "name": {
       "$id": "307",
       "fixed": false,
-      "raw": "type"
+      "raw": "token"
      },
-     "serializedName": "type",
+     "serializedName": "token",
      "modelType": {
       "$id": "308",
       "$type": "PrimaryType",
@@ -2150,7 +2149,7 @@
      "$id": "310",
      "isReadOnly": false,
      "realPath": [
-      "message"
+      "user"
      ],
      "collectionFormat": "none",
      "defaultValue": {
@@ -2167,15 +2166,236 @@
      "name": {
       "$id": "313",
       "fixed": false,
+      "raw": "user"
+     },
+     "serializedName": "user",
+     "modelType": {
+      "$ref": "183"
+     }
+    }
+   ],
+   "serializedName": "TokensResponse",
+   "containsConstantProperties": false,
+   "name": {
+    "$id": "314",
+    "fixed": false,
+    "raw": "TokensResponse"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "1.0.0"
+     ],
+     "filename": [
+      "mem:///102?oai3.shaken.json"
+     ],
+     "name": "TokensResponse",
+     "originalLocations": [
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/TokensResponse"
+     ]
+    }
+   },
+   "deprecated": false
+  },
+  {
+   "$id": "315",
+   "$type": "CompositeType",
+   "properties": [
+    {
+     "$id": "316",
+     "isReadOnly": false,
+     "realPath": [
+      "token"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "317",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "318",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "319",
+      "fixed": false,
+      "raw": "token"
+     },
+     "serializedName": "token",
+     "modelType": {
+      "$id": "320",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "321",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "322",
+     "isReadOnly": false,
+     "realPath": [
+      "user"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "323",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "324",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "325",
+      "fixed": false,
+      "raw": "user"
+     },
+     "serializedName": "user",
+     "modelType": {
+      "$ref": "183"
+     }
+    }
+   ],
+   "serializedName": "TokenResponse",
+   "containsConstantProperties": false,
+   "name": {
+    "$id": "326",
+    "fixed": false,
+    "raw": "TokenResponse"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "1.0.0"
+     ],
+     "filename": [
+      "mem:///102?oai3.shaken.json"
+     ],
+     "name": "TokenResponse",
+     "originalLocations": [
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/schemas/TokenResponse"
+     ]
+    }
+   },
+   "deprecated": false
+  },
+  {
+   "$id": "327",
+   "$type": "CompositeType",
+   "properties": [
+    {
+     "$id": "328",
+     "isReadOnly": false,
+     "realPath": [
+      "code"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "329",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "330",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "331",
+      "fixed": false,
+      "raw": "code"
+     },
+     "serializedName": "code",
+     "modelType": {
+      "$id": "332",
+      "$type": "PrimaryType",
+      "format": "int32",
+      "knownPrimaryType": "int",
+      "name": {
+       "$id": "333",
+       "fixed": false,
+       "raw": "Int"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "334",
+     "isReadOnly": false,
+     "realPath": [
+      "type"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "335",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "336",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "337",
+      "fixed": false,
+      "raw": "type"
+     },
+     "serializedName": "type",
+     "modelType": {
+      "$id": "338",
+      "$type": "PrimaryType",
+      "knownPrimaryType": "string",
+      "name": {
+       "$id": "339",
+       "fixed": false,
+       "raw": "String"
+      },
+      "deprecated": false
+     }
+    },
+    {
+     "$id": "340",
+     "isReadOnly": false,
+     "realPath": [
+      "message"
+     ],
+     "collectionFormat": "none",
+     "defaultValue": {
+      "$id": "341",
+      "fixed": false
+     },
+     "deprecated": false,
+     "documentation": {
+      "$id": "342",
+      "fixed": false
+     },
+     "isRequired": false,
+     "isConstant": false,
+     "name": {
+      "$id": "343",
+      "fixed": false,
       "raw": "message"
      },
      "serializedName": "message",
      "modelType": {
-      "$id": "314",
+      "$id": "344",
       "$type": "PrimaryType",
       "knownPrimaryType": "string",
       "name": {
-       "$id": "315",
+       "$id": "345",
        "fixed": false,
        "raw": "String"
       },
@@ -2186,7 +2406,7 @@
    "serializedName": "ApiResponse",
    "containsConstantProperties": false,
    "name": {
-    "$id": "316",
+    "$id": "346",
     "fixed": false,
     "raw": "ApiResponse"
    },
@@ -2215,19 +2435,19 @@
  "documentation": "This is the API endpoint documentation from the Fridgy web app.",
  "properties": [
   {
-   "$id": "317",
+   "$id": "347",
    "isReadOnly": false,
    "realPath": [
     "barcode"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "318",
+    "$id": "348",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "319",
+    "$id": "349",
     "fixed": false,
     "raw": "Barcode used as unique identifier to find product"
    },
@@ -2249,17 +2469,17 @@
    "isRequired": true,
    "isConstant": false,
    "name": {
-    "$id": "320",
+    "$id": "350",
     "fixed": false,
     "raw": "barcode"
    },
    "serializedName": "barcode",
    "modelType": {
-    "$id": "321",
+    "$id": "351",
     "$type": "PrimaryType",
     "knownPrimaryType": "string",
     "name": {
-     "$id": "322",
+     "$id": "352",
      "fixed": false,
      "raw": "String"
     },
@@ -2267,19 +2487,19 @@
    }
   },
   {
-   "$id": "323",
+   "$id": "353",
    "isReadOnly": false,
    "realPath": [
     "sort_by"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "324",
+    "$id": "354",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "325",
+    "$id": "355",
     "fixed": false,
     "raw": "The sorting of the result. e.g. name.asc, id.desc"
    },
@@ -2301,17 +2521,17 @@
    "isRequired": false,
    "isConstant": false,
    "name": {
-    "$id": "326",
+    "$id": "356",
     "fixed": false,
     "raw": "sort_by"
    },
    "serializedName": "sort_by",
    "modelType": {
-    "$id": "327",
+    "$id": "357",
     "$type": "PrimaryType",
     "knownPrimaryType": "string",
     "name": {
-     "$id": "328",
+     "$id": "358",
      "fixed": false,
      "raw": "String"
     },
@@ -2319,19 +2539,19 @@
    }
   },
   {
-   "$id": "329",
+   "$id": "359",
    "isReadOnly": false,
    "realPath": [
     "query"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "330",
+    "$id": "360",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "331",
+    "$id": "361",
     "fixed": false,
     "raw": "Filter applied to the name and description of the products."
    },
@@ -2353,271 +2573,11 @@
    "isRequired": false,
    "isConstant": false,
    "name": {
-    "$id": "332",
+    "$id": "362",
     "fixed": false,
     "raw": "query"
    },
    "serializedName": "query",
-   "modelType": {
-    "$id": "333",
-    "$type": "PrimaryType",
-    "knownPrimaryType": "string",
-    "name": {
-     "$id": "334",
-     "fixed": false,
-     "raw": "String"
-    },
-    "deprecated": false
-   }
-  },
-  {
-   "$id": "335",
-   "isReadOnly": false,
-   "realPath": [
-    "uuid"
-   ],
-   "collectionFormat": "none",
-   "defaultValue": {
-    "$id": "336",
-    "fixed": false
-   },
-   "deprecated": false,
-   "documentation": {
-    "$id": "337",
-    "fixed": false,
-    "raw": "UUID to identify a fridge"
-   },
-   "extensions": {
-    "x-ms-metadata": {
-     "apiVersions": [
-      "1.0.0"
-     ],
-     "filename": [
-      "mem:///102?oai3.shaken.json"
-     ],
-     "name": "paths·1udjitn·fridges-uuid·parameters·0",
-     "originalLocations": [
-      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1udjitn·fridges-uuid·parameters·0"
-     ]
-    },
-    "x-ms-parameter-location": "method"
-   },
-   "isRequired": true,
-   "isConstant": false,
-   "name": {
-    "$id": "338",
-    "fixed": false,
-    "raw": "uuid"
-   },
-   "serializedName": "uuid",
-   "modelType": {
-    "$id": "339",
-    "$type": "PrimaryType",
-    "knownPrimaryType": "string",
-    "name": {
-     "$id": "340",
-     "fixed": false,
-     "raw": "String"
-    },
-    "deprecated": false
-   }
-  },
-  {
-   "$id": "341",
-   "isReadOnly": false,
-   "realPath": [
-    "uuid"
-   ],
-   "collectionFormat": "none",
-   "defaultValue": {
-    "$id": "342",
-    "fixed": false
-   },
-   "deprecated": false,
-   "documentation": {
-    "$id": "343",
-    "fixed": false,
-    "raw": "UUID to identify a fridge"
-   },
-   "extensions": {
-    "x-ms-metadata": {
-     "apiVersions": [
-      "1.0.0"
-     ],
-     "filename": [
-      "mem:///102?oai3.shaken.json"
-     ],
-     "name": "paths·1q7e5mp·fridges-uuid-owners·parameters·0",
-     "originalLocations": [
-      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1q7e5mp·fridges-uuid-owners·parameters·0"
-     ]
-    },
-    "x-ms-parameter-location": "method"
-   },
-   "isRequired": true,
-   "isConstant": false,
-   "name": {
-    "$id": "344",
-    "fixed": false,
-    "raw": "Uuid1"
-   },
-   "serializedName": "uuid",
-   "modelType": {
-    "$id": "345",
-    "$type": "PrimaryType",
-    "knownPrimaryType": "string",
-    "name": {
-     "$id": "346",
-     "fixed": false,
-     "raw": "String"
-    },
-    "deprecated": false
-   }
-  },
-  {
-   "$id": "347",
-   "isReadOnly": false,
-   "realPath": [
-    "uuid"
-   ],
-   "collectionFormat": "none",
-   "defaultValue": {
-    "$id": "348",
-    "fixed": false
-   },
-   "deprecated": false,
-   "documentation": {
-    "$id": "349",
-    "fixed": false,
-    "raw": "UUID to identify a fridge"
-   },
-   "extensions": {
-    "x-ms-metadata": {
-     "apiVersions": [
-      "1.0.0"
-     ],
-     "filename": [
-      "mem:///102?oai3.shaken.json"
-     ],
-     "name": "paths·1kuc89n·fridges-uuid-owners-user_uuid·parameters·0",
-     "originalLocations": [
-      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1kuc89n·fridges-uuid-owners-user_uuid·parameters·0"
-     ]
-    },
-    "x-ms-parameter-location": "method"
-   },
-   "isRequired": true,
-   "isConstant": false,
-   "name": {
-    "$id": "350",
-    "fixed": false,
-    "raw": "Uuid2"
-   },
-   "serializedName": "uuid",
-   "modelType": {
-    "$id": "351",
-    "$type": "PrimaryType",
-    "knownPrimaryType": "string",
-    "name": {
-     "$id": "352",
-     "fixed": false,
-     "raw": "String"
-    },
-    "deprecated": false
-   }
-  },
-  {
-   "$id": "353",
-   "isReadOnly": false,
-   "realPath": [
-    "user_uuid"
-   ],
-   "collectionFormat": "none",
-   "defaultValue": {
-    "$id": "354",
-    "fixed": false
-   },
-   "deprecated": false,
-   "documentation": {
-    "$id": "355",
-    "fixed": false,
-    "raw": "UUID of user"
-   },
-   "extensions": {
-    "x-ms-metadata": {
-     "apiVersions": [
-      "1.0.0"
-     ],
-     "filename": [
-      "mem:///102?oai3.shaken.json"
-     ],
-     "name": "paths·oywp6b·fridges-uuid-owners-user_uuid·parameters·1",
-     "originalLocations": [
-      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·oywp6b·fridges-uuid-owners-user_uuid·parameters·1"
-     ]
-    },
-    "x-ms-parameter-location": "method"
-   },
-   "isRequired": true,
-   "isConstant": false,
-   "name": {
-    "$id": "356",
-    "fixed": false,
-    "raw": "user_uuid"
-   },
-   "serializedName": "user_uuid",
-   "modelType": {
-    "$id": "357",
-    "$type": "PrimaryType",
-    "knownPrimaryType": "string",
-    "name": {
-     "$id": "358",
-     "fixed": false,
-     "raw": "String"
-    },
-    "deprecated": false
-   }
-  },
-  {
-   "$id": "359",
-   "isReadOnly": false,
-   "realPath": [
-    "uuid"
-   ],
-   "collectionFormat": "none",
-   "defaultValue": {
-    "$id": "360",
-    "fixed": false
-   },
-   "deprecated": false,
-   "documentation": {
-    "$id": "361",
-    "fixed": false,
-    "raw": "UUID to identify a fridge"
-   },
-   "extensions": {
-    "x-ms-metadata": {
-     "apiVersions": [
-      "1.0.0"
-     ],
-     "filename": [
-      "mem:///102?oai3.shaken.json"
-     ],
-     "name": "paths·18rdfo·fridges-uuid-items·parameters·0",
-     "originalLocations": [
-      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·18rdfo·fridges-uuid-items·parameters·0"
-     ]
-    },
-    "x-ms-parameter-location": "method"
-   },
-   "isRequired": true,
-   "isConstant": false,
-   "name": {
-    "$id": "362",
-    "fixed": false,
-    "raw": "Uuid3"
-   },
-   "serializedName": "uuid",
    "modelType": {
     "$id": "363",
     "$type": "PrimaryType",
@@ -2655,9 +2615,9 @@
      "filename": [
       "mem:///102?oai3.shaken.json"
      ],
-     "name": "paths·3x1ps5·fridges-uuid-items-item_uuid·parameters·0",
+     "name": "paths·1udjitn·fridges-uuid·parameters·0",
      "originalLocations": [
-      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·3x1ps5·fridges-uuid-items-item_uuid·parameters·0"
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1udjitn·fridges-uuid·parameters·0"
      ]
     },
     "x-ms-parameter-location": "method"
@@ -2667,7 +2627,7 @@
    "name": {
     "$id": "368",
     "fixed": false,
-    "raw": "Uuid4"
+    "raw": "uuid"
    },
    "serializedName": "uuid",
    "modelType": {
@@ -2686,7 +2646,7 @@
    "$id": "371",
    "isReadOnly": false,
    "realPath": [
-    "item_uuid"
+    "uuid"
    ],
    "collectionFormat": "none",
    "defaultValue": {
@@ -2696,6 +2656,266 @@
    "deprecated": false,
    "documentation": {
     "$id": "373",
+    "fixed": false,
+    "raw": "UUID to identify a fridge"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "1.0.0"
+     ],
+     "filename": [
+      "mem:///102?oai3.shaken.json"
+     ],
+     "name": "paths·1q7e5mp·fridges-uuid-owners·parameters·0",
+     "originalLocations": [
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1q7e5mp·fridges-uuid-owners·parameters·0"
+     ]
+    },
+    "x-ms-parameter-location": "method"
+   },
+   "isRequired": true,
+   "isConstant": false,
+   "name": {
+    "$id": "374",
+    "fixed": false,
+    "raw": "Uuid1"
+   },
+   "serializedName": "uuid",
+   "modelType": {
+    "$id": "375",
+    "$type": "PrimaryType",
+    "knownPrimaryType": "string",
+    "name": {
+     "$id": "376",
+     "fixed": false,
+     "raw": "String"
+    },
+    "deprecated": false
+   }
+  },
+  {
+   "$id": "377",
+   "isReadOnly": false,
+   "realPath": [
+    "uuid"
+   ],
+   "collectionFormat": "none",
+   "defaultValue": {
+    "$id": "378",
+    "fixed": false
+   },
+   "deprecated": false,
+   "documentation": {
+    "$id": "379",
+    "fixed": false,
+    "raw": "UUID to identify a fridge"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "1.0.0"
+     ],
+     "filename": [
+      "mem:///102?oai3.shaken.json"
+     ],
+     "name": "paths·1kuc89n·fridges-uuid-owners-user_uuid·parameters·0",
+     "originalLocations": [
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1kuc89n·fridges-uuid-owners-user_uuid·parameters·0"
+     ]
+    },
+    "x-ms-parameter-location": "method"
+   },
+   "isRequired": true,
+   "isConstant": false,
+   "name": {
+    "$id": "380",
+    "fixed": false,
+    "raw": "Uuid2"
+   },
+   "serializedName": "uuid",
+   "modelType": {
+    "$id": "381",
+    "$type": "PrimaryType",
+    "knownPrimaryType": "string",
+    "name": {
+     "$id": "382",
+     "fixed": false,
+     "raw": "String"
+    },
+    "deprecated": false
+   }
+  },
+  {
+   "$id": "383",
+   "isReadOnly": false,
+   "realPath": [
+    "user_uuid"
+   ],
+   "collectionFormat": "none",
+   "defaultValue": {
+    "$id": "384",
+    "fixed": false
+   },
+   "deprecated": false,
+   "documentation": {
+    "$id": "385",
+    "fixed": false,
+    "raw": "UUID of user"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "1.0.0"
+     ],
+     "filename": [
+      "mem:///102?oai3.shaken.json"
+     ],
+     "name": "paths·oywp6b·fridges-uuid-owners-user_uuid·parameters·1",
+     "originalLocations": [
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·oywp6b·fridges-uuid-owners-user_uuid·parameters·1"
+     ]
+    },
+    "x-ms-parameter-location": "method"
+   },
+   "isRequired": true,
+   "isConstant": false,
+   "name": {
+    "$id": "386",
+    "fixed": false,
+    "raw": "user_uuid"
+   },
+   "serializedName": "user_uuid",
+   "modelType": {
+    "$id": "387",
+    "$type": "PrimaryType",
+    "knownPrimaryType": "string",
+    "name": {
+     "$id": "388",
+     "fixed": false,
+     "raw": "String"
+    },
+    "deprecated": false
+   }
+  },
+  {
+   "$id": "389",
+   "isReadOnly": false,
+   "realPath": [
+    "uuid"
+   ],
+   "collectionFormat": "none",
+   "defaultValue": {
+    "$id": "390",
+    "fixed": false
+   },
+   "deprecated": false,
+   "documentation": {
+    "$id": "391",
+    "fixed": false,
+    "raw": "UUID to identify a fridge"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "1.0.0"
+     ],
+     "filename": [
+      "mem:///102?oai3.shaken.json"
+     ],
+     "name": "paths·18rdfo·fridges-uuid-items·parameters·0",
+     "originalLocations": [
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·18rdfo·fridges-uuid-items·parameters·0"
+     ]
+    },
+    "x-ms-parameter-location": "method"
+   },
+   "isRequired": true,
+   "isConstant": false,
+   "name": {
+    "$id": "392",
+    "fixed": false,
+    "raw": "Uuid3"
+   },
+   "serializedName": "uuid",
+   "modelType": {
+    "$id": "393",
+    "$type": "PrimaryType",
+    "knownPrimaryType": "string",
+    "name": {
+     "$id": "394",
+     "fixed": false,
+     "raw": "String"
+    },
+    "deprecated": false
+   }
+  },
+  {
+   "$id": "395",
+   "isReadOnly": false,
+   "realPath": [
+    "uuid"
+   ],
+   "collectionFormat": "none",
+   "defaultValue": {
+    "$id": "396",
+    "fixed": false
+   },
+   "deprecated": false,
+   "documentation": {
+    "$id": "397",
+    "fixed": false,
+    "raw": "UUID to identify a fridge"
+   },
+   "extensions": {
+    "x-ms-metadata": {
+     "apiVersions": [
+      "1.0.0"
+     ],
+     "filename": [
+      "mem:///102?oai3.shaken.json"
+     ],
+     "name": "paths·3x1ps5·fridges-uuid-items-item_uuid·parameters·0",
+     "originalLocations": [
+      "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·3x1ps5·fridges-uuid-items-item_uuid·parameters·0"
+     ]
+    },
+    "x-ms-parameter-location": "method"
+   },
+   "isRequired": true,
+   "isConstant": false,
+   "name": {
+    "$id": "398",
+    "fixed": false,
+    "raw": "Uuid4"
+   },
+   "serializedName": "uuid",
+   "modelType": {
+    "$id": "399",
+    "$type": "PrimaryType",
+    "knownPrimaryType": "string",
+    "name": {
+     "$id": "400",
+     "fixed": false,
+     "raw": "String"
+    },
+    "deprecated": false
+   }
+  },
+  {
+   "$id": "401",
+   "isReadOnly": false,
+   "realPath": [
+    "item_uuid"
+   ],
+   "collectionFormat": "none",
+   "defaultValue": {
+    "$id": "402",
+    "fixed": false
+   },
+   "deprecated": false,
+   "documentation": {
+    "$id": "403",
     "fixed": false,
     "raw": "UUID of item"
    },
@@ -2717,17 +2937,17 @@
    "isRequired": true,
    "isConstant": false,
    "name": {
-    "$id": "374",
+    "$id": "404",
     "fixed": false,
     "raw": "item_uuid"
    },
    "serializedName": "item_uuid",
    "modelType": {
-    "$id": "375",
+    "$id": "405",
     "$type": "PrimaryType",
     "knownPrimaryType": "string",
     "name": {
-     "$id": "376",
+     "$id": "406",
      "fixed": false,
      "raw": "String"
     },
@@ -2735,19 +2955,19 @@
    }
   },
   {
-   "$id": "377",
+   "$id": "407",
    "isReadOnly": false,
    "realPath": [
     "username"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "378",
+    "$id": "408",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "379",
+    "$id": "409",
     "fixed": false,
     "raw": "Filters a for a username"
    },
@@ -2769,17 +2989,17 @@
    "isRequired": false,
    "isConstant": false,
    "name": {
-    "$id": "380",
+    "$id": "410",
     "fixed": false,
     "raw": "username"
    },
    "serializedName": "username",
    "modelType": {
-    "$id": "381",
+    "$id": "411",
     "$type": "PrimaryType",
     "knownPrimaryType": "string",
     "name": {
-     "$id": "382",
+     "$id": "412",
      "fixed": false,
      "raw": "String"
     },
@@ -2787,19 +3007,19 @@
    }
   },
   {
-   "$id": "383",
+   "$id": "413",
    "isReadOnly": false,
    "realPath": [
     "email"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "384",
+    "$id": "414",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "385",
+    "$id": "415",
     "fixed": false,
     "raw": "Filters a for an email"
    },
@@ -2821,17 +3041,17 @@
    "isRequired": false,
    "isConstant": false,
    "name": {
-    "$id": "386",
+    "$id": "416",
     "fixed": false,
     "raw": "email"
    },
    "serializedName": "email",
    "modelType": {
-    "$id": "387",
+    "$id": "417",
     "$type": "PrimaryType",
     "knownPrimaryType": "string",
     "name": {
-     "$id": "388",
+     "$id": "418",
      "fixed": false,
      "raw": "String"
     },
@@ -2839,19 +3059,19 @@
    }
   },
   {
-   "$id": "389",
+   "$id": "419",
    "isReadOnly": false,
    "realPath": [
     "username"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "390",
+    "$id": "420",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "391",
+    "$id": "421",
     "fixed": false,
     "raw": "Filters a for a username"
    },
@@ -2873,17 +3093,17 @@
    "isRequired": false,
    "isConstant": false,
    "name": {
-    "$id": "392",
+    "$id": "422",
     "fixed": false,
     "raw": "Username1"
    },
    "serializedName": "username",
    "modelType": {
-    "$id": "393",
+    "$id": "423",
     "$type": "PrimaryType",
     "knownPrimaryType": "string",
     "name": {
-     "$id": "394",
+     "$id": "424",
      "fixed": false,
      "raw": "String"
     },
@@ -2891,19 +3111,19 @@
    }
   },
   {
-   "$id": "395",
+   "$id": "425",
    "isReadOnly": false,
    "realPath": [
     "email"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "396",
+    "$id": "426",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "397",
+    "$id": "427",
     "fixed": false,
     "raw": "Filters a for an email"
    },
@@ -2925,17 +3145,17 @@
    "isRequired": false,
    "isConstant": false,
    "name": {
-    "$id": "398",
+    "$id": "428",
     "fixed": false,
     "raw": "Email1"
    },
    "serializedName": "email",
    "modelType": {
-    "$id": "399",
+    "$id": "429",
     "$type": "PrimaryType",
     "knownPrimaryType": "string",
     "name": {
-     "$id": "400",
+     "$id": "430",
      "fixed": false,
      "raw": "String"
     },
@@ -2943,19 +3163,19 @@
    }
   },
   {
-   "$id": "401",
+   "$id": "431",
    "isReadOnly": false,
    "realPath": [
     "email"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "402",
+    "$id": "432",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "403",
+    "$id": "433",
     "fixed": false,
     "raw": "E-Mail address identifying the user"
    },
@@ -2977,17 +3197,17 @@
    "isRequired": true,
    "isConstant": false,
    "name": {
-    "$id": "404",
+    "$id": "434",
     "fixed": false,
     "raw": "Email2"
    },
    "serializedName": "email",
    "modelType": {
-    "$id": "405",
+    "$id": "435",
     "$type": "PrimaryType",
     "knownPrimaryType": "string",
     "name": {
-     "$id": "406",
+     "$id": "436",
      "fixed": false,
      "raw": "String"
     },
@@ -2995,19 +3215,19 @@
    }
   },
   {
-   "$id": "407",
+   "$id": "437",
    "isReadOnly": false,
    "realPath": [
     "uuid"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "408",
+    "$id": "438",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "409",
+    "$id": "439",
     "fixed": false,
     "raw": "uuid identifying the user"
    },
@@ -3029,17 +3249,17 @@
    "isRequired": true,
    "isConstant": false,
    "name": {
-    "$id": "410",
+    "$id": "440",
     "fixed": false,
     "raw": "Uuid5"
    },
    "serializedName": "uuid",
    "modelType": {
-    "$id": "411",
+    "$id": "441",
     "$type": "PrimaryType",
     "knownPrimaryType": "string",
     "name": {
-     "$id": "412",
+     "$id": "442",
      "fixed": false,
      "raw": "String"
     },
@@ -3049,25 +3269,25 @@
  ],
  "operations": [
   {
-   "$id": "413",
+   "$id": "443",
    "methods": [
     {
-     "$id": "414",
+     "$id": "444",
      "parameters": [
       {
-       "$id": "415",
+       "$id": "445",
        "clientProperty": {
-        "$ref": "317"
+        "$ref": "347"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "416",
+        "$id": "446",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "417",
+        "$id": "447",
         "fixed": false,
         "raw": "Barcode used as unique identifier to find product"
        },
@@ -3089,17 +3309,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "418",
+        "$id": "448",
         "fixed": false,
         "raw": "barcode"
        },
        "serializedName": "barcode",
        "modelType": {
-        "$id": "419",
+        "$id": "449",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "420",
+         "$id": "450",
          "fixed": false,
          "raw": "String"
         },
@@ -3108,12 +3328,12 @@
       }
      ],
      "name": {
-      "$id": "421",
+      "$id": "451",
       "fixed": false,
       "raw": "barcode"
      },
      "group": {
-      "$id": "422",
+      "$id": "452",
       "fixed": false,
       "raw": "get"
      },
@@ -3123,12 +3343,12 @@
      "httpMethod": "get",
      "responses": {
       "OK": {
-       "$id": "423",
+       "$id": "453",
        "body": {
         "$ref": "131"
        },
        "extensions": {
-        "$id": "424",
+        "$id": "454",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3145,9 +3365,9 @@
        "isNullable": true
       },
       "NotFound": {
-       "$id": "425",
+       "$id": "455",
        "extensions": {
-        "$id": "426",
+        "$id": "456",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3165,11 +3385,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "427",
+      "$id": "457",
       "isNullable": true
      },
      "returnType": {
-      "$id": "428",
+      "$id": "458",
       "body": {
        "$ref": "131"
       },
@@ -3195,22 +3415,22 @@
      "hidden": false
     },
     {
-     "$id": "429",
+     "$id": "459",
      "parameters": [
       {
-       "$id": "430",
+       "$id": "460",
        "clientProperty": {
-        "$ref": "323"
+        "$ref": "353"
        },
        "location": "query",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "431",
+        "$id": "461",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "432",
+        "$id": "462",
         "fixed": false,
         "raw": "The sorting of the result. e.g. name.asc, id.desc"
        },
@@ -3232,17 +3452,17 @@
        "isRequired": false,
        "isConstant": false,
        "name": {
-        "$id": "433",
+        "$id": "463",
         "fixed": false,
         "raw": "sort_by"
        },
        "serializedName": "sort_by",
        "modelType": {
-        "$id": "434",
+        "$id": "464",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "435",
+         "$id": "465",
          "fixed": false,
          "raw": "String"
         },
@@ -3250,19 +3470,19 @@
        }
       },
       {
-       "$id": "436",
+       "$id": "466",
        "clientProperty": {
-        "$ref": "329"
+        "$ref": "359"
        },
        "location": "query",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "437",
+        "$id": "467",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "438",
+        "$id": "468",
         "fixed": false,
         "raw": "Filter applied to the name and description of the products."
        },
@@ -3284,17 +3504,17 @@
        "isRequired": false,
        "isConstant": false,
        "name": {
-        "$id": "439",
+        "$id": "469",
         "fixed": false,
         "raw": "query"
        },
        "serializedName": "query",
        "modelType": {
-        "$id": "440",
+        "$id": "470",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "441",
+         "$id": "471",
          "fixed": false,
          "raw": "String"
         },
@@ -3303,12 +3523,12 @@
       }
      ],
      "name": {
-      "$id": "442",
+      "$id": "472",
       "fixed": false,
       "raw": "products"
      },
      "group": {
-      "$id": "443",
+      "$id": "473",
       "fixed": false,
       "raw": "get"
      },
@@ -3318,21 +3538,21 @@
      "httpMethod": "get",
      "responses": {
       "OK": {
-       "$id": "444",
+       "$id": "474",
        "body": {
-        "$id": "445",
+        "$id": "475",
         "$type": "SequenceType",
         "elementType": {
          "$ref": "131"
         },
         "name": {
-         "$id": "446",
+         "$id": "476",
          "fixed": false
         },
         "deprecated": false
        },
        "extensions": {
-        "$id": "447",
+        "$id": "477",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3350,13 +3570,13 @@
       }
      },
      "defaultResponse": {
-      "$id": "448",
+      "$id": "478",
       "isNullable": true
      },
      "returnType": {
-      "$id": "449",
+      "$id": "479",
       "body": {
-       "$ref": "445"
+       "$ref": "475"
       },
       "isNullable": true
      },
@@ -3380,14 +3600,14 @@
      "hidden": false
     },
     {
-     "$id": "450",
+     "$id": "480",
      "name": {
-      "$id": "451",
+      "$id": "481",
       "fixed": false,
       "raw": "fridges"
      },
      "group": {
-      "$id": "452",
+      "$id": "482",
       "fixed": false,
       "raw": "get"
      },
@@ -3397,21 +3617,21 @@
      "httpMethod": "get",
      "responses": {
       "OK": {
-       "$id": "453",
+       "$id": "483",
        "body": {
-        "$id": "454",
+        "$id": "484",
         "$type": "SequenceType",
         "elementType": {
          "$ref": "171"
         },
         "name": {
-         "$id": "455",
+         "$id": "485",
          "fixed": false
         },
         "deprecated": false
        },
        "extensions": {
-        "$id": "456",
+        "$id": "486",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3429,13 +3649,13 @@
       }
      },
      "defaultResponse": {
-      "$id": "457",
+      "$id": "487",
       "isNullable": true
      },
      "returnType": {
-      "$id": "458",
+      "$id": "488",
       "body": {
-       "$ref": "454"
+       "$ref": "484"
       },
       "isNullable": true
      },
@@ -3462,22 +3682,22 @@
      "hidden": false
     },
     {
-     "$id": "459",
+     "$id": "489",
      "parameters": [
       {
-       "$id": "460",
+       "$id": "490",
        "clientProperty": {
-        "$ref": "335"
+        "$ref": "365"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "461",
+        "$id": "491",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "462",
+        "$id": "492",
         "fixed": false,
         "raw": "UUID to identify a fridge"
        },
@@ -3499,17 +3719,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "463",
+        "$id": "493",
         "fixed": false,
         "raw": "uuid"
        },
        "serializedName": "uuid",
        "modelType": {
-        "$id": "464",
+        "$id": "494",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "465",
+         "$id": "495",
          "fixed": false,
          "raw": "String"
         },
@@ -3518,12 +3738,12 @@
       }
      ],
      "name": {
-      "$id": "466",
+      "$id": "496",
       "fixed": false,
       "raw": "uuid"
      },
      "group": {
-      "$id": "467",
+      "$id": "497",
       "fixed": false,
       "raw": "get"
      },
@@ -3533,12 +3753,12 @@
      "httpMethod": "get",
      "responses": {
       "OK": {
-       "$id": "468",
+       "$id": "498",
        "body": {
         "$ref": "171"
        },
        "extensions": {
-        "$id": "469",
+        "$id": "499",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3555,9 +3775,9 @@
        "isNullable": true
       },
       "Unauthorized": {
-       "$id": "470",
+       "$id": "500",
        "extensions": {
-        "$id": "471",
+        "$id": "501",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3574,9 +3794,9 @@
        "isNullable": true
       },
       "NotFound": {
-       "$id": "472",
+       "$id": "502",
        "extensions": {
-        "$id": "473",
+        "$id": "503",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3594,11 +3814,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "474",
+      "$id": "504",
       "isNullable": true
      },
      "returnType": {
-      "$id": "475",
+      "$id": "505",
       "body": {
        "$ref": "171"
       },
@@ -3629,22 +3849,22 @@
      "hidden": false
     },
     {
-     "$id": "476",
+     "$id": "506",
      "parameters": [
       {
-       "$id": "477",
+       "$id": "507",
        "clientProperty": {
-        "$ref": "335"
+        "$ref": "365"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "478",
+        "$id": "508",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "479",
+        "$id": "509",
         "fixed": false,
         "raw": "UUID to identify a fridge"
        },
@@ -3666,17 +3886,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "480",
+        "$id": "510",
         "fixed": false,
         "raw": "uuid"
        },
        "serializedName": "uuid",
        "modelType": {
-        "$id": "481",
+        "$id": "511",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "482",
+         "$id": "512",
          "fixed": false,
          "raw": "String"
         },
@@ -3685,12 +3905,12 @@
       }
      ],
      "name": {
-      "$id": "483",
+      "$id": "513",
       "fixed": false,
       "raw": "items"
      },
      "group": {
-      "$id": "484",
+      "$id": "514",
       "fixed": false,
       "raw": "get"
      },
@@ -3700,21 +3920,21 @@
      "httpMethod": "get",
      "responses": {
       "OK": {
-       "$id": "485",
+       "$id": "515",
        "body": {
-        "$id": "486",
+        "$id": "516",
         "$type": "SequenceType",
         "elementType": {
          "$ref": "257"
         },
         "name": {
-         "$id": "487",
+         "$id": "517",
          "fixed": false
         },
         "deprecated": false
        },
        "extensions": {
-        "$id": "488",
+        "$id": "518",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3732,13 +3952,13 @@
       }
      },
      "defaultResponse": {
-      "$id": "489",
+      "$id": "519",
       "isNullable": true
      },
      "returnType": {
-      "$id": "490",
+      "$id": "520",
       "body": {
-       "$ref": "486"
+       "$ref": "516"
       },
       "isNullable": true
      },
@@ -3767,22 +3987,22 @@
      "hidden": false
     },
     {
-     "$id": "491",
+     "$id": "521",
      "parameters": [
       {
-       "$id": "492",
+       "$id": "522",
        "clientProperty": {
-        "$ref": "335"
+        "$ref": "365"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "493",
+        "$id": "523",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "494",
+        "$id": "524",
         "fixed": false,
         "raw": "UUID to identify a fridge"
        },
@@ -3804,17 +4024,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "495",
+        "$id": "525",
         "fixed": false,
         "raw": "uuid"
        },
        "serializedName": "uuid",
        "modelType": {
-        "$id": "496",
+        "$id": "526",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "497",
+         "$id": "527",
          "fixed": false,
          "raw": "String"
         },
@@ -3822,19 +4042,19 @@
        }
       },
       {
-       "$id": "498",
+       "$id": "528",
        "clientProperty": {
-        "$ref": "371"
+        "$ref": "401"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "499",
+        "$id": "529",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "500",
+        "$id": "530",
         "fixed": false,
         "raw": "UUID of item"
        },
@@ -3856,17 +4076,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "501",
+        "$id": "531",
         "fixed": false,
         "raw": "item_uuid"
        },
        "serializedName": "item_uuid",
        "modelType": {
-        "$id": "502",
+        "$id": "532",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "503",
+         "$id": "533",
          "fixed": false,
          "raw": "String"
         },
@@ -3875,12 +4095,12 @@
       }
      ],
      "name": {
-      "$id": "504",
+      "$id": "534",
       "fixed": false,
       "raw": "ItemMethod"
      },
      "group": {
-      "$id": "505",
+      "$id": "535",
       "fixed": false,
       "raw": "get"
      },
@@ -3890,12 +4110,12 @@
      "httpMethod": "get",
      "responses": {
       "OK": {
-       "$id": "506",
+       "$id": "536",
        "body": {
         "$ref": "257"
        },
        "extensions": {
-        "$id": "507",
+        "$id": "537",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3912,9 +4132,9 @@
        "isNullable": true
       },
       "Unauthorized": {
-       "$id": "508",
+       "$id": "538",
        "extensions": {
-        "$id": "509",
+        "$id": "539",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3931,9 +4151,9 @@
        "isNullable": true
       },
       "NotFound": {
-       "$id": "510",
+       "$id": "540",
        "extensions": {
-        "$id": "511",
+        "$id": "541",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -3951,11 +4171,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "512",
+      "$id": "542",
       "isNullable": true
      },
      "returnType": {
-      "$id": "513",
+      "$id": "543",
       "body": {
        "$ref": "257"
       },
@@ -3986,22 +4206,22 @@
      "hidden": false
     },
     {
-     "$id": "514",
+     "$id": "544",
      "parameters": [
       {
-       "$id": "515",
+       "$id": "545",
        "clientProperty": {
-        "$ref": "377"
+        "$ref": "407"
        },
        "location": "query",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "516",
+        "$id": "546",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "517",
+        "$id": "547",
         "fixed": false,
         "raw": "Filters a for a username"
        },
@@ -4023,17 +4243,17 @@
        "isRequired": false,
        "isConstant": false,
        "name": {
-        "$id": "518",
+        "$id": "548",
         "fixed": false,
         "raw": "username"
        },
        "serializedName": "username",
        "modelType": {
-        "$id": "519",
+        "$id": "549",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "520",
+         "$id": "550",
          "fixed": false,
          "raw": "String"
         },
@@ -4041,19 +4261,19 @@
        }
       },
       {
-       "$id": "521",
+       "$id": "551",
        "clientProperty": {
-        "$ref": "383"
+        "$ref": "413"
        },
        "location": "query",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "522",
+        "$id": "552",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "523",
+        "$id": "553",
         "fixed": false,
         "raw": "Filters a for an email"
        },
@@ -4075,17 +4295,17 @@
        "isRequired": false,
        "isConstant": false,
        "name": {
-        "$id": "524",
+        "$id": "554",
         "fixed": false,
         "raw": "email"
        },
        "serializedName": "email",
        "modelType": {
-        "$id": "525",
+        "$id": "555",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "526",
+         "$id": "556",
          "fixed": false,
          "raw": "String"
         },
@@ -4094,12 +4314,12 @@
       }
      ],
      "name": {
-      "$id": "527",
+      "$id": "557",
       "fixed": false,
       "raw": "UserMethod"
      },
      "group": {
-      "$id": "528",
+      "$id": "558",
       "fixed": false,
       "raw": "get"
      },
@@ -4109,21 +4329,21 @@
      "httpMethod": "get",
      "responses": {
       "OK": {
-       "$id": "529",
+       "$id": "559",
        "body": {
-        "$id": "530",
+        "$id": "560",
         "$type": "SequenceType",
         "elementType": {
          "$ref": "183"
         },
         "name": {
-         "$id": "531",
+         "$id": "561",
          "fixed": false
         },
         "deprecated": false
        },
        "extensions": {
-        "$id": "532",
+        "$id": "562",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4140,9 +4360,9 @@
        "isNullable": true
       },
       "Unauthorized": {
-       "$id": "533",
+       "$id": "563",
        "extensions": {
-        "$id": "534",
+        "$id": "564",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4160,13 +4380,13 @@
       }
      },
      "defaultResponse": {
-      "$id": "535",
+      "$id": "565",
       "isNullable": true
      },
      "returnType": {
-      "$id": "536",
+      "$id": "566",
       "body": {
-       "$ref": "530"
+       "$ref": "560"
       },
       "isNullable": true
      },
@@ -4193,22 +4413,22 @@
      "hidden": false
     },
     {
-     "$id": "537",
+     "$id": "567",
      "parameters": [
       {
-       "$id": "538",
+       "$id": "568",
        "clientProperty": {
-        "$ref": "383"
+        "$ref": "413"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "539",
+        "$id": "569",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "540",
+        "$id": "570",
         "fixed": false,
         "raw": "E-Mail address identifying the user"
        },
@@ -4230,17 +4450,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "541",
+        "$id": "571",
         "fixed": false,
         "raw": "email"
        },
        "serializedName": "email",
        "modelType": {
-        "$id": "542",
+        "$id": "572",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "543",
+         "$id": "573",
          "fixed": false,
          "raw": "String"
         },
@@ -4249,12 +4469,12 @@
       }
      ],
      "name": {
-      "$id": "544",
+      "$id": "574",
       "fixed": false,
       "raw": "email"
      },
      "group": {
-      "$id": "545",
+      "$id": "575",
       "fixed": false,
       "raw": "get"
      },
@@ -4264,12 +4484,12 @@
      "httpMethod": "get",
      "responses": {
       "OK": {
-       "$id": "546",
+       "$id": "576",
        "body": {
         "$ref": "157"
        },
        "extensions": {
-        "$id": "547",
+        "$id": "577",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4286,9 +4506,9 @@
        "isNullable": true
       },
       "Unauthorized": {
-       "$id": "548",
+       "$id": "578",
        "extensions": {
-        "$id": "549",
+        "$id": "579",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4305,9 +4525,9 @@
        "isNullable": true
       },
       "NotFound": {
-       "$id": "550",
+       "$id": "580",
        "extensions": {
-        "$id": "551",
+        "$id": "581",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4325,11 +4545,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "552",
+      "$id": "582",
       "isNullable": true
      },
      "returnType": {
-      "$id": "553",
+      "$id": "583",
       "body": {
        "$ref": "157"
       },
@@ -4358,36 +4578,220 @@
      },
      "deprecated": false,
      "hidden": false
+    },
+    {
+     "$id": "584",
+     "name": {
+      "$id": "585",
+      "fixed": false,
+      "raw": "jwttoken"
+     },
+     "group": {
+      "$id": "586",
+      "fixed": false,
+      "raw": "get"
+     },
+     "serializedName": "get_jwttoken",
+     "url": "/jwt-token",
+     "isAbsoluteUrl": false,
+     "httpMethod": "post",
+     "responses": {
+      "OK": {
+       "$id": "587",
+       "body": {
+        "$ref": "297"
+       },
+       "extensions": {
+        "$id": "588",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·nq7miq·jwt_token·post·responses·200",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·nq7miq·jwt_token·post·responses·200"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "Unauthorized": {
+       "$id": "589",
+       "extensions": {
+        "$id": "590",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·r0c70o·jwt_token·post·responses·401",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·r0c70o·jwt_token·post·responses·401"
+         ]
+        }
+       },
+       "isNullable": true
+      }
+     },
+     "defaultResponse": {
+      "$id": "591",
+      "isNullable": true
+     },
+     "returnType": {
+      "$id": "592",
+      "body": {
+       "$ref": "297"
+      },
+      "isNullable": true
+     },
+     "requestContentType": "application/json; charset=utf-8",
+     "responseContentTypes": [
+      "application/json"
+     ],
+     "extensions": {
+      "servers": [
+       {
+        "url": "https://fridgy-api.herokuapp.com/api"
+       },
+       {
+        "url": "http://fridgy-api.herokuapp.com/api"
+       }
+      ],
+      "security": [
+       {
+        "basicAuth": []
+       }
+      ]
+     },
+     "deprecated": false,
+     "hidden": false
+    },
+    {
+     "$id": "593",
+     "name": {
+      "$id": "594",
+      "fixed": false,
+      "raw": "refreshtoken"
+     },
+     "group": {
+      "$id": "595",
+      "fixed": false,
+      "raw": "get"
+     },
+     "serializedName": "get_refreshtoken",
+     "url": "/refresh-token",
+     "isAbsoluteUrl": false,
+     "httpMethod": "post",
+     "responses": {
+      "OK": {
+       "$id": "596",
+       "body": {
+        "$ref": "315"
+       },
+       "extensions": {
+        "$id": "597",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·1tlcad8·refresh_token·post·responses·200",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1tlcad8·refresh_token·post·responses·200"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "Unauthorized": {
+       "$id": "598",
+       "extensions": {
+        "$id": "599",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·183cljz·refresh_token·post·responses·401",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·183cljz·refresh_token·post·responses·401"
+         ]
+        }
+       },
+       "isNullable": true
+      }
+     },
+     "defaultResponse": {
+      "$id": "600",
+      "isNullable": true
+     },
+     "returnType": {
+      "$id": "601",
+      "body": {
+       "$ref": "315"
+      },
+      "isNullable": true
+     },
+     "requestContentType": "application/json; charset=utf-8",
+     "responseContentTypes": [
+      "application/json"
+     ],
+     "extensions": {
+      "servers": [
+       {
+        "url": "https://fridgy-api.herokuapp.com/api"
+       },
+       {
+        "url": "http://fridgy-api.herokuapp.com/api"
+       }
+      ],
+      "security": [
+       {
+        "bearerRefreshAuth": []
+       }
+      ]
+     },
+     "deprecated": false,
+     "hidden": false
     }
    ],
    "name": {
-    "$id": "554",
+    "$id": "602",
     "fixed": false,
     "raw": "Get"
    },
    "typeName": {
-    "$id": "555",
+    "$id": "603",
     "fixed": false
    },
    "nameForProperty": "Get"
   },
   {
-   "$id": "556",
+   "$id": "604",
    "methods": [
     {
-     "$id": "557",
+     "$id": "605",
      "parameters": [
       {
-       "$id": "558",
+       "$id": "606",
        "location": "body",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "559",
+        "$id": "607",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "560",
+        "$id": "608",
         "fixed": false,
         "raw": "Product object that needs to be updated"
        },
@@ -4408,7 +4812,7 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "561",
+        "$id": "609",
         "fixed": false,
         "raw": "body"
        },
@@ -4418,19 +4822,19 @@
        }
       },
       {
-       "$id": "562",
+       "$id": "610",
        "clientProperty": {
-        "$ref": "317"
+        "$ref": "347"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "563",
+        "$id": "611",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "564",
+        "$id": "612",
         "fixed": false,
         "raw": "Barcode used as unique identifier to find product"
        },
@@ -4452,17 +4856,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "565",
+        "$id": "613",
         "fixed": false,
         "raw": "barcode"
        },
        "serializedName": "barcode",
        "modelType": {
-        "$id": "566",
+        "$id": "614",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "567",
+         "$id": "615",
          "fixed": false,
          "raw": "String"
         },
@@ -4471,12 +4875,12 @@
       }
      ],
      "name": {
-      "$id": "568",
+      "$id": "616",
       "fixed": false,
       "raw": "products"
      },
      "group": {
-      "$id": "569",
+      "$id": "617",
       "fixed": false,
       "raw": "update"
      },
@@ -4486,12 +4890,12 @@
      "httpMethod": "put",
      "responses": {
       "OK": {
-       "$id": "570",
+       "$id": "618",
        "body": {
         "$ref": "131"
        },
        "extensions": {
-        "$id": "571",
+        "$id": "619",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4508,9 +4912,9 @@
        "isNullable": true
       },
       "NotFound": {
-       "$id": "572",
+       "$id": "620",
        "extensions": {
-        "$id": "573",
+        "$id": "621",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4528,11 +4932,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "574",
+      "$id": "622",
       "isNullable": true
      },
      "returnType": {
-      "$id": "575",
+      "$id": "623",
       "body": {
        "$ref": "131"
       },
@@ -4562,19 +4966,19 @@
      "hidden": false
     },
     {
-     "$id": "576",
+     "$id": "624",
      "parameters": [
       {
-       "$id": "577",
+       "$id": "625",
        "location": "body",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "578",
+        "$id": "626",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "579",
+        "$id": "627",
         "fixed": false,
         "raw": "Updated item."
        },
@@ -4595,7 +4999,7 @@
        "isRequired": false,
        "isConstant": false,
        "name": {
-        "$id": "580",
+        "$id": "628",
         "fixed": false,
         "raw": "body"
        },
@@ -4605,19 +5009,19 @@
        }
       },
       {
-       "$id": "581",
+       "$id": "629",
        "clientProperty": {
-        "$ref": "335"
+        "$ref": "365"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "582",
+        "$id": "630",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "583",
+        "$id": "631",
         "fixed": false,
         "raw": "UUID to identify a fridge"
        },
@@ -4639,17 +5043,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "584",
+        "$id": "632",
         "fixed": false,
         "raw": "uuid"
        },
        "serializedName": "uuid",
        "modelType": {
-        "$id": "585",
+        "$id": "633",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "586",
+         "$id": "634",
          "fixed": false,
          "raw": "String"
         },
@@ -4657,19 +5061,19 @@
        }
       },
       {
-       "$id": "587",
+       "$id": "635",
        "clientProperty": {
-        "$ref": "371"
+        "$ref": "401"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "588",
+        "$id": "636",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "589",
+        "$id": "637",
         "fixed": false,
         "raw": "UUID of item"
        },
@@ -4691,17 +5095,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "590",
+        "$id": "638",
         "fixed": false,
         "raw": "item_uuid"
        },
        "serializedName": "item_uuid",
        "modelType": {
-        "$id": "591",
+        "$id": "639",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "592",
+         "$id": "640",
          "fixed": false,
          "raw": "String"
         },
@@ -4710,12 +5114,12 @@
       }
      ],
      "name": {
-      "$id": "593",
+      "$id": "641",
       "fixed": false,
       "raw": "ItemMethod"
      },
      "group": {
-      "$id": "594",
+      "$id": "642",
       "fixed": false,
       "raw": "update"
      },
@@ -4725,12 +5129,12 @@
      "httpMethod": "put",
      "responses": {
       "OK": {
-       "$id": "595",
+       "$id": "643",
        "body": {
         "$ref": "257"
        },
        "extensions": {
-        "$id": "596",
+        "$id": "644",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4747,9 +5151,9 @@
        "isNullable": true
       },
       "Unauthorized": {
-       "$id": "597",
+       "$id": "645",
        "extensions": {
-        "$id": "598",
+        "$id": "646",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4766,9 +5170,9 @@
        "isNullable": true
       },
       "NotFound": {
-       "$id": "599",
+       "$id": "647",
        "extensions": {
-        "$id": "600",
+        "$id": "648",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4786,11 +5190,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "601",
+      "$id": "649",
       "isNullable": true
      },
      "returnType": {
-      "$id": "602",
+      "$id": "650",
       "body": {
        "$ref": "257"
       },
@@ -4822,36 +5226,36 @@
     }
    ],
    "name": {
-    "$id": "603",
+    "$id": "651",
     "fixed": false,
     "raw": "Update"
    },
    "typeName": {
-    "$id": "604",
+    "$id": "652",
     "fixed": false
    },
    "nameForProperty": "Update"
   },
   {
-   "$id": "605",
+   "$id": "653",
    "methods": [
     {
-     "$id": "606",
+     "$id": "654",
      "parameters": [
       {
-       "$id": "607",
+       "$id": "655",
        "clientProperty": {
-        "$ref": "317"
+        "$ref": "347"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "608",
+        "$id": "656",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "609",
+        "$id": "657",
         "fixed": false,
         "raw": "Barcode used as unique identifier to find product"
        },
@@ -4873,17 +5277,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "610",
+        "$id": "658",
         "fixed": false,
         "raw": "barcode"
        },
        "serializedName": "barcode",
        "modelType": {
-        "$id": "611",
+        "$id": "659",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "612",
+         "$id": "660",
          "fixed": false,
          "raw": "String"
         },
@@ -4892,12 +5296,12 @@
       }
      ],
      "name": {
-      "$id": "613",
+      "$id": "661",
       "fixed": false,
       "raw": "products"
      },
      "group": {
-      "$id": "614",
+      "$id": "662",
       "fixed": false,
       "raw": "delete"
      },
@@ -4907,9 +5311,9 @@
      "httpMethod": "delete",
      "responses": {
       "NoContent": {
-       "$id": "615",
+       "$id": "663",
        "extensions": {
-        "$id": "616",
+        "$id": "664",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4926,9 +5330,9 @@
        "isNullable": true
       },
       "BadRequest": {
-       "$id": "617",
+       "$id": "665",
        "extensions": {
-        "$id": "618",
+        "$id": "666",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4945,9 +5349,9 @@
        "isNullable": true
       },
       "NotFound": {
-       "$id": "619",
+       "$id": "667",
        "extensions": {
-        "$id": "620",
+        "$id": "668",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -4965,11 +5369,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "621",
+      "$id": "669",
       "isNullable": true
      },
      "returnType": {
-      "$id": "622",
+      "$id": "670",
       "isNullable": true
      },
      "summary": "Delete an existing product",
@@ -4996,22 +5400,22 @@
      "hidden": false
     },
     {
-     "$id": "623",
+     "$id": "671",
      "parameters": [
       {
-       "$id": "624",
+       "$id": "672",
        "clientProperty": {
-        "$ref": "335"
+        "$ref": "365"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "625",
+        "$id": "673",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "626",
+        "$id": "674",
         "fixed": false,
         "raw": "UUID to identify a fridge"
        },
@@ -5033,17 +5437,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "627",
+        "$id": "675",
         "fixed": false,
         "raw": "uuid"
        },
        "serializedName": "uuid",
        "modelType": {
-        "$id": "628",
+        "$id": "676",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "629",
+         "$id": "677",
          "fixed": false,
          "raw": "String"
         },
@@ -5052,12 +5456,12 @@
       }
      ],
      "name": {
-      "$id": "630",
+      "$id": "678",
       "fixed": false,
       "raw": "FridgeMethod"
      },
      "group": {
-      "$id": "631",
+      "$id": "679",
       "fixed": false,
       "raw": "delete"
      },
@@ -5067,9 +5471,9 @@
      "httpMethod": "delete",
      "responses": {
       "NoContent": {
-       "$id": "632",
+       "$id": "680",
        "extensions": {
-        "$id": "633",
+        "$id": "681",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -5086,9 +5490,9 @@
        "isNullable": true
       },
       "Unauthorized": {
-       "$id": "634",
+       "$id": "682",
        "extensions": {
-        "$id": "635",
+        "$id": "683",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -5105,9 +5509,9 @@
        "isNullable": true
       },
       "NotFound": {
-       "$id": "636",
+       "$id": "684",
        "extensions": {
-        "$id": "637",
+        "$id": "685",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -5125,451 +5529,6 @@
       }
      },
      "defaultResponse": {
-      "$id": "638",
-      "isNullable": true
-     },
-     "returnType": {
-      "$id": "639",
-      "isNullable": true
-     },
-     "description": "",
-     "summary": "Delete existing fridge",
-     "requestContentType": "application/json; charset=utf-8",
-     "responseContentTypes": [
-      "application/json"
-     ],
-     "extensions": {
-      "servers": [
-       {
-        "url": "https://fridgy-api.herokuapp.com/api"
-       },
-       {
-        "url": "http://fridgy-api.herokuapp.com/api"
-       }
-      ],
-      "security": [
-       {
-        "bearerAuth": []
-       }
-      ]
-     },
-     "deprecated": false,
-     "hidden": false
-    },
-    {
-     "$id": "640",
-     "parameters": [
-      {
-       "$id": "641",
-       "clientProperty": {
-        "$ref": "335"
-       },
-       "location": "path",
-       "collectionFormat": "none",
-       "defaultValue": {
-        "$id": "642",
-        "fixed": false
-       },
-       "deprecated": false,
-       "documentation": {
-        "$id": "643",
-        "fixed": false,
-        "raw": "UUID to identify a fridge"
-       },
-       "extensions": {
-        "x-ms-metadata": {
-         "apiVersions": [
-          "1.0.0"
-         ],
-         "filename": [
-          "mem:///102?oai3.shaken.json"
-         ],
-         "name": "paths·1kuc89n·fridges-uuid-owners-user_uuid·parameters·0",
-         "originalLocations": [
-          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1kuc89n·fridges-uuid-owners-user_uuid·parameters·0"
-         ]
-        },
-        "x-ms-parameter-location": "method"
-       },
-       "isRequired": true,
-       "isConstant": false,
-       "name": {
-        "$id": "644",
-        "fixed": false,
-        "raw": "uuid"
-       },
-       "serializedName": "uuid",
-       "modelType": {
-        "$id": "645",
-        "$type": "PrimaryType",
-        "knownPrimaryType": "string",
-        "name": {
-         "$id": "646",
-         "fixed": false,
-         "raw": "String"
-        },
-        "deprecated": false
-       }
-      },
-      {
-       "$id": "647",
-       "clientProperty": {
-        "$ref": "353"
-       },
-       "location": "path",
-       "collectionFormat": "none",
-       "defaultValue": {
-        "$id": "648",
-        "fixed": false
-       },
-       "deprecated": false,
-       "documentation": {
-        "$id": "649",
-        "fixed": false,
-        "raw": "UUID of user"
-       },
-       "extensions": {
-        "x-ms-metadata": {
-         "apiVersions": [
-          "1.0.0"
-         ],
-         "filename": [
-          "mem:///102?oai3.shaken.json"
-         ],
-         "name": "paths·oywp6b·fridges-uuid-owners-user_uuid·parameters·1",
-         "originalLocations": [
-          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·oywp6b·fridges-uuid-owners-user_uuid·parameters·1"
-         ]
-        },
-        "x-ms-parameter-location": "method"
-       },
-       "isRequired": true,
-       "isConstant": false,
-       "name": {
-        "$id": "650",
-        "fixed": false,
-        "raw": "user_uuid"
-       },
-       "serializedName": "user_uuid",
-       "modelType": {
-        "$id": "651",
-        "$type": "PrimaryType",
-        "knownPrimaryType": "string",
-        "name": {
-         "$id": "652",
-         "fixed": false,
-         "raw": "String"
-        },
-        "deprecated": false
-       }
-      }
-     ],
-     "name": {
-      "$id": "653",
-      "fixed": false,
-      "raw": "owners"
-     },
-     "group": {
-      "$id": "654",
-      "fixed": false,
-      "raw": "delete"
-     },
-     "serializedName": "delete_owners",
-     "url": "/fridges/{uuid}/owners/{user_uuid}",
-     "isAbsoluteUrl": false,
-     "httpMethod": "delete",
-     "responses": {
-      "NoContent": {
-       "$id": "655",
-       "extensions": {
-        "$id": "656",
-        "x-ms-metadata": {
-         "apiVersions": [
-          "1.0.0"
-         ],
-         "filename": [
-          "mem:///102?oai3.shaken.json"
-         ],
-         "name": "paths·40os3t·fridges-uuid-owners-user_uuid·delete·responses·204",
-         "originalLocations": [
-          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·40os3t·fridges-uuid-owners-user_uuid·delete·responses·204"
-         ]
-        }
-       },
-       "isNullable": true
-      },
-      "BadRequest": {
-       "$id": "657",
-       "extensions": {
-        "$id": "658",
-        "x-ms-metadata": {
-         "apiVersions": [
-          "1.0.0"
-         ],
-         "filename": [
-          "mem:///102?oai3.shaken.json"
-         ],
-         "name": "paths·1bv9wdw·fridges-uuid-owners-user_uuid·delete·responses·400",
-         "originalLocations": [
-          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1bv9wdw·fridges-uuid-owners-user_uuid·delete·responses·400"
-         ]
-        }
-       },
-       "isNullable": true
-      },
-      "Unauthorized": {
-       "$id": "659",
-       "extensions": {
-        "$id": "660",
-        "x-ms-metadata": {
-         "apiVersions": [
-          "1.0.0"
-         ],
-         "filename": [
-          "mem:///102?oai3.shaken.json"
-         ],
-         "name": "paths·yyapf2·fridges-uuid-owners-user_uuid·delete·responses·401",
-         "originalLocations": [
-          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·yyapf2·fridges-uuid-owners-user_uuid·delete·responses·401"
-         ]
-        }
-       },
-       "isNullable": true
-      },
-      "NotFound": {
-       "$id": "661",
-       "extensions": {
-        "$id": "662",
-        "x-ms-metadata": {
-         "apiVersions": [
-          "1.0.0"
-         ],
-         "filename": [
-          "mem:///102?oai3.shaken.json"
-         ],
-         "name": "paths·mo0eo6·fridges-uuid-owners-user_uuid·delete·responses·404",
-         "originalLocations": [
-          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·mo0eo6·fridges-uuid-owners-user_uuid·delete·responses·404"
-         ]
-        }
-       },
-       "isNullable": true
-      }
-     },
-     "defaultResponse": {
-      "$id": "663",
-      "isNullable": true
-     },
-     "returnType": {
-      "$id": "664",
-      "isNullable": true
-     },
-     "description": "",
-     "summary": "Remove user from the owners of a fridge.",
-     "requestContentType": "application/json; charset=utf-8",
-     "responseContentTypes": [
-      "application/json"
-     ],
-     "extensions": {
-      "servers": [
-       {
-        "url": "https://fridgy-api.herokuapp.com/api"
-       },
-       {
-        "url": "http://fridgy-api.herokuapp.com/api"
-       }
-      ],
-      "security": [
-       {
-        "bearerAuth": []
-       }
-      ]
-     },
-     "deprecated": false,
-     "hidden": false
-    },
-    {
-     "$id": "665",
-     "parameters": [
-      {
-       "$id": "666",
-       "clientProperty": {
-        "$ref": "335"
-       },
-       "location": "path",
-       "collectionFormat": "none",
-       "defaultValue": {
-        "$id": "667",
-        "fixed": false
-       },
-       "deprecated": false,
-       "documentation": {
-        "$id": "668",
-        "fixed": false,
-        "raw": "UUID to identify a fridge"
-       },
-       "extensions": {
-        "x-ms-metadata": {
-         "apiVersions": [
-          "1.0.0"
-         ],
-         "filename": [
-          "mem:///102?oai3.shaken.json"
-         ],
-         "name": "paths·3x1ps5·fridges-uuid-items-item_uuid·parameters·0",
-         "originalLocations": [
-          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·3x1ps5·fridges-uuid-items-item_uuid·parameters·0"
-         ]
-        },
-        "x-ms-parameter-location": "method"
-       },
-       "isRequired": true,
-       "isConstant": false,
-       "name": {
-        "$id": "669",
-        "fixed": false,
-        "raw": "uuid"
-       },
-       "serializedName": "uuid",
-       "modelType": {
-        "$id": "670",
-        "$type": "PrimaryType",
-        "knownPrimaryType": "string",
-        "name": {
-         "$id": "671",
-         "fixed": false,
-         "raw": "String"
-        },
-        "deprecated": false
-       }
-      },
-      {
-       "$id": "672",
-       "clientProperty": {
-        "$ref": "371"
-       },
-       "location": "path",
-       "collectionFormat": "none",
-       "defaultValue": {
-        "$id": "673",
-        "fixed": false
-       },
-       "deprecated": false,
-       "documentation": {
-        "$id": "674",
-        "fixed": false,
-        "raw": "UUID of item"
-       },
-       "extensions": {
-        "x-ms-metadata": {
-         "apiVersions": [
-          "1.0.0"
-         ],
-         "filename": [
-          "mem:///102?oai3.shaken.json"
-         ],
-         "name": "paths·1kiwl5a·fridges-uuid-items-item_uuid·parameters·1",
-         "originalLocations": [
-          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1kiwl5a·fridges-uuid-items-item_uuid·parameters·1"
-         ]
-        },
-        "x-ms-parameter-location": "method"
-       },
-       "isRequired": true,
-       "isConstant": false,
-       "name": {
-        "$id": "675",
-        "fixed": false,
-        "raw": "item_uuid"
-       },
-       "serializedName": "item_uuid",
-       "modelType": {
-        "$id": "676",
-        "$type": "PrimaryType",
-        "knownPrimaryType": "string",
-        "name": {
-         "$id": "677",
-         "fixed": false,
-         "raw": "String"
-        },
-        "deprecated": false
-       }
-      }
-     ],
-     "name": {
-      "$id": "678",
-      "fixed": false,
-      "raw": "FridgeMethod1"
-     },
-     "group": {
-      "$id": "679",
-      "fixed": false,
-      "raw": "delete"
-     },
-     "serializedName": "delete_item_from_fridge",
-     "url": "/fridges/{uuid}/items/{item_uuid}",
-     "isAbsoluteUrl": false,
-     "httpMethod": "delete",
-     "responses": {
-      "NoContent": {
-       "$id": "680",
-       "extensions": {
-        "$id": "681",
-        "x-ms-metadata": {
-         "apiVersions": [
-          "1.0.0"
-         ],
-         "filename": [
-          "mem:///102?oai3.shaken.json"
-         ],
-         "name": "paths·t63e8o·fridges-uuid-items-item_uuid·delete·responses·204",
-         "originalLocations": [
-          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·t63e8o·fridges-uuid-items-item_uuid·delete·responses·204"
-         ]
-        }
-       },
-       "isNullable": true
-      },
-      "Unauthorized": {
-       "$id": "682",
-       "extensions": {
-        "$id": "683",
-        "x-ms-metadata": {
-         "apiVersions": [
-          "1.0.0"
-         ],
-         "filename": [
-          "mem:///102?oai3.shaken.json"
-         ],
-         "name": "paths·5l8j3d·fridges-uuid-items-item_uuid·delete·responses·401",
-         "originalLocations": [
-          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·5l8j3d·fridges-uuid-items-item_uuid·delete·responses·401"
-         ]
-        }
-       },
-       "isNullable": true
-      },
-      "NotFound": {
-       "$id": "684",
-       "extensions": {
-        "$id": "685",
-        "x-ms-metadata": {
-         "apiVersions": [
-          "1.0.0"
-         ],
-         "filename": [
-          "mem:///102?oai3.shaken.json"
-         ],
-         "name": "paths·1egnvmy·fridges-uuid-items-item_uuid·delete·responses·404",
-         "originalLocations": [
-          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1egnvmy·fridges-uuid-items-item_uuid·delete·responses·404"
-         ]
-        }
-       },
-       "isNullable": true
-      }
-     },
-     "defaultResponse": {
       "$id": "686",
       "isNullable": true
      },
@@ -5578,7 +5537,7 @@
       "isNullable": true
      },
      "description": "",
-     "summary": "Remove an item from the fridge.",
+     "summary": "Delete existing fridge",
      "requestContentType": "application/json; charset=utf-8",
      "responseContentTypes": [
       "application/json"
@@ -5607,7 +5566,7 @@
       {
        "$id": "689",
        "clientProperty": {
-        "$ref": "335"
+        "$ref": "365"
        },
        "location": "path",
        "collectionFormat": "none",
@@ -5619,7 +5578,7 @@
        "documentation": {
         "$id": "691",
         "fixed": false,
-        "raw": "uuid identifying the user"
+        "raw": "UUID to identify a fridge"
        },
        "extensions": {
         "x-ms-metadata": {
@@ -5629,9 +5588,9 @@
          "filename": [
           "mem:///102?oai3.shaken.json"
          ],
-         "name": "paths·12jg5xe·users-uuid·parameters·0",
+         "name": "paths·1kuc89n·fridges-uuid-owners-user_uuid·parameters·0",
          "originalLocations": [
-          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·12jg5xe·users-uuid·parameters·0"
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1kuc89n·fridges-uuid-owners-user_uuid·parameters·0"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -5655,15 +5614,460 @@
         },
         "deprecated": false
        }
+      },
+      {
+       "$id": "695",
+       "clientProperty": {
+        "$ref": "383"
+       },
+       "location": "path",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "696",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "697",
+        "fixed": false,
+        "raw": "UUID of user"
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·oywp6b·fridges-uuid-owners-user_uuid·parameters·1",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·oywp6b·fridges-uuid-owners-user_uuid·parameters·1"
+         ]
+        },
+        "x-ms-parameter-location": "method"
+       },
+       "isRequired": true,
+       "isConstant": false,
+       "name": {
+        "$id": "698",
+        "fixed": false,
+        "raw": "user_uuid"
+       },
+       "serializedName": "user_uuid",
+       "modelType": {
+        "$id": "699",
+        "$type": "PrimaryType",
+        "knownPrimaryType": "string",
+        "name": {
+         "$id": "700",
+         "fixed": false,
+         "raw": "String"
+        },
+        "deprecated": false
+       }
       }
      ],
      "name": {
-      "$id": "695",
+      "$id": "701",
+      "fixed": false,
+      "raw": "owners"
+     },
+     "group": {
+      "$id": "702",
+      "fixed": false,
+      "raw": "delete"
+     },
+     "serializedName": "delete_owners",
+     "url": "/fridges/{uuid}/owners/{user_uuid}",
+     "isAbsoluteUrl": false,
+     "httpMethod": "delete",
+     "responses": {
+      "NoContent": {
+       "$id": "703",
+       "extensions": {
+        "$id": "704",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·40os3t·fridges-uuid-owners-user_uuid·delete·responses·204",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·40os3t·fridges-uuid-owners-user_uuid·delete·responses·204"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "BadRequest": {
+       "$id": "705",
+       "extensions": {
+        "$id": "706",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·1bv9wdw·fridges-uuid-owners-user_uuid·delete·responses·400",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1bv9wdw·fridges-uuid-owners-user_uuid·delete·responses·400"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "Unauthorized": {
+       "$id": "707",
+       "extensions": {
+        "$id": "708",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·yyapf2·fridges-uuid-owners-user_uuid·delete·responses·401",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·yyapf2·fridges-uuid-owners-user_uuid·delete·responses·401"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "NotFound": {
+       "$id": "709",
+       "extensions": {
+        "$id": "710",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·mo0eo6·fridges-uuid-owners-user_uuid·delete·responses·404",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·mo0eo6·fridges-uuid-owners-user_uuid·delete·responses·404"
+         ]
+        }
+       },
+       "isNullable": true
+      }
+     },
+     "defaultResponse": {
+      "$id": "711",
+      "isNullable": true
+     },
+     "returnType": {
+      "$id": "712",
+      "isNullable": true
+     },
+     "description": "",
+     "summary": "Remove user from the owners of a fridge.",
+     "requestContentType": "application/json; charset=utf-8",
+     "responseContentTypes": [
+      "application/json"
+     ],
+     "extensions": {
+      "servers": [
+       {
+        "url": "https://fridgy-api.herokuapp.com/api"
+       },
+       {
+        "url": "http://fridgy-api.herokuapp.com/api"
+       }
+      ],
+      "security": [
+       {
+        "bearerAuth": []
+       }
+      ]
+     },
+     "deprecated": false,
+     "hidden": false
+    },
+    {
+     "$id": "713",
+     "parameters": [
+      {
+       "$id": "714",
+       "clientProperty": {
+        "$ref": "365"
+       },
+       "location": "path",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "715",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "716",
+        "fixed": false,
+        "raw": "UUID to identify a fridge"
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·3x1ps5·fridges-uuid-items-item_uuid·parameters·0",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·3x1ps5·fridges-uuid-items-item_uuid·parameters·0"
+         ]
+        },
+        "x-ms-parameter-location": "method"
+       },
+       "isRequired": true,
+       "isConstant": false,
+       "name": {
+        "$id": "717",
+        "fixed": false,
+        "raw": "uuid"
+       },
+       "serializedName": "uuid",
+       "modelType": {
+        "$id": "718",
+        "$type": "PrimaryType",
+        "knownPrimaryType": "string",
+        "name": {
+         "$id": "719",
+         "fixed": false,
+         "raw": "String"
+        },
+        "deprecated": false
+       }
+      },
+      {
+       "$id": "720",
+       "clientProperty": {
+        "$ref": "401"
+       },
+       "location": "path",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "721",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "722",
+        "fixed": false,
+        "raw": "UUID of item"
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·1kiwl5a·fridges-uuid-items-item_uuid·parameters·1",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·1kiwl5a·fridges-uuid-items-item_uuid·parameters·1"
+         ]
+        },
+        "x-ms-parameter-location": "method"
+       },
+       "isRequired": true,
+       "isConstant": false,
+       "name": {
+        "$id": "723",
+        "fixed": false,
+        "raw": "item_uuid"
+       },
+       "serializedName": "item_uuid",
+       "modelType": {
+        "$id": "724",
+        "$type": "PrimaryType",
+        "knownPrimaryType": "string",
+        "name": {
+         "$id": "725",
+         "fixed": false,
+         "raw": "String"
+        },
+        "deprecated": false
+       }
+      }
+     ],
+     "name": {
+      "$id": "726",
+      "fixed": false,
+      "raw": "FridgeMethod1"
+     },
+     "group": {
+      "$id": "727",
+      "fixed": false,
+      "raw": "delete"
+     },
+     "serializedName": "delete_item_from_fridge",
+     "url": "/fridges/{uuid}/items/{item_uuid}",
+     "isAbsoluteUrl": false,
+     "httpMethod": "delete",
+     "responses": {
+      "NoContent": {
+       "$id": "728",
+       "extensions": {
+        "$id": "729",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·t63e8o·fridges-uuid-items-item_uuid·delete·responses·204",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·t63e8o·fridges-uuid-items-item_uuid·delete·responses·204"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "Unauthorized": {
+       "$id": "730",
+       "extensions": {
+        "$id": "731",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·5l8j3d·fridges-uuid-items-item_uuid·delete·responses·401",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·5l8j3d·fridges-uuid-items-item_uuid·delete·responses·401"
+         ]
+        }
+       },
+       "isNullable": true
+      },
+      "NotFound": {
+       "$id": "732",
+       "extensions": {
+        "$id": "733",
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·1egnvmy·fridges-uuid-items-item_uuid·delete·responses·404",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/responses/paths·1egnvmy·fridges-uuid-items-item_uuid·delete·responses·404"
+         ]
+        }
+       },
+       "isNullable": true
+      }
+     },
+     "defaultResponse": {
+      "$id": "734",
+      "isNullable": true
+     },
+     "returnType": {
+      "$id": "735",
+      "isNullable": true
+     },
+     "description": "",
+     "summary": "Remove an item from the fridge.",
+     "requestContentType": "application/json; charset=utf-8",
+     "responseContentTypes": [
+      "application/json"
+     ],
+     "extensions": {
+      "servers": [
+       {
+        "url": "https://fridgy-api.herokuapp.com/api"
+       },
+       {
+        "url": "http://fridgy-api.herokuapp.com/api"
+       }
+      ],
+      "security": [
+       {
+        "bearerAuth": []
+       }
+      ]
+     },
+     "deprecated": false,
+     "hidden": false
+    },
+    {
+     "$id": "736",
+     "parameters": [
+      {
+       "$id": "737",
+       "clientProperty": {
+        "$ref": "365"
+       },
+       "location": "path",
+       "collectionFormat": "none",
+       "defaultValue": {
+        "$id": "738",
+        "fixed": false
+       },
+       "deprecated": false,
+       "documentation": {
+        "$id": "739",
+        "fixed": false,
+        "raw": "uuid identifying the user"
+       },
+       "extensions": {
+        "x-ms-metadata": {
+         "apiVersions": [
+          "1.0.0"
+         ],
+         "filename": [
+          "mem:///102?oai3.shaken.json"
+         ],
+         "name": "paths·12jg5xe·users-uuid·parameters·0",
+         "originalLocations": [
+          "file:///C:/Users/Tobias/OneDrive/Speach-based%20Groceries/api/TKone7-fridgy-1.0.0-swagger.yaml#/components/parameters/paths·12jg5xe·users-uuid·parameters·0"
+         ]
+        },
+        "x-ms-parameter-location": "method"
+       },
+       "isRequired": true,
+       "isConstant": false,
+       "name": {
+        "$id": "740",
+        "fixed": false,
+        "raw": "uuid"
+       },
+       "serializedName": "uuid",
+       "modelType": {
+        "$id": "741",
+        "$type": "PrimaryType",
+        "knownPrimaryType": "string",
+        "name": {
+         "$id": "742",
+         "fixed": false,
+         "raw": "String"
+        },
+        "deprecated": false
+       }
+      }
+     ],
+     "name": {
+      "$id": "743",
       "fixed": false,
       "raw": "users"
      },
      "group": {
-      "$id": "696",
+      "$id": "744",
       "fixed": false,
       "raw": "delete"
      },
@@ -5673,9 +6077,9 @@
      "httpMethod": "delete",
      "responses": {
       "NoContent": {
-       "$id": "697",
+       "$id": "745",
        "extensions": {
-        "$id": "698",
+        "$id": "746",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -5692,9 +6096,9 @@
        "isNullable": true
       },
       "Unauthorized": {
-       "$id": "699",
+       "$id": "747",
        "extensions": {
-        "$id": "700",
+        "$id": "748",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -5711,9 +6115,9 @@
        "isNullable": true
       },
       "NotFound": {
-       "$id": "701",
+       "$id": "749",
        "extensions": {
-        "$id": "702",
+        "$id": "750",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -5730,9 +6134,9 @@
        "isNullable": true
       },
       "423": {
-       "$id": "703",
+       "$id": "751",
        "extensions": {
-        "$id": "704",
+        "$id": "752",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -5750,11 +6154,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "705",
+      "$id": "753",
       "isNullable": true
      },
      "returnType": {
-      "$id": "706",
+      "$id": "754",
       "isNullable": true
      },
      "description": "",
@@ -5783,33 +6187,33 @@
     }
    ],
    "name": {
-    "$id": "707",
+    "$id": "755",
     "fixed": false,
     "raw": "Delete"
    },
    "typeName": {
-    "$id": "708",
+    "$id": "756",
     "fixed": false
    },
    "nameForProperty": "Delete"
   },
   {
-   "$id": "709",
+   "$id": "757",
    "methods": [
     {
-     "$id": "710",
+     "$id": "758",
      "parameters": [
       {
-       "$id": "711",
+       "$id": "759",
        "location": "body",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "712",
+        "$id": "760",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "713",
+        "$id": "761",
         "fixed": false,
         "raw": "Product object that needs to be added to the repository"
        },
@@ -5830,7 +6234,7 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "714",
+        "$id": "762",
         "fixed": false,
         "raw": "body"
        },
@@ -5841,12 +6245,12 @@
       }
      ],
      "name": {
-      "$id": "715",
+      "$id": "763",
       "fixed": false,
       "raw": "products"
      },
      "group": {
-      "$id": "716",
+      "$id": "764",
       "fixed": false,
       "raw": "create"
      },
@@ -5856,12 +6260,12 @@
      "httpMethod": "post",
      "responses": {
       "Created": {
-       "$id": "717",
+       "$id": "765",
        "body": {
         "$ref": "131"
        },
        "extensions": {
-        "$id": "718",
+        "$id": "766",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -5878,9 +6282,9 @@
        "isNullable": true
       },
       "BadRequest": {
-       "$id": "719",
+       "$id": "767",
        "extensions": {
-        "$id": "720",
+        "$id": "768",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -5898,11 +6302,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "721",
+      "$id": "769",
       "isNullable": true
      },
      "returnType": {
-      "$id": "722",
+      "$id": "770",
       "body": {
        "$ref": "131"
       },
@@ -5932,19 +6336,19 @@
      "hidden": false
     },
     {
-     "$id": "723",
+     "$id": "771",
      "parameters": [
       {
-       "$id": "724",
+       "$id": "772",
        "location": "body",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "725",
+        "$id": "773",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "726",
+        "$id": "774",
         "fixed": false,
         "raw": "Fridge that needs to be created"
        },
@@ -5965,7 +6369,7 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "727",
+        "$id": "775",
         "fixed": false,
         "raw": "body"
        },
@@ -5976,12 +6380,12 @@
       }
      ],
      "name": {
-      "$id": "728",
+      "$id": "776",
       "fixed": false,
       "raw": "fridges"
      },
      "group": {
-      "$id": "729",
+      "$id": "777",
       "fixed": false,
       "raw": "create"
      },
@@ -5991,12 +6395,12 @@
      "httpMethod": "post",
      "responses": {
       "Created": {
-       "$id": "730",
+       "$id": "778",
        "body": {
         "$ref": "171"
        },
        "extensions": {
-        "$id": "731",
+        "$id": "779",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -6014,11 +6418,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "732",
+      "$id": "780",
       "isNullable": true
      },
      "returnType": {
-      "$id": "733",
+      "$id": "781",
       "body": {
        "$ref": "171"
       },
@@ -6049,19 +6453,19 @@
      "hidden": false
     },
     {
-     "$id": "734",
+     "$id": "782",
      "parameters": [
       {
-       "$id": "735",
+       "$id": "783",
        "location": "body",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "736",
+        "$id": "784",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "737",
+        "$id": "785",
         "fixed": false,
         "raw": "UUID of user that should be added as owner"
        },
@@ -6082,7 +6486,7 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "738",
+        "$id": "786",
         "fixed": false,
         "raw": "body"
        },
@@ -6093,12 +6497,12 @@
       }
      ],
      "name": {
-      "$id": "739",
+      "$id": "787",
       "fixed": false,
       "raw": "UserMethod"
      },
      "group": {
-      "$id": "740",
+      "$id": "788",
       "fixed": false,
       "raw": "create"
      },
@@ -6108,12 +6512,12 @@
      "httpMethod": "post",
      "responses": {
       "Created": {
-       "$id": "741",
+       "$id": "789",
        "body": {
         "$ref": "183"
        },
        "extensions": {
-        "$id": "742",
+        "$id": "790",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -6130,9 +6534,9 @@
        "isNullable": true
       },
       "BadRequest": {
-       "$id": "743",
+       "$id": "791",
        "extensions": {
-        "$id": "744",
+        "$id": "792",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -6150,11 +6554,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "745",
+      "$id": "793",
       "isNullable": true
      },
      "returnType": {
-      "$id": "746",
+      "$id": "794",
       "body": {
        "$ref": "183"
       },
@@ -6181,33 +6585,33 @@
     }
    ],
    "name": {
-    "$id": "747",
+    "$id": "795",
     "fixed": false,
     "raw": "Create"
    },
    "typeName": {
-    "$id": "748",
+    "$id": "796",
     "fixed": false
    },
    "nameForProperty": "Create"
   },
   {
-   "$id": "749",
+   "$id": "797",
    "methods": [
     {
-     "$id": "750",
+     "$id": "798",
      "parameters": [
       {
-       "$id": "751",
+       "$id": "799",
        "location": "body",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "752",
+        "$id": "800",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "753",
+        "$id": "801",
         "fixed": false,
         "raw": "UUID of user that should be added as owner"
        },
@@ -6228,7 +6632,7 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "754",
+        "$id": "802",
         "fixed": false,
         "raw": "body"
        },
@@ -6238,19 +6642,19 @@
        }
       },
       {
-       "$id": "755",
+       "$id": "803",
        "clientProperty": {
-        "$ref": "335"
+        "$ref": "365"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "756",
+        "$id": "804",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "757",
+        "$id": "805",
         "fixed": false,
         "raw": "UUID to identify a fridge"
        },
@@ -6272,17 +6676,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "758",
+        "$id": "806",
         "fixed": false,
         "raw": "uuid"
        },
        "serializedName": "uuid",
        "modelType": {
-        "$id": "759",
+        "$id": "807",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "760",
+         "$id": "808",
          "fixed": false,
          "raw": "String"
         },
@@ -6291,12 +6695,12 @@
       }
      ],
      "name": {
-      "$id": "761",
+      "$id": "809",
       "fixed": false,
       "raw": "owners"
      },
      "group": {
-      "$id": "762",
+      "$id": "810",
       "fixed": false,
       "raw": "add"
      },
@@ -6306,12 +6710,12 @@
      "httpMethod": "post",
      "responses": {
       "OK": {
-       "$id": "763",
+       "$id": "811",
        "body": {
         "$ref": "171"
        },
        "extensions": {
-        "$id": "764",
+        "$id": "812",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -6328,9 +6732,9 @@
        "isNullable": true
       },
       "NotFound": {
-       "$id": "765",
+       "$id": "813",
        "extensions": {
-        "$id": "766",
+        "$id": "814",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -6348,11 +6752,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "767",
+      "$id": "815",
       "isNullable": true
      },
      "returnType": {
-      "$id": "768",
+      "$id": "816",
       "body": {
        "$ref": "171"
       },
@@ -6383,19 +6787,19 @@
      "hidden": false
     },
     {
-     "$id": "769",
+     "$id": "817",
      "parameters": [
       {
-       "$id": "770",
+       "$id": "818",
        "location": "body",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "771",
+        "$id": "819",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "772",
+        "$id": "820",
         "fixed": false,
         "raw": "New item that should be created."
        },
@@ -6416,7 +6820,7 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "773",
+        "$id": "821",
         "fixed": false,
         "raw": "body"
        },
@@ -6426,19 +6830,19 @@
        }
       },
       {
-       "$id": "774",
+       "$id": "822",
        "clientProperty": {
-        "$ref": "335"
+        "$ref": "365"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "775",
+        "$id": "823",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "776",
+        "$id": "824",
         "fixed": false,
         "raw": "UUID to identify a fridge"
        },
@@ -6460,17 +6864,17 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "777",
+        "$id": "825",
         "fixed": false,
         "raw": "uuid"
        },
        "serializedName": "uuid",
        "modelType": {
-        "$id": "778",
+        "$id": "826",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "779",
+         "$id": "827",
          "fixed": false,
          "raw": "String"
         },
@@ -6479,12 +6883,12 @@
       }
      ],
      "name": {
-      "$id": "780",
+      "$id": "828",
       "fixed": false,
       "raw": "FridgeMethod"
      },
      "group": {
-      "$id": "781",
+      "$id": "829",
       "fixed": false,
       "raw": "add"
      },
@@ -6494,12 +6898,12 @@
      "httpMethod": "post",
      "responses": {
       "Created": {
-       "$id": "782",
+       "$id": "830",
        "body": {
         "$ref": "257"
        },
        "extensions": {
-        "$id": "783",
+        "$id": "831",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -6516,9 +6920,9 @@
        "isNullable": true
       },
       "BadRequest": {
-       "$id": "784",
+       "$id": "832",
        "extensions": {
-        "$id": "785",
+        "$id": "833",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -6535,9 +6939,9 @@
        "isNullable": true
       },
       "Unauthorized": {
-       "$id": "786",
+       "$id": "834",
        "extensions": {
-        "$id": "787",
+        "$id": "835",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -6554,9 +6958,9 @@
        "isNullable": true
       },
       "NotFound": {
-       "$id": "788",
+       "$id": "836",
        "extensions": {
-        "$id": "789",
+        "$id": "837",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -6574,11 +6978,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "790",
+      "$id": "838",
       "isNullable": true
      },
      "returnType": {
-      "$id": "791",
+      "$id": "839",
       "body": {
        "$ref": "257"
       },
@@ -6610,36 +7014,36 @@
     }
    ],
    "name": {
-    "$id": "792",
+    "$id": "840",
     "fixed": false,
     "raw": "Add"
    },
    "typeName": {
-    "$id": "793",
+    "$id": "841",
     "fixed": false
    },
    "nameForProperty": "Add"
   },
   {
-   "$id": "794",
+   "$id": "842",
    "methods": [
     {
-     "$id": "795",
+     "$id": "843",
      "parameters": [
       {
-       "$id": "796",
+       "$id": "844",
        "clientProperty": {
-        "$ref": "377"
+        "$ref": "407"
        },
        "location": "query",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "797",
+        "$id": "845",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "798",
+        "$id": "846",
         "fixed": false,
         "raw": "Filters a for a username"
        },
@@ -6661,17 +7065,17 @@
        "isRequired": false,
        "isConstant": false,
        "name": {
-        "$id": "799",
+        "$id": "847",
         "fixed": false,
         "raw": "username"
        },
        "serializedName": "username",
        "modelType": {
-        "$id": "800",
+        "$id": "848",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "801",
+         "$id": "849",
          "fixed": false,
          "raw": "String"
         },
@@ -6679,19 +7083,19 @@
        }
       },
       {
-       "$id": "802",
+       "$id": "850",
        "clientProperty": {
-        "$ref": "383"
+        "$ref": "413"
        },
        "location": "query",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "803",
+        "$id": "851",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "804",
+        "$id": "852",
         "fixed": false,
         "raw": "Filters a for an email"
        },
@@ -6713,17 +7117,17 @@
        "isRequired": false,
        "isConstant": false,
        "name": {
-        "$id": "805",
+        "$id": "853",
         "fixed": false,
         "raw": "email"
        },
        "serializedName": "email",
        "modelType": {
-        "$id": "806",
+        "$id": "854",
         "$type": "PrimaryType",
         "knownPrimaryType": "string",
         "name": {
-         "$id": "807",
+         "$id": "855",
          "fixed": false,
          "raw": "String"
         },
@@ -6732,12 +7136,12 @@
       }
      ],
      "name": {
-      "$id": "808",
+      "$id": "856",
       "fixed": false,
       "raw": "UserMethod"
      },
      "group": {
-      "$id": "809",
+      "$id": "857",
       "fixed": false,
       "raw": "check"
      },
@@ -6747,9 +7151,9 @@
      "httpMethod": "head",
      "responses": {
       "OK": {
-       "$id": "810",
+       "$id": "858",
        "extensions": {
-        "$id": "811",
+        "$id": "859",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -6766,9 +7170,9 @@
        "isNullable": true
       },
       "NoContent": {
-       "$id": "812",
+       "$id": "860",
        "extensions": {
-        "$id": "813",
+        "$id": "861",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0.0"
@@ -6786,11 +7190,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "814",
+      "$id": "862",
       "isNullable": true
      },
      "returnType": {
-      "$id": "815",
+      "$id": "863",
       "isNullable": true
      },
      "requestContentType": "application/json; charset=utf-8",
@@ -6812,12 +7216,12 @@
     }
    ],
    "name": {
-    "$id": "816",
+    "$id": "864",
     "fixed": false,
     "raw": "Check"
    },
    "typeName": {
-    "$id": "817",
+    "$id": "865",
     "fixed": false
    },
    "nameForProperty": "Check"

@@ -301,5 +301,49 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client
                 }
             }
 
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            public static TokensResponse Jwttoken(this IGet operations)
+            {
+                return operations.JwttokenAsync().GetAwaiter().GetResult();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<TokensResponse> JwttokenAsync(this IGet operations, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.JwttokenWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            public static TokenResponse Refreshtoken(this IGet operations)
+            {
+                return operations.RefreshtokenAsync().GetAwaiter().GetResult();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<TokenResponse> RefreshtokenAsync(this IGet operations, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.RefreshtokenWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
     }
 }
