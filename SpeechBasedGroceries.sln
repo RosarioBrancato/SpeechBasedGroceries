@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29926.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpeechBasedGroceries", "SpeechBasedGroceries\SpeechBasedGroceries.csproj", "{D9B95BD0-DE51-4DA3-8418-23EF0DF2D935}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeechBasedGroceriesTest", "SpeechBasedGroceriesTest\SpeechBasedGroceriesTest.csproj", "{FFACD4D7-3DD3-4F74-8EB7-79DFDA95F234}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpeechBasedGroceriesTest", "SpeechBasedGroceriesTest\SpeechBasedGroceriesTest.csproj", "{FFACD4D7-3DD3-4F74-8EB7-79DFDA95F234}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

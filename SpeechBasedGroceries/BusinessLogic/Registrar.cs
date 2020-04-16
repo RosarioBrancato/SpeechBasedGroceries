@@ -10,12 +10,9 @@ namespace SpeechBasedGroceries.BusinessLogic
 {
 	public class Registrar
 	{
-		private readonly ILogger<Registrar> _logger;
 
 		public Registrar()
-		{
-			_logger = AppLoggerFactory.GetLogger<Registrar>();
-		}
+		{}
 
 		private CrmClient crmClient;
 
