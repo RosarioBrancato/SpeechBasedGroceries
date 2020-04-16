@@ -190,7 +190,7 @@ namespace SpeechBasedGroceries.Parties.Logistics
             try
             {
                 _deliveryId = Int32.Parse(deliveryId);
-                isValid = _deliveryId >= 100 ? isValid : false;
+                isValid = _deliveryId >= 100000 ? isValid : false;
             }
             catch (Exception e)
             {

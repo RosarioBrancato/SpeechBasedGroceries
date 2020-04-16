@@ -33,7 +33,7 @@ DROP TABLE [dbo].[t_position]
 DROP TABLE [dbo].[t_delivery]
 
 CREATE TABLE [dbo].[t_delivery] (
-  f_del_id INT IDENTITY(100,1) PRIMARY KEY,
+  f_del_id INT IDENTITY(100000,1) PRIMARY KEY,
   f_del_customerid INT NOT NULL,
   f_del_date DATE NULL,
   f_del_street VARCHAR(255),
@@ -44,7 +44,7 @@ CREATE TABLE [dbo].[t_delivery] (
 );
 
 CREATE TABLE [dbo].[t_position] (
-  f_pos_id INT IDENTITY(2000,1) PRIMARY KEY,
+  f_pos_id INT IDENTITY(200000,1) PRIMARY KEY,
   f_del_id INT NOT NULL FOREIGN KEY REFERENCES [dbo].[t_delivery](f_del_id),
   f_pos_no INT NULL,
   f_pos_itemid VARCHAR(255) NULL,

@@ -235,6 +235,29 @@ namespace SpeechBasedGroceries.Parties.CRM
 			return _customer;
 		}
 
+
+		public bool DeleteCustomer(Customer customer)
+		{
+			string sql = "DELETE [dbo].[t_customer] "
+					   + "WHERE f_cus_id = (@p0)";
+
+			bool succeeded = false;
+			DeleteTokensOfCustomer(customer.Id);
+
+			using (SqlConnection connection = this.getConnection())
+			{
+				connection.Open();
+				using (SqlCommand cmd = new SqlCommand(sql, connection))
+				{
+					cmd.Parameters.AddWithValue("@p0", customer.Id);
+					succeeded = cmd.ExecuteNonQuery() == 1;
+				}
+			}
+
+			return succeeded;
+		}
+
+
 		#endregion
 
 
@@ -392,6 +415,47 @@ namespace SpeechBasedGroceries.Parties.CRM
 			}
 
 			return _token;
+		}
+
+		public bool DeleteToken(Token token)
+		{
+			string sql = "DELETE [dbo].[t_token] "
+					   + "WHERE f_tok_id = (@p0)";
+
+			bool succeeded = false;
+
+			using (SqlConnection connection = this.getConnection())
+			{
+				connection.Open();
+				using (SqlCommand cmd = new SqlCommand(sql, connection))
+				{
+					cmd.Parameters.AddWithValue("@p0", token.Id);
+					succeeded = cmd.ExecuteNonQuery() == 1;
+				}
+			}
+
+			return succeeded;
+		}
+
+
+		private int DeleteTokensOfCustomer(int customerId)
+		{
+			string sql = "DELETE [dbo].[t_token] "
+					   + "WHERE f_cus_id = (@p0)";
+
+			int rows = 0;
+
+			using (SqlConnection connection = this.getConnection())
+			{
+				connection.Open();
+				using (SqlCommand cmd = new SqlCommand(sql, connection))
+				{
+					cmd.Parameters.AddWithValue("@p0", customerId);
+					rows = cmd.ExecuteNonQuery();
+				}
+			}
+
+			return rows;
 		}
 
 		#endregion

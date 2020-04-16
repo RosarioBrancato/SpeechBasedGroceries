@@ -12,7 +12,7 @@ namespace SpeechBasedGroceries.DTOs
 
         public int CustomerId { get; set; }
 
-		public DateTime Creation { get; set; } // TODO: use Customer object instead
+		public DateTime Creation { get; set; }
 
 		public string Name { get; set; }
 

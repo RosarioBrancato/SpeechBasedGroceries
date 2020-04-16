@@ -34,15 +34,6 @@ namespace SpeechBasedGroceriesTest
 
 
 		[TestMethod]
-		public void TestGetDeliveries()
-		{
-			List<Delivery> deliveries = this.logisticsClient.GetDeliveries();
-
-			Assert.IsTrue(deliveries.Count > 0);
-		}
-
-
-		[TestMethod]
 		public void TestGetDeliveriesByCustomerId()
 		{
 			Assert.IsTrue(this.logisticsClient.GetDeliveriesByCustomerId("1").Count > 0);
@@ -52,7 +43,7 @@ namespace SpeechBasedGroceriesTest
 		[TestMethod]
 		public void TestGetDeliveryById()
 		{
-			Delivery d1 = this.logisticsClient.GetDeliveryById("101");
+			Delivery d1 = this.logisticsClient.GetDeliveryById("100001");
 
 			Assert.IsTrue(d1.Date.Equals(DateTime.Parse("2020-04-09")));
 			Assert.IsTrue(d1.Positions.Count > 1);
@@ -69,11 +60,11 @@ namespace SpeechBasedGroceriesTest
 		[TestMethod]
 		public void TestIsValidDeliveryId()
 		{
-			Assert.IsTrue(this.logisticsClient.IsValidDeliveryId("100 "));
-			Assert.IsTrue(this.logisticsClient.IsValidDeliveryId("101"));
-			Assert.IsTrue(this.logisticsClient.IsValidDeliveryId("0100"));
-			Assert.IsFalse(this.logisticsClient.IsValidDeliveryId("100a"));
-			Assert.IsFalse(this.logisticsClient.IsValidDeliveryId("99"));
+			Assert.IsTrue(this.logisticsClient.IsValidDeliveryId("100000 "));
+			Assert.IsTrue(this.logisticsClient.IsValidDeliveryId("100001"));
+			Assert.IsTrue(this.logisticsClient.IsValidDeliveryId("0100000"));
+			Assert.IsFalse(this.logisticsClient.IsValidDeliveryId("100000a"));
+			Assert.IsFalse(this.logisticsClient.IsValidDeliveryId("99000"));
 		}
 
 		[TestMethod]
@@ -89,7 +80,7 @@ namespace SpeechBasedGroceriesTest
 		[TestMethod]
 		public void TestCreateUpdateDelivery()
 		{
-			// DB INSERTS and UPDATES cannot really be tested...
+			// TODO: outsource test data
 
 			Customer c1 = new CrmClient().GetCustomerById("1");
             Delivery d1 = new Delivery()

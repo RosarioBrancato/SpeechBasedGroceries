@@ -26,11 +26,14 @@ namespace SpeechBasedGroceriesTest.Data
 
 		public string FridgyToken { get; private set; }
 		public IList<TestUser> Testusers { get; private set; }
-
+		public IList<Customer> TestCustomers { get; private set; }
+		public IList<Token> TestTokens { get; private set; }
 
 		private UnitTestData()
 		{
 			Testusers = new List<TestUser>();
+			TestCustomers = new List<Customer>();
+			TestTokens = new List<Token>();
 			this.LoadData();
 		}
 
@@ -38,18 +41,43 @@ namespace SpeechBasedGroceriesTest.Data
 		{
 			JObject data = JObject.Parse(File.ReadAllText("Data/UnitTestData.json"));
 
+
+            // Fridgy
 			this.FridgyToken = data["Fridgy"]["Token"].Value<string>();
 
 			var resultObjects = AllChildren(data)
 			   .First(c => c.Type == JTokenType.Array && c.Path.Contains("Testusers"))
 			   .Children<JObject>();
 
-
 			foreach (JObject result in resultObjects)
 			{
 				TestUser u = result.ToObject<TestUser>();
 				this.Testusers.Add(u);
 			}
+
+
+
+            //Crm
+			resultObjects = AllChildren(data)
+			   .First(c => c.Type == JTokenType.Array && c.Path.Contains("TestCustomers"))
+			   .Children<JObject>();
+
+			foreach (JObject result in resultObjects)
+			{
+				Customer c = result.ToObject<Customer>();
+				this.TestCustomers.Add(c);
+			}
+			resultObjects = AllChildren(data)
+			   .First(c => c.Type == JTokenType.Array && c.Path.Contains("TestTokens"))
+			   .Children<JObject>();
+
+			foreach (JObject result in resultObjects)
+			{
+				Token t = result.ToObject<Token>();
+				this.TestTokens.Add(t);
+			}
+
+
 		}
 
 		// recursively yield all children of json

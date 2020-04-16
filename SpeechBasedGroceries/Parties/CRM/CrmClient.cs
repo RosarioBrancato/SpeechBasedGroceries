@@ -54,6 +54,10 @@ namespace SpeechBasedGroceries.Parties.CRM
 			return customer;
 		}
 
+        public Customer GetCustomerById(int id)
+        {
+			return GetCustomerById(id.ToString());
+        }
 
 		public Customer GetCustomerByTelegramId(string telegramId)
 		{
@@ -78,9 +82,10 @@ namespace SpeechBasedGroceries.Parties.CRM
             if (crmDao.GetCustomerById(customer.Id) == null)
             {
 				_customer = crmDao.CreateCustomer(customer);
-				if (includeTokens)
+				if (includeTokens && _customer != null)
 				{
-					_customer.Tokens.ForEach(tok => crmDao.CreateToken(tok));
+					_customer.Tokens.ForEach(t => t.CustomerId = _customer.Id);
+					_customer.Tokens.ForEach(t => crmDao.CreateToken(t));
 				}
 			} else
             {
@@ -93,6 +98,22 @@ namespace SpeechBasedGroceries.Parties.CRM
 
 			return _customer;
         }
+
+
+		public bool DeleteCustomer(Customer customer)
+		{
+			bool success = false;
+			if (crmDao.GetCustomerById(customer.Id) != null)
+			{
+				success = crmDao.DeleteCustomer(customer);
+			}
+			else
+			{
+				_logger.LogInformation($"customer with ID «{customer.Id}» does not exist");
+			}
+
+			return success;
+		}
 
 
 		public Token CreateUpdateToken(Token token)
@@ -109,6 +130,22 @@ namespace SpeechBasedGroceries.Parties.CRM
 			}
 
 			return _token;
+		}
+
+
+		public bool DeleteToken(Token token)
+		{
+			bool success = false;
+			if (crmDao.GetTokenById(token.Id) != null)
+			{
+				success = crmDao.DeleteToken(token);
+			}
+			else
+			{
+				_logger.LogInformation($"token with ID «{token.Id}» does not exist");
+			}
+
+			return success;
 		}
 
 		#endregion
