@@ -69,11 +69,6 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 			return fridges;
 		}
 
-		public IList<Item> GetItems(string fridgeUUID) {
-			IList<Item> items = client.Get.Items(fridgeUUID);
-			return items;
-		}
-
 		public User RegisterUser(string username, string password, string displayname, string email) {
 			PostUser user = new PostUser();
 			user.Displayname = displayname;

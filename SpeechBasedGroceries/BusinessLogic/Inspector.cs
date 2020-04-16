@@ -11,26 +11,17 @@ namespace SpeechBasedGroceries.BusinessLogic
 {
 	public class Inspector
 	{
-		private FridgyClient fridgyClient = new FridgyClient();
 
-		public void LoginWithTelegram(string telegramId)
+		public bool LoginWithTelegram(string telegramId)
 		{
 			//TO-DO
-			Registrar authenticator = new Registrar();
-			Token token = authenticator.LoginWithTelegram(telegramId);
-			Console.WriteLine("got token: "+ token.Value);
-			this.fridgyClient.setToken(token.Value);
+			return false;
 		}
 
-		public Inventory GetFridgeInventory()
+		public IList<Item> GetFridgeInventory(string fridgeId, int sortType)
 		{
-			Inventory inv = new Inventory();
-			Fridge fridge = this.fridgyClient.GetFridges().First();
-			inv.Fridgename = fridge.Name;
-			inv.FridgeUUID = fridge.Id;
-			IList<Item> items = this.fridgyClient.GetItems(fridge.Id.ToString());
-			Console.WriteLine("found: " + items.Count + " items: " + items.ToString());
-			return inv;
+			//TO-DO
+			return null;
 		}
 
 		public IList<BaseProductNutrient> GetItemNutrientValues(string itemId)
