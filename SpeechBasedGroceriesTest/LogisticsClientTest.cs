@@ -81,7 +81,7 @@ namespace SpeechBasedGroceriesTest
 		{
 			Assert.IsTrue(this.logisticsClient.IsValidDate("2020-04-19"));
 			Assert.IsTrue(this.logisticsClient.IsValidDate("2020.04.19"));
-			Assert.IsFalse(this.logisticsClient.IsValidDate("19.04.2020"));
+			Assert.IsFalse(this.logisticsClient.IsValidDate("29.02.2019"));
 			Assert.IsFalse(this.logisticsClient.IsValidDate("33.10.2020"));
 		}
 
