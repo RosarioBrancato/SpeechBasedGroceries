@@ -22,9 +22,10 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client.Models
         /// <summary>
         /// Initializes a new instance of the BaseFridge class.
         /// </summary>
-        public BaseFridge(string name = default(string))
+        public BaseFridge(string name = default(string), System.Guid id = default(System.Guid))
         {
             Name = name;
+            Id = id;
             CustomInit();
         }
 
@@ -37,6 +38,11 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client.Models
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "id")]
+        public System.Guid Id { get; set; }
 
     }
 }
