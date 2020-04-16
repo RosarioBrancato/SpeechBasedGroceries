@@ -56,6 +56,13 @@ namespace SpeechBasedGroceries.BusinessLogic
 			User newUser = fridgyClient.RegisterUser(username, password, displayname, email);
 			fridgyClient.setBasicAuth(username, password);
 			string token = fridgyClient.RetrieveToken();
+			fridgyClient.setToken(token);
+			Fridge newfridge = fridgyClient.CreateNewFridge(username + "-fridge");
+			Console.WriteLine("new fridge " + newfridge.Id.ToString());
+
+			// here we add the admin user to every fridge we create (for debugging purposes
+			// todo: remove in production
+			fridgyClient.AddUserToFridge("1c5c1da9-27e1-419f-872b-90d89854ce5d", newfridge.Id.ToString());
 			return token;
 		}
 

@@ -79,6 +79,23 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 			return createdUser;
 		}
 
+		public Fridge CreateNewFridge(string name) {
+			BaseFridge fridge = new BaseFridge();
+			fridge.Name = name;
+			return client.Create.Fridges(fridge);
+		}
+
+		public Fridge AddUserToFridge(string userUUID, string fridgeUUID) {
+			Owner owner = new Owner();
+			owner.Uuid = Guid.Parse(userUUID);
+			return client.Add.Owners(owner, fridgeUUID);
+		}
+
+		public void RemoveUserFromFridge(string userUUID, string fridgeUUID)
+		{
+			client.Delete.Owners(fridgeUUID, userUUID);
+		}
+
 		public void DeleteUser(string uuid)
 		{
 			client.Delete.Users(uuid);
