@@ -11,10 +11,11 @@ namespace SpeechBasedGroceries.BusinessLogic
 	public class Registrar
 	{
 
-		public Registrar()
-		{}
-
 		private CrmClient crmClient;
+
+		public Registrar()
+		{
+		}
 
 		public Token LoginWithTelegram(string telegramId)
 		{
@@ -30,24 +31,25 @@ namespace SpeechBasedGroceries.BusinessLogic
 				var displayname = username;
 				var intTelegramid = Int32.Parse(telegramId);
 
-				Customer newCustomer = RegisterCustomerInCrm(null, null, null, null, null,null, null,  email,  intTelegramid);
+				Customer newCustomer = RegisterCustomerInCrm(null, null, null, null, null, null, null, email, intTelegramid);
 				string bearerToken = CreateNewFridgyAccount(username, password, displayname, email);
 				token = AssignTokenToCustomer(newCustomer, "Fridgy", bearerToken);
 			}
-			else {
+			else
+			{
 				token = customer.GetFridigyToken();
 			}
-			
+
 			return token;
 		}
 
 
-        /*
+		/*
          * Purpose: Creates new Fridgy account.
          * Params:  none
          * Return:  Bearer token of newly created account
          */
-        private string CreateNewFridgyAccount(string username, string password, string displayname, string email)
+		private string CreateNewFridgyAccount(string username, string password, string displayname, string email)
 		{
 			FridgyClient fridgyClient = new FridgyClient();
 			User newUser = fridgyClient.RegisterUser(username, password, displayname, email);
@@ -70,16 +72,16 @@ namespace SpeechBasedGroceries.BusinessLogic
          * Return:  Customer object if succeeded, null if failed
          */
 		private Customer RegisterCustomerInCrm(
-            string firstname = default,
-            string surname = default,
-            DateTime? birthdate = null,
-            string street = default,
-            string zip = default,
-            string city = default,
-            string country = default,
-            string email = default,
-            int telegramid = default)
-        {
+			string firstname = default,
+			string surname = default,
+			DateTime? birthdate = null,
+			string street = default,
+			string zip = default,
+			string city = default,
+			string country = default,
+			string email = default,
+			int telegramid = default)
+		{
 
 			Customer customer = new Customer()
 			{
@@ -91,7 +93,7 @@ namespace SpeechBasedGroceries.BusinessLogic
 				City = city,
 				Country = country,
 				Email = email,
-				TelegramId = telegramid, 
+				TelegramId = telegramid,
 				Tokens = null
 			};
 
@@ -105,10 +107,10 @@ namespace SpeechBasedGroceries.BusinessLogic
          * Return:  Customer object if succeeded, null if failed
          */
 		private Token AssignTokenToCustomer(
-            Customer customer,
-            string token_name,
-            string token_value,
-            DateTime? token_expiration = null)
+			Customer customer,
+			string token_name,
+			string token_value,
+			DateTime? token_expiration = null)
 		{
 
 			Token token = new Token()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SpeechBasedGroceries.DTOs
+namespace SpeechBasedGroceriesTest
 {
     public class TestUser
     {

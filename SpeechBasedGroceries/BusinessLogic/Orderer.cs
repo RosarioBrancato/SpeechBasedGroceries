@@ -16,7 +16,7 @@ namespace SpeechBasedGroceries.BusinessLogic
 			return false;
 		}
 
-		public void PlaceOrder()
+		public bool PlaceOrder()
 		{
 			//TO-DO
 
@@ -26,6 +26,8 @@ namespace SpeechBasedGroceries.BusinessLogic
 			//LOG: place order in logistics
 			//FRIDGY: place items in fridge
 			//BOT: return confirmation
+
+			return true;
 		}
 
 	}
