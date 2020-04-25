@@ -15,10 +15,8 @@ namespace SpeechBasedGroceries.BusinessLogic
 
 		public void LoginWithTelegram(string telegramId)
 		{
-			//TO-DO
 			Registrar authenticator = new Registrar();
 			Token token = authenticator.LoginWithTelegram(telegramId);
-			Console.WriteLine("got token: " + token.Value);
 			this.fridgyClient.setToken(token.Value);
 		}
 
@@ -33,10 +31,9 @@ namespace SpeechBasedGroceries.BusinessLogic
 			return inv;
 		}
 
-		public IList<BaseProductNutrient> GetItemNutrientValues(string itemId)
-		{
-			// TO-DO
-			return null;
+		public IList<Product> SearchProduct(string QueryTerm) {
+			// Product contains all nutrient data anyway
+			return this.fridgyClient.GetProductsByName(QueryTerm);
 		}
 
 	}
