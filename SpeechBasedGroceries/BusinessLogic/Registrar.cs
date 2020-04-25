@@ -40,6 +40,7 @@ namespace SpeechBasedGroceries.BusinessLogic
 				token = customer.GetFridigyToken();
 			}
 
+            // TODO: return whole Customer instead
 			return token;
 		}
 
