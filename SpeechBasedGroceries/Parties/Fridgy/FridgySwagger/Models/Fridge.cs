@@ -52,5 +52,10 @@ namespace SpeechBasedGroceries.Parties.Fridgy.Client.Models
             return (obj as Fridge).Id.ToString() == Id.ToString();
         }
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
     }
 }

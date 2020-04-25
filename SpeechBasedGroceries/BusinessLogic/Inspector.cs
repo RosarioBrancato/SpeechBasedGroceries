@@ -31,9 +31,31 @@ namespace SpeechBasedGroceries.BusinessLogic
 			return inv;
 		}
 
-		public IList<Product> SearchProduct(string QueryTerm) {
+		public IList<DTOs.Product> SearchProduct(string QueryTerm) {
 			// Product contains all nutrient data anyway
-			return this.fridgyClient.GetProductsByName(QueryTerm);
+			// change to the correct dto
+			// return this.fridgyClient.GetProductsByName(QueryTerm);
+			return null;
+		}
+		public DTOs.Product GetItemNutrientValues(string itemId)
+		{
+			// TO-DO
+
+
+			//DUMMY
+			var product = new DTOs.Product();
+			product.Name = "Mozzarella";
+			product.NutritionValues.Add(new NutritionValue() { Name = "Energy in kJ", Value = "989" });
+			product.NutritionValues.Add(new NutritionValue() { Name = "Energy in kcal", Value = "238" });
+			product.NutritionValues.Add(new NutritionValue() { Name = "Fat", Value = "18g" });
+			product.NutritionValues.Add(new NutritionValue() { Name = "saturated fatty acids", Value = "13g" });
+			product.NutritionValues.Add(new NutritionValue() { Name = "Carbohydrate", Value = "2g" });
+			product.NutritionValues.Add(new NutritionValue() { Name = "of which sugar", Value = "1g" });
+			product.NutritionValues.Add(new NutritionValue() { Name = "Dietary fiber", Value = "0.00g" });
+			product.NutritionValues.Add(new NutritionValue() { Name = "Protein", Value = "17g" });
+			product.NutritionValues.Add(new NutritionValue() { Name = "Salt", Value = "0.7g" });
+
+			return product;
 		}
 
 	}

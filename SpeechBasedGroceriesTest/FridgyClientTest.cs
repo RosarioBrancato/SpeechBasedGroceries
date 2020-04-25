@@ -1,5 +1,4 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SpeechBasedGroceries.DTOs;
 using SpeechBasedGroceries.Parties.Fridgy;
 using SpeechBasedGroceries.Parties.Fridgy.Client.Models;
 using SpeechBasedGroceriesTest.Data;

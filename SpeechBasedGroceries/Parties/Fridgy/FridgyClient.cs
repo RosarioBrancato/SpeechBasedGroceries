@@ -11,7 +11,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using SpeechBasedGroceries.Parties.Fridgy.Client;
 using Microsoft.Rest;
-using SpeechBasedGroceries.DTOs;
 using Microsoft.VisualBasic.CompilerServices;
 
 namespace SpeechBasedGroceries.Parties.Fridgy

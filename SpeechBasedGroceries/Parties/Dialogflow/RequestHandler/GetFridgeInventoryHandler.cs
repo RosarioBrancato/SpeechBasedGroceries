@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using SpeechBasedGroceries.AppServices;
 using SpeechBasedGroceries.BusinessLogic;
-using SpeechBasedGroceries.Parties.Fridgy.Client.Models;
+using SpeechBasedGroceries.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,16 +22,16 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 
 		public override void Handle()
 		{
-			var products = this.GetData();
+			var inventory = this.GetData();
 
-			if (products.Count == 0)
+			if (inventory == null  || inventory?.Items.Count == 0)
 			{
 				this.Response.FulfillmentText = "Your fridge is empty.";
 			}
 			else
 			{
 				//general
-				string responseText = "Here’s your current inventory:" + Environment.NewLine + string.Join(Environment.NewLine, products.Select(s => string.Concat(s.Qty, "x ", s.Name)));
+				string responseText = "Here’s your current inventory:" + Environment.NewLine + string.Join(Environment.NewLine, inventory.Items.Select(s => string.Concat(s.Quantity, "x ", s.Name)));
 				this.Response.FulfillmentText = responseText;
 
 				Intent.Types.Message messageResponse = new Intent.Types.Message();
@@ -58,14 +58,15 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 			}
 		}
 
-		private List<Product> GetData()
+		private Inventory GetData()
 		{
-			//var telegramId = this.Request.OriginalDetectIntentRequest.Payload.Fields["data"].StructValue.Fields["from"].StructValue.Fields["id"].NumberValue;
+			var telegramId = this.Request.OriginalDetectIntentRequest.Payload.Fields["data"].StructValue.Fields["from"].StructValue.Fields["id"].NumberValue;
 			//double telegramId = 9212711;
 
-			//Inspector inspector = new Inspector();
-			//return inspector.GetFridgeInventory((int)telegramId);
-			return new List<Product>();
+			Inspector inspector = new Inspector();
+			inspector.LoginWithTelegram(telegramId.ToString());
+
+			return inspector.GetFridgeInventory();
 		}
 
 	}
