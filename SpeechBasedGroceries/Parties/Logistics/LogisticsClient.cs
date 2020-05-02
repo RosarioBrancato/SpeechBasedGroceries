@@ -124,6 +124,7 @@ namespace SpeechBasedGroceries.Parties.Logistics
                 _delivery = logisticsDao.CreateDelievery(delivery);
                 if (includePositions)
                 {
+                    _delivery.Positions.ForEach(pos => pos.DeliveryId = _delivery.Id);
                     _delivery.Positions.ForEach(pos => logisticsDao.CreatePosition(pos));
                 }
             }
