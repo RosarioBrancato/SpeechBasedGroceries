@@ -31,7 +31,7 @@ namespace SpeechBasedGroceries.BusinessLogic.Tests
         {
             Random random = new Random();
             var newTelegram = random.Next(100000000, 999999999).ToString();
-            Token token = reg.LoginWithTelegram(newTelegram);
+            Token token = reg.GetFridgyToken(newTelegram);
 
             Console.WriteLine(token.Value);
             Assert.IsNotNull(token.Value);

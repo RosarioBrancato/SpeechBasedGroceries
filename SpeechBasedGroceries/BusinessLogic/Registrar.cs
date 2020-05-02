@@ -11,17 +11,15 @@ namespace SpeechBasedGroceries.BusinessLogic
 	public class Registrar
 	{
 
-		private CrmClient crmClient;
-
 		public Registrar()
 		{
 		}
 
-		public Token LoginWithTelegram(string telegramId)
+		public Token GetFridgyToken(string telegramId)
 		{
-			this.crmClient = new CrmClient();
-			Customer customer = this.crmClient.GetCustomerByTelegramId(telegramId);
-			Token token;
+			Token token = null;
+
+			Customer customer = new CrmClient().GetCustomerByTelegramId(telegramId);
 			if (customer is null)
 			{
 				String UUID = Guid.NewGuid().ToString();
@@ -40,14 +38,13 @@ namespace SpeechBasedGroceries.BusinessLogic
 				token = customer.GetFridigyToken();
 			}
 
-            // TODO: return whole Customer instead
 			return token;
 		}
 
 
 		/*
          * Purpose: Creates new Fridgy account.
-         * Params:  none
+         * Params:  self explaining
          * Return:  Bearer token of newly created account
          */
 		private string CreateNewFridgyAccount(string username, string password, string displayname, string email)
@@ -62,6 +59,7 @@ namespace SpeechBasedGroceries.BusinessLogic
 
 			// here we add the admin user to every fridge we create (for debugging purposes
 			// todo: remove in production
+            // TODO: do we really need this since we now creat new individual accounts?
 			fridgyClient.AddUserToFridge("1c5c1da9-27e1-419f-872b-90d89854ce5d", newfridge.Id.ToString());
 			return token;
 		}
