@@ -15,20 +15,20 @@ namespace SpeechBasedGroceries.BusinessLogic
 
 		public void LoginWithTelegram(string telegramId)
 		{
-			Registrar authenticator = new Registrar();
-			Token token = authenticator.LoginWithTelegram(telegramId);
+			Registrar registrar = new Registrar();
+			Token token = registrar.GetFridgyToken(telegramId);
 			this.fridgyClient.setToken(token.Value);
 		}
-
+        
 		public Inventory GetFridgeInventory()
 		{
-			Inventory inv = new Inventory();
+			Inventory inventory = new Inventory();
 			Fridge fridge = this.fridgyClient.GetFridges().First();
-			inv.Fridgename = fridge.Name;
-			inv.FridgeUUID = fridge.Id;
+			inventory.Fridgename = fridge.Name;
+			inventory.FridgeUUID = fridge.Id;
 			IList<Item> items = this.fridgyClient.GetItems(fridge.Id.ToString());
 			Console.WriteLine("found: " + items.Count + " items: " + items.ToString());
-			return inv;
+			return inventory;
 		}
 
 		public IList<DTOs.Product> SearchProduct(string QueryTerm) {
