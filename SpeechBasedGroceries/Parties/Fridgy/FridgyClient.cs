@@ -19,17 +19,20 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 	{
 
 		private readonly ILogger<FridgyClient> _logger;
-
 		private Microsoft.Rest.ServiceClientCredentials credentials;
-
 		private f.Fridgy client;
 
-		// TODO: overload constructor with FridgyClient() (to be used for account creation)
 		public FridgyClient()
 		{
 			_logger = AppLoggerFactory.GetLogger<FridgyClient>();
-			// TODO: better way than give this dummy string to the credentials constructor
 			client = new f.Fridgy(new TokenCredentials("empty"));
+		}
+
+		public FridgyClient(string token)
+		{
+			_logger = AppLoggerFactory.GetLogger<FridgyClient>();
+			credentials = new TokenCredentials(token);
+			client = new f.Fridgy(credentials);
 		}
 
 		public void setToken(string value)
@@ -56,10 +59,19 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 			IList<Product> productlist = client.Get.Products("name.asc", name);
 			return productlist;
 		}
-		public Product GetProductsByBarcode(string barcode)
+
+        // DEPRECIATED
+        public Product GetProductsByBarcode(string barcode)
 		{
 			Product product = client.Get.Barcode(barcode);
 			return product;
+		}
+
+		public DTOs.Product GetProductByBarcode(string barcode)
+		{
+            // this function returns the CIU-conform Product object
+            Product product = client.Get.Barcode(barcode);
+			return MappingProduct(product);
 		}
 
 		public IList<Fridge> GetFridges()
@@ -110,6 +122,42 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 			if (!(resp is null)) return resp.Token;
 			return null;
 		}
+
+
+
+
+
+
+        private DTOs.Product MappingProduct(Product p)
+        {
+			DTOs.Product product = new DTOs.Product
+			{
+				Id = p.Id.ToString(),
+				Name = p.Name,
+				Barcode = p.Barcode
+			};
+
+            // making things shorter...
+			var n = p.Nutrient;
+
+			product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "Energy in kJ", Value = "" }); // TODO: what the value here?
+			product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "Energy in kcal", Value = $"{n.EnergyKcal}g" });
+			product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "Fat", Value = $"{n.Fat}g" });
+			product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "saturated fatty acids", Value = $"{n.FatSaturated}g" });
+			product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "Carbohydrate", Value = $"{n.Carbs}g" });
+			product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "of which sugar", Value = $"{n.CarbsSugar}g" });
+			product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "Dietary fiber", Value = $"{n.Fiber}g" });
+			product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "Protein", Value = $"{n.Protein}g" });
+			product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "Salt", Value = $"{n.Salt}g" });
+
+			return product;
+		}
+
+
+
+
+
+
 
 	}
 }
