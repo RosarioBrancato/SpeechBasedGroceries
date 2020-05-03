@@ -3,14 +3,15 @@ using SpeechBasedGroceries.BusinessLogic;
 using SpeechBasedGroceries.DTOs;
 using SpeechBasedGroceries.Parties.Fridgy;
 using SpeechBasedGroceries.Parties.Logistics;
+using SpeechBasedGroceriesTest.Tests.Base;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SpeechBasedGroceries.BusinessLogic.Tests
+namespace SpeechBasedGroceriesTest.Tests.BusinessLogic
 {
     [TestClass()]
-    public class OrdererTests
+    public class OrdererTests : BaseTest
     {
         private Orderer oderer;
 
@@ -31,7 +32,7 @@ namespace SpeechBasedGroceries.BusinessLogic.Tests
         {
             string barcode = "7610200428059"; // Bratwurst
 
-            Product product = new FridgyClient().GetProductByBarcode(barcode); 
+            Product product = new FridgyClient().GetProductByBarcode(barcode);
             Delivery delivery = oderer.PlaceOrder(product, 1, "Eine Bestellung");
 
             Assert.IsNotNull(delivery);

@@ -3,17 +3,19 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using SpeechBasedGroceries.BusinessLogic;
 using SpeechBasedGroceries.DTOs;
+using SpeechBasedGroceriesTest.Tests.Base;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 
-namespace SpeechBasedGroceries.BusinessLogic.Tests
+namespace SpeechBasedGroceriesTest.Tests.BusinessLogic
 {
     [TestClass()]
-    public class RegistrarTests
+    public class RegistrarTests : BaseTest
     {
         private Registrar reg;
+
         [TestInitialize]
         public void Init()
         {

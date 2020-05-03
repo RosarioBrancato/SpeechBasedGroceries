@@ -8,12 +8,13 @@ using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Logging;
 using System.Linq;
 using Moq;
+using SpeechBasedGroceries.AppServices;
+using SpeechBasedGroceriesTest.Tests.Base;
 
-
-namespace SpeechBasedGroceriesTest
+namespace SpeechBasedGroceriesTest.Tests.Clients
 {
 	[TestClass]
-	public class CrmClientTest
+	public class CrmClientTest : BaseTest
 	{
 
 		private CrmClient crmClient;
@@ -22,8 +23,7 @@ namespace SpeechBasedGroceriesTest
 		[TestInitialize]
 		public void Init()
 		{
-			var mock = new Mock<ILogger<CrmClient>>();
-			this.crmClient = new CrmClient(mock.Object);
+			this.crmClient = new CrmClient();
 		}
 
 		[TestCleanup]
@@ -70,8 +70,8 @@ namespace SpeechBasedGroceriesTest
 		public void TestCreateUpdateDeleteCustomer()
 		{
 			Customer c1 = UnitTestData.Instance.TestCustomers.ElementAt(0);
-			
-            var c2 = this.crmClient.CreateUpdateCustomer(c1);
+
+			var c2 = this.crmClient.CreateUpdateCustomer(c1);
 			Assert.IsNotNull(c2);
 
 			c2.Firstname = "xxxx";
@@ -80,14 +80,14 @@ namespace SpeechBasedGroceriesTest
 
 			Assert.IsTrue(crmClient.DeleteCustomer(c3));
 			Assert.IsNull(crmClient.GetCustomerById(c3.Id));
-            
+
 		}
 
 		[TestMethod]
 		public void TestCreateUpdateDeleteCustomerToken()
 		{
 			Customer c1 = UnitTestData.Instance.TestCustomers.ElementAt(0);
-			c1.Tokens = (List<Token>)UnitTestData.Instance.TestTokens;
+			c1.Tokens = UnitTestData.Instance.TestTokens;
 			c1.Tokens.ForEach(t => t.Creation = DateTime.Now);
 
 			var c2 = this.crmClient.CreateUpdateCustomer(c1, true);
@@ -100,7 +100,7 @@ namespace SpeechBasedGroceriesTest
 			this.crmClient.DeleteToken(c2.Tokens.ElementAt(1));
 			Customer c3 = crmClient.GetCustomerById(c2.Id);
 			Assert.IsTrue(c3.Tokens.Count == c2.Tokens.Count - 1);
-            
+
 
 			Assert.IsTrue(crmClient.DeleteCustomer(c2));
 		}

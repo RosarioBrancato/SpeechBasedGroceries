@@ -1,16 +1,19 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SpeechBasedGroceries.BusinessLogic;
 using SpeechBasedGroceries.DTOs;
+using SpeechBasedGroceriesTest.Tests.Base;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SpeechBasedGroceries.BusinessLogic.Tests
+namespace SpeechBasedGroceriesTest.Tests.BusinessLogic
 {
     [TestClass()]
-    public class InspectorTests
+    public class InspectorTests : BaseTest
     {
+
         private Inspector inspector;
+
         [TestInitialize]
         public void Init()
         {
@@ -22,6 +25,7 @@ namespace SpeechBasedGroceries.BusinessLogic.Tests
         {
             this.inspector = null;
         }
+
         [TestMethod()]
         public void GetFridgeInventoryTest()
         {

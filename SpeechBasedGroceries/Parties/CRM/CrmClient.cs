@@ -15,26 +15,20 @@ namespace SpeechBasedGroceries.Parties.CRM
 	{
 
 		private CrmDAO crmDao = new CrmDAO();
-		private readonly ILogger<CrmClient> _logger;
-        
+		private readonly ILogger<CrmClient> logger;
+
 
 		public CrmClient()
 		{
-			_logger = AppLoggerFactory.GetLogger<CrmClient>();
-		}
-
-
-        // only used for unit tests
-		public CrmClient(ILogger<CrmClient> logger)
-		{
-			_logger = logger;
+			this.logger = AppLoggerFactory.GetLogger<CrmClient>();
 		}
 
 
 		#region client functions
 
 		public List<Customer> GetCustomers()
-        {
+		{
+			this.logger.LogInformation("GetCustomers called.");
 			return crmDao.GetCustomers();
 		}
 
@@ -42,22 +36,22 @@ namespace SpeechBasedGroceries.Parties.CRM
 		public Customer GetCustomerById(string id)
 		{
 			Customer customer = null;
-            if (IsValidId(id))
-            {
+			if (IsValidId(id))
+			{
 				customer = crmDao.GetCustomerById(Int32.Parse(id));
 				if (customer == null)
 				{
-					_logger.LogInformation($"customer with ID «{id}» does not exist");
+					this.logger.LogInformation($"customer with ID «{id}» does not exist");
 				}
 			}
 
 			return customer;
 		}
 
-        public Customer GetCustomerById(int id)
-        {
+		public Customer GetCustomerById(int id)
+		{
 			return GetCustomerById(id.ToString());
-        }
+		}
 
 		public Customer GetCustomerByTelegramId(string telegramId)
 		{
@@ -67,28 +61,29 @@ namespace SpeechBasedGroceries.Parties.CRM
 				customer = crmDao.GetCustomerByTelegramId(Int32.Parse(telegramId));
 				if (customer == null)
 				{
-					_logger.LogInformation($"customer with TelegramID «{telegramId}» does not exist");
+					this.logger.LogInformation($"customer with TelegramID «{telegramId}» does not exist");
 				}
 			}
 
 			return customer;
 		}
 
-		       
+
 
 		public Customer CreateUpdateCustomer(Customer customer, bool includeTokens = false)
-        {
+		{
 			Customer _customer;
-            if (crmDao.GetCustomerById(customer.Id) == null)
-            {
+			if (crmDao.GetCustomerById(customer.Id) == null)
+			{
 				_customer = crmDao.CreateCustomer(customer);
 				if (includeTokens && _customer != null)
 				{
 					_customer.Tokens.ForEach(t => t.CustomerId = _customer.Id);
 					_customer.Tokens.ForEach(t => crmDao.CreateToken(t));
 				}
-			} else
-            {
+			}
+			else
+			{
 				_customer = crmDao.UpdateCustomer(customer);
 				if (includeTokens)
 				{
@@ -97,7 +92,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 			}
 
 			return _customer;
-        }
+		}
 
 
 		public bool DeleteCustomer(Customer customer)
@@ -109,7 +104,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 			}
 			else
 			{
-				_logger.LogInformation($"customer with ID «{customer.Id}» does not exist");
+				this.logger.LogInformation($"customer with ID «{customer.Id}» does not exist");
 			}
 
 			return success;
@@ -142,7 +137,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 			}
 			else
 			{
-				_logger.LogInformation($"token with ID «{token.Id}» does not exist");
+				this.logger.LogInformation($"token with ID «{token.Id}» does not exist");
 			}
 
 			return success;
@@ -154,9 +149,9 @@ namespace SpeechBasedGroceries.Parties.CRM
 		#region validation
 
 		public bool IsValidId(string id)
-        {
+		{
 			bool isValid = true; // assumption
-            int _id;
+			int _id;
 
 			try
 			{
@@ -165,11 +160,11 @@ namespace SpeechBasedGroceries.Parties.CRM
 			catch (Exception e)
 			{
 				isValid = false;
-				_logger.LogError(e, $"customer ID «{id}» is invalid (must be numeric)");
+				this.logger.LogError(e, $"customer ID «{id}» is invalid (must be numeric)");
 			}
 
 			return isValid;
-        }
+		}
 
 		public bool IsValidTelegramId(string id)
 		{
@@ -183,7 +178,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 			catch (Exception e)
 			{
 				isValid = false;
-				_logger.LogError(e, $"customer TelegramId «{id}» is invalid (must be numeric)");
+				this.logger.LogError(e, $"customer TelegramId «{id}» is invalid (must be numeric)");
 			}
 
 			return isValid;

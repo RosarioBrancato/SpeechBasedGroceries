@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Debug;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,10 +23,6 @@ namespace SpeechBasedGroceries.AppServices
 
 			if (factory != null)
 			{
-				logger = factory.CreateLogger<T>();
-			}
-			else {
-				factory = new LoggerFactory();
 				logger = factory.CreateLogger<T>();
 			}
 

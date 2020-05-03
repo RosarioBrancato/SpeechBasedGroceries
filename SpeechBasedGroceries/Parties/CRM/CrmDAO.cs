@@ -9,27 +9,21 @@ using SpeechBasedGroceries.DTOs;
 using Microsoft.Extensions.Logging;
 using Microsoft.CodeAnalysis.FlowAnalysis;
 using Microsoft.VisualBasic.CompilerServices;
+using SpeechBasedGroceries.DTOs.Settings;
 
 namespace SpeechBasedGroceries.Parties.CRM
 {
-    public class CrmDAO
-    {
+	public class CrmDAO
+	{
 
-		// private readonly ILogger<CrmDAO> _logger;
-		public IConfiguration configuration { get; }
-
+		// private readonly ILogger<CrmDAO> logger;
+		private CrmDb crmDb;
 
 
 		public CrmDAO()
 		{
-			// this._logger = AppLoggerFactory.GetLogger<CrmDAO>();
-			
-			// TODO: how to get configurations differently?
-			var configuration = new ConfigurationBuilder()
-				.AddJsonFile("appsettings.json")
-				.Build();
-            
-			this.configuration = configuration;
+			// this.logger = AppLoggerFactory.GetLogger<CrmDAO>();
+			this.crmDb = AppSettings.Instance.CrmDb;
 		}
 
 
@@ -37,19 +31,19 @@ namespace SpeechBasedGroceries.Parties.CRM
 
 
 
-        #region customer queries
+		#region customer queries
 
-        public List<Customer> GetCustomers()
+		public List<Customer> GetCustomers()
 		{
-            // construct statement
-            string sql =
+			// construct statement
+			string sql =
 				GetSelectAllCustomerStatement()
-                + "ORDER BY c.f_cus_surname";
+				+ "ORDER BY c.f_cus_surname";
 
-            // instanciate return object
+			// instanciate return object
 			List<Customer> customers = new List<Customer>();
-            
-            // access the database
+
+			// access the database
 			using (SqlConnection connection = this.getConnection())
 			{
 				connection.Open();
@@ -78,7 +72,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 		{
 			string sql =
 				GetSelectAllCustomerStatement()
-                + "WHERE c.f_cus_id = (@p1)";
+				+ "WHERE c.f_cus_id = (@p1)";
 
 			Customer customer = null;
 
@@ -99,9 +93,9 @@ namespace SpeechBasedGroceries.Parties.CRM
 							}
 						}
 					}
-				} 
+				}
 			}
-      
+
 			return customer;
 		}
 
@@ -136,14 +130,14 @@ namespace SpeechBasedGroceries.Parties.CRM
 
 			return c;
 		}
-        
+
 
 		private string GetSelectAllCustomerStatement()
-        {
+		{
 			return "SELECT c.f_cus_id, c.f_cus_firstname, c.f_cus_surname, c.f_cus_birthdate, "
-                +  "       c.f_cus_street, c.f_cus_zip, c.f_cus_city, c.f_cus_country, "
-                +  "       c.f_cus_email, c.f_cus_telegramid "
-                +  "FROM [dbo].[t_customer] as c ";
+				+ "       c.f_cus_street, c.f_cus_zip, c.f_cus_city, c.f_cus_country, "
+				+ "       c.f_cus_email, c.f_cus_telegramid "
+				+ "FROM [dbo].[t_customer] as c ";
 
 		}
 
@@ -151,7 +145,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 		public Customer UpdateCustomer(Customer customer)
 		{
 			string sql = "UPDATE [dbo].[t_customer] "
-                       + "SET f_cus_firstname = (@p1), "
+					   + "SET f_cus_firstname = (@p1), "
 					   + "    f_cus_surname = (@p2), "
 					   + "    f_cus_birthdate = (@p3), "
 					   + "    f_cus_street = (@p4), "
@@ -160,7 +154,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 					   + "    f_cus_country = (@p7), "
 					   + "    f_cus_email = (@p8), "
 					   + "    f_cus_telegramid = (@p9) "
-                       + "WHERE f_cus_id = (@p0)";
+					   + "WHERE f_cus_id = (@p0)";
 
 			Customer _customer = null;
 
@@ -189,18 +183,18 @@ namespace SpeechBasedGroceries.Parties.CRM
 			return _customer;
 		}
 
-        
+
 		public Customer CreateCustomer(Customer customer)
 		{
 			string sql = "INSERT INTO [dbo].[t_customer] "
-                       + "  (f_cus_firstname, f_cus_surname, f_cus_birthdate, "
-				       + "   f_cus_street, f_cus_zip, c.f_cus_city, f_cus_country, "
-				       + "   f_cus_email, f_cus_telegramid) "
+					   + "  (f_cus_firstname, f_cus_surname, f_cus_birthdate, "
+					   + "   f_cus_street, f_cus_zip, c.f_cus_city, f_cus_country, "
+					   + "   f_cus_email, f_cus_telegramid) "
 					   + "VALUES "
-                       + "  ((@p1), (@p2), (@p3), "
-                       + "   (@p4), (@p5), (@p6), (@p7), "
-                       + "   (@p8), (@p9)) "
-                       + "SELECT SCOPE_IDENTITY()";
+					   + "  ((@p1), (@p2), (@p3), "
+					   + "   (@p4), (@p5), (@p6), (@p7), "
+					   + "   (@p8), (@p9)) "
+					   + "SELECT SCOPE_IDENTITY()";
 
 			Customer _customer = null;
 
@@ -220,15 +214,16 @@ namespace SpeechBasedGroceries.Parties.CRM
 					cmd.Parameters.AddWithValue("@p9", customer.TelegramId);
 
 					int customerId = 0;
-                    try
-                    {
+					try
+					{
 						customerId = Int32.Parse(cmd.ExecuteScalar().ToString());
 						customer.Id = customerId;
 						_customer = customer;
-					} catch (Exception e)
-                    {
+					}
+					catch (Exception e)
+					{
 						Console.Write(e.StackTrace);
-                    }
+					}
 				}
 			}
 
@@ -305,7 +300,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 
 
 		public Token GetTokenById(int tokenId)
-        {
+		{
 			string sql =
 				  GetSelectAllTokensStatement()
 				+ "WHERE t.f_tok_id = (@p1)";
@@ -473,7 +468,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 		#region mapping profiles
 
 		private Customer MappingCustomer(SqlDataReader dr)
-        {
+		{
 			Customer customer = new Customer()
 			{
 				Id = Int32.Parse(dr["f_cus_id"].ToString()),
@@ -485,8 +480,8 @@ namespace SpeechBasedGroceries.Parties.CRM
 				City = dr.IsDBNull("f_cus_city") ? default : dr["f_cus_city"].ToString(),
 				Country = dr.IsDBNull("f_cus_country") ? default : dr["f_cus_country"].ToString(),
 				Email = dr.IsDBNull("f_cus_email") ? default : dr["f_cus_email"].ToString(),
-                TelegramId = dr.IsDBNull("f_cus_telegramid") ? default : Int32.Parse(dr["f_cus_telegramid"].ToString().Trim())
-		    };
+				TelegramId = dr.IsDBNull("f_cus_telegramid") ? default : Int32.Parse(dr["f_cus_telegramid"].ToString().Trim())
+			};
 
 			customer.Tokens = GetTokens(customer.Id);
 
@@ -498,7 +493,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 		{
 			Token token = new Token()
 			{
-                Id = Int32.Parse(dr["f_tok_id"].ToString()),
+				Id = Int32.Parse(dr["f_tok_id"].ToString()),
 				CustomerId = Int32.Parse(dr["f_cus_id"].ToString()),
 				Creation = dr.IsDBNull("f_tok_creation") ? default : DateTime.Parse(dr["f_tok_creation"].ToString()),
 				Name = dr.IsDBNull("f_tok_name") ? default : dr["f_tok_name"].ToString(),
@@ -524,14 +519,13 @@ namespace SpeechBasedGroceries.Parties.CRM
 		#region db connection
 
 		private SqlConnection getConnection()
-
 		{
-			string server = configuration["CRMDB:Server"];
-			string port = configuration["CRMDB:Port"];
-			string cat = configuration["CRMDB:Catalog"];
-			string user = configuration["CRMDB:User"];
-			string pw = configuration["CRMDB:Password"];
-			string timeout = configuration["CRMDB:Timeout"];
+			string server = this.crmDb.Server;
+			string port = this.crmDb.Port;
+			string cat = this.crmDb.Catalog;
+			string user = this.crmDb.User;
+			string pw = this.crmDb.Password;
+			string timeout = this.crmDb.Timeout;
 
 			string constr =
 				$"Server={server},{port};" +

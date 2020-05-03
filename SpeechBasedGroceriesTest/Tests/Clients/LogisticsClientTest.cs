@@ -8,12 +8,12 @@ using System.Collections.Generic;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Logging;
 using Moq;
+using SpeechBasedGroceriesTest.Tests.Base;
 
-
-namespace SpeechBasedGroceriesTest
+namespace SpeechBasedGroceriesTest.Tests.Clients
 {
 	[TestClass]
-	public class LogisticsClientTest
+	public class LogisticsClientTest : BaseTest
 	{
 
 		private LogisticsClient logisticsClient;
@@ -83,18 +83,18 @@ namespace SpeechBasedGroceriesTest
 			// TODO: outsource test data
 
 			Customer c1 = new CrmClient().GetCustomerById("1");
-            Delivery d1 = new Delivery()
+			Delivery d1 = new Delivery()
 			{
 				CustomerId = c1.Id,
-                Date = DateTime.Today,
-                Street = "some",
-                Zip = "1234",
-                City = "Unitt",
-                Country = "Testiopia",
-                Comment = "a test delivery...."
+				Date = DateTime.Today,
+				Street = "some",
+				Zip = "1234",
+				City = "Unitt",
+				Country = "Testiopia",
+				Comment = "a test delivery...."
 			};
 
-            var d2 = this.logisticsClient.CreateUpdateDelivery(d1);
+			var d2 = this.logisticsClient.CreateUpdateDelivery(d1);
 			Assert.IsNotNull(d2);
 
 			d2.Comment = "....delivery test a";

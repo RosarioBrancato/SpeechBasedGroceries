@@ -16,21 +16,11 @@ namespace SpeechBasedGroceries.Parties.Bank
     {
 
 		// private readonly ILogger<CrmDAO> _logger;
-		public IConfiguration configuration { get; }
+
 
 		public BankDAO()
 		{
-			var configuration = new ConfigurationBuilder()
-				.AddJsonFile("appsettings.json")
-				.Build();
-            
-			this.configuration = configuration;
 		}
-
-
-
-
-
 
         #region transaction queries
 

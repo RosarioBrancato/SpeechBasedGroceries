@@ -2,6 +2,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SpeechBasedGroceries.Parties.Fridgy;
 using SpeechBasedGroceries.Parties.Fridgy.Client.Models;
 using SpeechBasedGroceriesTest.Data;
+using SpeechBasedGroceriesTest.DTOs;
+using SpeechBasedGroceriesTest.Tests.Base;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,14 +11,14 @@ using System.IdentityModel.Tokens.Jwt;
 using System.IO.MemoryMappedFiles;
 using System.Linq;
 
-namespace SpeechBasedGroceriesTest
+namespace SpeechBasedGroceriesTest.Tests.Clients
 {
 	[TestClass]
-	public class FridgyClientTest
+	public class FridgyClientTest : BaseTest
 	{
 
 		private FridgyClient fridgyClient;
-		private string UserUUID;
+		private string userUUID;
 
 
 		[TestInitialize]
@@ -56,7 +58,7 @@ namespace SpeechBasedGroceriesTest
 		[TestMethod]
 		public void TestRegisterDeleteUser()
 		{
-			String UUID = Guid.NewGuid().ToString();
+			string UUID = Guid.NewGuid().ToString();
 			var username = "lonelyuser-" + UUID.Substring(0, 4);
 			var password = UUID;
 			var email = username + "@google.com";
@@ -64,7 +66,7 @@ namespace SpeechBasedGroceriesTest
 
 
 			User user = this.fridgyClient.RegisterUser(username, password, displayname, email);
-			UserUUID = user.Uuid.ToString();
+			userUUID = user.Uuid.ToString();
 			Assert.IsNotNull(user);
 
 			// duplicate user
@@ -74,8 +76,8 @@ namespace SpeechBasedGroceriesTest
 			// delete user again
 			string token = UnitTestData.Instance.FridgyToken;
 			this.fridgyClient.setToken(token);
-			Assert.IsNotNull(UserUUID);
-			this.fridgyClient.DeleteUser(UserUUID);
+			Assert.IsNotNull(userUUID);
+			this.fridgyClient.DeleteUser(userUUID);
 		}
 
 		[TestMethod]

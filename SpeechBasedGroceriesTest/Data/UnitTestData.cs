@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using SpeechBasedGroceries.DTOs;
+using SpeechBasedGroceriesTest.DTOs;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,71 +26,48 @@ namespace SpeechBasedGroceriesTest.Data
 
 
 		public string FridgyToken { get; private set; }
-		public IList<TestUser> Testusers { get; private set; }
-		public IList<Customer> TestCustomers { get; private set; }
-		public IList<Token> TestTokens { get; private set; }
+
+		public List<TestUser> Testusers { get; private set; }
+
+		public List<Customer> TestCustomers { get; private set; }
+
+		public List<Token> TestTokens { get; private set; }
+
 
 		private UnitTestData()
 		{
-			Testusers = new List<TestUser>();
-			TestCustomers = new List<Customer>();
-			TestTokens = new List<Token>();
+			this.Testusers = new List<TestUser>();
+			this.TestCustomers = new List<Customer>();
+			this.TestTokens = new List<Token>();
 			this.LoadData();
 		}
+
 
 		private void LoadData()
 		{
 			JObject data = JObject.Parse(File.ReadAllText("Data/UnitTestData.json"));
 
-
-            // Fridgy
+			// Fridgy
 			this.FridgyToken = data["Fridgy"]["Token"].Value<string>();
 
-			var resultObjects = AllChildren(data)
-			   .First(c => c.Type == JTokenType.Array && c.Path.Contains("Testusers"))
-			   .Children<JObject>();
-
-			foreach (JObject result in resultObjects)
+			var testusers = data["Fridgy"]["Testusers"].ToArray();
+			foreach (var testuser in testusers)
 			{
-				TestUser u = result.ToObject<TestUser>();
-				this.Testusers.Add(u);
+				this.Testusers.Add(testuser.ToObject<TestUser>());
 			}
 
-
-
-            //Crm
-			resultObjects = AllChildren(data)
-			   .First(c => c.Type == JTokenType.Array && c.Path.Contains("TestCustomers"))
-			   .Children<JObject>();
-
-			foreach (JObject result in resultObjects)
+			//Crm testusers
+			testusers = data["Crm"]["TestCustomers"].ToArray();
+			foreach (var testuser in testusers)
 			{
-				Customer c = result.ToObject<Customer>();
-				this.TestCustomers.Add(c);
-			}
-			resultObjects = AllChildren(data)
-			   .First(c => c.Type == JTokenType.Array && c.Path.Contains("TestTokens"))
-			   .Children<JObject>();
-
-			foreach (JObject result in resultObjects)
-			{
-				Token t = result.ToObject<Token>();
-				this.TestTokens.Add(t);
+				this.TestCustomers.Add(testuser.ToObject<Customer>());
 			}
 
-
-		}
-
-		// recursively yield all children of json
-		private static IEnumerable<JToken> AllChildren(JToken json)
-		{
-			foreach (var c in json.Children())
+			//crm test tokens
+			var testTokens = data["Crm"]["TestTokens"].ToArray();
+			foreach (var testToken in testTokens)
 			{
-				yield return c;
-				foreach (var cc in AllChildren(c))
-				{
-					yield return cc;
-				}
+				this.TestTokens.Add(testToken.ToObject<Token>());
 			}
 		}
 
