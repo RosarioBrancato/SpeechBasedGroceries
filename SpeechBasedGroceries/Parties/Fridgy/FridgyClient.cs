@@ -18,41 +18,76 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 	public class FridgyClient
 	{
 
-		private readonly ILogger<FridgyClient> _logger;
-		private Microsoft.Rest.ServiceClientCredentials credentials;
+		private readonly ILogger<FridgyClient> logger;
+		private ServiceClientCredentials credentials;
 		private f.Fridgy client;
 
 		public FridgyClient()
 		{
-			_logger = AppLoggerFactory.GetLogger<FridgyClient>();
+			this.logger = AppLoggerFactory.GetLogger<FridgyClient>();
 			client = new f.Fridgy(new TokenCredentials("empty"));
 		}
 
 		public FridgyClient(string token)
 		{
-			_logger = AppLoggerFactory.GetLogger<FridgyClient>();
+			this.logger = AppLoggerFactory.GetLogger<FridgyClient>();
 			credentials = new TokenCredentials(token);
 			client = new f.Fridgy(credentials);
 		}
 
-		public void setToken(string value)
+		public DTOs.Inventory GetFridgeInventory()
+		{
+			DTOs.Inventory inventory = new DTOs.Inventory();
+
+			Fridge fridge = this.GetFridges().FirstOrDefault();
+			if (fridge != null)
+			{
+				IList<Item> items = this.GetItems(fridge.Id.ToString());
+
+				foreach (Item item in items)
+				{
+					DTOs.Product product = this.GetProductByBarcode(item.Barcode);
+
+					DTOs.InventoryItem inventoryItem = inventory.Items.SingleOrDefault(w => w.Id == product.Id);
+					if (inventoryItem == null)
+					{
+						inventoryItem = new DTOs.InventoryItem();
+						inventoryItem.Id = item.Id.ToString();
+						inventoryItem.Barcode = item.Barcode;
+
+						inventoryItem.Name = product.Name;
+
+						inventory.Items.Add(inventoryItem);
+					}
+
+					inventoryItem.Quantity += item.Qty;
+				}
+			}
+
+			return inventory;
+		}
+
+
+
+		public void SetToken(string value)
 		{
 			credentials = new TokenCredentials(value);
 			client = new f.Fridgy(credentials);
-
 		}
-		public void setBasicAuth(string username, string password) {
+
+		public void SetBasicAuth(string username, string password)
+		{
 			BasicAuthenticationCredentials credentials = new BasicAuthenticationCredentials();
 			credentials.Password = password;
 			credentials.UserName = username;
 			client = new f.Fridgy(credentials);
 		}
 
-		public IList<Product> GetProducts()
-		{
-			IList<Product> productlist = client.Get.Products();
-			return productlist;
-		}
+		//public IList<Product> GetProducts()
+		//{
+		//	IList<Product> productlist = client.Get.Products();
+		//	return productlist;
+		//}
 
 		public IList<Product> GetProductsByName(string name)
 		{
@@ -60,8 +95,8 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 			return productlist;
 		}
 
-        // DEPRECIATED
-        public Product GetProductsByBarcode(string barcode)
+		// DEPRECIATED
+		public Product GetProductsByBarcode(string barcode)
 		{
 			Product product = client.Get.Barcode(barcode);
 			return product;
@@ -69,8 +104,8 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 
 		public DTOs.Product GetProductByBarcode(string barcode)
 		{
-            // this function returns the CIU-conform Product object
-            Product product = client.Get.Barcode(barcode);
+			// this function returns the CIU-conform Product object
+			Product product = client.Get.Barcode(barcode);
 			return MappingProduct(product);
 		}
 
@@ -85,7 +120,8 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 			return items;
 		}
 
-		public User RegisterUser(string username, string password, string displayname, string email) {
+		public User RegisterUser(string username, string password, string displayname, string email)
+		{
 			PostUser user = new PostUser();
 			user.Displayname = displayname;
 			user.Username = username;
@@ -95,13 +131,15 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 			return createdUser;
 		}
 
-		public Fridge CreateNewFridge(string name) {
+		public Fridge CreateNewFridge(string name)
+		{
 			BaseFridge fridge = new BaseFridge();
 			fridge.Name = name;
 			return client.Create.Fridges(fridge);
 		}
 
-		public Fridge AddUserToFridge(string userUUID, string fridgeUUID) {
+		public Fridge AddUserToFridge(string userUUID, string fridgeUUID)
+		{
 			Owner owner = new Owner();
 			owner.Uuid = Guid.Parse(userUUID);
 			return client.Add.Owners(owner, fridgeUUID);
@@ -117,7 +155,8 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 			client.Delete.Users(uuid);
 		}
 
-		public string RetrieveToken() {
+		public string RetrieveToken()
+		{
 			TokensResponse resp = client.Get.Jwttoken();
 			if (!(resp is null)) return resp.Token;
 			return null;
@@ -128,8 +167,8 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 
 
 
-        private DTOs.Product MappingProduct(Product p)
-        {
+		private DTOs.Product MappingProduct(Product p)
+		{
 			DTOs.Product product = new DTOs.Product
 			{
 				Id = p.Id.ToString(),
@@ -137,7 +176,7 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 				Barcode = p.Barcode
 			};
 
-            // making things shorter...
+			// making things shorter...
 			var n = p.Nutrient;
 
 			product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "Energy in kJ", Value = "" }); // TODO: what the value here?

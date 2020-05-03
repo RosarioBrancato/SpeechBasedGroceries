@@ -30,8 +30,11 @@ namespace SpeechBasedGroceriesTest.Tests.BusinessLogic
         public void GetFridgeInventoryTest()
         {
             Random random = new Random();
-            var newTelegram = random.Next(100000000, 999999999).ToString();
-            inspector.LoginWithTelegram(newTelegram);
+
+            TelegramUser telegramUser = new TelegramUser();
+            telegramUser.Id = random.Next(100000000, 999999999);
+
+            inspector.LoginWithTelegram(telegramUser);
             Inventory inv = inspector.GetFridgeInventory();
             Assert.IsNotNull(inv);
         }

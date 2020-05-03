@@ -24,7 +24,11 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 		{
 			var inventory = this.GetData();
 
-			if (inventory == null  || inventory?.Items.Count == 0)
+			if (inventory == null)
+			{
+				this.Response.FulfillmentText = "Sorry, I couldn't check your fridge. Talk to the customer support please.";
+			}
+			else if (inventory.Items.Count == 0)
 			{
 				this.Response.FulfillmentText = "Your fridge is empty.";
 			}
@@ -34,37 +38,25 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 				string responseText = "Here’s your current inventory:" + Environment.NewLine + string.Join(Environment.NewLine, inventory.Items.Select(s => string.Concat(s.Quantity, "x ", s.Name)));
 				this.Response.FulfillmentText = responseText;
 
-				Intent.Types.Message messageResponse = new Intent.Types.Message();
-				messageResponse.Text = new Intent.Types.Message.Types.Text();
-				messageResponse.Text.Text_.Add(responseText);
+				Intent.Types.Message messageResponse = this.GetMessage(responseText);
+				this.Response.FulfillmentMessages.Add(messageResponse);
 
 				//telegram
-				Intent.Types.Message teleMessageResponse = new Intent.Types.Message();
-				teleMessageResponse.Platform = Intent.Types.Message.Types.Platform.Telegram;
-				teleMessageResponse.Text = new Intent.Types.Message.Types.Text();
-				teleMessageResponse.Text.Text_.Add(responseText);
-
-				Intent.Types.Message teleMessageQuickReplies = new Intent.Types.Message();
-				teleMessageQuickReplies.Platform = Intent.Types.Message.Types.Platform.Telegram;
-				teleMessageQuickReplies.QuickReplies = new Intent.Types.Message.Types.QuickReplies();
-				teleMessageQuickReplies.QuickReplies.Title = "Do you want to order the results?";
-				teleMessageQuickReplies.QuickReplies.QuickReplies_.Add("Yes, alphabetically.");
-				teleMessageQuickReplies.QuickReplies.QuickReplies_.Add("Yes, by due date.");
-				teleMessageQuickReplies.QuickReplies.QuickReplies_.Add("No.");
-
-				this.Response.FulfillmentMessages.Add(messageResponse);
+				Intent.Types.Message teleMessageResponse = this.GetMessage(responseText, Intent.Types.Message.Types.Platform.Telegram);
 				this.Response.FulfillmentMessages.Add(teleMessageResponse);
-				this.Response.FulfillmentMessages.Add(teleMessageQuickReplies);
+
+				//Intent.Types.Message teleMessageQuickReplies = this.GetMessageQuickReply("Do you want to order the results?", new[] { "Yes, alphabetically.", "Yes, by due date.", "No." });
+				//this.Response.FulfillmentMessages.Add(teleMessageQuickReplies);
 			}
 		}
 
 		private Inventory GetData()
 		{
-			var telegramId = this.Request.OriginalDetectIntentRequest.Payload.Fields["data"].StructValue.Fields["from"].StructValue.Fields["id"].NumberValue;
 			//double telegramId = 9212711;
+			TelegramUser telegramUser = this.GetTelegramUser();
 
 			Inspector inspector = new Inspector();
-			inspector.LoginWithTelegram(telegramId.ToString());
+			inspector.LoginWithTelegram(telegramUser);
 
 			return inspector.GetFridgeInventory();
 		}

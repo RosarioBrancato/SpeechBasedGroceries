@@ -46,10 +46,10 @@ namespace SpeechBasedGroceriesTest.Tests.Clients
 		[TestMethod]
 		public void TestGetFridges()
 		{
-			TestUser Albert = UnitTestData.Instance.Testusers.ElementAt(0);
-			this.fridgyClient.setBasicAuth(Albert.Username, Albert.Password);
+			TestUser Albert = UnitTestData.Instance.TestUsers.ElementAt(0);
+			this.fridgyClient.SetBasicAuth(Albert.Username, Albert.Password);
 			string token = this.fridgyClient.RetrieveToken();
-			this.fridgyClient.setToken(token);
+			this.fridgyClient.SetToken(token);
 
 			IList<Fridge> fridges = this.fridgyClient.GetFridges();
 			Assert.IsTrue(fridges.Count > 0);
@@ -75,7 +75,7 @@ namespace SpeechBasedGroceriesTest.Tests.Clients
 
 			// delete user again
 			string token = UnitTestData.Instance.FridgyToken;
-			this.fridgyClient.setToken(token);
+			this.fridgyClient.SetToken(token);
 			Assert.IsNotNull(userUUID);
 			this.fridgyClient.DeleteUser(userUUID);
 		}
@@ -83,8 +83,8 @@ namespace SpeechBasedGroceriesTest.Tests.Clients
 		[TestMethod]
 		public void TestRetrieveToken()
 		{
-			TestUser Albert = UnitTestData.Instance.Testusers.ElementAt(0);
-			this.fridgyClient.setBasicAuth(Albert.Username, Albert.Password);
+			TestUser Albert = UnitTestData.Instance.TestUsers.ElementAt(0);
+			this.fridgyClient.SetBasicAuth(Albert.Username, Albert.Password);
 			string token = this.fridgyClient.RetrieveToken();
 
 			Assert.IsNotNull(token);
@@ -106,10 +106,10 @@ namespace SpeechBasedGroceriesTest.Tests.Clients
 		[TestMethod()]
 		public void GetItemsTest()
 		{
-			TestUser Albert = UnitTestData.Instance.Testusers.ElementAt(0);
-			this.fridgyClient.setBasicAuth(Albert.Username, Albert.Password);
+			TestUser Albert = UnitTestData.Instance.TestUsers.ElementAt(0);
+			this.fridgyClient.SetBasicAuth(Albert.Username, Albert.Password);
 			string token = this.fridgyClient.RetrieveToken();
-			this.fridgyClient.setToken(token);
+			this.fridgyClient.SetToken(token);
 			Fridge fridge = this.fridgyClient.GetFridges().First();
 
 			IList<Item> items = fridgyClient.GetItems(fridge.Id.ToString());
@@ -119,10 +119,10 @@ namespace SpeechBasedGroceriesTest.Tests.Clients
 		[TestMethod()]
 		public void CreateNewFridgeTest()
 		{
-			TestUser Bertha = UnitTestData.Instance.Testusers.ElementAt(1);
-			this.fridgyClient.setBasicAuth(Bertha.Username, Bertha.Password);
+			TestUser Bertha = UnitTestData.Instance.TestUsers.ElementAt(1);
+			this.fridgyClient.SetBasicAuth(Bertha.Username, Bertha.Password);
 			string token = this.fridgyClient.RetrieveToken();
-			this.fridgyClient.setToken(token);
+			this.fridgyClient.SetToken(token);
 
 			string fridgeName = "dummyfridge DELETE";
 			Fridge fridge = this.fridgyClient.CreateNewFridge(fridgeName);
@@ -138,43 +138,43 @@ namespace SpeechBasedGroceriesTest.Tests.Clients
 		public void AddRemoveUserToFridgeTest()
 		{
 			// Define participants
-			TestUser Albert = UnitTestData.Instance.Testusers.ElementAt(0);
-			TestUser Bertha = UnitTestData.Instance.Testusers.ElementAt(1);
+			TestUser Albert = UnitTestData.Instance.TestUsers.ElementAt(0);
+			TestUser Bertha = UnitTestData.Instance.TestUsers.ElementAt(1);
 
 			// Login Bertha
-			this.fridgyClient.setBasicAuth(Bertha.Username, Bertha.Password);
+			this.fridgyClient.SetBasicAuth(Bertha.Username, Bertha.Password);
 			string BerthaToken = this.fridgyClient.RetrieveToken();
-			this.fridgyClient.setToken(BerthaToken);
+			this.fridgyClient.SetToken(BerthaToken);
 
 			// Login Albert
-			this.fridgyClient.setBasicAuth(Albert.Username, Albert.Password);
+			this.fridgyClient.SetBasicAuth(Albert.Username, Albert.Password);
 			string AlbertToken = this.fridgyClient.RetrieveToken();
-			this.fridgyClient.setToken(AlbertToken);
+			this.fridgyClient.SetToken(AlbertToken);
 
 			// Get Alberts fridge
 			Fridge AlbertFridge = this.fridgyClient.GetFridges().First();
 
 			// Check Bertha has no access yet
-			this.fridgyClient.setToken(BerthaToken);
+			this.fridgyClient.SetToken(BerthaToken);
 			IList<Fridge> BerthaFridges = this.fridgyClient.GetFridges();
 			Assert.IsFalse(BerthaFridges.Contains(AlbertFridge));
 
 
 			// Alberts adds Bertha to fridge
-			this.fridgyClient.setToken(AlbertToken);
+			this.fridgyClient.SetToken(AlbertToken);
 			this.fridgyClient.AddUserToFridge(Bertha.UUID, AlbertFridge.Id.ToString());
 
 			// Bertha should now see Alberts Fridge
-			this.fridgyClient.setToken(BerthaToken);
+			this.fridgyClient.SetToken(BerthaToken);
 			BerthaFridges = this.fridgyClient.GetFridges();
 			Assert.IsTrue(BerthaFridges.Contains(AlbertFridge));
 
 			// Albert removes her from the fridge again
-			this.fridgyClient.setToken(AlbertToken);
+			this.fridgyClient.SetToken(AlbertToken);
 			this.fridgyClient.RemoveUserFromFridge(Bertha.UUID, AlbertFridge.Id.ToString());
 
 			// Check Bertha has no access anymore
-			this.fridgyClient.setToken(BerthaToken);
+			this.fridgyClient.SetToken(BerthaToken);
 			BerthaFridges = this.fridgyClient.GetFridges();
 			Assert.IsFalse(BerthaFridges.Contains(AlbertFridge));
 		}

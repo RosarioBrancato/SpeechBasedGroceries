@@ -22,12 +22,12 @@ namespace SpeechBasedGroceries.BusinessLogic
 			Customer customer = new CrmClient().GetCustomerByTelegramId(telegramId);
 			if (customer is null)
 			{
-				String UUID = Guid.NewGuid().ToString();
+				string UUID = Guid.NewGuid().ToString();
 				var username = "lonelyuser-" + UUID.Substring(0, 4);
 				var password = UUID;
 				var email = username + "@google.com";
 				var displayname = username;
-				var intTelegramid = Int32.Parse(telegramId);
+				var intTelegramid = int.Parse(telegramId);
 
 				Customer newCustomer = RegisterCustomerInCrm(null, null, null, null, null, null, null, email, intTelegramid);
 				string bearerToken = CreateNewFridgyAccount(username, password, displayname, email);
@@ -51,15 +51,15 @@ namespace SpeechBasedGroceries.BusinessLogic
 		{
 			FridgyClient fridgyClient = new FridgyClient();
 			User newUser = fridgyClient.RegisterUser(username, password, displayname, email);
-			fridgyClient.setBasicAuth(username, password);
+			fridgyClient.SetBasicAuth(username, password);
 			string token = fridgyClient.RetrieveToken();
-			fridgyClient.setToken(token);
+			fridgyClient.SetToken(token);
 			Fridge newfridge = fridgyClient.CreateNewFridge(username + "-fridge");
 			Console.WriteLine("new fridge " + newfridge.Id.ToString());
 
 			// here we add the admin user to every fridge we create (for debugging purposes
 			// todo: remove in production
-            // TODO: do we really need this since we now creat new individual accounts?
+			// TODO: do we really need this since we now creat new individual accounts?
 			fridgyClient.AddUserToFridge("1c5c1da9-27e1-419f-872b-90d89854ce5d", newfridge.Id.ToString());
 			return token;
 		}
@@ -105,13 +105,8 @@ namespace SpeechBasedGroceries.BusinessLogic
          * Params:  self explaining
          * Return:  Customer object if succeeded, null if failed
          */
-		private Token AssignTokenToCustomer(
-			Customer customer,
-			string token_name,
-			string token_value,
-			DateTime? token_expiration = null)
+		private Token AssignTokenToCustomer(Customer customer, string token_name, string token_value, DateTime? token_expiration = null)
 		{
-
 			Token token = new Token()
 			{
 				CustomerId = customer.Id,

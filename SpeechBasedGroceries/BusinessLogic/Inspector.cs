@@ -11,27 +11,47 @@ namespace SpeechBasedGroceries.BusinessLogic
 {
 	public class Inspector
 	{
-		private FridgyClient fridgyClient = new FridgyClient();
+		private FridgyClient fridgyClient;
+		private CrmClient crmClient;
 
-		public void LoginWithTelegram(string telegramId)
+		private Customer currentCustomer = null;
+
+		public Inspector()
 		{
-			Registrar registrar = new Registrar();
-			Token token = registrar.GetFridgyToken(telegramId);
-			this.fridgyClient.setToken(token.Value);
+			this.crmClient = new CrmClient();
+			this.fridgyClient = new FridgyClient();
 		}
-        
+
+		public void LoginWithTelegram(TelegramUser telegramUser)
+		{
+			this.currentCustomer = this.crmClient.GetCustomerByTelegramId(telegramUser.Id.ToString());
+
+			if (this.currentCustomer == null)
+			{
+				//TO-DO: customer not found -> register him!
+				//TEMP THROW
+				throw new Exception("Customer not found!");
+
+				//Registrar registrar = new Registrar();
+				//Token token = registrar.GetFridgyToken(telegramId);
+			}
+		}
+
 		public Inventory GetFridgeInventory()
 		{
-			Inventory inventory = new Inventory();
-			Fridge fridge = this.fridgyClient.GetFridges().First();
-			inventory.Fridgename = fridge.Name;
-			inventory.FridgeUUID = fridge.Id;
-			IList<Item> items = this.fridgyClient.GetItems(fridge.Id.ToString());
-			Console.WriteLine("found: " + items.Count + " items: " + items.ToString());
+			Inventory inventory = null;
+
+			if (this.currentCustomer != null)
+			{
+				this.fridgyClient.SetToken(this.currentCustomer.GetFridigyToken().Value);
+				inventory = this.fridgyClient.GetFridgeInventory();
+			}
+
 			return inventory;
 		}
 
-		public IList<DTOs.Product> SearchProduct(string QueryTerm) {
+		public IList<DTOs.Product> SearchProduct(string QueryTerm)
+		{
 			// Product contains all nutrient data anyway
 			// change to the correct dto
 			// return this.fridgyClient.GetProductsByName(QueryTerm);

@@ -14,13 +14,14 @@ namespace SpeechBasedGroceries.Parties.CRM
 	public class CrmClient
 	{
 
-		private CrmDAO crmDao = new CrmDAO();
+		private CrmDAO crmDao;
 		private readonly ILogger<CrmClient> logger;
 
 
 		public CrmClient()
 		{
 			this.logger = AppLoggerFactory.GetLogger<CrmClient>();
+			this.crmDao = new CrmDAO();
 		}
 
 
@@ -28,8 +29,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 
 		public List<Customer> GetCustomers()
 		{
-			this.logger.LogInformation("GetCustomers called.");
-			return crmDao.GetCustomers();
+			return this.crmDao.GetCustomers();
 		}
 
 
@@ -38,7 +38,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 			Customer customer = null;
 			if (IsValidId(id))
 			{
-				customer = crmDao.GetCustomerById(Int32.Parse(id));
+				customer = crmDao.GetCustomerById(int.Parse(id));
 				if (customer == null)
 				{
 					this.logger.LogInformation($"customer with ID «{id}» does not exist");
@@ -58,7 +58,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 			Customer customer = null;
 			if (IsValidTelegramId(telegramId))
 			{
-				customer = crmDao.GetCustomerByTelegramId(Int32.Parse(telegramId));
+				customer = crmDao.GetCustomerByTelegramId(int.Parse(telegramId));
 				if (customer == null)
 				{
 					this.logger.LogInformation($"customer with TelegramID «{telegramId}» does not exist");
@@ -173,7 +173,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 
 			try
 			{
-				_id = Int32.Parse(id);
+				_id = int.Parse(id);
 			}
 			catch (Exception e)
 			{

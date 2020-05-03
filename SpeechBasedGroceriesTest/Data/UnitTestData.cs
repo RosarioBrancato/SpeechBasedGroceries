@@ -27,7 +27,7 @@ namespace SpeechBasedGroceriesTest.Data
 
 		public string FridgyToken { get; private set; }
 
-		public List<TestUser> Testusers { get; private set; }
+		public List<TestUser> TestUsers { get; private set; }
 
 		public List<Customer> TestCustomers { get; private set; }
 
@@ -36,7 +36,7 @@ namespace SpeechBasedGroceriesTest.Data
 
 		private UnitTestData()
 		{
-			this.Testusers = new List<TestUser>();
+			this.TestUsers = new List<TestUser>();
 			this.TestCustomers = new List<Customer>();
 			this.TestTokens = new List<Token>();
 			this.LoadData();
@@ -53,7 +53,7 @@ namespace SpeechBasedGroceriesTest.Data
 			var testusers = data["Fridgy"]["Testusers"].ToArray();
 			foreach (var testuser in testusers)
 			{
-				this.Testusers.Add(testuser.ToObject<TestUser>());
+				this.TestUsers.Add(testuser.ToObject<TestUser>());
 			}
 
 			//Crm testusers

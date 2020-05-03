@@ -24,7 +24,6 @@ namespace SpeechBasedGroceries.Controllers
 	public class DialogflowController : ControllerBase
 	{
 
-
 		private readonly JsonParser jsonParser;
 		private readonly ILogger<DialogflowController> logger;
 

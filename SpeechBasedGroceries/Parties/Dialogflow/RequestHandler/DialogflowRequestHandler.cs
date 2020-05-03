@@ -1,4 +1,5 @@
 ﻿using Google.Cloud.Dialogflow.V2;
+using SpeechBasedGroceries.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,47 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 		}
 
 		public abstract void Handle();
+
+
+		protected TelegramUser GetTelegramUser()
+		{
+			TelegramUser telegramUser = new TelegramUser();
+			telegramUser.Id = (int)this.Request.OriginalDetectIntentRequest.Payload.Fields["data"].StructValue.Fields["from"].StructValue.Fields["id"].NumberValue;
+			telegramUser.FirstName = this.Request.OriginalDetectIntentRequest.Payload.Fields["data"].StructValue.Fields["from"].StructValue.Fields["first_name"].StringValue;
+			telegramUser.LastName = this.Request.OriginalDetectIntentRequest.Payload.Fields["data"].StructValue.Fields["from"].StructValue.Fields["last_name"].StringValue;
+			telegramUser.UserName = this.Request.OriginalDetectIntentRequest.Payload.Fields["data"].StructValue.Fields["from"].StructValue.Fields["username"].StringValue;
+
+			return telegramUser;
+		}
+
+		protected Intent.Types.Message GetMessage(string text, Intent.Types.Message.Types.Platform platform = Intent.Types.Message.Types.Platform.Unspecified)
+		{
+			Intent.Types.Message messageResponse = new Intent.Types.Message();
+			messageResponse.Text = new Intent.Types.Message.Types.Text();
+			messageResponse.Text.Text_.Add(text);
+
+			if (platform != Intent.Types.Message.Types.Platform.Unspecified)
+			{
+				messageResponse.Platform = platform;
+			}
+
+			return messageResponse;
+		}
+
+		protected Intent.Types.Message GetMessageQuickReply(string title, string[] quickReplies)
+		{
+			Intent.Types.Message teleMessageQuickReplies = new Intent.Types.Message();
+			teleMessageQuickReplies.Platform = Intent.Types.Message.Types.Platform.Telegram;
+			teleMessageQuickReplies.QuickReplies = new Intent.Types.Message.Types.QuickReplies();
+			teleMessageQuickReplies.QuickReplies.Title = title;
+
+			foreach (string quickReply in quickReplies)
+			{
+				teleMessageQuickReplies.QuickReplies.QuickReplies_.Add(quickReply);
+			}
+
+			return teleMessageQuickReplies;
+		}
 
 	}
 }
