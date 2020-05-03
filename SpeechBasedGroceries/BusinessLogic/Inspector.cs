@@ -1,7 +1,6 @@
 ﻿using SpeechBasedGroceries.DTOs;
 using SpeechBasedGroceries.Parties.CRM;
 using SpeechBasedGroceries.Parties.Fridgy;
-using SpeechBasedGroceries.Parties.Fridgy.Client.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,25 +56,25 @@ namespace SpeechBasedGroceries.BusinessLogic
 			// return this.fridgyClient.GetProductsByName(QueryTerm);
 			return null;
 		}
-		public DTOs.Product GetItemNutrientValues(string itemId)
-		{
-			// TO-DO
 
+		public IList<Product> GetItemNutrientValues(string productName)
+		{
+			return this.fridgyClient.GetProductsByName(productName);
 
 			//DUMMY
-			var product = new DTOs.Product();
-			product.Name = "Mozzarella";
-			product.NutritionValues.Add(new NutritionValue() { Name = "Energy in kJ", Value = "989" });
-			product.NutritionValues.Add(new NutritionValue() { Name = "Energy in kcal", Value = "238" });
-			product.NutritionValues.Add(new NutritionValue() { Name = "Fat", Value = "18g" });
-			product.NutritionValues.Add(new NutritionValue() { Name = "saturated fatty acids", Value = "13g" });
-			product.NutritionValues.Add(new NutritionValue() { Name = "Carbohydrate", Value = "2g" });
-			product.NutritionValues.Add(new NutritionValue() { Name = "of which sugar", Value = "1g" });
-			product.NutritionValues.Add(new NutritionValue() { Name = "Dietary fiber", Value = "0.00g" });
-			product.NutritionValues.Add(new NutritionValue() { Name = "Protein", Value = "17g" });
-			product.NutritionValues.Add(new NutritionValue() { Name = "Salt", Value = "0.7g" });
+			//var product = new DTOs.Product();
+			//product.Name = "Mozzarella";
+			//product.NutritionValues.Add(new NutritionValue() { Name = "Energy in kJ", Value = "989" });
+			//product.NutritionValues.Add(new NutritionValue() { Name = "Energy in kcal", Value = "238" });
+			//product.NutritionValues.Add(new NutritionValue() { Name = "Fat", Value = "18g" });
+			//product.NutritionValues.Add(new NutritionValue() { Name = "saturated fatty acids", Value = "13g" });
+			//product.NutritionValues.Add(new NutritionValue() { Name = "Carbohydrate", Value = "2g" });
+			//product.NutritionValues.Add(new NutritionValue() { Name = "of which sugar", Value = "1g" });
+			//product.NutritionValues.Add(new NutritionValue() { Name = "Dietary fiber", Value = "0.00g" });
+			//product.NutritionValues.Add(new NutritionValue() { Name = "Protein", Value = "17g" });
+			//product.NutritionValues.Add(new NutritionValue() { Name = "Salt", Value = "0.7g" });
 
-			return product;
+			//return product;
 		}
 
 	}

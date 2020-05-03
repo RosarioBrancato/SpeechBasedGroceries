@@ -8,7 +8,9 @@ namespace SpeechBasedGroceries.Parties.Dialogflow
 	public class DialogflowIntent
 	{
 
-		public const string GETFRIDGEINVENTORY = "GetFridgeInventory";
+		public const string GET_FRIDGE_INVENTORY = "GetFridgeInventory";
+
+		public const string GET_PRODUCT_INFO = "GetProductInfo";
 
 	}
 }

@@ -26,9 +26,13 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 			string intentName = request.QueryResult.Intent.DisplayName;
 
 			DialogflowRequestHandler requestHandler;
-			if (intentName == DialogflowIntent.GETFRIDGEINVENTORY)
+			if (intentName == DialogflowIntent.GET_FRIDGE_INVENTORY)
 			{
 				requestHandler = new GetFridgeInventoryHandler(request, response);
+			}
+			else if (intentName == DialogflowIntent.GET_PRODUCT_INFO)
+			{
+				requestHandler = new GetProductInfoHandler(request, response);
 			}
 			else
 			{
@@ -37,6 +41,7 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 
 			return requestHandler;
 		}
+
 
 		public abstract void Handle();
 

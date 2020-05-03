@@ -22,6 +22,7 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 		private ServiceClientCredentials credentials;
 		private f.Fridgy client;
 
+
 		public FridgyClient()
 		{
 			this.logger = AppLoggerFactory.GetLogger<FridgyClient>();
@@ -34,6 +35,7 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 			credentials = new TokenCredentials(token);
 			client = new f.Fridgy(credentials);
 		}
+
 
 		public DTOs.Inventory GetFridgeInventory()
 		{
@@ -67,6 +69,27 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 			return inventory;
 		}
 
+		public IList<DTOs.Product> GetProductsByName(string name)
+		{
+			IList<DTOs.Product> products = new List<DTOs.Product>();
+
+			IList<Product> productlist = client.Get.Products("name.asc", name);
+			foreach (var p in productlist)
+			{
+				var product = this.MapProduct(p);
+				products.Add(product);
+			}
+
+			return products;
+		}
+
+		public DTOs.Product GetProductByBarcode(string barcode)
+		{
+			// this function returns the CIU-conform Product object
+			Product product = client.Get.Barcode(barcode);
+			return MapProduct(product);
+		}
+
 
 
 		public void SetToken(string value)
@@ -89,24 +112,11 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 		//	return productlist;
 		//}
 
-		public IList<Product> GetProductsByName(string name)
-		{
-			IList<Product> productlist = client.Get.Products("name.asc", name);
-			return productlist;
-		}
-
 		// DEPRECIATED
 		public Product GetProductsByBarcode(string barcode)
 		{
 			Product product = client.Get.Barcode(barcode);
 			return product;
-		}
-
-		public DTOs.Product GetProductByBarcode(string barcode)
-		{
-			// this function returns the CIU-conform Product object
-			Product product = client.Get.Barcode(barcode);
-			return MappingProduct(product);
 		}
 
 		public IList<Fridge> GetFridges()
@@ -163,11 +173,7 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 		}
 
 
-
-
-
-
-		private DTOs.Product MappingProduct(Product p)
+		private DTOs.Product MapProduct(Product p)
 		{
 			DTOs.Product product = new DTOs.Product
 			{
@@ -179,15 +185,41 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 			// making things shorter...
 			var n = p.Nutrient;
 
-			product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "Energy in kJ", Value = "" }); // TODO: what the value here?
-			product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "Energy in kcal", Value = $"{n.EnergyKcal}g" });
-			product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "Fat", Value = $"{n.Fat}g" });
-			product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "saturated fatty acids", Value = $"{n.FatSaturated}g" });
-			product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "Carbohydrate", Value = $"{n.Carbs}g" });
-			product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "of which sugar", Value = $"{n.CarbsSugar}g" });
-			product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "Dietary fiber", Value = $"{n.Fiber}g" });
-			product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "Protein", Value = $"{n.Protein}g" });
-			product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "Salt", Value = $"{n.Salt}g" });
+			//product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "Energy in kJ", Value = "" }); // TODO: what the value here?
+
+			if (n.EnergyKcal != null)
+			{
+				product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "energy in kcal", Value = $"{n.EnergyKcal}g" });
+			}
+
+			if (n.Fat != null)
+			{
+				product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "fat", Value = $"{n.Fat}g" });
+			}
+			if (n.FatSaturated != null)
+			{
+				product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "saturated fatty acids", Value = $"{n.FatSaturated}g" });
+			}
+			if (n.Carbs != null)
+			{
+				product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "carbohydrate", Value = $"{n.Carbs}g" });
+				if (n.CarbsSugar != null)
+				{
+					product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "of which sugar", Value = $"{n.CarbsSugar}g" });
+				}
+			}
+			if (n.Fiber != null)
+			{
+				product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "dietary fiber", Value = $"{n.Fiber}g" });
+			}
+			if (n.Protein != null)
+			{
+				product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "protein", Value = $"{n.Protein}g" });
+			}
+			if (n.Salt != null)
+			{
+				product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "salt", Value = $"{n.Salt}g" });
+			}
 
 			return product;
 		}
