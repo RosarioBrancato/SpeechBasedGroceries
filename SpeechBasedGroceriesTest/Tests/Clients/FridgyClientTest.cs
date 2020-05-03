@@ -97,14 +97,14 @@ namespace SpeechBasedGroceriesTest.Tests.Clients
 		}
 
 		[TestMethod()]
-		public void GetProductsByBarcodeTest()
+		public void TestGetProductsByBarcode()
 		{
 			Product p = this.fridgyClient.GetProductsByBarcode("4099200025162");
 			Assert.AreEqual(p.Name, "Bar Italia Kaffeekapseln");
 		}
 
 		[TestMethod()]
-		public void GetItemsTest()
+		public void TestGetItems()
 		{
 			TestUser Albert = UnitTestData.Instance.TestUsers.ElementAt(0);
 			this.fridgyClient.SetBasicAuth(Albert.Username, Albert.Password);
@@ -117,7 +117,7 @@ namespace SpeechBasedGroceriesTest.Tests.Clients
 		}
 
 		[TestMethod()]
-		public void CreateNewFridgeTest()
+		public void TestCreateNewFridge()
 		{
 			TestUser Bertha = UnitTestData.Instance.TestUsers.ElementAt(1);
 			this.fridgyClient.SetBasicAuth(Bertha.Username, Bertha.Password);
@@ -135,7 +135,7 @@ namespace SpeechBasedGroceriesTest.Tests.Clients
 		}
 
 		[TestMethod()]
-		public void AddRemoveUserToFridgeTest()
+		public void TestAddRemoveUserToFridge()
 		{
 			// Define participants
 			TestUser Albert = UnitTestData.Instance.TestUsers.ElementAt(0);

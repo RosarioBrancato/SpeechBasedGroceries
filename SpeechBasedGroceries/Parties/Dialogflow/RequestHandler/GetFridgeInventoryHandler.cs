@@ -13,11 +13,8 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 	public class GetFridgeInventoryHandler : DialogflowRequestHandler
 	{
 
-		private readonly ILogger<GetFridgeInventoryHandler> logger;
-
 		public GetFridgeInventoryHandler(WebhookRequest request, WebhookResponse response) : base(request, response)
 		{
-			this.logger = AppLoggerFactory.GetLogger<GetFridgeInventoryHandler>();
 		}
 
 		public override void Handle()

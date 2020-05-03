@@ -83,7 +83,7 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 
 			var productName = this.Request.QueryResult.Parameters.Fields.GetValueOrDefault("product-name").StringValue;
 
-			return inspector.GetItemNutrientValues(productName);
+			return inspector.GetItemNutritionalValues(productName);
 		}
 	}
 }

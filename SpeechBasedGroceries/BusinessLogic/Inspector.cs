@@ -1,4 +1,5 @@
-﻿using SpeechBasedGroceries.DTOs;
+﻿using SpeechBasedGroceries.BusinessLogic.Base;
+using SpeechBasedGroceries.DTOs;
 using SpeechBasedGroceries.Parties.CRM;
 using SpeechBasedGroceries.Parties.Fridgy;
 using System;
@@ -8,73 +9,37 @@ using System.Threading.Tasks;
 
 namespace SpeechBasedGroceries.BusinessLogic
 {
-	public class Inspector
+	public class Inspector : CiuBase
 	{
-		private FridgyClient fridgyClient;
-		private CrmClient crmClient;
-
-		private Customer currentCustomer = null;
-
-		public Inspector()
-		{
-			this.crmClient = new CrmClient();
-			this.fridgyClient = new FridgyClient();
-		}
-
-		public void LoginWithTelegram(TelegramUser telegramUser)
-		{
-			this.currentCustomer = this.crmClient.GetCustomerByTelegramId(telegramUser.Id.ToString());
-
-			if (this.currentCustomer == null)
-			{
-				//TO-DO: customer not found -> register him!
-				//TEMP THROW
-				throw new Exception("Customer not found!");
-
-				//Registrar registrar = new Registrar();
-				//Token token = registrar.GetFridgyToken(telegramId);
-			}
-		}
 
 		public Inventory GetFridgeInventory()
 		{
 			Inventory inventory = null;
 
-			if (this.currentCustomer != null)
+			if (this.CurrentCustomer != null)
 			{
-				this.fridgyClient.SetToken(this.currentCustomer.GetFridigyToken().Value);
-				inventory = this.fridgyClient.GetFridgeInventory();
+				Token token = this.CurrentCustomer.GetFridigyToken();
+				if (token != null && !string.IsNullOrWhiteSpace(token.Value))
+				{
+					this.FridgyClient.SetToken(token.Value);
+					inventory = this.FridgyClient.GetFridgeInventory();
+				}
 			}
 
 			return inventory;
 		}
 
-		public IList<DTOs.Product> SearchProduct(string QueryTerm)
+		public IList<Product> GetItemNutritionalValues(string productName)
+		{
+			return this.FridgyClient.GetProductsByName(productName);
+		}
+
+		public IList<Product> SearchProduct(string QueryTerm)
 		{
 			// Product contains all nutrient data anyway
 			// change to the correct dto
 			// return this.fridgyClient.GetProductsByName(QueryTerm);
 			return null;
-		}
-
-		public IList<Product> GetItemNutrientValues(string productName)
-		{
-			return this.fridgyClient.GetProductsByName(productName);
-
-			//DUMMY
-			//var product = new DTOs.Product();
-			//product.Name = "Mozzarella";
-			//product.NutritionValues.Add(new NutritionValue() { Name = "Energy in kJ", Value = "989" });
-			//product.NutritionValues.Add(new NutritionValue() { Name = "Energy in kcal", Value = "238" });
-			//product.NutritionValues.Add(new NutritionValue() { Name = "Fat", Value = "18g" });
-			//product.NutritionValues.Add(new NutritionValue() { Name = "saturated fatty acids", Value = "13g" });
-			//product.NutritionValues.Add(new NutritionValue() { Name = "Carbohydrate", Value = "2g" });
-			//product.NutritionValues.Add(new NutritionValue() { Name = "of which sugar", Value = "1g" });
-			//product.NutritionValues.Add(new NutritionValue() { Name = "Dietary fiber", Value = "0.00g" });
-			//product.NutritionValues.Add(new NutritionValue() { Name = "Protein", Value = "17g" });
-			//product.NutritionValues.Add(new NutritionValue() { Name = "Salt", Value = "0.7g" });
-
-			//return product;
 		}
 
 	}

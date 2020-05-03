@@ -53,12 +53,12 @@ namespace SpeechBasedGroceries.Parties.CRM
 			return GetCustomerById(id.ToString());
 		}
 
-		public Customer GetCustomerByTelegramId(string telegramId)
+		public Customer GetCustomerByTelegramId(int telegramId)
 		{
 			Customer customer = null;
 			if (IsValidTelegramId(telegramId))
 			{
-				customer = crmDao.GetCustomerByTelegramId(int.Parse(telegramId));
+				customer = crmDao.GetCustomerByTelegramId(telegramId);
 				if (customer == null)
 				{
 					this.logger.LogInformation($"customer with TelegramID «{telegramId}» does not exist");
@@ -166,19 +166,14 @@ namespace SpeechBasedGroceries.Parties.CRM
 			return isValid;
 		}
 
-		public bool IsValidTelegramId(string id)
+		public bool IsValidTelegramId(int id)
 		{
 			bool isValid = true; // assumption
-			int _id;
 
-			try
-			{
-				_id = int.Parse(id);
-			}
-			catch (Exception e)
+			if (id <= 0)
 			{
 				isValid = false;
-				this.logger.LogError(e, $"customer TelegramId «{id}» is invalid (must be numeric)");
+				this.logger.LogError($"customer TelegramId «{id}» is invalid (must be numeric)");
 			}
 
 			return isValid;

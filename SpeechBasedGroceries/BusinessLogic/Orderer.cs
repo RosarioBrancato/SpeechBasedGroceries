@@ -7,77 +7,70 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SpeechBasedGroceries.BusinessLogic.Base;
 
 namespace SpeechBasedGroceries.BusinessLogic
 {
-	public class Orderer
+	public class Orderer : CiuBase
 	{
-		private Customer customer;
-		private BankClient bankClient = new BankClient();
-		private LogisticsClient logisticsClient = new LogisticsClient();
-		private FridgyClient fridgyClient = new FridgyClient();
 
-        public Orderer(string telegramId)
-        {
-			this.fridgyClient = new FridgyClient(new Registrar().GetFridgyToken(telegramId).Value);
-			this.bankClient = new BankClient();
-			this.logisticsClient = new LogisticsClient();
-
-			this.customer = new CrmClient().GetCustomerByTelegramId(telegramId);
-		}
-
-
-        /* 
-         *  Returns a Delivery if successful and Null if unsuccessful
-         */
+		/// <summary>
+		/// Returns a Delivery if successful and Null if unsuccessful
+		/// </summary>
+		/// <param name="product"></param>
+		/// <param name="amount"></param>
+		/// <param name="comment"></param>
+		/// <returns></returns>
 		public Delivery PlaceOrder(Product product, int amount, string comment = "")
 		{
 
 			Delivery delivery = null;
-            if (this.customer != null)
-            {
+			if (this.CurrentCustomer != null)
+			{
 
-				bool success = TryPayment(customer, product, amount);
+				bool success = TryPayment(this.CurrentCustomer, product, amount);
 
 				if (success)
-                {
-					delivery = DispatchDelivery(customer, product, amount, comment);
-					
-                } else
 				{
-                    // not enough funds (could technically get here...)
-                }
+					delivery = DispatchDelivery(this.CurrentCustomer, product, amount, comment);
 
-			} else
-            {
-                // customer does not exist
-                // should never get here because of constructor
-            }
+				}
+				else
+				{
+					// not enough funds (could technically get here...)
+				}
+
+			}
+			else
+			{
+				// customer does not exist
+				// should never get here because of constructor
+			}
 
 			return delivery;
 		}
 
 
-        private bool TryPayment(Customer customer, Product product, int amount)
-        {
+		private bool TryPayment(Customer customer, Product product, int amount)
+		{
 			// issue fictional transaction
 			Transaction transaction = GetTransaction(product, amount);
 
-            // try if transaction can be placed
-			return bankClient.IssuePayment(customer.Id, transaction);
+			// try if transaction can be placed
+			return this.BankClient.IssuePayment(customer.Id, transaction);
 		}
 
 
-        private Transaction GetTransaction(Product product, int amount)
-        {
-            // TODO: how to get the real pricing?
-            return bankClient.GetRandomTransaction();
+		private Transaction GetTransaction(Product product, int amount)
+		{
+			// TODO: how to get the real pricing?
+			return this.BankClient.GetRandomTransaction();
 		}
 
 
-        private Delivery DispatchDelivery(Customer customer, Product product, int amount, string comment)
-        {
-            // currently every delivery has only one position
+		private Delivery DispatchDelivery(Customer customer, Product product, int amount, string comment)
+		{
+			// currently every delivery has only one position
 
 			Delivery delivery = new Delivery
 			{
@@ -104,9 +97,9 @@ namespace SpeechBasedGroceries.BusinessLogic
 						}
 					};
 
-			return logisticsClient.CreateUpdateDelivery(delivery, true);
+			return this.LogisticsClient.CreateUpdateDelivery(delivery, true);
 		}
-        
+
 
 	}
 }

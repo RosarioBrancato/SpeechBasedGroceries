@@ -16,13 +16,13 @@ namespace SpeechBasedGroceries.Parties.CRM
 	public class CrmDAO
 	{
 
-		// private readonly ILogger<CrmDAO> logger;
+		private readonly ILogger<CrmDAO> logger;
 		private CrmDb crmDb;
 
 
 		public CrmDAO()
 		{
-			// this.logger = AppLoggerFactory.GetLogger<CrmDAO>();
+			this.logger = AppLoggerFactory.GetLogger<CrmDAO>();
 			this.crmDb = AppSettings.Instance.CrmDb;
 		}
 
@@ -404,7 +404,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 					}
 					catch (Exception e)
 					{
-						Console.Write(e.StackTrace);
+						this.logger.LogError(e, e.Message);
 					}
 				}
 			}
