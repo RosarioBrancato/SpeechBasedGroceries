@@ -393,7 +393,7 @@ namespace SpeechBasedGroceries.Parties.CRM
 					cmd.Parameters.AddWithValue("@p2", token.Creation);
 					cmd.Parameters.AddWithValue("@p3", token.Name);
 					cmd.Parameters.AddWithValue("@p4", token.Value);
-					cmd.Parameters.AddWithValue("@p5", (token.Expiration is null) ? (Object)DBNull.Value : token.Expiration);
+					cmd.Parameters.AddWithValue("@p5", (token.Expiration is null || token.Expiration.Equals(default(DateTime))) ? (Object)DBNull.Value : token.Expiration);
 
 					int tokenId = 0;
 					try

@@ -50,6 +50,10 @@ namespace SpeechBasedGroceriesTest.Tests.BusinessLogic
 			Assert.IsTrue(tokenHandler.CanReadToken(token.Value));
 			//db does not save the time
 			Assert.AreEqual(token.Expiration.Value.Date, jwtToken.ValidTo.Date);
+
+			// check that the token does not expire (valid to equals default)
+			Assert.AreEqual(default, jwtToken.ValidTo);
+
 		}
 	}
 }
