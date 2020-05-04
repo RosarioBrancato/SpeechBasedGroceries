@@ -53,11 +53,13 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 					DTOs.InventoryItem inventoryItem = inventory.Items.SingleOrDefault(w => w.Id == product.Id);
 					if (inventoryItem == null)
 					{
-						inventoryItem = new DTOs.InventoryItem();
-						inventoryItem.Id = item.Id.ToString();
-						inventoryItem.Barcode = item.Barcode;
-
-						inventoryItem.Name = product.Name;
+						inventoryItem = new DTOs.InventoryItem(product);
+						
+						//inventoryItem.Id = item.Id.ToString();
+						//inventoryItem.Id = product.Id;
+						//inventoryItem.Barcode = product.Barcode;
+						//inventoryItem.NutritionValues = product.NutritionValues;
+						//inventoryItem.Name = product.Name;
 
 						inventory.Items.Add(inventoryItem);
 					}
@@ -113,11 +115,11 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 		//}
 
 		// DEPRECIATED
-		public Product GetProductsByBarcode(string barcode)
-		{
-			Product product = client.Get.Barcode(barcode);
-			return product;
-		}
+		//public Product GetProductsByBarcode(string barcode)
+		//{
+		//	Product product = client.Get.Barcode(barcode);
+		//	return product;
+		//}
 
 		public IList<Fridge> GetFridges()
 		{

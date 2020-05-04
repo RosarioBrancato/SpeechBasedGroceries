@@ -21,5 +21,12 @@ namespace SpeechBasedGroceries.DTOs
 		{
 			this.NutritionValues = new List<NutritionValue>();
 		}
+		protected Product(Product p)
+		{
+			this.Id = p.Id;
+			this.Name = p.Name;
+			this.Barcode = p.Barcode;
+			this.NutritionValues = p.NutritionValues;
+		}
 	}
 }

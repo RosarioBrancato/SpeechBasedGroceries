@@ -7,7 +7,10 @@ namespace SpeechBasedGroceries.DTOs
 {
 	public class InventoryItem : Product
 	{
-
+		public InventoryItem(Product obj)
+		 : base(obj)
+		{
+		}
 		public double Quantity { get; set; }
 
 	}

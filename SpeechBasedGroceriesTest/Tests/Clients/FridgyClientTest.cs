@@ -99,7 +99,7 @@ namespace SpeechBasedGroceriesTest.Tests.Clients
 		[TestMethod()]
 		public void TestGetProductsByBarcode()
 		{
-			Product p = this.fridgyClient.GetProductsByBarcode("4099200025162");
+			var p = this.fridgyClient.GetProductByBarcode("4099200025162");
 			Assert.AreEqual(p.Name, "Bar Italia Kaffeekapseln");
 		}
 

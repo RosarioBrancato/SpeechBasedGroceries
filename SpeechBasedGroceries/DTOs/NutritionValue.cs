@@ -12,13 +12,10 @@ namespace SpeechBasedGroceries.DTOs
 
 		public string Value { get; set; }
 
-		public IList<NutritionValue> SubValues { get; }
 
 
 		public NutritionValue()
-		{
-			this.SubValues = new List<NutritionValue>();
-		}
+		{}
 
 	}
 }
