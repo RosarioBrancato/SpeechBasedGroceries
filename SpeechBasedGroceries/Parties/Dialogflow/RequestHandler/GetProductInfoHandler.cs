@@ -39,7 +39,7 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 
 				foreach (var item in products)
 				{
-					stringBuilder.Append(" - ");
+					stringBuilder.AppendLine();
 					stringBuilder.Append(item.Name);
 					stringBuilder.Append(" has: ");
 
@@ -59,10 +59,8 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 						stringBuilder.Append(" ");
 						stringBuilder.Append(value.Name);
 					}
-
 					stringBuilder.AppendLine();
 				}
-
 
 				//general
 				string responseText = stringBuilder.ToString();

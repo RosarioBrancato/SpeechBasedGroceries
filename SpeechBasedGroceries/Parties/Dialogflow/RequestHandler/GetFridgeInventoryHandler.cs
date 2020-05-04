@@ -19,7 +19,7 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 
 		public override void Handle()
 		{
-			var inventory = this.GetData();
+			var inventory = this.GetFridgeInventory();
 
 			if (inventory == null)
 			{
@@ -47,7 +47,7 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 			}
 		}
 
-		private Inventory GetData()
+		private Inventory GetFridgeInventory()
 		{
 			//double telegramId = 9212711;
 			TelegramUser telegramUser = this.GetTelegramUser();

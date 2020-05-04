@@ -57,10 +57,10 @@ namespace SpeechBasedGroceriesTest.Data
 			}
 
 			//Crm testusers
-			testusers = data["Crm"]["TestCustomers"].ToArray();
-			foreach (var testuser in testusers)
+			var testCustomers = data["Crm"]["TestCustomers"].ToArray();
+			foreach (var testCustomer in testCustomers)
 			{
-				this.TestCustomers.Add(testuser.ToObject<Customer>());
+				this.TestCustomers.Add(testCustomer.ToObject<Customer>());
 			}
 
 			//crm test tokens

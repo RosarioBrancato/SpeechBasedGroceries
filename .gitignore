@@ -3,7 +3,7 @@ bin
 obj
 .vs
 TestResults
-
+PublishProfiles
 
 #Files
 appsettings.json
