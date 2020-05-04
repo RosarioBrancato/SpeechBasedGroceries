@@ -237,11 +237,11 @@ namespace SpeechBasedGroceries.Parties.Logistics
 				{
 					cmd.Parameters.AddWithValue("@p1", delivery.CustomerId);
 					cmd.Parameters.AddWithValue("@p2", delivery.Date);
-					cmd.Parameters.AddWithValue("@p3", delivery.Street);
-					cmd.Parameters.AddWithValue("@p4", delivery.Zip);
-					cmd.Parameters.AddWithValue("@p5", delivery.City);
-					cmd.Parameters.AddWithValue("@p6", delivery.Country);
-					cmd.Parameters.AddWithValue("@p7", delivery.Comment);
+					cmd.Parameters.AddWithValue("@p3", (delivery.Street is null) ? (object)DBNull.Value : delivery.Street);
+					cmd.Parameters.AddWithValue("@p4", (delivery.Zip is null) ? (object)DBNull.Value : delivery.Zip);
+					cmd.Parameters.AddWithValue("@p5", (delivery.City is null) ? (object)DBNull.Value : delivery.City);
+					cmd.Parameters.AddWithValue("@p6", (delivery.Country is null) ? (object)DBNull.Value : delivery.Country);
+					cmd.Parameters.AddWithValue("@p7", (delivery.Comment is null) ? (object)DBNull.Value : delivery.Comment);
 
 					int deliveryId = 0;
 					try
