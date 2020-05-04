@@ -36,7 +36,18 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 			client = new f.Fridgy(credentials);
 		}
 
-
+		public string PutItemInFridge(DTOs.Product product) {
+			Item newitem = new Item();
+			Fridge fridge = this.GetFridges().FirstOrDefault();
+			if (fridge != null)
+			{
+				BaseItem item = new BaseItem();
+				item.Barcode = product.Barcode;
+				item.Qty = 1;
+				newitem = client.Add.FridgeMethod(item, fridge.Id.ToString());
+			}
+			return newitem.Id.ToString();
+		}
 		public DTOs.Inventory GetFridgeInventory()
 		{
 			DTOs.Inventory inventory = new DTOs.Inventory();
@@ -54,13 +65,6 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 					if (inventoryItem == null)
 					{
 						inventoryItem = new DTOs.InventoryItem(product);
-						
-						//inventoryItem.Id = item.Id.ToString();
-						//inventoryItem.Id = product.Id;
-						//inventoryItem.Barcode = product.Barcode;
-						//inventoryItem.NutritionValues = product.NutritionValues;
-						//inventoryItem.Name = product.Name;
-
 						inventory.Items.Add(inventoryItem);
 					}
 
@@ -181,7 +185,9 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 			{
 				Id = p.Id.ToString(),
 				Name = p.Name,
-				Barcode = p.Barcode
+				Barcode = p.Barcode,
+				Qty_type = (DTOs.Product.QtyTypes)Enum.Parse(typeof(DTOs.Product.QtyTypes), p.QtyType),
+				Qty = (double) p.Qty
 			};
 
 			// making things shorter...

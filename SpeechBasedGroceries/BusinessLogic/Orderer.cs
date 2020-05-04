@@ -33,6 +33,8 @@ namespace SpeechBasedGroceries.BusinessLogic
 				if (success)
 				{
 					delivery = DispatchDelivery(this.CurrentCustomer, product, amount, comment);
+					// add product to the user's fridge
+					UpdateFridge(product, amount);
 
 				}
 				else
@@ -98,6 +100,20 @@ namespace SpeechBasedGroceries.BusinessLogic
 					};
 
 			return this.LogisticsClient.CreateUpdateDelivery(delivery, true);
+		}
+
+		private void UpdateFridge(Product product, int amount)
+		{
+			Token token = this.CurrentCustomer.GetFridigyToken();
+			if (token != null && !string.IsNullOrWhiteSpace(token.Value))
+			{
+				this.FridgyClient.SetToken(token.Value);
+				for (int i = 0; i < amount; i++) {
+					string id = this.FridgyClient.PutItemInFridge(product);
+				}
+			}
+
+
 		}
 
 
