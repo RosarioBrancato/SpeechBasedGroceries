@@ -49,13 +49,18 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 
 		private Inventory GetFridgeInventory()
 		{
-			//double telegramId = 9212711;
+			Inventory inventory = null;
+
 			TelegramUser telegramUser = this.GetTelegramUser();
 
 			Inspector inspector = new Inspector();
-			inspector.LoginWithTelegram(telegramUser);
+			bool success = inspector.LoginWithTelegram(telegramUser);
+			if (success)
+			{
+				inventory = inspector.GetFridgeInventory();
+			}
 
-			return inspector.GetFridgeInventory();
+			return inventory;
 		}
 
 	}

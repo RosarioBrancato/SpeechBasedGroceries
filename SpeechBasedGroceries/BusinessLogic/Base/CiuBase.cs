@@ -34,7 +34,7 @@ namespace SpeechBasedGroceries.BusinessLogic.Base
 		}
 
 
-		public void LoginWithTelegram(TelegramUser telegramUser)
+		public bool LoginWithTelegram(TelegramUser telegramUser)
 		{
 			this.CurrentCustomer = this.CrmClient.GetCustomerByTelegramId(telegramUser.Id);
 
@@ -43,6 +43,8 @@ namespace SpeechBasedGroceries.BusinessLogic.Base
 				Registrar registrar = new Registrar();
 				this.CurrentCustomer = registrar.RegisterTelegramUser(telegramUser);
 			}
+
+			return this.CurrentCustomer != null;
 		}
 
 	}

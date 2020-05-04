@@ -77,11 +77,16 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 
 		private IList<Product> GetProducts()
 		{
-			Inspector inspector = new Inspector();
+			IList<Product> products = null;
 
 			var productName = this.Request.QueryResult.Parameters.Fields.GetValueOrDefault("product-name").StringValue;
+			if (!string.IsNullOrWhiteSpace(productName))
+			{
+				Inspector inspector = new Inspector();
+				products = inspector.GetItemNutritionalValues(productName);
+			}
 
-			return inspector.GetItemNutritionalValues(productName);
+			return products;
 		}
 	}
 }
