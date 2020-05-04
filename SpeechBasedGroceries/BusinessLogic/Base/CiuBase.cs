@@ -36,12 +36,17 @@ namespace SpeechBasedGroceries.BusinessLogic.Base
 
 		public bool LoginWithTelegram(TelegramUser telegramUser)
 		{
-			this.CurrentCustomer = this.CrmClient.GetCustomerByTelegramId(telegramUser.Id);
+			this.CurrentCustomer = null;
 
-			if (this.CurrentCustomer == null)
+			if (telegramUser != null && telegramUser.Id > 0)
 			{
-				Registrar registrar = new Registrar();
-				this.CurrentCustomer = registrar.RegisterTelegramUser(telegramUser);
+				this.CurrentCustomer = this.CrmClient.GetCustomerByTelegramId(telegramUser.Id);
+
+				if (this.CurrentCustomer == null)
+				{
+					Registrar registrar = new Registrar();
+					this.CurrentCustomer = registrar.RegisterTelegramUser(telegramUser);
+				}
 			}
 
 			return this.CurrentCustomer != null;

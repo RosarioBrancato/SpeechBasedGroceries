@@ -49,10 +49,35 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 		protected TelegramUser GetTelegramUser()
 		{
 			TelegramUser telegramUser = new TelegramUser();
-			telegramUser.Id = (int)this.Request.OriginalDetectIntentRequest.Payload.Fields["data"].StructValue.Fields["from"].StructValue.Fields["id"].NumberValue;
-			telegramUser.FirstName = this.Request.OriginalDetectIntentRequest.Payload.Fields["data"].StructValue.Fields["from"].StructValue.Fields["first_name"].StringValue;
-			telegramUser.LastName = this.Request.OriginalDetectIntentRequest.Payload.Fields["data"].StructValue.Fields["from"].StructValue.Fields["last_name"].StringValue;
-			telegramUser.UserName = this.Request.OriginalDetectIntentRequest.Payload.Fields["data"].StructValue.Fields["from"].StructValue.Fields["username"].StringValue;
+
+			var payload = this.Request.OriginalDetectIntentRequest.Payload;
+			if (payload != null && payload.Fields != null && payload.Fields.ContainsKey("data"))
+			{
+				var data = payload.Fields["data"];
+				if (data.StructValue != null && data.StructValue.Fields != null && data.StructValue.Fields.ContainsKey("from"))
+				{
+					var from = data.StructValue.Fields["from"];
+					if (from.StructValue != null && from.StructValue.Fields != null)
+					{
+						if (from.StructValue.Fields.ContainsKey("id"))
+						{
+							telegramUser.Id = (int)from.StructValue.Fields["id"].NumberValue;
+						}
+						if (from.StructValue.Fields.ContainsKey("first_name"))
+						{
+							telegramUser.FirstName = from.StructValue.Fields["first_name"].StringValue;
+						}
+						if (from.StructValue.Fields.ContainsKey("last_name"))
+						{
+							telegramUser.LastName = from.StructValue.Fields["last_name"].StringValue;
+						}
+						if (from.StructValue.Fields.ContainsKey("username"))
+						{
+							telegramUser.UserName = from.StructValue.Fields["username"].StringValue;
+						}
+					}
+				}
+			}
 
 			return telegramUser;
 		}

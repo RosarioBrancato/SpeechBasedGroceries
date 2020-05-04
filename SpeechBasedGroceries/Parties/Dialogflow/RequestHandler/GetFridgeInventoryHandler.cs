@@ -52,12 +52,14 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 			Inventory inventory = null;
 
 			TelegramUser telegramUser = this.GetTelegramUser();
-
-			Inspector inspector = new Inspector();
-			bool success = inspector.LoginWithTelegram(telegramUser);
-			if (success)
+			if (telegramUser.Id > 0)
 			{
-				inventory = inspector.GetFridgeInventory();
+				Inspector inspector = new Inspector();
+				bool success = inspector.LoginWithTelegram(telegramUser);
+				if (success)
+				{
+					inventory = inspector.GetFridgeInventory();
+				}
 			}
 
 			return inventory;
