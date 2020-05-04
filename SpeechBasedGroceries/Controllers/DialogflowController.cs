@@ -44,6 +44,8 @@ namespace SpeechBasedGroceries.Controllers
 				requestJson = await reader.ReadToEndAsync();
 			}
 
+			//this.logger.LogError(requestJson);
+
 			WebhookRequest request = jsonParser.Parse<WebhookRequest>(requestJson);
 			WebhookResponse response = new WebhookResponse();
 

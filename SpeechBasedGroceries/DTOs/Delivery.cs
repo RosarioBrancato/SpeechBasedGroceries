@@ -24,16 +24,19 @@ namespace SpeechBasedGroceries.DTOs
 
 		public string Comment { get; set; }
 
-        public List<Position> Positions { get; set; }
+		public List<Position> Positions { get; set; }
 
-		public string toString()
-        {
-			return
-				Date.ToString("yyyyMMdd")
-                + "-"
-                + CustomerId.ToString("000")
-                + Id.ToString("000"); 
-        }
+
+		public Delivery()
+		{
+			this.Positions = new List<Position>();
+		}
+
+
+		public override string ToString()
+		{
+			return this.Date.ToString("yyyyMMdd") + "-" + this.CustomerId.ToString("000") + this.Id.ToString("000");
+		}
 
 	}
 }

@@ -23,7 +23,7 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 
 			if (inventory == null)
 			{
-				this.Response.FulfillmentText = "Sorry, I couldn't check your fridge. Talk to the customer support please.";
+				this.Response.FulfillmentText = "Sorry, I couldn't check your fridge. Please contact our customer support.";
 			}
 			else if (inventory.Items.Count == 0)
 			{

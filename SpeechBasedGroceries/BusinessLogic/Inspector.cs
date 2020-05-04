@@ -34,13 +34,5 @@ namespace SpeechBasedGroceries.BusinessLogic
 			return this.FridgyClient.GetProductsByName(productName);
 		}
 
-		public IList<Product> SearchProduct(string QueryTerm)
-		{
-			// Product contains all nutrient data anyway
-			// change to the correct dto
-			// return this.fridgyClient.GetProductsByName(QueryTerm);
-			return null;
-		}
-
 	}
 }

@@ -12,5 +12,9 @@ namespace SpeechBasedGroceries.Parties.Dialogflow
 
 		public const string GET_PRODUCT_INFO = "GetProductInfo";
 
+		public const string ORDER_PRODUCT = "OrderProduct";
+
+		public const string EXECUTE_PRODUCT_ORDER = "ExecuteProductOrder";
+
 	}
 }

@@ -40,8 +40,7 @@ namespace SpeechBasedGroceriesTest.Tests.BusinessLogic
 		{
 			string barcode = "7610200428059"; // Bratwurst
 
-			Product product = new FridgyClient().GetProductByBarcode(barcode);
-			Delivery delivery = oderer.PlaceOrder(product, 1, "Eine Bestellung");
+			Delivery delivery = oderer.PlaceOrder(barcode, 1, "Unit Test Order");
 
 			Assert.IsNotNull(delivery);
 			Assert.IsTrue(delivery.Positions[0].ItemId.Equals(barcode));

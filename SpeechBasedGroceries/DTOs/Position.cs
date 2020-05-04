@@ -10,7 +10,7 @@ namespace SpeechBasedGroceries.DTOs
 
 		public int Id { get; set; }
 
-        public int DeliveryId { get; set; }
+		public int DeliveryId { get; set; }
 
 		public int No { get; set; }
 
@@ -26,13 +26,11 @@ namespace SpeechBasedGroceries.DTOs
 
 		public string Comment { get; set; }
 
-		public string toString()
-        {
-			return
-				No.ToString("000") + ": "
-                + ItemId + " " + ItemText + ", "
-                + ItemQty + "x"; 
-        }
+
+		public override string ToString()
+		{
+			return this.No.ToString("000") + ": " + this.ItemId + " " + this.ItemText + ", " + this.ItemQty + "x";
+		}
 
 	}
 }

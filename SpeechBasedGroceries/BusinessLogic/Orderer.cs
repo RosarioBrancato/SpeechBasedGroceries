@@ -21,32 +21,25 @@ namespace SpeechBasedGroceries.BusinessLogic
 		/// <param name="amount"></param>
 		/// <param name="comment"></param>
 		/// <returns></returns>
-		public Delivery PlaceOrder(Product product, int amount, string comment = "")
+		public Delivery PlaceOrder(string productBarcode, int amount, string comment = "")
 		{
-
 			Delivery delivery = null;
+
 			if (this.CurrentCustomer != null)
 			{
+				this.FridgyClient.SetToken(this.CurrentCustomer.GetFridigyToken().Value);
+				Product product = this.FridgyClient.GetProductByBarcode(productBarcode);
 
-				bool success = TryPayment(this.CurrentCustomer, product, amount);
-
-				if (success)
+				if (product != null)
 				{
-					delivery = DispatchDelivery(this.CurrentCustomer, product, amount, comment);
-					// add product to the user's fridge
-					UpdateFridge(product, amount);
-
+					bool success = this.TryPayment(this.CurrentCustomer, product, amount);
+					if (success)
+					{
+						delivery = this.DispatchDelivery(this.CurrentCustomer, product, amount, comment);
+						// add product to the user's fridge
+						this.UpdateFridge(product, amount);
+					}
 				}
-				else
-				{
-					// not enough funds (could technically get here...)
-				}
-
-			}
-			else
-			{
-				// customer does not exist
-				// should never get here because of constructor
 			}
 
 			return delivery;
@@ -74,30 +67,25 @@ namespace SpeechBasedGroceries.BusinessLogic
 		{
 			// currently every delivery has only one position
 
-			Delivery delivery = new Delivery
-			{
-				CustomerId = customer.Id,
-				Date = DateTime.Now,
-				Street = customer.Street,
-				Zip = customer.Zip,
-				City = customer.City,
-				Country = customer.Country,
-				Comment = comment
-			};
+			Delivery delivery = new Delivery();
+			delivery.CustomerId = customer.Id;
+			delivery.Date = DateTime.Now;
+			delivery.Street = customer.Street;
+			delivery.Zip = customer.Zip;
+			delivery.City = customer.City;
+			delivery.Country = customer.Country;
+			delivery.Comment = comment;
 
-			delivery.Positions = new List<Position>
-					{
-						new Position
-						{
-							No = 10,
-							ItemId = product.Barcode,
-							ItemText = product.Name,
-							ItemQty = amount,
-							ItemPrice = 0,
-							ItemWeight = 0,
-							Comment = ""
-						}
-					};
+			Position position = new Position();
+			position.No = 10;
+			position.ItemId = product.Barcode;
+			position.ItemText = product.Name;
+			position.ItemQty = amount;
+			position.ItemPrice = 0;
+			position.ItemWeight = 0;
+			position.Comment = "";
+
+			delivery.Positions.Add(position);
 
 			return this.LogisticsClient.CreateUpdateDelivery(delivery, true);
 		}
@@ -108,12 +96,11 @@ namespace SpeechBasedGroceries.BusinessLogic
 			if (token != null && !string.IsNullOrWhiteSpace(token.Value))
 			{
 				this.FridgyClient.SetToken(token.Value);
-				for (int i = 0; i < amount; i++) {
+				for (int i = 0; i < amount; i++)
+				{
 					string id = this.FridgyClient.PutItemInFridge(product);
 				}
 			}
-
-
 		}
 
 

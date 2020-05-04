@@ -22,7 +22,7 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 
 			if (products == null)
 			{
-				this.Response.FulfillmentText = "Sorry, I couldn't check the item's information.";
+				this.Response.FulfillmentText = "Sorry, I couldn't check the item's information. Please contact our customer support.";
 			}
 			else if (products.Count == 0)
 			{
