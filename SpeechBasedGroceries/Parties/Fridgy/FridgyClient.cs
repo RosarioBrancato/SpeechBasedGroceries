@@ -36,7 +36,8 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 			client = new f.Fridgy(credentials);
 		}
 
-		public string PutItemInFridge(DTOs.Product product) {
+		public string PutItemInFridge(DTOs.Product product)
+		{
 			Item newitem = new Item();
 			Fridge fridge = this.GetFridges().FirstOrDefault();
 			if (fridge != null)
@@ -69,6 +70,7 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 					}
 
 					inventoryItem.Quantity += item.Qty;
+					inventoryItem.Qty += item.Qty;
 				}
 			}
 
@@ -184,49 +186,52 @@ namespace SpeechBasedGroceries.Parties.Fridgy
 			DTOs.Product product = new DTOs.Product
 			{
 				Id = p.Id.ToString(),
-				Name = p.Name,
+				Name = p.Name.Trim(),
 				Barcode = p.Barcode,
-				Qty_type = (DTOs.Product.QtyTypes)Enum.Parse(typeof(DTOs.Product.QtyTypes), p.QtyType),
-				Qty = (double) p.Qty
+				QtyType = (DTOs.Product.QtyTypes)Enum.Parse(typeof(DTOs.Product.QtyTypes), p.QtyType),
+				Qty = (double)p.Qty
 			};
 
-			// making things shorter...
-			var n = p.Nutrient;
+			if (p.Nutrient != null)
+			{
+				// making things shorter...
+				var n = p.Nutrient;
 
-			//product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "Energy in kJ", Value = "" }); // TODO: what the value here?
+				//product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "Energy in kJ", Value = "" }); // TODO: what the value here?
 
-			if (n.EnergyKcal != null)
-			{
-				product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "energy in kcal", Value = $"{n.EnergyKcal}g" });
-			}
-
-			if (n.Fat != null)
-			{
-				product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "fat", Value = $"{n.Fat}g" });
-			}
-			if (n.FatSaturated != null)
-			{
-				product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "saturated fatty acids", Value = $"{n.FatSaturated}g" });
-			}
-			if (n.Carbs != null)
-			{
-				product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "carbohydrate", Value = $"{n.Carbs}g" });
-				if (n.CarbsSugar != null)
+				if (n.EnergyKcal != null)
 				{
-					product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "of which sugar", Value = $"{n.CarbsSugar}g" });
+					product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "energy in kcal", Value = $"{n.EnergyKcal}g" });
 				}
-			}
-			if (n.Fiber != null)
-			{
-				product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "dietary fiber", Value = $"{n.Fiber}g" });
-			}
-			if (n.Protein != null)
-			{
-				product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "protein", Value = $"{n.Protein}g" });
-			}
-			if (n.Salt != null)
-			{
-				product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "salt", Value = $"{n.Salt}g" });
+
+				if (n.Fat != null)
+				{
+					product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "fat", Value = $"{n.Fat}g" });
+				}
+				if (n.FatSaturated != null)
+				{
+					product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "saturated fatty acids", Value = $"{n.FatSaturated}g" });
+				}
+				if (n.Carbs != null)
+				{
+					product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "carbohydrate", Value = $"{n.Carbs}g" });
+					if (n.CarbsSugar != null)
+					{
+						product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "of which sugar", Value = $"{n.CarbsSugar}g" });
+					}
+				}
+				if (n.Fiber != null)
+				{
+					product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "dietary fiber", Value = $"{n.Fiber}g" });
+				}
+				if (n.Protein != null)
+				{
+					product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "protein", Value = $"{n.Protein}g" });
+				}
+				if (n.Salt != null)
+				{
+					product.NutritionValues.Add(new DTOs.NutritionValue() { Name = "salt", Value = $"{n.Salt}g" });
+				}
 			}
 
 			return product;

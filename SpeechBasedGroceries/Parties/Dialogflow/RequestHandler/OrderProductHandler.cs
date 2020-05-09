@@ -21,24 +21,19 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 
 			if (products == null)
 			{
-				this.Response.FulfillmentText = "Sorry, I cannot process your order.  Please contact our customer support.";
+				this.Response.FulfillmentMessages.Add(this.GetMessage("Sorry, I cannot process your order. Please contact our customer support."));
 			}
 			else if (products.Count == 0)
 			{
-				this.Response.FulfillmentText = "The item you are looking for doesn't exist.";
+				this.Response.FulfillmentMessages.Add(this.GetMessage("The item you are looking for doesn't exist."));
 			}
 			else
 			{
-				//general
 				string responseText = "Which of these products would you like to order?";
-				this.Response.FulfillmentText = responseText;
+				IEnumerable<InlineKeyboardKey> keys = products.Select(s => new InlineKeyboardKey(s.Name, "Barcode " + s.Barcode));
 
-				Intent.Types.Message messageResponse = this.GetMessage(responseText);
-				this.Response.FulfillmentMessages.Add(messageResponse);
-
-				//telegram
-				Intent.Types.Message messageCard = this.GetMessageInlineKeyboard(responseText, products.Select(s => new InlineKeyboardKey(s.Name, "Barcode " + s.Barcode)));
-				this.Response.FulfillmentMessages.Add(messageCard);
+				Intent.Types.Message message = this.GetMessageInlineKeyboard(responseText, keys);
+				this.Response.FulfillmentMessages.Add(message);
 			}
 		}
 
@@ -46,7 +41,7 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 		{
 			IList<Product> products = null;
 
-			var productName = this.Request.QueryResult.Parameters.Fields.GetValueOrDefault("product-name").StringValue;
+			var productName = this.Request.QueryResult.Parameters.Fields.GetValueOrDefault("product-name")?.StringValue;
 			if (!string.IsNullOrWhiteSpace(productName))
 			{
 				Inspector inspector = new Inspector();

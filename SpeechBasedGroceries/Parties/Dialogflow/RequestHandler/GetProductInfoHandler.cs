@@ -22,24 +22,24 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 
 			if (products == null)
 			{
-				this.Response.FulfillmentText = "Sorry, I couldn't check the item's information. Please contact our customer support.";
+				this.Response.FulfillmentMessages.Add(this.GetMessage("Sorry, I couldn't check the item's information. Please contact our customer support."));
 			}
 			else if (products.Count == 0)
 			{
-				this.Response.FulfillmentText = "The item you are looking for doesn't exist.";
+				this.Response.FulfillmentMessages.Add(this.GetMessage("The item you are looking for doesn't exist."));
 			}
 			else if (!products.Any(w => w.NutritionValues.Count > 0))
 			{
-				this.Response.FulfillmentText = "That item does not have any nutrition values.";
+				this.Response.FulfillmentMessages.Add(this.GetMessage("That item does not have any nutrition values."));
 			}
 			else
 			{
-				StringBuilder stringBuilder = new StringBuilder();
-				stringBuilder.AppendLine("I have found information about the following items: ");
+				this.Response.FulfillmentMessages.Add(this.GetMessage("I have found information about the following items:"));
 
 				foreach (var item in products)
 				{
-					stringBuilder.AppendLine();
+					StringBuilder stringBuilder = new StringBuilder();
+
 					stringBuilder.Append(item.Name);
 					stringBuilder.Append(" has: ");
 
@@ -59,19 +59,9 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 						stringBuilder.Append(" ");
 						stringBuilder.Append(value.Name);
 					}
-					stringBuilder.AppendLine();
+
+					this.Response.FulfillmentMessages.Add(this.GetMessage(stringBuilder.ToString()));
 				}
-
-				//general
-				string responseText = stringBuilder.ToString();
-				this.Response.FulfillmentText = responseText;
-
-				Intent.Types.Message messageResponse = this.GetMessage(responseText);
-				this.Response.FulfillmentMessages.Add(messageResponse);
-
-				//telegram
-				Intent.Types.Message teleMessageResponse = this.GetMessage(responseText, Intent.Types.Message.Types.Platform.Telegram);
-				this.Response.FulfillmentMessages.Add(teleMessageResponse);
 			}
 		}
 

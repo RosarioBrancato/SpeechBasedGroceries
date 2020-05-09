@@ -6,6 +6,7 @@ using SpeechBasedGroceries.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
@@ -23,27 +24,43 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 
 			if (inventory == null)
 			{
-				this.Response.FulfillmentText = "Sorry, I couldn't check your fridge. Please contact our customer support.";
+				this.Response.FulfillmentMessages.Add(this.GetMessage("Sorry, I couldn't check your fridge. Please contact our customer support."));
 			}
 			else if (inventory.Items.Count == 0)
 			{
-				this.Response.FulfillmentText = "Your fridge is empty.";
+				this.Response.FulfillmentMessages.Add(this.GetMessage("Your fridge is empty."));
 			}
 			else
 			{
-				//general
-				string responseText = "Here’s your current inventory:" + Environment.NewLine + string.Join(Environment.NewLine, inventory.Items.Select(s => string.Concat(s.Quantity, "x ", s.Name)));
-				this.Response.FulfillmentText = responseText;
+				StringBuilder stringBuilder = new StringBuilder();
+				stringBuilder.AppendLine("Here’s your current fridge inventory:");
+				foreach (var item in inventory.Items.OrderBy(o => o.QtyType).ThenBy(o => o.Name))
+				{
+					switch (item.QtyType)
+					{
+						case Product.QtyTypes.gramm:
+							stringBuilder.Append(item.Qty);
+							stringBuilder.Append("g     ");
+							stringBuilder.Append(item.Name);
+							break;
 
-				Intent.Types.Message messageResponse = this.GetMessage(responseText);
-				this.Response.FulfillmentMessages.Add(messageResponse);
+						case Product.QtyTypes.milliliter:
+							stringBuilder.Append(item.Qty);
+							stringBuilder.Append("ml    ");
+							stringBuilder.Append(item.Name);
+							break;
 
-				//telegram
-				Intent.Types.Message teleMessageResponse = this.GetMessage(responseText, Intent.Types.Message.Types.Platform.Telegram);
-				this.Response.FulfillmentMessages.Add(teleMessageResponse);
+						default:
+							stringBuilder.Append(item.Quantity);
+							stringBuilder.Append("x     ");
+							stringBuilder.Append(item.Name);
+							break;
+					}
 
-				//Intent.Types.Message teleMessageQuickReplies = this.GetMessageQuickReply("Do you want to order the results?", new[] { "Yes, alphabetically.", "Yes, by due date.", "No." });
-				//this.Response.FulfillmentMessages.Add(teleMessageQuickReplies);
+					stringBuilder.AppendLine();
+				}
+
+				this.Response.FulfillmentMessages.Add(this.GetMessage(stringBuilder.ToString()));
 			}
 		}
 

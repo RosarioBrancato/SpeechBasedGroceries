@@ -24,11 +24,12 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 			if (delivery != null && delivery.Positions.Count > 0)
 			{
 				Position position = delivery.Positions.FirstOrDefault();
-				this.Response.FulfillmentText = "Thank you for your order. Your " + position.ItemQty + " " + position.ItemText + " can be now seen in your fridge.";
+				string toHave = position.ItemQty != 1 ? " have " : " has ";
+				this.Response.FulfillmentMessages.Add(this.GetMessage("Thank you for your order. Your " + position.ItemQty + " " + position.ItemText + toHave + "been added to your fridge."));
 			}
 			else
 			{
-				this.Response.FulfillmentText = "Sorry, I cannot process your order.  Please contact our customer support.";
+				this.Response.FulfillmentMessages.Add(this.GetMessage("Sorry, I cannot process your order. Please contact our customer support."));
 			}
 		}
 

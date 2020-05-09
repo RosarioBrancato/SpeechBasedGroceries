@@ -136,12 +136,14 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 			return messageQuickReply;
 		}
 
-		protected Intent.Types.Message GetMessageCards(string title, string[] cards)
+		protected Intent.Types.Message GetMessageCards(string title, string subTitle, string imageUrl, string[] cards)
 		{
 			Intent.Types.Message messageCard = new Intent.Types.Message();
 			messageCard.Platform = Intent.Types.Message.Types.Platform.Telegram;
 			messageCard.Card = new Intent.Types.Message.Types.Card();
 			messageCard.Card.Title = title;
+			messageCard.Card.Subtitle = subTitle;
+			messageCard.Card.ImageUri = imageUrl;
 
 			foreach (string card in cards)
 			{
