@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SpeechBasedGroceries.AppServices;
+using SpeechBasedGroceries.AuthHandler;
 using SpeechBasedGroceries.BusinessLogic;
 using SpeechBasedGroceries.Parties.Dialogflow;
 using SpeechBasedGroceries.Parties.Dialogflow.RequestHandler;
@@ -19,7 +20,7 @@ using SpeechBasedGroceries.Parties.Fridgy.Client.Models;
 namespace SpeechBasedGroceries.Controllers
 {
 	[Route("api/[controller]")]
-	[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+	[Authorize(AuthenticationSchemes = BasicAuthenticationHandler.AuthenticationScheme)]
 	[ApiController]
 	public class DialogflowController : ControllerBase
 	{

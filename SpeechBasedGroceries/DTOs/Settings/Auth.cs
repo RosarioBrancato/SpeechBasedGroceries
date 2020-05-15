@@ -9,15 +9,15 @@ namespace SpeechBasedGroceries.DTOs.Settings
 	public class Auth
 	{
 
-		public string Domain { get; private set; }
+		public string UserName { get; private set; }
 
-		public string Audience { get; private set; }
+		public string Password { get; private set; }
 
 
 		public Auth(IConfiguration configuration)
 		{
-			this.Domain = configuration["Auth0:Domain"];
-			this.Audience = configuration["Auth0:Audience"];
+			this.UserName = configuration["Auth:UserName"];
+			this.Password = configuration["Auth:Password"];
 		}
 
 	}
