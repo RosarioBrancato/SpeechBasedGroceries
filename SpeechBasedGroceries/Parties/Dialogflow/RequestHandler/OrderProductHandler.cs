@@ -17,23 +17,32 @@ namespace SpeechBasedGroceries.Parties.Dialogflow.RequestHandler
 
 		public override void Handle()
 		{
-			IList<Product> products = this.GetProducts();
+			int quantity = (int)this.Request.QueryResult.Parameters.Fields.GetValueOrDefault("quantity")?.NumberValue;
 
-			if (products == null)
+			if (quantity < 1)
 			{
-				this.Response.FulfillmentMessages.Add(this.GetMessage("Sorry, I cannot process your order. Please contact our customer support."));
-			}
-			else if (products.Count == 0)
-			{
-				this.Response.FulfillmentMessages.Add(this.GetMessage("The item you are looking for doesn't exist."));
+				this.Response.FulfillmentMessages.Add(this.GetMessage(quantity + " is not a valid quantity. The minimum quantity is 1."));
 			}
 			else
 			{
-				string responseText = "Which of these products would you like to order?";
-				IEnumerable<InlineKeyboardKey> keys = products.Select(s => new InlineKeyboardKey(s.Name, "Barcode " + s.Barcode));
+				IList<Product> products = this.GetProducts();
 
-				Intent.Types.Message message = this.GetMessageInlineKeyboard(responseText, keys);
-				this.Response.FulfillmentMessages.Add(message);
+				if (products == null)
+				{
+					this.Response.FulfillmentMessages.Add(this.GetMessage("Sorry, I cannot process your order. Please contact our customer support."));
+				}
+				else if (products.Count == 0)
+				{
+					this.Response.FulfillmentMessages.Add(this.GetMessage("The item you are looking for doesn't exist."));
+				}
+				else
+				{
+					string responseText = "Alright, please confirm your order by choosing one of the following option(s).";
+					IEnumerable<InlineKeyboardKey> keys = products.Select(s => new InlineKeyboardKey(quantity + "x " + s.Name, "Barcode " + s.Barcode));
+
+					Intent.Types.Message message = this.GetMessageInlineKeyboard(responseText, keys);
+					this.Response.FulfillmentMessages.Add(message);
+				}
 			}
 		}
 
