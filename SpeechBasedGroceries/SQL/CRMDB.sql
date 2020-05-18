@@ -29,13 +29,11 @@ CREATE TABLE [dbo].[t_token] (
 
 
 INSERT INTO [dbo].[t_customer] (f_cus_firstname, f_cus_surname, f_cus_birthdate, f_cus_street, f_cus_zip, f_cus_city, f_cus_country, f_cus_email, f_cus_telegramid) VALUES
-('Tobias',	'Neubrauner',	null,	'Am Riemen 33',	'5000',	'Aarau',	'Schweiz',	'neubrauner@eai.com', 483987386),
-('Rosario',	'Puiz',	'1982-06-13',	'Albisweg 2',	'8048',	'Zurich',	'Schweiz',	null, 9212711),
-('Roman',	'Grob',	'2000-07-03',	'Bellevue 9a',	'9000',	'St. Gallen',	'Schweiz',	'grob@eai.com', 356131678);
+('Tobias',	'Neubrauner',	null,	'Am Riemen 33',	'5000',	'Aarau',	'Schweiz',	'neubrauner@eai.com', 1000000),
+('Rosario',	'Puiz',	'1982-06-13',	'Albisweg 2',	'8048',	'Zurich',	'Schweiz',	null, 1000001),
+('Roman',	'Grob',	'2000-07-03',	'Bellevue 9a',	'9000',	'St. Gallen',	'Schweiz',	'grob@eai.com', 1000001);
 
 INSERT INTO [dbo].[t_token] (f_cus_id, f_tok_creation, f_tok_name, f_tok_value, f_tok_expiration) VALUES
-((SELECT f_cus_id FROM t_customer WHERE f_cus_telegramid=483987386), null, 'Fridgy', 'abcde', null),
-((SELECT f_cus_id FROM t_customer WHERE f_cus_telegramid=9212711), null, 'Fridgy', 'fghij', null),
-((SELECT f_cus_id FROM t_customer WHERE f_cus_telegramid=356131678), null, 'Fridgy', 'klmno', null);
-
-
+((SELECT f_cus_id FROM t_customer WHERE f_cus_telegramid=1000000), null, 'Fridgy', 'abcde', null),
+((SELECT f_cus_id FROM t_customer WHERE f_cus_telegramid=1000001), null, 'Fridgy', 'fghij', null),
+((SELECT f_cus_id FROM t_customer WHERE f_cus_telegramid=1000001), null, 'Fridgy', 'klmno', null);
